@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S Dental Clinic Yokohama Minato Mirai — English-speaking dentistry on the bay</title>
+<meta name="description" content="English-speaking dental care in Minato Mirai, Yokohama. One minute from Shin-Takashima Station. Implants, Invisalign, microscope root canal and gentle preventive care in fully private rooms.">
+<meta name="theme-color" content="#061019">
+<meta property="og:title" content="S Dental Clinic Yokohama Minato Mirai">
+<meta property="og:description" content="English-speaking dentistry on Yokohama bay — implants, orthodontics, microscope care, one minute from Shin-Takashima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BAYFRONT AURORA GLASS — S Dental Clinic Yokohama Minato Mirai
+   ============================================================ */
+
+:root{
+  /* dusk-bay palette */
+  --ink:#061019;
+  --ink-2:#091a28;
+  --teal:#0e3a4d;
+  --aqua:#3ce6d2;
+  --aqua-deep:#15aec4;
+  --violet:#8f78f2;
+  --rose:#ff6ea9;
+  --gold:#ffd08a;
+
+  --frost:#ecf8ff;
+  --haze:rgba(216,236,248,.74);
+  --haze-soft:rgba(206,228,242,.5);
+
+  /* glass */
+  --glass:rgba(255,255,255,.055);
+  --glass-2:rgba(255,255,255,.085);
+  --glass-line:rgba(255,255,255,.16);
+  --glass-line-dim:rgba(255,255,255,.07);
+  --blur:18px;
+
+  /* type scale (fluid) */
+  --t-eyebrow:clamp(.72rem,.69rem+.14vw,.8rem);
+  --t-body:clamp(1rem,.97rem+.16vw,1.08rem);
+  --t-lead:clamp(1.12rem,1.02rem+.5vw,1.35rem);
+  --t-1:clamp(1.4rem,1.2rem+.9vw,1.9rem);
+  --t-2:clamp(1.9rem,1.5rem+1.9vw,2.95rem);
+  --t-3:clamp(2.5rem,1.8rem+3.2vw,4.1rem);
+  --t-hero:clamp(2.9rem,1.7rem+6.1vw,6.6rem);
+
+  --r:24px;
+  --r-sm:15px;
+  --r-pill:999px;
+
+  --shadow:0 26px 70px -28px rgba(1,8,15,.85);
+  --shadow-soft:0 16px 40px -22px rgba(1,8,15,.8);
+  --ring:0 0 0 2px var(--ink), 0 0 0 4px var(--aqua);
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-soft:cubic-bezier(.4,0,.2,1);
+
+  --maxw:1200px;
+  --pad:clamp(1.15rem,4vw,3rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--frost);
+  font-family:"Hanken Grotesk",system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:var(--t-body);
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:.005em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:500;line-height:1.04;letter-spacing:-.02em;margin:0}
+p{margin:0}
+a{color:inherit}
+img,svg{display:block}
+::selection{background:rgba(60,230,210,.32);color:#fff}
+
+/* ---------- skip link ---------- */
+.skip{
+  position:fixed;left:50%;top:-100px;transform:translateX(-50%);
+  z-index:999;padding:.7rem 1.2rem;border-radius:var(--r-pill);
+  background:var(--aqua);color:#04141a;font-weight:600;text-decoration:none;
+  transition:top .25s var(--ease);
+}
+.skip:focus{top:14px}
+
+:focus-visible{outline:2px solid var(--aqua);outline-offset:3px}
+
+/* ============================================================
+   AURORA BACKDROP
+   ============================================================ */
+.bg{position:fixed;inset:0;z-index:-3;overflow:hidden;background:
+  radial-gradient(120% 90% at 80% -10%, #12384a 0%, transparent 55%),
+  radial-gradient(120% 100% at 10% 110%, #14213f 0%, transparent 60%),
+  linear-gradient(180deg,#040c14 0%, #061320 45%, #04101b 100%);
+}
+.bg::before{ /* drifting aurora */
+  content:"";position:absolute;inset:-25%;
+  background:
+    radial-gradient(38% 50% at 28% 38%, rgba(60,230,210,.5), transparent 60%),
+    radial-gradient(40% 52% at 72% 30%, rgba(143,120,242,.52), transparent 62%),
+    radial-gradient(46% 54% at 60% 72%, rgba(255,110,169,.4), transparent 60%),
+    radial-gradient(30% 38% at 18% 78%, rgba(21,174,196,.4), transparent 60%);
+  filter:blur(50px) saturate(125%);
+  opacity:.85;
+  animation:drift 34s ease-in-out infinite alternate;
+  will-change:transform,filter;
+}
+.bg::after{ /* secondary slow hue layer */
+  content:"";position:absolute;inset:-30%;
+  background:
+    radial-gradient(34% 44% at 80% 64%, rgba(255,208,138,.16), transparent 60%),
+    radial-gradient(40% 46% at 36% 20%, rgba(143,120,242,.3), transparent 64%);
+  filter:blur(60px);
+  mix-blend-mode:screen;
+  animation:drift2 46s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes drift{
+  0%{transform:translate3d(-3%,-2%,0) scale(1.05) rotate(0deg)}
+  50%{transform:translate3d(4%,3%,0) scale(1.12) rotate(4deg)}
+  100%{transform:translate3d(-2%,4%,0) scale(1.06) rotate(-3deg)}
+}
+@keyframes drift2{
+  0%{transform:translate3d(3%,2%,0) scale(1.1)}
+  100%{transform:translate3d(-4%,-3%,0) scale(1.18)}
+}
+
+/* floating light orbs */
+.orb{position:fixed;border-radius:50%;z-index:-2;filter:blur(34px);opacity:.5;pointer-events:none;mix-blend-mode:screen;will-change:transform}
+.orb.a{width:30vmax;height:30vmax;left:-8vmax;top:8vmax;background:radial-gradient(circle,rgba(60,230,210,.7),transparent 68%);animation:float1 26s ease-in-out infinite alternate}
+.orb.b{width:26vmax;height:26vmax;right:-6vmax;top:32vmax;background:radial-gradient(circle,rgba(143,120,242,.72),transparent 68%);animation:float2 31s ease-in-out infinite alternate}
+.orb.c{width:22vmax;height:22vmax;left:30vmax;bottom:-6vmax;background:radial-gradient(circle,rgba(255,110,169,.6),transparent 68%);animation:float3 37s ease-in-out infinite alternate}
+@keyframes float1{to{transform:translate3d(6vmax,4vmax,0)}}
+@keyframes float2{to{transform:translate3d(-7vmax,5vmax,0)}}
+@keyframes float3{to{transform:translate3d(5vmax,-6vmax,0)}}
+
+/* grain */
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   GLASS PRIMITIVE
+   ============================================================ */
+.glass{
+  position:relative;
+  background:linear-gradient(150deg,var(--glass-2),var(--glass));
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(150%);
+  backdrop-filter:blur(var(--blur)) saturate(150%);
+  border:1px solid var(--glass-line-dim);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
+/* refraction edge: bright top-left, gentle inner light */
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  padding:1px;
+  background:linear-gradient(140deg,rgba(255,255,255,.55),rgba(255,255,255,.02) 38%,transparent 60%,rgba(143,120,242,.18));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.9;
+}
+/* specular sheen sweep on hover-capable interactive glass */
+.sheen{overflow:hidden}
+.sheen::after{
+  content:"";position:absolute;top:-60%;left:-30%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);
+  transform:translateX(-220%) rotate(8deg);
+  transition:transform .9s var(--ease);
+  pointer-events:none;
+}
+
+/* fallback when backdrop-filter unsupported / reduced transparency */
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .glass{background:rgba(13,30,44,.86)}
+}
+@media (prefers-reduced-transparency:reduce){
+  .glass{background:rgba(11,27,40,.92);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.section{padding-block:clamp(4.5rem,8vw,8.5rem);position:relative}
+
+.eyebrow{
+  font-size:var(--t-eyebrow);font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--aqua);display:inline-flex;align-items:center;gap:.6rem;margin:0;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--aqua),transparent)}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-head{position:fixed;inset:0 0 auto;z-index:50;transition:padding .4s var(--ease)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin:14px auto;max-width:calc(var(--maxw) + 40px);
+  width:calc(100% - 28px);
+  padding:.55rem .65rem .55rem .85rem;
+  border-radius:var(--r-pill);
+  background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+  -webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);
+  border:1px solid var(--glass-line-dim);
+  box-shadow:0 16px 40px -26px rgba(1,8,15,.9);
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),transform .4s var(--ease);
+}
+.site-head.scrolled .nav{background:linear-gradient(150deg,rgba(8,22,33,.82),rgba(8,22,33,.6));box-shadow:0 18px 44px -22px rgba(1,8,15,.95)}
+
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--frost);min-width:0}
+.brand .mark{width:38px;height:38px;flex:none}
+.brand .mark .ring{transform-origin:50% 50%;animation:markspin 24s linear infinite}
+@keyframes markspin{to{transform:rotate(360deg)}}
+.brand .bn{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.brand .bn b{font-family:"Schibsted Grotesk";font-weight:600;font-size:.98rem;letter-spacing:-.01em;white-space:nowrap}
+.brand .bn span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--haze-soft)}
+
+.nav-links{display:none;gap:.3rem;align-items:center;list-style:none;margin:0;padding:0}
+.nav-links a{
+  text-decoration:none;color:var(--haze);font-size:.92rem;font-weight:500;
+  padding:.5rem .85rem;border-radius:var(--r-pill);position:relative;transition:color .25s var(--ease)
+}
+.nav-links a:hover{color:var(--frost)}
+.nav-links a::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:.34rem;height:1px;background:var(--aqua);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);box-shadow:0 0 8px var(--aqua)}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+.nav-cta{display:flex;align-items:center;gap:.45rem}
+
+/* buttons */
+.btn{
+  --bg:var(--glass-2);
+  font-family:"Hanken Grotesk";font-size:.94rem;font-weight:600;letter-spacing:.01em;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.8rem 1.35rem;border-radius:var(--r-pill);border:1px solid var(--glass-line);
+  background:var(--bg);color:var(--frost);cursor:pointer;text-decoration:none;
+  position:relative;overflow:hidden;white-space:nowrap;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.32)}
+.btn .ico{width:18px;height:18px;flex:none}
+.btn.primary{
+  color:#03161c;border:none;
+  background:linear-gradient(135deg,var(--aqua),#67f0e0 45%,var(--violet) 130%);
+  box-shadow:0 12px 34px -12px rgba(60,230,210,.7), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.btn.primary:hover{box-shadow:0 18px 44px -12px rgba(60,230,210,.85), inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-180%) skewX(-12deg);transition:transform .8s var(--ease)}
+.btn.primary:hover::after{transform:translateX(220%) skewX(-12deg)}
+.btn.sm{padding:.62rem 1.05rem;font-size:.88rem}
+
+/* mobile menu toggle */
+.menu-btn{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:var(--r-pill);border:1px solid var(--glass-line);background:var(--glass-2);cursor:pointer;align-items:center}
+.menu-btn span{width:17px;height:1.6px;background:var(--frost);border-radius:2px;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.site-head.open .menu-btn span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.site-head.open .menu-btn span:nth-child(2){opacity:0}
+.site-head.open .menu-btn span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+
+.mobile-panel{
+  list-style:none;margin:8px auto 0;width:calc(100% - 28px);max-width:calc(var(--maxw)+40px);
+  padding:.5rem;border-radius:24px;display:none;flex-direction:column;gap:.15rem;
+  background:linear-gradient(150deg,rgba(8,22,33,.92),rgba(8,22,33,.78));
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-line-dim);box-shadow:var(--shadow);
+}
+.site-head.open .mobile-panel{display:flex;animation:fadeDown .3s var(--ease)}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mobile-panel a{text-decoration:none;color:var(--frost);padding:.85rem 1rem;border-radius:14px;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.mobile-panel a:hover{background:var(--glass-2)}
+.mobile-panel a span{color:var(--aqua);font-size:.8rem}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:6.5rem;padding-bottom:clamp(7rem,16vh,11rem);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;position:relative;z-index:3;width:100%}
+
+.hero-copy{max-width:40rem}
+.hero h1{font-size:var(--t-hero);font-weight:500;letter-spacing:-.035em}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:inline-block}
+.hero h1 .grad{
+  background:linear-gradient(110deg,var(--aqua),var(--violet) 55%,var(--rose));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:600;
+}
+.hero .lead{margin-top:1.4rem;font-size:var(--t-lead);color:var(--haze);font-weight:300;max-width:34rem}
+.hero .lead b{color:var(--frost);font-weight:500}
+
+.hero-eyebrow{margin-bottom:1.4rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;align-items:center}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .9rem;border-radius:var(--r-pill);
+  background:var(--glass);border:1px solid var(--glass-line-dim);font-size:.84rem;color:var(--haze);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.chip svg{width:15px;height:15px;color:var(--aqua);flex:none}
+
+/* live "open now" pill */
+.statuspill{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem .95rem;border-radius:var(--r-pill);font-size:.84rem;font-weight:500;background:var(--glass);border:1px solid var(--glass-line-dim);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.statuspill .dot{width:8px;height:8px;border-radius:50%;background:var(--haze-soft);position:relative}
+.statuspill.open .dot{background:var(--aqua);box-shadow:0 0 0 0 rgba(60,230,210,.6);animation:pulse 2.4s ease-out infinite}
+.statuspill.open{color:var(--frost)}
+.statuspill.shut .dot{background:var(--rose)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(60,230,210,.55)}70%{box-shadow:0 0 0 10px rgba(60,230,210,0)}100%{box-shadow:0 0 0 0 rgba(60,230,210,0)}}
+
+/* booking note */
+.booknote{
+  margin-top:1rem;font-size:.88rem;color:var(--haze);max-width:30rem;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s var(--ease),margin .4s var(--ease);
+  display:flex;gap:.6rem;align-items:flex-start;
+}
+.booknote.show{max-height:120px;opacity:1}
+.booknote svg{width:18px;height:18px;color:var(--aqua);flex:none;margin-top:1px}
+
+/* ---- skyline + wheel ---- */
+.scene{position:absolute;inset:auto 0 0;z-index:1;pointer-events:none;height:min(58vh,520px)}
+.skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:100%;will-change:transform}
+.skyline svg{position:absolute;bottom:0;width:100%;height:auto;min-width:1100px;left:50%;transform:translateX(-50%)}
+.win{fill:var(--gold);opacity:.0;animation:twinkle 6s ease-in-out infinite}
+.win.aq{fill:var(--aqua)}
+@keyframes twinkle{0%,100%{opacity:.15}45%{opacity:.7}}
+
+.wheel-wrap{position:absolute;z-index:2;pointer-events:none;
+  right:clamp(-3rem,2vw,4rem);bottom:clamp(2rem,10vh,7rem);
+  width:clamp(220px,34vw,440px);aspect-ratio:1/1.05;
+}
+.wheel-glow{position:absolute;inset:6%;border-radius:50%;filter:blur(36px);opacity:.8;
+  background:radial-gradient(circle,rgba(60,230,210,.6),transparent 66%);
+  animation:wheelhue 16s linear infinite;will-change:filter}
+@keyframes wheelhue{0%{filter:blur(36px) hue-rotate(0deg)}100%{filter:blur(36px) hue-rotate(360deg)}}
+.wheel-svg{position:relative;width:100%;height:100%;overflow:visible}
+#wheelSpin{transform-origin:180px 175px;animation:wheelturn 88s linear infinite;will-change:transform}
+@keyframes wheelturn{to{transform:rotate(360deg)}}
+.spoke{stroke:rgba(236,248,255,.32);stroke-width:1}
+.rim{fill:none;stroke:rgba(236,248,255,.6);stroke-width:2}
+.rim2{fill:none;stroke:rgba(236,248,255,.18);stroke-width:1}
+.cabin{stroke:rgba(255,255,255,.5);stroke-width:1}
+.leg{stroke:rgba(236,248,255,.4);stroke-width:2.4;stroke-linecap:round}
+.hub-disc{fill:rgba(7,18,27,.66);stroke:rgba(236,248,255,.5);stroke-width:1.5}
+.clock-time{font-family:"Hanken Grotesk";font-weight:600;fill:var(--frost);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.clock-cap{font-family:"Hanken Grotesk";font-weight:600;fill:var(--aqua);letter-spacing:.34em}
+
+/* floating glass shards in hero */
+.shard{position:absolute;border-radius:14px;background:linear-gradient(140deg,rgba(255,255,255,.1),rgba(255,255,255,.02));border:1px solid var(--glass-line-dim);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);z-index:2;will-change:transform;box-shadow:0 20px 50px -30px rgba(0,0,0,.8)}
+
+/* scroll cue */
+.scrollcue{position:absolute;left:50%;bottom:1.7rem;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--haze-soft);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+.scrollcue .bar{width:1px;height:34px;background:linear-gradient(var(--aqua),transparent);position:relative;overflow:hidden}
+.scrollcue .bar::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--frost);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%{top:-50%}60%,100%{top:100%}}
+
+/* ============================================================
+   INTRO / ENGLISH
+   ============================================================ */
+.intro-panel{padding:clamp(1.8rem,4vw,3.4rem)}
+.intro-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+.intro h2{font-size:var(--t-2);margin-top:1rem;max-width:18ch}
+.intro h2 em{font-style:normal;color:var(--aqua)}
+.intro .body{color:var(--haze);font-size:var(--t-body);display:grid;gap:1rem;max-width:46ch}
+.intro .body b{color:var(--frost);font-weight:600}
+.assure{display:grid;gap:.9rem;align-content:start}
+.assure-item{display:flex;gap:.85rem;align-items:flex-start;padding:.2rem 0}
+.assure-item .ai{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--glass-2);border:1px solid var(--glass-line-dim)}
+.assure-item .ai svg{width:21px;height:21px;color:var(--aqua)}
+.assure-item h3{font-family:"Hanken Grotesk";font-weight:600;font-size:1rem;letter-spacing:0;margin-bottom:.15rem}
+.assure-item p{color:var(--haze);font-size:.92rem;line-height:1.5}
+
+/* ============================================================
+   SERVICES (asymmetric glass mosaic)
+   ============================================================ */
+.services .head{max-width:52rem;margin-bottom:clamp(2rem,4vw,3.4rem)}
+.services h2{font-size:var(--t-3);margin-top:1rem}
+.services .head p{color:var(--haze);margin-top:1rem;font-size:var(--t-lead);font-weight:300;max-width:40ch}
+
+.mosaic{display:grid;grid-template-columns:1fr;gap:1rem}
+.card{
+  padding:clamp(1.4rem,2.4vw,2rem);display:flex;flex-direction:column;gap:1rem;
+  transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.28);box-shadow:0 34px 80px -34px rgba(1,8,15,.95)}
+.card:hover.sheen::after{transform:translateX(360%) rotate(8deg)}
+.card .glyph{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,rgba(60,230,210,.22),rgba(143,120,242,.12));border:1px solid var(--glass-line-dim)}
+.card .glyph svg{width:30px;height:30px;color:var(--frost);transition:transform .5s var(--ease)}
+.card:hover .glyph svg{transform:scale(1.08)}
+.card .tag{font-size:var(--t-eyebrow);letter-spacing:.2em;text-transform:uppercase;color:var(--aqua-deep);font-weight:600}
+.card h3{font-family:"Schibsted Grotesk";font-weight:500;font-size:var(--t-1);letter-spacing:-.01em}
+.card p{color:var(--haze);font-size:.96rem;line-height:1.55}
+.card .free{display:inline-flex;align-items:center;gap:.4rem;margin-top:.2rem;align-self:flex-start;font-size:.78rem;font-weight:600;color:var(--gold);padding:.3rem .7rem;border-radius:var(--r-pill);background:rgba(255,208,138,.1);border:1px solid rgba(255,208,138,.22)}
+.card .free svg{width:13px;height:13px}
+
+/* ============================================================
+   VISIT / ACCESS
+   ============================================================ */
+.visit-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+.panel{padding:clamp(1.6rem,3vw,2.6rem)}
+.panel h3{font-family:"Schibsted Grotesk";font-weight:500;font-size:var(--t-1);margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem}
+.panel h3 svg{width:22px;height:22px;color:var(--aqua)}
+
+/* hours */
+.hours{display:grid;gap:.1rem}
+.hours .row{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--glass-line-dim);align-items:baseline}
+.hours .row:last-child{border-bottom:none}
+.hours .row.now{margin:-.2rem -.9rem;padding:.85rem .9rem;background:linear-gradient(90deg,rgba(60,230,210,.12),transparent);border-radius:12px;border-bottom:1px solid transparent}
+.hours .d{font-weight:600;color:var(--frost);font-size:.95rem}
+.hours .t{color:var(--haze);font-size:.95rem;text-align:right;font-variant-numeric:tabular-nums}
+.hours .t.closed{color:var(--haze-soft)}
+.hours-foot{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+
+/* access / station motif */
+.addr{font-style:normal;color:var(--haze);line-height:1.7}
+.addr b{color:var(--frost);font-weight:600;display:block;font-size:1.05rem;margin-bottom:.2rem}
+.stations{margin-top:1.6rem;display:grid;gap:.2rem;position:relative}
+.stations .line{position:absolute;left:9px;top:14px;bottom:14px;width:2px;background:linear-gradient(var(--aqua),var(--violet))}
+.station{display:flex;gap:1rem;align-items:flex-start;padding:.6rem 0;position:relative;z-index:1}
+.station .node{width:20px;height:20px;flex:none;border-radius:50%;border:2px solid var(--aqua);background:var(--ink);display:grid;place-items:center;margin-top:2px}
+.station .node::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--aqua)}
+.station.alt .node{border-color:var(--violet)}
+.station.alt .node::after{background:var(--violet)}
+.station .info b{font-weight:600;color:var(--frost);font-size:.96rem}
+.station .info span{display:block;color:var(--haze-soft);font-size:.84rem}
+.station .walk{margin-left:auto;font-size:.82rem;color:var(--aqua);font-weight:600;white-space:nowrap;padding-left:.6rem}
+
+.pay{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.pay .p{font-size:.8rem;color:var(--haze);padding:.4rem .8rem;border-radius:var(--r-pill);background:var(--glass);border:1px solid var(--glass-line-dim)}
+
+/* ============================================================
+   CONTACT / CTA
+   ============================================================ */
+.cta-panel{padding:clamp(2.2rem,5vw,4.5rem);text-align:center;position:relative;overflow:hidden}
+.cta-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 50% -10%,rgba(60,230,210,.16),transparent 60%);pointer-events:none}
+.cta-panel h2{font-size:var(--t-3);max-width:16ch;margin:1rem auto 0}
+.cta-panel .sub{color:var(--haze);font-size:var(--t-lead);font-weight:300;margin:1.1rem auto 0;max-width:42ch}
+.cta-actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2.2rem;position:relative;z-index:1}
+.contact-row{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;margin-top:2.4rem;position:relative;z-index:1}
+.contact-row a{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--haze);font-weight:500;transition:color .25s var(--ease)}
+.contact-row a:hover{color:var(--frost)}
+.contact-row a svg{width:19px;height:19px;color:var(--aqua)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-foot{padding-block:3rem 3.5rem;border-top:1px solid var(--glass-line-dim);position:relative}
+.foot-grid{display:flex;flex-direction:column;gap:1.6rem}
+.foot-brand{display:flex;align-items:center;gap:.7rem}
+.foot-brand .mark{width:34px;height:34px}
+.foot-brand b{font-family:"Schibsted Grotesk";font-weight:600;font-size:1rem}
+.foot-brand span{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--haze-soft)}
+.foot-meta{color:var(--haze-soft);font-size:.84rem;line-height:1.7}
+.foot-meta a{color:var(--haze);text-decoration:none;border-bottom:1px solid var(--glass-line-dim)}
+.foot-meta a:hover{color:var(--frost)}
+.foot-note{font-size:.74rem;color:var(--haze-soft);max-width:60ch;line-height:1.6}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+html.js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+html.js [data-reveal].in{opacity:1;transform:none}
+html.js [data-reveal][data-d="1"]{transition-delay:.08s}
+html.js [data-reveal][data-d="2"]{transition-delay:.16s}
+html.js [data-reveal][data-d="3"]{transition-delay:.24s}
+html.js [data-reveal][data-d="4"]{transition-delay:.32s}
+html.js [data-reveal][data-d="5"]{transition-delay:.4s}
+
+/* hero entrance (js) */
+html.js .hero h1 .line>span{transform:translateY(110%);transition:transform 1s var(--ease)}
+html.js .hero-eyebrow,html.js .hero .lead,html.js .hero-chips,html.js .hero-actions{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+html.js .scene,html.js .wheel-wrap{opacity:0;transition:opacity 1.4s var(--ease)}
+html.js .shard{opacity:0;transition:opacity 1.2s var(--ease)}
+
+body.ready .hero h1 .line:nth-child(1)>span{transition-delay:.15s}
+body.ready .hero h1 .line:nth-child(2)>span{transition-delay:.27s}
+body.ready .hero h1 .line:nth-child(3)>span{transition-delay:.39s}
+body.ready .hero h1 .line>span{transform:none}
+body.ready .hero-eyebrow{opacity:1;transform:none;transition-delay:.05s}
+body.ready .hero .lead{opacity:1;transform:none;transition-delay:.55s}
+body.ready .hero-chips{opacity:1;transform:none;transition-delay:.68s}
+body.ready .hero-actions{opacity:1;transform:none;transition-delay:.62s}
+body.ready .scene,body.ready .wheel-wrap{opacity:1;transition-delay:.4s}
+body.ready .shard{opacity:1;transition-delay:.9s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (min-width:620px){
+  .intro-grid{grid-template-columns:1.15fr .85fr;gap:3rem;align-items:start}
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .visit-grid{grid-template-columns:1fr}
+  .foot-grid{flex-direction:row;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+}
+@media (min-width:880px){
+  .nav-links{display:flex}
+  .menu-btn{display:none}
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .hero-copy{max-width:none}
+  .visit-grid{grid-template-columns:1.1fr .9fr;gap:1.4rem}
+  /* asymmetric mosaic on desktop */
+  .mosaic{grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr}
+  .card.c1{grid-column:span 4}
+  .card.c2{grid-column:span 2}
+  .card.c3{grid-column:span 2}
+  .card.c4{grid-column:span 4}
+  .card.c5{grid-column:span 3}
+  .card.c6{grid-column:span 3}
+  .card.c-wide{grid-column:span 6}
+}
+@media (min-width:880px) and (max-width:1100px){
+  .hero{min-height:auto;padding-bottom:clamp(9rem,22vh,14rem)}
+}
+@media (max-width:879px){
+  .hero{align-items:flex-start;padding-top:6.75rem;padding-bottom:clamp(13rem,40vh,20rem)}
+  .hero-copy{padding-bottom:1rem}
+  .wheel-wrap{width:min(50vw,210px);right:-.75rem;bottom:clamp(3.5rem,11vh,7rem);opacity:.92}
+  .scene{height:min(48vh,440px)}
+  .shard{display:none}
+  .scrollcue{display:none}
+}
+
+/* show desktop-only embellishment */
+.only-wide{display:none}
+@media (min-width:880px){.only-wide{display:block}}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .bg::before,.bg::after,.orb,.wheel-glow{animation:none}
+  #wheelSpin{animation:none}
+  .brand .mark .ring{animation:none}
+  html.js [data-reveal]{opacity:1;transform:none}
+  html.js .hero h1 .line>span{transform:none}
+  html.js .hero-eyebrow,html.js .hero .lead,html.js .hero-chips,html.js .hero-actions,html.js .scene,html.js .wheel-wrap,html.js .shard{opacity:1;transform:none}
+  .scrollcue,.statuspill.open .dot{animation:none}
+  .win{animation:none;opacity:.4}
+}
+html{scroll-behavior:smooth}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#ff6ea9;--bk-accent-ink:#ffffff;--bk-ink:#061019;--bk-panel:#f7f5f0;--bk-muted:rgba(6,16,25,0.6);--bk-line:rgba(6,16,25,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Hanken Grotesk", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ AURORA BACKDROP ============ -->
+<div class="bg" aria-hidden="true"></div>
+<div class="orb a" aria-hidden="true"></div>
+<div class="orb b" aria-hidden="true"></div>
+<div class="orb c" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head" id="head">
+  <nav class="nav wrap-nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="S Dental Clinic Yokohama Minato Mirai — home">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="mg" x1="0" y1="0" x2="40" y2="40">
+            <stop offset="0" stop-color="#3ce6d2"/><stop offset="1" stop-color="#8f78f2"/>
+          </linearGradient>
+        </defs>
+        <g class="ring">
+          <circle cx="20" cy="20" r="15" stroke="url(#mg)" stroke-width="1.4" opacity=".55"/>
+          <line x1="20" y1="5" x2="20" y2="35" stroke="url(#mg)" stroke-width="1" opacity=".35"/>
+          <line x1="5" y1="20" x2="35" y2="20" stroke="url(#mg)" stroke-width="1" opacity=".35"/>
+          <line x1="9.4" y1="9.4" x2="30.6" y2="30.6" stroke="url(#mg)" stroke-width="1" opacity=".35"/>
+          <line x1="30.6" y1="9.4" x2="9.4" y2="30.6" stroke="url(#mg)" stroke-width="1" opacity=".35"/>
+        </g>
+        <circle cx="20" cy="20" r="5.4" fill="#061019" stroke="url(#mg)" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="1.7" fill="#3ce6d2"/>
+      </svg>
+      <span class="bn"><b>S Dental Clinic</b><span>Yokohama · Minato Mirai</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#care">Care</a></li>
+      <li><a href="#english">In English</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn primary sm only-wide" href="#book" data-book>Book online</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <ul class="mobile-panel" id="mobilePanel">
+    <li><a href="#care">Our care <span>01</span></a></li>
+    <li><a href="#english">In English <span>02</span></a></li>
+    <li><a href="#visit">Visit us <span>03</span></a></li>
+    <li><a href="#contact">Contact <span>04</span></a></li>
+    <li><a href="#book" data-book style="color:var(--aqua)">Book online <span>→</span></a></li>
+  </ul>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">English-speaking dentistry · Minato Mirai</p>
+        <h1 id="hero-h">
+          <span class="line"><span>Calm, modern</span></span>
+          <span class="line"><span>dental care —</span></span>
+          <span class="line"><span class="grad">now in English.</span></span>
+        </h1>
+        <p class="lead">On the Yokohama bayfront, one minute from Shin-Takashima. <b>Specialist treatment in fully private rooms</b>, explained clearly from first visit to aftercare.</p>
+
+        <div class="hero-chips" aria-label="At a glance">
+          <span class="statuspill" id="statusPill" aria-live="polite">
+            <span class="dot"></span><span id="statusText">Checking hours…</span>
+          </span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Shin-Takashima Stn · 1 min</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg>Fully private rooms</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#book" data-book>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M9.5 14.5l1.7 1.7 3.3-3.4"/></svg>
+            Book online
+          </a>
+          <a class="btn" href="https://www.instagram.com/s_dentalclinicg/" target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+            Message us
+          </a>
+        </div>
+
+        <p class="booknote" id="bookNote" role="status" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Online booking for English patients is coming soon. For now, reach us instantly on <strong>Instagram</strong> or <strong>LINE</strong>, or call the clinic.</span>
+        </p>
+      </div>
+
+      <div class="only-wide" aria-hidden="true"><!-- right column reserved for the scene/wheel which is absolutely placed --></div>
+    </div>
+  </div>
+
+  <!-- skyline scene -->
+  <div class="scene" aria-hidden="true">
+    <div class="skyline" id="skyline">
+      <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax meet" fill="none">
+        <defs>
+          <linearGradient id="bld" x1="0" y1="0" x2="0" y2="420" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0a2433"/><stop offset="1" stop-color="#04101b"/>
+          </linearGradient>
+          <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="420" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0c2c3e"/><stop offset="1" stop-color="#061826"/>
+          </linearGradient>
+        </defs>
+        <!-- far buildings -->
+        <g opacity=".8">
+          <rect x="40" y="250" width="70" height="170" fill="url(#bld2)"/>
+          <rect x="130" y="210" width="48" height="210" fill="url(#bld2)"/>
+          <rect x="1180" y="240" width="80" height="180" fill="url(#bld2)"/>
+          <rect x="1290" y="280" width="60" height="140" fill="url(#bld2)"/>
+          <rect x="1360" y="230" width="55" height="190" fill="url(#bld2)"/>
+        </g>
+        <!-- Landmark Tower (stepped) -->
+        <path d="M250 420 V150 q0 -10 8 -16 l28 -22 q6 -5 6 -14 V70 h22 v24 q0 9 6 14 l28 22 q8 6 8 16 V420 Z" fill="url(#bld)"/>
+        <!-- sail-shaped InterContinental -->
+        <path d="M470 420 V210 Q470 120 540 96 Q560 90 560 130 V420 Z" fill="url(#bld2)"/>
+        <!-- Queen's square trio -->
+        <rect x="610" y="180" width="46" height="240" fill="url(#bld)"/>
+        <rect x="662" y="150" width="46" height="270" fill="url(#bld)"/>
+        <rect x="714" y="190" width="46" height="230" fill="url(#bld)"/>
+        <!-- mid towers -->
+        <rect x="800" y="230" width="58" height="190" fill="url(#bld2)"/>
+        <path d="M880 420 V200 l40 -26 40 26 V420 Z" fill="url(#bld)"/>
+        <rect x="985" y="250" width="50" height="170" fill="url(#bld2)"/>
+        <rect x="1055" y="215" width="44" height="205" fill="url(#bld)"/>
+        <rect x="1112" y="270" width="46" height="150" fill="url(#bld2)"/>
+        <!-- waterline shimmer -->
+        <rect x="0" y="416" width="1440" height="4" fill="#3ce6d2" opacity=".18"/>
+        <g id="windows"></g>
+      </svg>
+    </div>
+
+    <!-- Ferris wheel — signature element -->
+    <div class="wheel-wrap" id="wheelWrap">
+      <div class="wheel-glow"></div>
+      <svg class="wheel-svg" viewBox="0 0 360 400" fill="none">
+        <defs>
+          <linearGradient id="rimg" x1="30" y1="25" x2="330" y2="325" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3ce6d2"/><stop offset=".5" stop-color="#8f78f2"/><stop offset="1" stop-color="#ff6ea9"/>
+          </linearGradient>
+        </defs>
+        <!-- support legs (static) -->
+        <line class="leg" x1="120" y1="200" x2="92" y2="392"/>
+        <line class="leg" x1="240" y1="200" x2="268" y2="392"/>
+        <line class="leg" x1="150" y1="200" x2="150" y2="392" opacity=".4"/>
+        <line class="leg" x1="210" y1="200" x2="210" y2="392" opacity=".4"/>
+        <rect x="78" y="388" width="204" height="6" rx="3" fill="rgba(236,248,255,.3)"/>
+        <!-- spinning wheel -->
+        <g id="wheelSpin">
+          <circle class="rim" cx="180" cy="175" r="150" stroke="url(#rimg)"/>
+          <circle class="rim2" cx="180" cy="175" r="142"/>
+          <circle class="rim2" cx="180" cy="175" r="120" opacity=".5"/>
+          <g id="spokes"></g>
+          <g id="cabins"></g>
+        </g>
+        <!-- hub + clock (static) -->
+        <circle class="hub-disc" cx="180" cy="175" r="50"/>
+        <circle cx="180" cy="175" r="50" fill="none" stroke="url(#rimg)" stroke-width="1" opacity=".7"/>
+        <text class="clock-time" id="clockTime" x="180" y="172" text-anchor="middle" dominant-baseline="middle" font-size="30">--:--</text>
+        <text class="clock-cap" id="clockCap" x="180" y="196" text-anchor="middle" dominant-baseline="middle" font-size="8">YOKOHAMA</text>
+      </svg>
+    </div>
+
+    <!-- floating glass shards -->
+    <div class="shard only-wide" style="width:120px;height:150px;right:30%;top:22%;transform:rotate(-9deg)" data-depth="22"></div>
+    <div class="shard only-wide" style="width:86px;height:110px;right:14%;top:40%;transform:rotate(7deg)" data-depth="-16"></div>
+  </div>
+
+  <div class="scrollcue" aria-hidden="true"><span>Scroll</span><span class="bar"></span></div>
+</section>
+
+<!-- ============ INTRO / ENGLISH ============ -->
+<section class="section intro" id="english" aria-labelledby="intro-h">
+  <div class="wrap">
+    <div class="glass intro-panel" data-reveal>
+      <div class="intro-grid">
+        <div>
+          <p class="eyebrow">New to Japan? You're in good hands</p>
+          <h2 id="intro-h">Dentistry that <em>speaks your language</em> — on the bay.</h2>
+          <div class="body">
+            <p>Moving country shouldn't mean putting off the dentist. At S Dental Clinic Yokohama Minato Mirai, our team sees patients <b>in English</b> and walks you through every step — what's happening, what the options are, and what it costs — before anything begins.</p>
+            <p>You'll find us on the first floor of Yokohama Gate Tower, a one-minute walk from Shin-Takashima Station and an easy stroll from Yokohama Station. Evenings on weekdays, Saturdays too.</p>
+          </div>
+        </div>
+        <div class="assure">
+          <div class="assure-item">
+            <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5"/><path d="M12 14h.01"/></svg></span>
+            <div><h3>Care explained in English</h3><p>Clear conversations and written treatment plans, so nothing gets lost in translation.</p></div>
+          </div>
+          <div class="assure-item">
+            <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><h3>Built around your week</h3><p>Open until 7:30pm on weekdays and on Saturdays — appointments that fit work and family.</p></div>
+          </div>
+          <div class="assure-item">
+            <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 4v16"/></svg></span>
+            <div><h3>Private, unhurried rooms</h3><p>Every treatment happens in its own fully private room — calm, quiet and just for you.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="care" aria-labelledby="care-h">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow">What we do</p>
+      <h2 id="care-h">Specialist care, gently delivered.</h2>
+      <p>From a routine clean to advanced implant and microscope work — led by a director who trained in implant and root-canal dentistry at a university hospital.</p>
+    </div>
+
+    <div class="mosaic">
+      <article class="glass card sheen c1" data-reveal data-d="1">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C8.5 3 7 5 7 8c0 2 .6 3.5 1.2 6 .5 2 .6 6 2.3 6 1.2 0 1.2-3 1.5-3s.3 3 1.5 3c1.7 0 1.8-4 2.3-6C17.4 11.5 18 10 18 8c0-3-1.5-5-5-5-.4 0-.7.2-1 .2S12.4 3 12 3z"/></svg></svg></span>
+        <span class="tag">Everyday</span>
+        <h3>General &amp; preventive</h3>
+        <p>Check-ups, professional cleaning and cavity care that keep small problems small — the foundation of a healthy mouth.</p>
+      </article>
+
+      <article class="glass card sheen c2" data-reveal data-d="2">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M9 5h6"/><path d="M8 9h8l-1 5H9z"/><path d="M10 14l-.6 7M14 14l.6 7"/></svg></span>
+        <span class="tag">Restore</span>
+        <h3>Implants &amp; All-on-4</h3>
+        <p>Permanent, natural-feeling replacements for missing teeth, planned with dental CT for a precise, lasting fit.</p>
+        <span class="free"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Free consultation</span>
+      </article>
+
+      <article class="glass card sheen c3" data-reveal data-d="1">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9c2-2 5-3 8-3s6 1 8 3"/><path d="M5 9c0 4 2 7 7 7s7-3 7-7"/><path d="M8 9v2M12 9v2.5M16 9v2"/></svg></span>
+        <span class="tag">Align</span>
+        <h3>Orthodontics</h3>
+        <p>Clear aligners and braces, simulated up front with iTero 3D scanning so you can see the result before you start.</p>
+        <span class="free"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Free consultation</span>
+      </article>
+
+      <article class="glass card sheen c4" data-reveal data-d="2">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L21 21"/><path d="M10 7v6M7 10h6"/></svg></span>
+        <span class="tag">Save</span>
+        <h3>Microscope root canal</h3>
+        <p>High-magnification endodontics to rescue teeth that others might remove — precise work where detail matters most.</p>
+      </article>
+
+      <article class="glass card sheen c5" data-reveal data-d="3">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.5L19 9l-3.5 3.4.8 4.9L12 15l-4.3 2.3.8-4.9L5 9l4.8-1.5z"/></svg></span>
+        <span class="tag">Refine</span>
+        <h3>Cosmetic dentistry</h3>
+        <p>Whitening and natural-looking restorations that brighten your smile without ever looking overdone.</p>
+      </article>
+
+      <article class="glass card sheen c6" data-reveal data-d="4">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.2"/><path d="M3.5 20c0-3 2.4-5 5.5-5s5.5 2 5.5 5"/><path d="M15 20c0-2 1-3.4 2.6-3.8"/></svg></span>
+        <span class="tag">Family</span>
+        <h3>Pediatric dentistry</h3>
+        <p>Gentle, unhurried first visits that help younger patients feel at ease — and grow up unafraid of the dentist.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT / ACCESS ============ -->
+<section class="section visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="head" data-reveal style="margin-bottom:clamp(2rem,4vw,3rem);max-width:48rem">
+      <p class="eyebrow">Plan your visit</p>
+      <h2 id="visit-h" style="font-size:var(--t-3)">Easy to reach, easy to fit in.</h2>
+    </div>
+
+    <div class="visit-grid">
+      <div class="glass panel" data-reveal data-d="1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Opening hours</h3>
+        <div class="hours" id="hoursTable">
+          <div class="row" data-day="1,2,3,4,5"><span class="d">Mon – Fri</span><span class="t">9:30 – 13:00&nbsp;&nbsp;·&nbsp;&nbsp;14:30 – 19:30</span></div>
+          <div class="row" data-day="6"><span class="d">Saturday</span><span class="t">10:00 – 13:00&nbsp;&nbsp;·&nbsp;&nbsp;14:00 – 17:00</span></div>
+          <div class="row" data-day="0"><span class="d">Sun &amp; holidays</span><span class="t closed">Closed</span></div>
+        </div>
+        <div class="hours-foot">
+          <span class="statuspill" id="statusPill2"><span class="dot"></span><span id="statusText2">Checking…</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>Times shown in Japan time (JST)</span>
+        </div>
+        <div class="pay">
+          <span class="p">Cash</span><span class="p">Credit card</span><span class="p">PayPay</span><span class="p">Parking on site</span>
+        </div>
+      </div>
+
+      <div class="glass panel" data-reveal data-d="2">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Finding us</h3>
+        <address class="addr">
+          <b>S Dental Clinic Yokohama Minato Mirai</b>
+          Yokohama Gate Tower 1F<br>
+          1-2-5 Takashima, Nishi-ku, Yokohama 220-0011
+        </address>
+        <div class="stations">
+          <span class="line"></span>
+          <div class="station">
+            <span class="node"></span>
+            <span class="info"><b>Shin-Takashima Station</b><span>Minatomirai Line · Exit 1 (Takashima)</span></span>
+            <span class="walk">1 min</span>
+          </div>
+          <div class="station alt">
+            <span class="node"></span>
+            <span class="info"><b>Yokohama Station</b><span>JR · Tōkyū · Keikyū · East Exit</span></span>
+            <span class="walk">5 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section class="section" id="contact" aria-labelledby="contact-h" style="padding-bottom:clamp(3rem,6vw,5rem)">
+  <div class="wrap">
+    <div class="glass cta-panel" data-reveal>
+      <p class="eyebrow" style="justify-content:center">Ready when you are</p>
+      <h2 id="contact-h">Let's get your smile settled in Yokohama.</h2>
+      <p class="sub">Send a message in English and we'll help you book the right first appointment.</p>
+
+      <div class="cta-actions">
+        <button class="btn primary" data-book>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M9.5 14.5l1.7 1.7 3.3-3.4"/></svg>
+          Book online
+        </button>
+        <a class="btn" href="https://www.instagram.com/s_dentalclinicg/" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a class="btn" href="https://ym-sdc.com/" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.2-3.2A7 7 0 0 1 3 11.5C3 7.4 7 4 12 4s9 3.4 9 7.5z"/></svg>
+          LINE
+        </a>
+      </div>
+
+      <p class="booknote" id="bookNote2" role="status" aria-live="polite" style="margin-inline:auto;text-align:left;justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span>Online booking for English patients is coming soon. Reach us on Instagram or LINE, or call <strong>045-264-9222</strong>.</span>
+      </p>
+
+      <div class="contact-row">
+        <a href="tel:+81452649222">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1.5a11 11 0 0 0 5 5L18 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+          045-264-9222
+        </a>
+        <a href="https://www.instagram.com/s_dentalclinicg/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+          @s_dentalclinicg
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="15" stroke="url(#mg)" stroke-width="1.4" opacity=".55"/>
+            <circle cx="20" cy="20" r="5.4" fill="#061019" stroke="url(#mg)" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="1.7" fill="#3ce6d2"/>
+          </svg>
+          <div><b>S Dental Clinic</b><span>Yokohama · Minato Mirai</span></div>
+        </div>
+        <p class="foot-meta" style="margin-top:1rem">
+          Yokohama Gate Tower 1F, 1-2-5 Takashima, Nishi-ku, Yokohama<br>
+          <a href="tel:+81452649222">045-264-9222</a> · <a href="https://www.instagram.com/s_dentalclinicg/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+      </div>
+      <div class="foot-meta" style="text-align:left">
+        <p>Mon–Fri 9:30–13:00 · 14:30–19:30<br>Sat 10:00–13:00 · 14:00–17:00<br>Closed Sundays &amp; public holidays</p>
+      </div>
+    </div>
+    <p class="foot-note" style="margin-top:2rem">An English-language information page for S Dental Clinic Yokohama Minato Mirai (エス歯科クリニック 横浜みなとみらい). Online booking shown here is a preview of a feature available on the clinic's Japanese website.</p>
+    <p class="credit foot-note" style="margin-top:1rem">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener" style="color:var(--aqua);text-decoration:none;border-bottom:1px solid var(--glass-line-dim)">Stellar Haus Media</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- build Ferris wheel spokes + cabins ---------- */
+  var cx=180, cy=175, hubR=50, innerR=140, rimR=150, N=24;
+  var ns='http://www.w3.org/2000/svg';
+  var spokes=document.getElementById('spokes');
+  var cabins=document.getElementById('cabins');
+  var cabinColors=['rgba(60,230,210,.85)','rgba(143,120,242,.85)','rgba(255,110,169,.8)','rgba(255,208,138,.85)'];
+  if(spokes&&cabins){
+    for(var i=0;i<N;i++){
+      var a=(i/N)*Math.PI*2 - Math.PI/2;
+      var ln=document.createElementNS(ns,'line');
+      ln.setAttribute('class','spoke');
+      ln.setAttribute('x1',(cx+Math.cos(a)*hubR).toFixed(1));
+      ln.setAttribute('y1',(cy+Math.sin(a)*hubR).toFixed(1));
+      ln.setAttribute('x2',(cx+Math.cos(a)*innerR).toFixed(1));
+      ln.setAttribute('y2',(cy+Math.sin(a)*innerR).toFixed(1));
+      spokes.appendChild(ln);
+      var c=document.createElementNS(ns,'circle');
+      var col=cabinColors[i%cabinColors.length];
+      c.setAttribute('class','cabin');
+      c.setAttribute('cx',(cx+Math.cos(a)*rimR).toFixed(1));
+      c.setAttribute('cy',(cy+Math.sin(a)*rimR).toFixed(1));
+      c.setAttribute('r','5.6');
+      c.setAttribute('fill',col);
+      cabins.appendChild(c);
+    }
+  }
+
+  /* ---------- skyline windows ---------- */
+  var winG=document.getElementById('windows');
+  if(winG){
+    var cols=[[252,150,46,420,8],[472,205,90,420,7],[612,182,44,420,6],[664,152,44,420,6],[716,192,44,420,5],[882,200,80,420,5],[1057,217,42,420,6],[802,232,56,420,5]];
+    var idx=0;
+    cols.forEach(function(b){
+      var x0=b[0],y0=b[1],w=b[2],y1=b[3];
+      for(var yy=y0+10; yy<y1-14; yy+=16){
+        for(var xx=x0+6; xx<x0+w-6; xx+=12){
+          if(Math.random()<0.55){
+            var r=document.createElementNS(ns,'rect');
+            r.setAttribute('class', Math.random()<0.25?'win aq':'win');
+            r.setAttribute('x',xx); r.setAttribute('y',yy);
+            r.setAttribute('width','5'); r.setAttribute('height','7');
+            r.setAttribute('rx','1');
+            r.style.animationDelay=(Math.random()*6).toFixed(2)+'s';
+            if(reduce){r.style.opacity=(0.2+Math.random()*0.4).toFixed(2);}
+            winG.appendChild(r); idx++;
+          }
+        }
+      }
+    });
+  }
+
+  /* ---------- hours / open-now + clock ---------- */
+  var SCHED={0:[],1:[[570,780],[870,1170]],2:[[570,780],[870,1170]],3:[[570,780],[870,1170]],4:[[570,780],[870,1170]],5:[[570,780],[870,1170]],6:[[600,780],[840,1020]]};
+  var DAY=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function pad(n){return (n<10?'0':'')+n;}
+  function hhmm(m){return pad(Math.floor(m/60))+':'+pad(m%60);}
+  function jstNow(){
+    try{
+      var p=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',hour12:false,weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit'}).formatToParts(new Date());
+      var o={};p.forEach(function(x){o[x.type]=x.value;});
+      var wd=DAY.indexOf(o.weekday);
+      var h=parseInt(o.hour,10)%24, m=parseInt(o.minute,10), s=parseInt(o.second,10);
+      return {wd:wd,h:h,m:m,s:s,min:h*60+m};
+    }catch(e){
+      var d=new Date();return {wd:d.getDay(),h:d.getHours(),m:d.getMinutes(),s:d.getSeconds(),min:d.getHours()*60+d.getMinutes()};
+    }
+  }
+  function status(){
+    var n=jstNow();
+    var today=SCHED[n.wd]||[];
+    var open=false, closeAt=null;
+    for(var i=0;i<today.length;i++){ if(n.min>=today[i][0]&&n.min<today[i][1]){open=true;closeAt=today[i][1];break;} }
+    var txt;
+    if(open){ txt='Open now · until '+hhmm(closeAt); }
+    else{
+      // find next opening within 7 days
+      var found=null, dd=n.wd, base=n.min, addDays=0;
+      for(var k=0;k<8;k++){
+        var day=(n.wd+k)%7; var slots=SCHED[day]||[];
+        for(var j=0;j<slots.length;j++){
+          var startMin=slots[j][0]+k*1440;
+          var nowAbs=base + 0; // same day offset handled by k
+          if(k===0){ if(slots[j][0]>n.min){found={day:day,k:k,open:slots[j][0]};break;} }
+          else{ found={day:day,k:k,open:slots[j][0]};break; }
+        }
+        if(found)break;
+      }
+      if(found){
+        var label = found.k===0?'today':(found.k===1?'tomorrow':DAY[found.day]);
+        txt='Closed · opens '+label+' '+hhmm(found.open);
+      }else{ txt='Closed'; }
+    }
+    return {open:open,txt:txt,n:n};
+  }
+  function paintStatus(){
+    var st=status();
+    [['statusPill','statusText'],['statusPill2','statusText2']].forEach(function(ids){
+      var pill=document.getElementById(ids[0]); var t=document.getElementById(ids[1]);
+      if(!pill||!t)return;
+      t.textContent=st.txt;
+      pill.classList.toggle('open',st.open);
+      pill.classList.toggle('shut',!st.open);
+    });
+    // clock
+    var ct=document.getElementById('clockTime');
+    if(ct){ ct.textContent=pad(st.n.h)+':'+pad(st.n.m); }
+    // highlight today's row
+    var rows=document.querySelectorAll('#hoursTable .row');
+    rows.forEach(function(r){
+      var days=(r.getAttribute('data-day')||'').split(',');
+      r.classList.toggle('now', days.indexOf(String(st.n.wd))>-1);
+    });
+  }
+  paintStatus();
+  setInterval(paintStatus, 1000);
+
+  /* ---------- reveal on scroll ---------- */
+  var revs=[].slice.call(document.querySelectorAll('[data-reveal]'));
+  if(reduce || !('IntersectionObserver' in window)){
+    revs.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    revs.forEach(function(el){io.observe(el);});
+  }
+
+  /* ---------- hero entrance ---------- */
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('ready'); }); });
+
+  /* ---------- header scrolled state ---------- */
+  var head=document.getElementById('head');
+  function onScroll(){ if(window.scrollY>20) head.classList.add('scrolled'); else head.classList.remove('scrolled'); }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---------- mobile menu ---------- */
+  var menuBtn=document.getElementById('menuBtn');
+  function closeMenu(){ head.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open menu'); }
+  if(menuBtn){
+    menuBtn.addEventListener('click',function(){
+      var isOpen=head.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',isOpen?'true':'false');
+      menuBtn.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+    });
+    document.querySelectorAll('#mobilePanel a').forEach(function(a){ a.addEventListener('click',closeMenu); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
+    document.addEventListener('click',function(e){ if(head.classList.contains('open') && !head.contains(e.target)) closeMenu(); });
+  }
+
+  /* ---------- book online (demo, non-functional) ---------- */
+  var notes=[document.getElementById('bookNote'),document.getElementById('bookNote2')];
+  function showNotes(){ notes.forEach(function(n){ if(n) n.classList.add('show'); }); }
+  document.querySelectorAll('[data-book]').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      showNotes();
+      var n=document.getElementById('bookNote2');
+      // gently bring the closing note into view if the button lives down there
+      if(b.closest('#contact')&&n){ n.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'}); }
+    });
+  });
+
+  /* ---------- pointer parallax (desktop, motion on) ---------- */
+  if(!reduce && window.matchMedia('(min-width:880px)').matches && window.matchMedia('(pointer:fine)').matches){
+    var scene=document.querySelector('.scene');
+    var wheel=document.getElementById('wheelWrap');
+    var sky=document.getElementById('skyline');
+    var shards=[].slice.call(document.querySelectorAll('.shard'));
+    var tx=0,ty=0,cxp=0,cyp=0,raf=null;
+    window.addEventListener('mousemove',function(e){
+      tx=(e.clientX/window.innerWidth-0.5);
+      ty=(e.clientY/window.innerHeight-0.5);
+      if(!raf) raf=requestAnimationFrame(loop);
+    },{passive:true});
+    function loop(){
+      cxp+=(tx-cxp)*0.06; cyp+=(ty-cyp)*0.06;
+      if(wheel) wheel.style.transform='translate3d('+(cxp*-26)+'px,'+(cyp*-16)+'px,0)';
+      if(sky) sky.style.transform='translate3d('+(cxp*14)+'px,0,0)';
+      shards.forEach(function(s){ var d=parseFloat(s.getAttribute('data-depth'))||10; s.style.transform=(s.getAttribute('style').match(/rotate\([^)]+\)/)||[''])[0]+' translate3d('+(cxp*d)+'px,'+(cyp*d*0.6)+'px,0)'; });
+      if(Math.abs(tx-cxp)>0.001||Math.abs(ty-cyp)>0.001){ raf=requestAnimationFrame(loop);}else{raf=null;}
+    }
+  }
+
+  /* ---------- skyline scroll parallax ---------- */
+  if(!reduce){
+    var sky2=document.getElementById('skyline'); var wheel2=document.getElementById('wheelWrap');
+    var sraf=null;
+    window.addEventListener('scroll',function(){ if(!sraf) sraf=requestAnimationFrame(function(){
+      var y=window.scrollY;
+      if(y<window.innerHeight){
+        if(sky2 && !window.matchMedia('(pointer:fine)').matches) sky2.style.transform='translate3d(0,'+(y*0.12)+'px,0)';
+      }
+      sraf=null;
+    }); },{passive:true});
+  }
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81452649222", CHAN="https://line.me/R/oaMessage/@hanoyoyaku/ClinicID:306", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

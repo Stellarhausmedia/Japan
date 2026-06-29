@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shinjuku Station East Exit Dental (Aoki) — Open Every Day · English-Speaking</title>
+<meta name="description" content="English-speaking dentists at Shinjuku Station's East Exit. Open every day of the year, late into the evening. Walk-ins welcome — call +81 3-6709-8187." />
+<meta name="color-scheme" content="dark" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --ink:        #0D0A07;   /* warm night base            */
+  --ink-2:      #14100A;   /* raised surface             */
+  --ink-3:      #1C160E;   /* cards / inset              */
+  --amber:      #FF9E2C;   /* the "open" light / primary */
+  --amber-soft: #FFC36B;
+  --amber-halo: #FFD89A;   /* glow text                  */
+  --ember:      #C8501A;   /* deep accent, used sparingly*/
+  --cream:      #F5EDE1;   /* primary text               */
+  --muted:      #B6A88E;   /* secondary text             */
+  --muted-dim:  #8C7E68;   /* least-important labels     */
+  --line:       rgba(245,237,225,.10);
+  --line-strong:rgba(245,237,225,.20);
+  --glow:       rgba(255,158,44,.55);
+  --glow-soft:  rgba(255,158,44,.22);
+
+  --font-display:'Archivo', system-ui, sans-serif;
+  --font-body:   'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono:   'Space Mono', ui-monospace, monospace;
+
+  --maxw: 1180px;
+  --pad-x: clamp(1.25rem, 5vw, 4rem);
+  --pad-y: clamp(4.5rem, 10vw, 9rem);
+  --radius: 4px;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--font-body);
+  font-size:clamp(1rem,0.95rem + 0.2vw,1.075rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+h1,h2,h3,p{ margin:0; }
+:focus-visible{
+  outline:2px solid var(--amber);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  html{ scroll-behavior:smooth; }
+}
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad-x); }
+.section{ padding-block:var(--pad-y); position:relative; }
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--amber);
+  display:inline-flex;
+  align-items:center;
+  gap:.7em;
+  margin:0;
+}
+.eyebrow::before{
+  content:"";
+  width:1.8em; height:1px;
+  background:linear-gradient(90deg,var(--amber),transparent);
+}
+
+.skip{
+  position:absolute; left:-9999px; top:0;
+  background:var(--amber); color:var(--ink);
+  padding:.7rem 1.1rem; z-index:200; font-weight:700; border-radius:0 0 6px 0;
+}
+.skip:focus{ left:0; }
+
+/* ============================================================
+   THE LIVE "OPEN" DOT  (softly pulsing indicator)
+   ============================================================ */
+.dot{
+  width:.62em; height:.62em; border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 0 var(--glow);
+  flex:none;
+}
+.dot--pulse{ animation:pulse 2.6s ease-out infinite; }
+.is-closed .dot, .dot.is-closed{
+  background:var(--muted-dim);
+  box-shadow:none;
+  animation:none;
+}
+@keyframes pulse{
+  0%   { box-shadow:0 0 0 0 var(--glow); }
+  70%  { box-shadow:0 0 0 9px rgba(255,158,44,0); }
+  100% { box-shadow:0 0 0 0 rgba(255,158,44,0); }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  --b:0;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.6em;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:.95rem;
+  letter-spacing:.01em;
+  padding:.95em 1.5em;
+  border-radius:var(--radius);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease, background .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn:active{ transform:translateY(1px) scale(.99); }
+
+.btn--amber{
+  background:var(--amber);
+  color:#241502;
+  box-shadow:0 0 0 1px rgba(255,210,140,.25), 0 8px 30px -8px var(--glow);
+}
+.btn--amber:hover{
+  background:var(--amber-soft);
+  transform:translateY(-2px);
+  box-shadow:0 0 0 1px rgba(255,210,140,.4), 0 14px 40px -10px var(--glow);
+}
+
+.btn--ghost{
+  color:var(--cream);
+  border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.015);
+}
+.btn--ghost:hover{
+  border-color:var(--amber);
+  color:var(--amber-halo);
+  background:rgba(255,158,44,.06);
+  transform:translateY(-2px);
+}
+
+/* demo / non-functional booking button */
+.btn--demo{
+  color:var(--muted);
+  border:1px dashed var(--line-strong);
+  background:transparent;
+}
+.btn--demo:hover{
+  color:var(--cream);
+  border-color:var(--muted);
+  border-style:dashed;
+}
+.btn--demo::after{
+  content:"○";
+  font-family:var(--font-mono);
+  font-size:.85em;
+  opacity:.7;
+}
+.btn .ico{ width:1.05em; height:1.05em; flex:none; }
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  background:linear-gradient(180deg, rgba(13,10,7,.92), rgba(13,10,7,.66));
+  border-bottom:1px solid var(--line);
+  transition:border-color .3s ease;
+}
+.nav{
+  display:flex; align-items:center; gap:1.25rem;
+  height:64px;
+}
+.brand{
+  display:flex; align-items:center; gap:.65rem;
+  text-decoration:none; margin-right:auto;
+  min-width:0;
+}
+.brand__mark{
+  font-family:var(--font-display); font-weight:900;
+  font-size:1.05rem; letter-spacing:-.02em;
+  color:var(--cream); white-space:nowrap;
+}
+.brand__mark b{ color:var(--amber); }
+.brand__sub{
+  font-family:var(--font-mono); font-size:.62rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--muted-dim);
+  border-left:1px solid var(--line-strong); padding-left:.65rem;
+}
+.nav__links{
+  display:flex; gap:1.6rem; align-items:center;
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.nav__links a{ color:var(--muted); text-decoration:none; transition:color .2s ease; position:relative; }
+.nav__links a:hover{ color:var(--cream); }
+.nav__links a::after{
+  content:""; position:absolute; left:0; bottom:-6px; height:1px; width:0;
+  background:var(--amber); transition:width .25s ease;
+}
+.nav__links a:hover::after{ width:100%; }
+
+.status-pill{
+  display:inline-flex; align-items:center; gap:.55em;
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.45em .8em;
+  border:1px solid var(--line-strong); border-radius:100px;
+  color:var(--amber-halo);
+  white-space:nowrap;
+}
+.status-pill.is-closed{ color:var(--muted); }
+.status-pill__time{ color:var(--cream); }
+.nav .btn{ padding:.62em 1.05em; font-size:.85rem; }
+
+@media (max-width:880px){
+  .nav__links{ display:none; }
+}
+@media (max-width:560px){
+  .brand__sub{ display:none; }
+  .status-pill{ display:none; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ position:relative; padding-top:clamp(3rem,7vw,6rem); padding-bottom:clamp(3.5rem,8vw,7rem); overflow:hidden; }
+.hero__bg{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+.hero__bg::before{ /* warm glow */
+  content:""; position:absolute;
+  right:-10%; top:-20%;
+  width:80vw; height:80vw; max-width:1100px; max-height:1100px;
+  background:radial-gradient(circle at center, var(--glow-soft), transparent 62%);
+  filter:blur(8px);
+}
+.hero__bg::after{ /* faint tick grid */
+  content:""; position:absolute; inset:0;
+  background-image:repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 64px);
+  -webkit-mask-image:linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  mask-image:linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  opacity:.5;
+}
+
+.hero__inner{
+  position:relative; z-index:1;
+  display:grid; gap:clamp(2.5rem,5vw,4rem);
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media (min-width:920px){
+  .hero__inner{ grid-template-columns:1.25fr .85fr; }
+}
+
+.hero__lead{ min-width:0; }
+
+.statement{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(3.4rem, 13.5vw, 10.5rem);
+  line-height:.86;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+  margin:.6rem 0 0;
+}
+.statement span{ display:block; }
+.statement em{ font-style:normal; color:var(--amber-halo); text-shadow:0 0 38px var(--glow); }
+
+.hero__sub{
+  max-width:34ch;
+  color:var(--muted);
+  font-size:clamp(1.05rem,1rem + .35vw,1.3rem);
+  line-height:1.55;
+  margin-top:1.6rem;
+}
+.hero__sub strong{ color:var(--cream); font-weight:600; }
+
+.hero__cta{
+  display:flex; flex-wrap:wrap; gap:.8rem;
+  margin-top:2rem;
+}
+.hero__walkin{
+  display:inline-flex; align-items:center; gap:.65em;
+  margin-top:1.5rem;
+  font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted);
+}
+
+/* --- the signature: live Tokyo open-clock --- */
+.hero__clock{
+  justify-self:center;
+  display:flex; flex-direction:column; align-items:center; gap:1.4rem;
+}
+.neon{
+  font-family:var(--font-display); font-weight:900;
+  font-size:1.6rem; letter-spacing:.5em; text-indent:.5em;
+  color:var(--amber);
+  text-shadow:0 0 6px var(--amber), 0 0 22px var(--glow), 0 0 46px var(--glow-soft);
+  padding:.35em .2em;
+  border:1px solid rgba(255,158,44,.32);
+  border-radius:6px;
+  box-shadow:0 0 24px -6px var(--glow), inset 0 0 18px -8px var(--glow);
+}
+
+.clock{
+  position:relative;
+  width:clamp(232px, 64vw, 320px);
+  aspect-ratio:1;
+}
+.clock__ring{
+  position:absolute; inset:0; border-radius:50%;
+  /* day window (09–21 => 135deg–315deg) glows amber; night dims */
+  background:conic-gradient(from 0deg,
+     rgba(245,237,225,.07)  0deg 134deg,
+     var(--amber)           135deg,
+     var(--amber-soft)      225deg,
+     var(--amber)           315deg,
+     rgba(245,237,225,.07)  316deg 360deg);
+  -webkit-mask:radial-gradient(circle, transparent 60%, #000 60.6%);
+  mask:radial-gradient(circle, transparent 60%, #000 60.6%);
+  filter:drop-shadow(0 0 12px var(--glow-soft));
+}
+.clock__ticks{ position:absolute; inset:0; }
+.tick{
+  position:absolute; left:50%; top:0;
+  width:2px; height:9px; margin-left:-1px;
+  background:var(--muted-dim);
+  transform-origin:50% calc(clamp(232px,64vw,320px) / 2);
+}
+.tick.tick--major{ height:14px; width:2px; background:var(--muted); }
+.clock__now{ position:absolute; inset:0; }
+.clock__now::before{
+  content:""; position:absolute; top:-3px; left:50%;
+  width:15px; height:15px; margin-left:-7.5px; border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 4px rgba(255,158,44,.18), 0 0 16px 2px var(--glow);
+}
+.clock__hub{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:.15em;
+}
+.clock__status{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--font-mono); font-weight:700;
+  font-size:.74rem; letter-spacing:.18em;
+  color:var(--amber-halo);
+}
+.clock__status.is-closed{ color:var(--muted); }
+.clock__time{
+  font-family:var(--font-mono); font-weight:700;
+  font-size:clamp(2rem,9vw,2.9rem); letter-spacing:.02em;
+  color:var(--cream); font-variant-numeric:tabular-nums;
+  line-height:1;
+}
+.clock__zone{
+  font-family:var(--font-mono); font-size:.66rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--muted-dim);
+}
+
+/* ============================================================
+   HOURS  — "always open" strip
+   ============================================================ */
+.hours{ border-top:1px solid var(--line); background:linear-gradient(180deg, rgba(255,158,44,.02), transparent 40%); }
+.hours__head{ display:grid; gap:1.2rem; max-width:24ch; }
+.big-line{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(2.1rem,1.6rem + 3.4vw,4.4rem);
+  line-height:1.02; letter-spacing:-.02em;
+}
+.big-line em{ font-style:normal; color:var(--amber-halo); }
+
+.daystrip{
+  margin-top:clamp(2.2rem,4vw,3.4rem);
+  display:grid;
+  grid-template-columns:repeat(7, minmax(0,1fr));
+  gap:.6rem;
+}
+@media (max-width:720px){
+  .daystrip{ grid-template-columns:repeat(2,1fr); }
+}
+.day{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.1rem 1rem 1.2rem;
+  background:rgba(255,255,255,.012);
+  display:flex; flex-direction:column; gap:.55rem;
+  transition:border-color .3s ease, background .3s ease, transform .3s ease;
+}
+.day:hover{ border-color:var(--line-strong); background:rgba(255,255,255,.03); }
+.day__name{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+}
+.day__state{
+  font-family:var(--font-display); font-weight:800; font-size:1.05rem;
+  color:var(--cream);
+  display:inline-flex; align-items:center; gap:.45em;
+}
+.day__hours{ font-family:var(--font-mono); font-size:.8rem; color:var(--muted-dim); }
+.day.is-today{
+  border-color:rgba(255,158,44,.5);
+  background:linear-gradient(180deg, rgba(255,158,44,.1), rgba(255,158,44,.02));
+  transform:translateY(-4px);
+  box-shadow:0 14px 40px -22px var(--glow);
+}
+.day.is-today .day__name{ color:var(--amber); }
+.day.is-today .day__hours{ color:var(--amber-soft); }
+.day__tag{
+  margin-top:auto;
+  font-family:var(--font-mono); font-size:.6rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--amber);
+  opacity:0; transform:translateY(4px); transition:opacity .3s ease, transform .3s ease;
+}
+.day.is-today .day__tag{ opacity:1; transform:none; }
+
+.livenote{
+  margin-top:2rem;
+  font-family:var(--font-mono); font-size:.9rem; letter-spacing:.02em;
+  color:var(--muted);
+  display:inline-flex; align-items:center; gap:.7em; flex-wrap:wrap;
+}
+.livenote b{ color:var(--cream); }
+.livenote .accent{ color:var(--amber-halo); }
+
+/* ============================================================
+   WHY / EXPATS
+   ============================================================ */
+.why__grid{
+  display:grid; gap:clamp(2rem,5vw,4rem);
+  grid-template-columns:1fr;
+}
+@media (min-width:880px){ .why__grid{ grid-template-columns:.9fr 1.1fr; align-items:start; } }
+
+.why__statement{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(1.9rem,1.5rem + 2.6vw,3.2rem);
+  line-height:1.06; letter-spacing:-.02em;
+  margin-top:1.4rem;
+}
+.why__statement em{ font-style:normal; color:var(--amber-halo); }
+
+.props{ list-style:none; margin:0; padding:0; }
+.prop{
+  display:grid; grid-template-columns:auto 1fr; gap:1.1rem;
+  padding:1.35rem 0;
+  border-top:1px solid var(--line);
+  transition:padding-left .3s ease;
+}
+.props .prop:last-child{ border-bottom:1px solid var(--line); }
+.prop:hover{ padding-left:.6rem; }
+.prop__mark{
+  font-family:var(--font-mono); color:var(--amber);
+  font-size:1.1rem; line-height:1.4; transition:transform .3s ease;
+}
+.prop:hover .prop__mark{ transform:translateX(2px) rotate(90deg); }
+.prop__title{
+  font-family:var(--font-display); font-weight:700; font-size:1.18rem;
+  color:var(--cream); margin-bottom:.25rem;
+}
+.prop__desc{ color:var(--muted); font-size:.98rem; }
+
+/* ============================================================
+   CARE — signage index
+   ============================================================ */
+.care{ border-top:1px solid var(--line); }
+.care__intro{ max-width:42ch; color:var(--muted); margin-top:1.2rem; font-size:1.1rem; }
+.index{
+  margin-top:clamp(2rem,4vw,3.2rem);
+  border-top:1px solid var(--line-strong);
+  display:grid; grid-template-columns:1fr;
+}
+@media (min-width:760px){ .index{ grid-template-columns:1fr 1fr; column-gap:clamp(2rem,5vw,5rem); } }
+.svc{
+  display:flex; align-items:baseline; gap:1rem;
+  padding:1.5rem .2rem;
+  border-bottom:1px solid var(--line);
+  text-decoration:none;
+  position:relative;
+  transition:padding-left .3s ease;
+}
+.svc:hover{ padding-left:.7rem; }
+.svc__no{
+  font-family:var(--font-mono); font-size:.74rem; color:var(--muted-dim);
+  letter-spacing:.1em; flex:none; width:2.4em; padding-top:.35em;
+}
+.svc__body{ flex:1; min-width:0; }
+.svc__name{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem);
+  letter-spacing:-.01em; line-height:1.1;
+  background-image:linear-gradient(var(--amber),var(--amber));
+  background-size:0% 2px; background-position:0 100%; background-repeat:no-repeat;
+  transition:background-size .35s cubic-bezier(.2,.7,.2,1), color .3s ease;
+  padding-bottom:3px;
+}
+.svc:hover .svc__name{ background-size:100% 2px; color:var(--amber-halo); }
+.svc__desc{ color:var(--muted); font-size:.92rem; margin-top:.35rem; }
+.svc__arrow{
+  flex:none; align-self:center;
+  color:var(--muted-dim);
+  transition:transform .3s ease, color .3s ease;
+}
+.svc:hover .svc__arrow{ transform:translate(4px,-4px); color:var(--amber); }
+
+/* ============================================================
+   VISIT — schematic map
+   ============================================================ */
+.visit{ border-top:1px solid var(--line); }
+.visit__grid{
+  display:grid; gap:clamp(2rem,4vw,3.5rem);
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media (min-width:900px){ .visit__grid{ grid-template-columns:1.1fr .9fr; } }
+
+.map-card{
+  position:relative;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:
+    radial-gradient(120% 120% at 80% -10%, rgba(255,158,44,.08), transparent 50%),
+    var(--ink-2);
+  padding:1rem;
+  overflow:hidden;
+}
+.map-card__tag{
+  position:absolute; left:1rem; top:1rem; z-index:2;
+  font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted-dim);
+}
+.map svg{ width:100%; height:auto; }
+
+.route{ stroke-dasharray:420; stroke-dashoffset:420; transition:stroke-dashoffset 1.8s ease .2s; }
+.visit.in .route{ stroke-dashoffset:0; }
+.pinring{ transform-box:fill-box; transform-origin:center; }
+.pinring--anim{ animation:ping 2.8s ease-out infinite; }
+@keyframes ping{
+  0%{ opacity:.7; transform:scale(.6); }
+  70%{ opacity:0; transform:scale(2.4); }
+  100%{ opacity:0; transform:scale(2.4); }
+}
+
+.visit__statement{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(2rem,1.5rem + 3vw,3.6rem);
+  line-height:1.04; letter-spacing:-.02em;
+  margin-top:1.3rem;
+}
+.access{ list-style:none; margin:1.8rem 0 0; padding:0; display:grid; gap:1rem; }
+.access li{ display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:baseline; }
+.access__k{
+  font-family:var(--font-mono); font-size:.66rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--amber); padding-top:.2em;
+  white-space:nowrap;
+}
+.access__v{ color:var(--cream); }
+.access__v a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--line-strong); transition:border-color .25s ease,color .25s ease; }
+.access__v a:hover{ color:var(--amber-halo); border-color:var(--amber); }
+.access__v small{ display:block; color:var(--muted); font-size:.86rem; margin-top:.15rem; }
+.visit__cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta{
+  position:relative; overflow:hidden;
+  border-top:1px solid var(--line);
+  background:
+    radial-gradient(90% 140% at 15% 0%, rgba(255,158,44,.14), transparent 55%),
+    var(--ink);
+}
+.cta__inner{ display:grid; gap:1.5rem; max-width:30ch; }
+.cta__title{
+  font-family:var(--font-display); font-weight:900;
+  font-size:clamp(2.4rem,1.8rem + 4.5vw,5.2rem);
+  line-height:.95; letter-spacing:-.03em; text-transform:uppercase;
+}
+.cta__title em{ font-style:normal; color:var(--amber-halo); text-shadow:0 0 34px var(--glow); }
+.cta__sub{ color:var(--muted); font-size:1.15rem; max-width:42ch; }
+.cta__sub strong{ color:var(--cream); font-weight:600; }
+.cta__row{ display:flex; flex-wrap:wrap; gap:.8rem; }
+.cta__live{
+  font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted);
+  display:inline-flex; align-items:center; gap:.6em;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{ border-top:1px solid var(--line); background:var(--ink-2); }
+.foot{
+  display:grid; gap:2.5rem;
+  grid-template-columns:1fr;
+  padding-block:clamp(3rem,6vw,4.5rem);
+}
+@media (min-width:760px){ .foot{ grid-template-columns:1.4fr 1fr 1fr; } }
+.foot h4{
+  font-family:var(--font-mono); font-size:.66rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--muted-dim); margin:0 0 1rem;
+  font-weight:400;
+}
+.foot__brand .brand__mark{ font-size:1.3rem; }
+.foot__tag{ color:var(--muted); max-width:32ch; margin-top:1rem; }
+.foot ul{ list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+.foot a{ color:var(--muted); text-decoration:none; transition:color .2s ease; }
+.foot a:hover{ color:var(--amber-halo); }
+.foot__open{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--amber); margin-top:.4rem;
+}
+.foot-bar{
+  border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center;
+  padding-block:1.4rem;
+  font-size:.82rem; color:var(--muted-dim);
+}
+.credit{ font-family:var(--font-mono); font-size:.74rem; letter-spacing:.06em; }
+.credit a{ color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line-strong); transition:color .25s ease,border-color .25s ease; }
+.credit a:hover{ color:var(--amber-halo); border-color:var(--amber); }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast{
+  position:fixed; left:50%; bottom:1.4rem; transform:translate(-50%,140%);
+  z-index:300;
+  background:var(--ink-3);
+  border:1px solid rgba(255,158,44,.35);
+  color:var(--cream);
+  padding:.85rem 1.2rem; border-radius:100px;
+  font-family:var(--font-mono); font-size:.8rem; letter-spacing:.04em;
+  box-shadow:0 18px 50px -20px #000, 0 0 30px -12px var(--glow);
+  display:inline-flex; align-items:center; gap:.6em;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+  opacity:0; max-width:90vw;
+}
+.toast.show{ transform:translate(-50%,0); opacity:1; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal[data-d="1"]{ transition-delay:.08s; }
+.reveal[data-d="2"]{ transition-delay:.16s; }
+.reveal[data-d="3"]{ transition-delay:.24s; }
+.reveal[data-d="4"]{ transition-delay:.32s; }
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  .reveal{ opacity:1; transform:none; }
+  .route{ stroke-dashoffset:0; }
+  .dot--pulse, .pinring--anim{ animation:none; }
+}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#ff9e2c;--bk-accent-ink:#0d0d0f;--bk-ink:#0d0a07;--bk-panel:#f5ede1;--bk-muted:rgba(13,10,7,0.6);--bk-line:rgba(13,10,7,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Archivo", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#main" aria-label="Shinjuku Station East Exit Dental, home">
+      <span class="brand__mark">Shinjuku East <b>Dental</b></span>
+      <span class="brand__sub">Aoki</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#hours">Hours</a>
+      <a href="#care">Care</a>
+      <a href="#visit">Find us</a>
+    </nav>
+    <span class="status-pill" id="navStatus" aria-live="polite">
+      <span class="dot dot--pulse" aria-hidden="true"></span>
+      <span id="navStatusText">Open now</span>
+      <span class="status-pill__time" id="navTime">--:--</span>
+    </span>
+    <a class="btn btn--amber" href="tel:+81367098187">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-.6.4-1 1-1h2.3c.5 0 .9.3 1 .8l.8 3a1 1 0 0 1-.3 1l-1.4 1.3a13 13 0 0 0 5.5 5.5l1.3-1.4a1 1 0 0 1 1-.3l3 .8c.5.1.8.5.8 1V19c0 .6-.4 1-1 1A15 15 0 0 1 4 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      Call
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+      <div class="hero__lead">
+        <p class="eyebrow reveal">365 days a year · Shinjuku Station East Exit</p>
+        <h1 class="statement reveal" id="hero-h" data-d="1">
+          <span>Open</span>
+          <span>every <em>day.</em></span>
+        </h1>
+        <p class="hero__sub reveal" data-d="2">
+          <strong>English-speaking dentists</strong>, steps from the East Exit. Walk in when it suits you — evenings, weekends and holidays included.
+        </p>
+        <div class="hero__cta reveal" data-d="3">
+          <a class="btn btn--amber" href="tel:+81367098187">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-.6.4-1 1-1h2.3c.5 0 .9.3 1 .8l.8 3a1 1 0 0 1-.3 1l-1.4 1.3a13 13 0 0 0 5.5 5.5l1.3-1.4a1 1 0 0 1 1-.3l3 .8c.5.1.8.5.8 1V19c0 .6-.4 1-1 1A15 15 0 0 1 4 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            Call +81 3-6709-8187
+          </a>
+          <button class="btn btn--ghost js-line" type="button">Add us on LINE</button>
+          <button class="btn btn--demo js-book" type="button" aria-label="Book online — coming soon">Book online</button>
+        </div>
+        <p class="hero__walkin reveal" data-d="4">
+          <span class="dot dot--pulse" aria-hidden="true"></span> Walk-ins welcome · no appointment needed
+        </p>
+      </div>
+
+      <aside class="hero__clock reveal" data-d="2" aria-label="Tokyo time and today's status">
+        <div class="neon" aria-hidden="true" id="neonSign">OPEN</div>
+        <div class="clock" role="img" id="clock" aria-label="Loading current Tokyo time">
+          <div class="clock__ring" aria-hidden="true"></div>
+          <div class="clock__ticks" id="ticks" aria-hidden="true"></div>
+          <div class="clock__now" id="clockNow" aria-hidden="true"></div>
+          <div class="clock__hub">
+            <span class="clock__status" id="clockStatus">Open now</span>
+            <span class="clock__time" id="clockTime">--:--</span>
+            <span class="clock__zone">Tokyo · JST</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ HOURS ============================ -->
+  <section class="section hours" id="hours" aria-labelledby="hours-h">
+    <div class="wrap">
+      <div class="hours__head">
+        <p class="eyebrow reveal">Open 365 days</p>
+        <h2 class="big-line reveal" id="hours-h" data-d="1">Closed isn’t in our <em>vocabulary.</em></h2>
+      </div>
+
+      <div class="daystrip" id="daystrip" role="list">
+        <div class="day reveal" role="listitem" data-day="Mon">
+          <span class="day__name">Mon</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Tue">
+          <span class="day__name">Tue</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Wed">
+          <span class="day__name">Wed</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Thu">
+          <span class="day__name">Thu</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Fri">
+          <span class="day__name">Fri</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Sat">
+          <span class="day__name">Sat</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+        <div class="day reveal" role="listitem" data-day="Sun">
+          <span class="day__name">Sun</span>
+          <span class="day__state"><span class="dot" aria-hidden="true"></span>Open</span>
+          <span class="day__hours">09:00 – 21:00</span>
+          <span class="day__tag">Today</span>
+        </div>
+      </div>
+
+      <p class="livenote reveal" id="liveNote">
+        <span class="dot dot--pulse" aria-hidden="true"></span>
+        <span id="liveNoteText">Checking the time in Tokyo…</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ WHY ============================ -->
+  <section class="section why" id="why" aria-labelledby="why-h">
+    <div class="wrap why__grid">
+      <div>
+        <p class="eyebrow reveal">For expats in Tokyo</p>
+        <h2 class="why__statement reveal" id="why-h" data-d="1">Dental care that already speaks <em>your language.</em></h2>
+      </div>
+      <ul class="props">
+        <li class="prop reveal">
+          <span class="prop__mark" aria-hidden="true">+</span>
+          <div>
+            <p class="prop__title">English, start to finish</p>
+            <p class="prop__desc">Describe what hurts in your own words — consultation, treatment and aftercare, all in English.</p>
+          </div>
+        </li>
+        <li class="prop reveal" data-d="1">
+          <span class="prop__mark" aria-hidden="true">+</span>
+          <div>
+            <p class="prop__title">Walk in, no appointment</p>
+            <p class="prop__desc">Same-day care for toothache and emergencies, late into the evening and across the weekend.</p>
+          </div>
+        </li>
+        <li class="prop reveal" data-d="2">
+          <span class="prop__mark" aria-hidden="true">+</span>
+          <div>
+            <p class="prop__title">Impossible to miss</p>
+            <p class="prop__desc">Right at Shinjuku Station’s East Exit — the easiest landmark in the city to find.</p>
+          </div>
+        </li>
+        <li class="prop reveal" data-d="3">
+          <span class="prop__mark" aria-hidden="true">+</span>
+          <div>
+            <p class="prop__title">Every single day</p>
+            <p class="prop__desc">Open all year, public holidays included. The day you need a dentist, we’re here.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ CARE ============================ -->
+  <section class="section care" id="care" aria-labelledby="care-h">
+    <div class="wrap">
+      <p class="eyebrow reveal">Care we provide</p>
+      <h2 class="big-line reveal" id="care-h" data-d="1">Everyday dentistry, <em>done right.</em></h2>
+      <p class="care__intro reveal" data-d="2">From a routine check-up to a 9pm emergency — the care most people need, when they need it.</p>
+
+      <div class="index">
+        <a class="svc reveal js-book" role="button" tabindex="0">
+          <span class="svc__no">01</span>
+          <span class="svc__body">
+            <span class="svc__name">Check-ups &amp; cleaning</span>
+            <span class="svc__desc">Routine exams and professional hygiene to keep small problems small.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="svc reveal js-book" role="button" tabindex="0" data-d="1">
+          <span class="svc__no">02</span>
+          <span class="svc__body">
+            <span class="svc__name">Toothache &amp; emergencies</span>
+            <span class="svc__desc">Same-day relief for pain and urgent problems — walk in, evenings included.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="svc reveal js-book" role="button" tabindex="0">
+          <span class="svc__no">03</span>
+          <span class="svc__body">
+            <span class="svc__name">Fillings &amp; restorations</span>
+            <span class="svc__desc">Treating decay and rebuilding teeth so they look and work like they should.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="svc reveal js-book" role="button" tabindex="0" data-d="1">
+          <span class="svc__no">04</span>
+          <span class="svc__body">
+            <span class="svc__name">Crowns &amp; repairs</span>
+            <span class="svc__desc">Fixing chipped, cracked or worn teeth — including lost crowns and fillings.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="svc reveal js-book" role="button" tabindex="0">
+          <span class="svc__no">05</span>
+          <span class="svc__body">
+            <span class="svc__name">Gum &amp; preventive care</span>
+            <span class="svc__desc">Keeping gums healthy and heading off issues before they start to hurt.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="svc reveal js-book" role="button" tabindex="0" data-d="1">
+          <span class="svc__no">06</span>
+          <span class="svc__body">
+            <span class="svc__name">English consultations</span>
+            <span class="svc__desc">New to Japan? Talk through any concern with a dentist who speaks your language.</span>
+          </span>
+          <svg class="svc__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ VISIT ============================ -->
+  <section class="section visit" id="visit" aria-labelledby="visit-h">
+    <div class="wrap visit__grid">
+      <div class="map-card reveal">
+        <span class="map-card__tag">Schematic · Shinjuku East</span>
+        <div class="map" aria-hidden="true">
+          <svg viewBox="0 0 560 360" role="img" aria-label="Schematic showing the clinic a short walk from Shinjuku Station's East Exit">
+            <!-- streets -->
+            <g stroke="rgba(245,237,225,.12)" stroke-width="2">
+              <line x1="0" y1="120" x2="560" y2="120"/>
+              <line x1="0" y1="250" x2="560" y2="250"/>
+              <line x1="180" y1="0" x2="180" y2="360"/>
+              <line x1="400" y1="0" x2="400" y2="360"/>
+            </g>
+            <!-- station block -->
+            <rect x="40" y="150" width="150" height="90" rx="8" fill="rgba(245,237,225,.05)" stroke="rgba(245,237,225,.28)" stroke-width="1.5"/>
+            <text x="115" y="190" text-anchor="middle" font-family="Space Mono, monospace" font-size="13" letter-spacing="1" fill="#B6A88E">SHINJUKU</text>
+            <text x="115" y="208" text-anchor="middle" font-family="Space Mono, monospace" font-size="13" letter-spacing="1" fill="#B6A88E">STATION</text>
+            <!-- east exit node -->
+            <circle cx="190" cy="195" r="6" fill="#F5EDE1"/>
+            <text x="205" y="178" font-family="Space Mono, monospace" font-size="11" letter-spacing="1.5" fill="#8C7E68">EAST EXIT</text>
+            <!-- route -->
+            <path class="route" d="M190 195 H300 V100 H410" fill="none" stroke="#FF9E2C" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/>
+            <!-- destination pin -->
+            <g transform="translate(410,100)">
+              <circle class="pinring pinring--anim" r="14" fill="none" stroke="#FF9E2C" stroke-width="2"/>
+              <circle r="9" fill="#FF9E2C"/>
+              <circle r="3.4" fill="#241502"/>
+              <text x="0" y="-26" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-size="14" fill="#FFD89A">Aoki Dental</text>
+            </g>
+            <!-- compass -->
+            <text x="528" y="34" text-anchor="middle" font-family="Space Mono, monospace" font-size="12" fill="#8C7E68">N</text>
+            <line x1="528" y1="40" x2="528" y2="58" stroke="#8C7E68" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow reveal">Find us</p>
+        <h2 class="visit__statement reveal" id="visit-h" data-d="1">Steps from the <em>East Exit.</em></h2>
+        <ul class="access reveal" data-d="2">
+          <li>
+            <span class="access__k">Area</span>
+            <span class="access__v">Shinjuku Station, East Exit<small>Shinjuku-ku, Tokyo</small></span>
+          </li>
+          <li>
+            <span class="access__k">Hours</span>
+            <span class="access__v">Open every day · 09:00 – 21:00<small>Holidays included</small></span>
+          </li>
+          <li>
+            <span class="access__k">Phone</span>
+            <span class="access__v"><a href="tel:+81367098187">+81 3-6709-8187</a><small>English spoken — walk-ins welcome</small></span>
+          </li>
+        </ul>
+        <div class="visit__cta reveal" data-d="3">
+          <a class="btn btn--amber" href="tel:+81367098187">Call the clinic</a>
+          <button class="btn btn--ghost js-line" type="button">Add us on LINE</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA BAND ============================ -->
+  <section class="section cta" aria-labelledby="cta-h">
+    <div class="wrap cta__inner">
+      <p class="eyebrow reveal">We’re probably open right now</p>
+      <h2 class="cta__title reveal" id="cta-h" data-d="1">Toothache <em>tonight?</em></h2>
+      <p class="cta__sub reveal" data-d="2"><strong>Pick up the phone — we’ll answer in English.</strong> No appointment, no waiting for Monday.</p>
+      <div class="cta__row reveal" data-d="3">
+        <a class="btn btn--amber" href="tel:+81367098187">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-.6.4-1 1-1h2.3c.5 0 .9.3 1 .8l.8 3a1 1 0 0 1-.3 1l-1.4 1.3a13 13 0 0 0 5.5 5.5l1.3-1.4a1 1 0 0 1 1-.3l3 .8c.5.1.8.5.8 1V19c0 .6-.4 1-1 1A15 15 0 0 1 4 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Call +81 3-6709-8187
+        </a>
+        <button class="btn btn--ghost js-line" type="button">Add us on LINE</button>
+        <button class="btn btn--demo js-book" type="button" aria-label="Book online — coming soon">Book online</button>
+      </div>
+      <p class="cta__live reveal" data-d="4">
+        <span class="dot dot--pulse" aria-hidden="true"></span>
+        <span id="ctaLiveText">Open now in Tokyo</span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot__brand">
+      <span class="brand__mark">Shinjuku East <b>Dental</b></span>
+      <p class="foot__tag">English-speaking dental care at Shinjuku Station’s East Exit. Open every day of the year — walk in whenever you need us.</p>
+      <span class="foot__open"><span class="dot dot--pulse" aria-hidden="true"></span> Open every day · 09:00 – 21:00</span>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+81367098187">+81 3-6709-8187</a></li>
+        <li><button class="js-line" type="button" style="font:inherit;letter-spacing:inherit;cursor:pointer">LINE official account</button></li>
+        <li>Shinjuku-ku, Tokyo</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#hours">Opening hours</a></li>
+        <li><a href="#care">Care we provide</a></li>
+        <li><a href="#visit">How to find us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© <span id="year">2026</span> Shinjuku Station East Exit Dental (Aoki)</span>
+    <span class="credit">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ----------------------------------------------------------
+     CONFIG — single source of truth. Edit here to finalise.
+     ---------------------------------------------------------- */
+  var CONFIG = {
+    phoneTel:   "+81367098187",
+    phoneShown: "+81 3-6709-8187",
+    lineUrl:    "",            // <-- paste the clinic's official LINE URL to wire the LINE buttons
+    openStart:  9,             // representative — confirm against the clinic sheet
+    openEnd:    21,            // representative — confirm against the clinic sheet
+    openEveryDay: true
+  };
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---------- ticks for the clock dial (every 3h) ---------- */
+  var ticks = $("#ticks");
+  if(ticks){
+    for(var h=0; h<24; h+=3){
+      var t = document.createElement("span");
+      t.className = "tick" + (h % 6 === 0 ? " tick--major" : "");
+      t.style.transform = "rotate(" + (h/24*360) + "deg)";
+      ticks.appendChild(t);
+    }
+  }
+
+  /* ---------- Tokyo time ---------- */
+  function tokyoNow(){
+    var parts = new Intl.DateTimeFormat("en-US",{
+      timeZone:"Asia/Tokyo", hour12:false,
+      hour:"2-digit", minute:"2-digit", second:"2-digit", weekday:"short"
+    }).formatToParts(new Date());
+    var o = {};
+    parts.forEach(function(p){ o[p.type] = p.value; });
+    var hh = parseInt(o.hour,10); if(hh === 24) hh = 0;
+    return { h:hh, m:parseInt(o.minute,10), s:parseInt(o.second,10), wd:o.weekday };
+  }
+  function pad(n){ return (n<10?"0":"") + n; }
+
+  var els = {
+    navText:  $("#navStatusText"),
+    navTime:  $("#navTime"),
+    navPill:  $("#navStatus"),
+    cStatus:  $("#clockStatus"),
+    cTime:    $("#clockTime"),
+    clock:    $("#clock"),
+    cNow:     $("#clockNow"),
+    liveText: $("#liveNoteText"),
+    liveNote: $("#liveNote"),
+    ctaText:  $("#ctaLiveText")
+  };
+
+  function setOpenState(isOpen){
+    [els.navPill, els.cStatus, els.liveNote, $("#ctaLiveText") && $("#ctaLiveText").parentNode]
+      .forEach(function(node){ if(node){ node.classList.toggle("is-closed", !isOpen); } });
+  }
+
+  function tick(){
+    var t = tokyoNow();
+    var dec = t.h + t.m/60;
+    var isOpen = CONFIG.openEveryDay && dec >= CONFIG.openStart && dec < CONFIG.openEnd;
+    var hhmm = pad(t.h) + ":" + pad(t.m);
+
+    if(els.navTime) els.navTime.textContent = hhmm;
+    if(els.cTime)   els.cTime.textContent   = hhmm;
+    if(els.navText) els.navText.textContent = isOpen ? "Open now" : "Opens " + pad(CONFIG.openStart) + ":00";
+    if(els.cStatus) els.cStatus.textContent = isOpen ? "Open now" : "Closed";
+    if(els.clock)   els.clock.setAttribute("aria-label",
+      "Tokyo time " + hhmm + ", currently " + (isOpen ? "open" : "closed") + ". Open every day, 9 to 21.");
+
+    if(els.cNow) els.cNow.style.transform = "rotate(" + (dec/24*360) + "deg)";
+
+    var openTxt = "Open until " + pad(CONFIG.openEnd) + ":00 tonight.";
+    var shutTxt = "We open at " + pad(CONFIG.openStart) + ":00.";
+    if(els.liveText) els.liveText.innerHTML = "Right now in Tokyo it’s <b>" + hhmm + "</b> — " +
+      (isOpen ? "<span class='accent'>we’re open.</span> " + openTxt
+              : "we’re closed for now. " + shutTxt);
+    if(els.ctaText) els.ctaText.textContent = isOpen
+      ? "It’s " + hhmm + " in Tokyo — open right now"
+      : "It’s " + hhmm + " in Tokyo — opens " + pad(CONFIG.openStart) + ":00";
+
+    /* highlight today's cell */
+    $$(".day").forEach(function(d){
+      d.classList.toggle("is-today", d.getAttribute("data-day") === t.wd);
+    });
+
+    setOpenState(isOpen);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ---------- scroll reveal ---------- */
+  var reveals = $$(".reveal");
+  if(reduceMotion || !("IntersectionObserver" in window)){
+    reveals.forEach(function(el){ el.classList.add("in"); });
+    $$(".visit").forEach(function(s){ s.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:.16, rootMargin:"0px 0px -8% 0px" });
+    reveals.forEach(function(el){ io.observe(el); });
+
+    var sectionIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); } });
+    }, { threshold:.25 });
+    $$(".visit").forEach(function(s){ sectionIO.observe(s); });
+  }
+
+  /* ---------- neon warm-up (one-shot, motion only) ---------- */
+  var neon = $("#neonSign");
+  if(neon && !reduceMotion){
+    neon.style.opacity = "0";
+    var flick = [0,.6,.25,.9,.4,1,.7,1];
+    var i = 0;
+    var fl = setInterval(function(){
+      neon.style.opacity = flick[i];
+      i++;
+      if(i >= flick.length){ clearInterval(fl); neon.style.opacity = "1"; }
+    }, 90);
+  }
+
+  /* ---------- toast ---------- */
+  var toastEl = $("#toast");
+  var toastTimer;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3200);
+  }
+
+  /* ---------- CTA wiring ---------- */
+  $$(".js-book").forEach(function(b){
+    var fire = function(ev){ ev.preventDefault(); toast("Online booking — coming soon"); };
+    b.addEventListener("click", fire);
+    b.addEventListener("keydown", function(ev){
+      if(ev.key === "Enter" || ev.key === " "){ fire(ev); }
+    });
+  });
+  $$(".js-line").forEach(function(b){
+    b.addEventListener("click", function(ev){
+      ev.preventDefault();
+      if(CONFIG.lineUrl){ window.open(CONFIG.lineUrl, "_blank", "noopener"); }
+      else { toast("Add us on LINE — link coming soon"); }
+    });
+  });
+
+  /* ---------- footer year ---------- */
+  var y = $("#year"); if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81367098187", CHAN="https://lin.ee/zUM7MxS", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

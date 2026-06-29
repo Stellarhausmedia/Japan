@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shinagawa Season Terrace Dental — English-speaking dental care in Konan, Shinagawa</title>
+<meta name="description" content="Gentle, English-speaking dental care in the Shinagawa Season Terrace, Konan, Shinagawa, Tokyo. Implants, orthodontics, whitening, cosmetic and paediatric dentistry — every step explained in English. Rated 4.7 across 195 Google reviews." />
+<meta name="color-scheme" content="light" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..560;1,9..144,300..520&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* ---------- tokens ---------- */
+  :root{
+    --glass:#F4F8F5;
+    --glass-2:#EAF3EC;
+    --ink:#16302A;
+    --ink-soft:#3E534B;
+    --leaf:#1B7A4A;
+    --leaf-bright:#4FB477;
+    --canopy:#0E4730;
+    --sky:#6FB7E8;
+    --sky-deep:#2E7FB8;
+    --line:rgba(22,48,42,.12);
+    --white-70:rgba(255,255,255,.7);
+
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --mono:"Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    --wrap:1180px;
+    --pad:clamp(1.15rem, 5vw, 4rem);
+    --sec:clamp(4.5rem, 11vw, 9rem);
+    --radius:16px;
+
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ---------- reset / base ---------- */
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--glass);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;}
+  h1,h2,h3,p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  ::selection{background:rgba(79,180,119,.28);}
+
+  :focus-visible{
+    outline:2.5px solid var(--sky-deep);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:200;
+    background:var(--ink);color:#fff;padding:.7rem 1.1rem;border-radius:0 0 10px 0;
+    font:600 .85rem/1 var(--sans);
+  }
+  .skip:focus{left:0;}
+
+  .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad);width:100%;}
+
+  /* ---------- shared type helpers ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--leaf);
+    display:inline-flex;align-items:center;gap:.6em;
+    margin:0;
+  }
+  .eyebrow::before{
+    content:"";width:1.6em;height:1px;background:currentColor;opacity:.6;
+  }
+  .display{
+    font-family:var(--serif);
+    font-weight:340;
+    line-height:1.02;
+    letter-spacing:-.018em;
+    font-optical-sizing:auto;
+  }
+  .em{font-style:italic;color:var(--leaf);font-weight:380;}
+  .lede{
+    font-size:clamp(1.05rem,1.55vw,1.32rem);
+    color:var(--ink-soft);
+    max-width:54ch;
+    font-weight:400;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+    padding:.92em 1.45em;
+    border-radius:14px;
+    font-weight:600;
+    font-size:.98rem;
+    letter-spacing:.005em;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);
+    will-change:transform;
+    line-height:1.1;
+    text-align:center;
+  }
+  .btn svg{width:1.05em;height:1.05em;flex:none;}
+  .btn-primary{
+    color:#fff;
+    background:linear-gradient(135deg,var(--leaf-bright),var(--leaf) 78%);
+    box-shadow:0 10px 24px -10px rgba(27,122,74,.7), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 34px -12px rgba(27,122,74,.7), inset 0 1px 0 rgba(255,255,255,.4);}
+  .btn-primary:active{transform:translateY(-1px);}
+  .btn-primary.is-soon{
+    background:linear-gradient(135deg,#cfeede,#bfe6cf);
+    color:var(--canopy);
+    box-shadow:inset 0 0 0 1px rgba(27,122,74,.35);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    background:rgba(255,255,255,.55);
+    box-shadow:inset 0 0 0 1.5px rgba(27,122,74,.32);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .btn-ghost:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.8);
+    box-shadow:inset 0 0 0 1.5px rgba(27,122,74,.55), 0 16px 30px -16px rgba(27,122,74,.55);
+    color:var(--canopy);
+  }
+  .btn-ghost:active{transform:translateY(-1px);}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;
+    padding:.7rem var(--pad);
+    transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+  }
+  .nav.scrolled{
+    background:rgba(244,248,245,.78);
+    -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
+    box-shadow:0 1px 0 var(--line), 0 12px 30px -24px rgba(22,48,42,.5);
+  }
+  .brand{display:inline-flex;align-items:center;gap:.7rem;}
+  .brand-mark{width:38px;height:38px;flex:none;}
+  .brand-name{
+    font-family:var(--serif);font-weight:420;font-size:1.06rem;letter-spacing:-.01em;line-height:1;
+  }
+  .brand-name small{
+    display:block;font-family:var(--mono);font-weight:400;font-size:.56rem;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--leaf);margin-top:.4em;
+  }
+  .nav-links{display:none;align-items:center;gap:1.7rem;}
+  .nav-links a{
+    font-size:.9rem;font-weight:500;color:var(--ink-soft);position:relative;padding:.3em 0;
+    transition:color .3s var(--ease);
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--leaf);
+    transition:width .35s var(--ease);
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:.5em;
+    padding:.62em 1.05em;border-radius:11px;font-weight:600;font-size:.88rem;
+    color:#fff;background:linear-gradient(135deg,var(--leaf-bright),var(--leaf));
+    box-shadow:0 8px 18px -10px rgba(27,122,74,.8);
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .nav-cta svg{width:.95em;height:.95em;}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 14px 24px -12px rgba(27,122,74,.85);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;min-height:100svh;
+    display:flex;align-items:flex-end;
+    padding:7rem 0 clamp(3rem,7vw,6rem);
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero-sky{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,
+        rgba(174,214,238,.55) 0%,
+        rgba(214,238,224,.4) 34%,
+        rgba(244,248,245,1) 72%);
+  }
+  /* soft drifting light blobs that the glass frosts over */
+  .blob{position:absolute;border-radius:50%;filter:blur(46px);z-index:1;opacity:.7;}
+  .blob.b1{width:46vw;height:46vw;max-width:560px;max-height:560px;top:-8%;right:-6%;
+    background:radial-gradient(circle at 40% 40%, rgba(140,210,245,.85), rgba(140,210,245,0) 70%);
+    animation:drift1 22s var(--ease) infinite alternate;}
+  .blob.b2{width:40vw;height:40vw;max-width:480px;max-height:480px;top:18%;left:-12%;
+    background:radial-gradient(circle at 50% 50%, rgba(120,205,150,.8), rgba(120,205,150,0) 70%);
+    animation:drift2 26s var(--ease) infinite alternate;}
+  .blob.b3{width:30vw;height:30vw;max-width:360px;max-height:360px;bottom:4%;right:18%;
+    background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%);
+    animation:drift1 30s var(--ease) infinite alternate-reverse;}
+
+  @keyframes drift1{from{transform:translate3d(0,0,0)}to{transform:translate3d(-3%,4%,0)}}
+  @keyframes drift2{from{transform:translate3d(0,0,0)}to{transform:translate3d(4%,-3%,0)}}
+
+  /* layered glass terrace planes */
+  .terrace{position:absolute;inset:0;z-index:2;pointer-events:none;}
+  .plane{
+    position:absolute;left:-12%;width:124%;
+    border-radius:40px;
+    background:linear-gradient(168deg, rgba(255,255,255,.66), rgba(214,238,224,.2) 70%, rgba(174,214,238,.16));
+    border-top:1px solid rgba(255,255,255,.9);
+    border-bottom:1px solid rgba(27,122,74,.14);
+    box-shadow:0 34px 64px -42px rgba(14,71,48,.55);
+    -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+    will-change:transform;
+  }
+  .plane.p1{top:9%;height:120px;transform:skewY(-2.4deg);opacity:.5;}
+  .plane.p2{top:30%;height:150px;transform:skewY(-2.4deg);opacity:.72;}
+  .plane.p3{top:52%;height:185px;transform:skewY(-2.4deg);opacity:.86;}
+  .plane.p4{top:73%;height:240px;transform:skewY(-2.4deg);opacity:.96;}
+
+  .leaf-grp{position:absolute;will-change:transform;}
+  .fol{position:absolute;bottom:0;transform-origin:bottom center;overflow:visible;}
+
+  /* hero content */
+  .hero-inner{position:relative;z-index:6;width:100%;}
+  .hero-eyebrow{margin-bottom:1.4rem;}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:330;
+    font-size:clamp(2.7rem,8.2vw,6.1rem);
+    line-height:.99;
+    letter-spacing:-.022em;
+    margin-bottom:1.5rem;
+    max-width:16ch;
+  }
+  .hero h1 .l2{display:block;}
+  .hero .lede{margin-bottom:2.2rem;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.85rem;align-items:center;}
+  .scroll-cue{
+    display:inline-flex;align-items:center;gap:.7em;margin-top:2.6rem;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .scroll-cue .track{position:relative;width:1px;height:34px;background:rgba(22,48,42,.25);overflow:hidden;}
+  .scroll-cue .track::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--leaf);animation:slide 2.2s var(--ease) infinite;}
+  @keyframes slide{0%{top:-40%}60%,100%{top:100%}}
+
+  /* hero load sequence */
+  .lift{opacity:0;transform:translateY(26px);}
+  .seq .lift{animation:lift .9s var(--ease) forwards;}
+  .seq .lift.d1{animation-delay:.05s}
+  .seq .lift.d2{animation-delay:.18s}
+  .seq .lift.d3{animation-delay:.32s}
+  .seq .lift.d4{animation-delay:.46s}
+  .seq .lift.d5{animation-delay:.62s}
+  @keyframes lift{to{opacity:1;transform:none}}
+
+  .seq .plane,.seq .leaf-grp{animation:fadein 1.3s var(--ease) both;}
+  .seq .plane.p1{animation-delay:.15s}.seq .leaf-grp.f1{animation-delay:.35s}
+  .seq .plane.p2{animation-delay:.28s}.seq .leaf-grp.f2{animation-delay:.5s}
+  .seq .plane.p3{animation-delay:.4s}.seq .leaf-grp.f3{animation-delay:.62s}
+  .seq .plane.p4{animation-delay:.52s}.seq .leaf-grp.f4{animation-delay:.74s}
+  @keyframes fadein{from{opacity:0}}
+
+  /* gentle sway on foliage groups */
+  .sway{animation:sway 9s ease-in-out infinite;transform-origin:bottom center;}
+  .sway.s2{animation-duration:11s;animation-delay:-2s;}
+  .sway.s3{animation-duration:13s;animation-delay:-4s;}
+  @keyframes sway{0%,100%{transform:rotate(-1.1deg)}50%{transform:rotate(1.1deg)}}
+
+  /* ---------- proof band ---------- */
+  .proof{position:relative;z-index:7;margin-top:-1px;}
+  .proof-inner{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border-block:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 24px 50px -40px rgba(14,71,48,.5);
+  }
+  .proof-cell{
+    background:rgba(255,255,255,.62);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    padding:1.4rem 1.5rem;
+    display:flex;flex-direction:column;gap:.2rem;
+  }
+  .proof-num{font-family:var(--serif);font-weight:380;font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1;letter-spacing:-.02em;}
+  .proof-num .star{color:var(--leaf-bright);}
+  .proof-cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+
+  /* ---------- section scaffolding ---------- */
+  section{position:relative;}
+  .band{padding-block:var(--sec);}
+  .sec-head{max-width:24ch;margin-bottom:clamp(2.4rem,5vw,3.8rem);}
+  .sec-head h2{
+    font-family:var(--serif);font-weight:330;
+    font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.04;letter-spacing:-.02em;
+    margin-top:1rem;
+  }
+
+  /* ---------- services as terrace tiers ---------- */
+  .tiers{border-top:1px solid var(--line);}
+  .tier{
+    position:relative;display:grid;align-items:center;gap:.4rem 1.5rem;
+    grid-template-columns:auto 1fr;
+    padding:clamp(1.4rem,3vw,2.1rem) clamp(.4rem,2vw,1.4rem);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    transition:padding-left .45s var(--ease);
+  }
+  .tier::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:linear-gradient(90deg, rgba(79,180,119,.16), rgba(110,183,232,.1) 60%, transparent);
+    transform:translateX(-100%);
+    transition:transform .55s var(--ease);
+  }
+  .tier > *{position:relative;z-index:1;}
+  .tier-no{font-family:var(--mono);font-size:.8rem;color:var(--leaf);letter-spacing:.1em;align-self:start;padding-top:.55rem;}
+  .tier-main{display:flex;flex-direction:column;gap:.25rem;}
+  .tier-name{
+    font-family:var(--serif);font-weight:360;font-size:clamp(1.55rem,3.1vw,2.25rem);line-height:1.05;letter-spacing:-.015em;
+    transition:color .35s var(--ease), transform .45s var(--ease);
+  }
+  .tier-desc{color:var(--ink-soft);font-size:1rem;max-width:46ch;}
+  .tier-glyph{
+    grid-column:1 / -1;justify-self:end;margin-top:-2.2rem;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;
+    color:var(--leaf);
+    box-shadow:inset 0 0 0 1.5px rgba(27,122,74,.28);
+    transition:transform .5s var(--ease), background .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .tier-glyph svg{width:20px;height:20px;}
+  .tier:hover::before,.tier:focus-within::before{transform:translateX(0);}
+  .tier:hover{padding-left:clamp(1rem,3vw,2.2rem);}
+  .tier:hover .tier-name{color:var(--canopy);transform:translateX(4px);}
+  .tier:hover .tier-glyph{transform:rotate(-30deg) scale(1.06);background:var(--leaf);color:#fff;box-shadow:0 12px 22px -12px rgba(27,122,74,.9);}
+
+  /* ---------- why-us ---------- */
+  .why{display:grid;gap:clamp(2.4rem,5vw,4rem);align-items:center;}
+  .why-figure{
+    position:relative;border-radius:24px;overflow:hidden;min-height:360px;
+    background:
+      radial-gradient(120% 90% at 75% 15%, rgba(140,210,245,.4), transparent 60%),
+      linear-gradient(160deg, rgba(255,255,255,.75), rgba(234,243,236,.5));
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 40px 80px -50px rgba(14,71,48,.55), inset 0 1px 0 rgba(255,255,255,.8);
+  }
+  .why-figure .pane{
+    position:absolute;left:8%;width:84%;height:64px;border-radius:18px;
+    background:linear-gradient(170deg, rgba(255,255,255,.7), rgba(255,255,255,.2));
+    border-top:1px solid rgba(255,255,255,.9);
+    box-shadow:0 18px 30px -28px rgba(14,71,48,.6);
+  }
+  .why-figure .pane.q1{top:16%;}
+  .why-figure .pane.q2{top:44%;height:80px;}
+  .why-figure .pane.q3{top:74%;height:96px;}
+  .reasons{display:flex;flex-direction:column;}
+  .reason{padding:1.35rem 0;border-bottom:1px solid var(--line);display:flex;gap:1rem;}
+  .reason:first-of-type{border-top:1px solid var(--line);}
+  .reason-ic{flex:none;width:30px;height:30px;color:var(--leaf);margin-top:.15rem;}
+  .reason h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;letter-spacing:-.01em;margin-bottom:.2rem;}
+  .reason p{color:var(--ink-soft);font-size:.98rem;}
+
+  /* ---------- visit ---------- */
+  .visit-panel{
+    display:grid;gap:clamp(2rem,4vw,3rem);
+    padding:clamp(1.8rem,4vw,3rem);
+    border-radius:24px;
+    background:linear-gradient(160deg, rgba(255,255,255,.72), rgba(234,243,236,.5));
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 40px 80px -55px rgba(14,71,48,.55), inset 0 1px 0 rgba(255,255,255,.8);
+  }
+  .visit-block h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf);margin-bottom:1rem;}
+  .visit-block p{font-family:var(--serif);font-weight:360;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.3;letter-spacing:-.01em;}
+  .visit-block .muted{font-family:var(--sans);font-weight:400;font-size:.95rem;color:var(--ink-soft);margin-top:.7rem;line-height:1.6;}
+  .visit-contact{display:flex;flex-wrap:wrap;gap:.7rem 1.4rem;margin-top:1.3rem;}
+  .visit-contact a{display:inline-flex;align-items:center;gap:.5em;font-weight:600;color:var(--canopy);border-bottom:1.5px solid transparent;transition:border-color .3s var(--ease);padding-bottom:2px;}
+  .visit-contact a svg{width:1.05em;height:1.05em;color:var(--leaf);}
+  .visit-contact a:hover{border-color:var(--leaf);}
+
+  /* ---------- closing CTA ---------- */
+  .closing{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(5rem,12vw,9rem);}
+  .closing .terrace{z-index:0;}
+  .closing-sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(200deg, rgba(214,238,224,.6), rgba(174,214,238,.4) 80%);}
+  .closing-inner{position:relative;z-index:6;text-align:center;max-width:40ch;margin-inline:auto;}
+  .closing h2{font-family:var(--serif);font-weight:330;font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.02;letter-spacing:-.02em;margin:1.1rem 0 1.3rem;}
+  .closing .lede{margin:0 auto 2.2rem;}
+  .closing .eyebrow{justify-content:center;}
+  .closing .cta-row{justify-content:center;}
+  .soon-note{min-height:1.2em;margin-top:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf);}
+
+  /* ---------- footer ---------- */
+  .foot{background:var(--canopy);color:rgba(255,255,255,.82);padding-block:clamp(3rem,6vw,4.5rem);}
+  .foot-top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;}
+  .foot-brand .brand-name{color:#fff;}
+  .foot-brand .brand-name small{color:var(--leaf-bright);}
+  .foot-brand p{color:rgba(255,255,255,.6);font-size:.92rem;margin-top:.8rem;max-width:30ch;}
+  .foot-contact{display:flex;flex-direction:column;gap:.6rem;font-size:.95rem;}
+  .foot-contact a{display:inline-flex;align-items:center;gap:.55em;color:rgba(255,255,255,.85);border-bottom:1px solid transparent;transition:color .3s,border-color .3s;width:fit-content;padding-bottom:2px;}
+  .foot-contact a svg{width:1em;height:1em;color:var(--leaf-bright);}
+  .foot-contact a:hover{color:#fff;border-color:var(--leaf-bright);}
+  .foot-bottom{
+    margin-top:clamp(2rem,4vw,3rem);padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.14);
+    display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;justify-content:space-between;align-items:center;
+    font-size:.8rem;color:rgba(255,255,255,.5);
+  }
+  .credit{color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.25);transition:color .3s,border-color .3s;padding-bottom:1px;}
+  .credit:hover{color:#fff;border-color:var(--leaf-bright);}
+
+  /* ---------- reveals ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- responsive ---------- */
+  @media (min-width:560px){
+    .proof-inner{grid-template-columns:repeat(4,1fr);}
+  }
+  @media (min-width:760px){
+    .nav-links{display:flex;}
+    .why{grid-template-columns:0.95fr 1.05fr;}
+    .visit-panel{grid-template-columns:1fr 1fr;}
+    .tier{grid-template-columns:auto 1fr auto;gap:.4rem 2.2rem;}
+    .tier-glyph{grid-column:auto;margin-top:0;}
+    .tier-desc{font-size:1.05rem;}
+  }
+  @media (min-width:1000px){
+    .hero h1{font-size:clamp(4rem,7vw,6.1rem);}
+  }
+
+  /* ---------- small screens: keep text clear, foliage to the base ---------- */
+  @media (max-width:759px){
+    .hero{padding-bottom:0;}
+    .hero-inner{padding-bottom:210px;}
+    .scroll-cue{display:none;}
+    .h-vine,.h-r1,.h-r2,.h-r3{display:none;}
+    .h-r4{transform:scale(.58);transform-origin:bottom right;}
+    .h-bl{transform:scale(.85);transform-origin:bottom left;}
+    .closing{padding-bottom:180px;}
+    .c-bl{transform:scale(.58);transform-origin:bottom left;}
+    .c-br{transform:scale(.62);transform-origin:bottom right;}
+    .why-figure{min-height:280px;}
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{
+      animation-duration:.001ms !important;animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;scroll-behavior:auto !important;
+    }
+    .lift{opacity:1 !important;transform:none !important;}
+    .reveal{opacity:1 !important;transform:none !important;}
+    .scroll-cue .track::after{display:none;}
+    .blob{animation:none;}
+  }
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#6fb7e8;--bk-accent-ink:#ffffff;--bk-ink:#16302a;--bk-panel:#f7f5f0;--bk-muted:rgba(22,48,42,0.6);--bk-line:rgba(22,48,42,0.14);--bk-serif:"Fraunces", Georgia, "Times New Roman", serif;--bk-sans:"Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- reusable foliage symbols -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <symbol id="g-leaf" viewBox="-12 -64 24 66">
+      <path d="M0 0 C9 -16 9 -46 0 -62 C-9 -46 -9 -16 0 0 Z" fill="currentColor"/>
+      <path d="M0 -4 L0 -56" stroke="rgba(255,255,255,.45)" stroke-width="1.2" fill="none"/>
+    </symbol>
+    <symbol id="g-tropic" viewBox="-40 -78 80 80">
+      <path d="M0 0 C-5 -10 -27 -13 -30 -30 C-39 -34 -34 -52 -23 -53 C-26 -66 -9 -67 -5 -72 C-1 -77 1 -77 5 -72 C9 -67 26 -66 23 -53 C34 -52 39 -34 30 -30 C27 -13 5 -10 0 0 Z" fill="currentColor"/>
+      <path d="M0 -3 L0 -68 M0 -28 L-20 -42 M0 -28 L20 -42 M0 -46 L-13 -56 M0 -46 L13 -56" stroke="rgba(255,255,255,.4)" stroke-width="1.1" fill="none"/>
+    </symbol>
+    <symbol id="g-frond" viewBox="-26 -92 52 94">
+      <path d="M0 0 L0 -86" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <g fill="currentColor">
+        <ellipse cx="-9" cy="-14" rx="9" ry="4" transform="rotate(28 -9 -14)"/>
+        <ellipse cx="9" cy="-20" rx="9" ry="4" transform="rotate(-28 9 -20)"/>
+        <ellipse cx="-9" cy="-30" rx="8.5" ry="4" transform="rotate(30 -9 -30)"/>
+        <ellipse cx="9" cy="-36" rx="8.5" ry="4" transform="rotate(-30 9 -36)"/>
+        <ellipse cx="-8" cy="-46" rx="7.5" ry="3.6" transform="rotate(32 -8 -46)"/>
+        <ellipse cx="8" cy="-52" rx="7.5" ry="3.6" transform="rotate(-32 8 -52)"/>
+        <ellipse cx="-6.5" cy="-62" rx="6.5" ry="3.2" transform="rotate(34 -6.5 -62)"/>
+        <ellipse cx="6.5" cy="-67" rx="6.5" ry="3.2" transform="rotate(-34 6.5 -67)"/>
+        <ellipse cx="0" cy="-80" rx="5" ry="3" />
+      </g>
+    </symbol>
+    <symbol id="g-grass" viewBox="-22 -72 44 74">
+      <g stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M0 0 Q-9 -36 -17 -60"/>
+        <path d="M0 0 Q-3 -38 -7 -66"/>
+        <path d="M0 0 Q2 -40 2 -70"/>
+        <path d="M0 0 Q6 -38 12 -62"/>
+        <path d="M0 0 Q11 -34 19 -56"/>
+      </g>
+    </symbol>
+    <symbol id="g-vine" viewBox="-10 0 44 130">
+      <path d="M6 0 C1 22 14 40 7 64 C1 86 16 104 9 128" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <g fill="currentColor">
+        <ellipse cx="-2" cy="30" rx="7" ry="3.4" transform="rotate(-24 -2 30)"/>
+        <ellipse cx="17" cy="52" rx="7" ry="3.4" transform="rotate(24 17 52)"/>
+        <ellipse cx="0" cy="78" rx="6.5" ry="3.2" transform="rotate(-22 0 78)"/>
+        <ellipse cx="16" cy="100" rx="6.5" ry="3.2" transform="rotate(22 16 100)"/>
+        <ellipse cx="4" cy="122" rx="6" ry="3" transform="rotate(-18 4 122)"/>
+      </g>
+    </symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Shinagawa Season Terrace Dental — home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+      <rect x="3" y="3" width="34" height="34" rx="9" fill="none" stroke="rgba(27,122,74,.35)" stroke-width="1.4"/>
+      <rect x="8.5" y="11" width="23" height="3.4" rx="1.7" fill="rgba(110,183,232,.55)"/>
+      <rect x="8.5" y="18.5" width="23" height="3.4" rx="1.7" fill="rgba(79,180,119,.5)"/>
+      <rect x="8.5" y="26" width="23" height="3.4" rx="1.7" fill="rgba(27,122,74,.55)"/>
+      <path d="M20 30 C16 24 16 16 20 9 C24 16 24 24 20 30 Z" fill="#1B7A4A"/>
+      <path d="M20 12 L20 27" stroke="rgba(255,255,255,.6)" stroke-width="1"/>
+    </svg>
+    <span class="brand-name">Season Terrace<small>Dental · Shinagawa</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#care">Care</a>
+    <a href="#why">Why us</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <a class="nav-cta" href="tel:+81357834111">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z" fill="currentColor"/></svg>
+    Call
+  </a>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- hero -->
+  <section class="hero" id="hero" aria-labelledby="hero-h">
+    <div class="hero-sky" aria-hidden="true"></div>
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+    <div class="blob b3" aria-hidden="true"></div>
+
+    <div class="terrace" aria-hidden="true">
+      <div class="plane p1" data-depth="6"></div>
+      <div class="plane p2" data-depth="14"></div>
+      <div class="plane p3" data-depth="26"></div>
+      <div class="plane p4" data-depth="40"></div>
+
+      <!-- delicate hanging vine, upper-left, away from the text -->
+      <div class="leaf-grp h-vine" data-depth="10" style="left:1.5%;top:20%;width:54px;height:140px">
+        <div class="sway s3" style="position:absolute;inset:0;transform-origin:top center">
+          <svg class="fol" viewBox="-10 0 44 130" width="46" height="135" style="top:0;bottom:auto;color:#9bd3ad;transform-origin:top center"><use href="#g-vine" x="-10" y="0" width="44" height="130"/></svg>
+        </div>
+      </div>
+
+      <!-- R1 · far, pale -->
+      <div class="leaf-grp h-r1" data-depth="9" style="right:3%;bottom:69%;width:160px;height:110px">
+        <div class="sway s2" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-40 -78 80 80" width="86" height="86" style="left:6px;color:#c9e8d4;transform:rotate(-6deg)"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-12 -64 24 66" width="26" height="72" style="left:80px;color:#c9e8d4;transform:rotate(20deg)"><use href="#g-leaf" x="-12" y="-64" width="24" height="66"/></svg>
+        </div>
+      </div>
+
+      <!-- R2 · mid -->
+      <div class="leaf-grp h-r2" data-depth="16" style="right:5%;bottom:45%;width:240px;height:185px">
+        <div class="sway s3" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-26 -92 52 94" width="78" height="141" style="left:144px;color:#86cc9f;transform:rotate(12deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="118" height="118" style="left:26px;color:#86cc9f"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-22 -72 44 74" width="62" height="104" style="left:0;color:#9ad4af"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+        </div>
+      </div>
+
+      <!-- R3 · near -->
+      <div class="leaf-grp h-r3" data-depth="28" style="right:1%;bottom:18%;width:300px;height:240px">
+        <div class="sway s2" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-26 -92 52 94" width="92" height="166" style="left:34px;color:#2e9e5b;transform:rotate(-10deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="150" height="150" style="left:84px;color:#2e9e5b"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-22 -72 44 74" width="84" height="141" style="left:44px;color:#39a869"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+          <svg class="fol" viewBox="-12 -64 24 66" width="50" height="138" style="left:212px;color:#2e9e5b;transform:rotate(26deg)"><use href="#g-leaf" x="-12" y="-64" width="24" height="66"/></svg>
+        </div>
+      </div>
+
+      <!-- R4 · nearest, deep green -->
+      <div class="leaf-grp h-r4" data-depth="42" style="right:-2%;bottom:0;width:380px;height:300px">
+        <div class="sway" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-26 -92 52 94" width="116" height="210" style="left:10px;color:#1b7a4a;transform:rotate(-13deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="188" height="188" style="left:72px;color:#1b7a4a"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="128" height="128" style="left:236px;color:#15633c"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-22 -72 44 74" width="118" height="198" style="left:120px;color:#1f8a52"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+          <svg class="fol" viewBox="-12 -64 24 66" width="56" height="154" style="left:326px;color:#15633c;transform:rotate(24deg)"><use href="#g-leaf" x="-12" y="-64" width="24" height="66"/></svg>
+        </div>
+      </div>
+
+      <!-- bottom-left corner grass, tucked left of the scroll cue -->
+      <div class="leaf-grp h-bl" data-depth="36" style="left:-1%;bottom:0;width:120px;height:130px">
+        <div class="sway s3" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-22 -72 44 74" width="82" height="138" style="left:0;color:#1f8a52"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="88" height="88" style="left:36px;color:#15633c"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap hero-inner seq">
+      <p class="eyebrow hero-eyebrow lift d1">Konan · Shinagawa · Tokyo</p>
+      <h1 id="hero-h">
+        <span class="lift d2">English-speaking dentistry</span>
+        <span class="l2 lift d3"><span class="em">in the glass terrace.</span></span>
+      </h1>
+      <p class="lede lift d4">Gentle, unhurried care in Konan, Shinagawa — every step explained in clear English, a short walk from Shinagawa Station.</p>
+      <div class="cta-row lift d5">
+        <button type="button" class="btn btn-primary" id="book-hero" aria-label="Book online — opening soon">
+          Book Online
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn-ghost" href="tel:+81357834111">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z" fill="currentColor"/></svg>
+          Call +81 3-5783-4111
+        </a>
+      </div>
+      <div class="scroll-cue lift d5" aria-hidden="true"><span class="track"></span>Scroll to explore</div>
+    </div>
+  </section>
+
+  <!-- proof band -->
+  <section class="proof" aria-label="At a glance">
+    <div class="wrap">
+      <div class="proof-inner reveal">
+        <div class="proof-cell"><span class="proof-num"><span class="star">★</span> 4.7</span><span class="proof-cap">Google rating</span></div>
+        <div class="proof-cell"><span class="proof-num">195</span><span class="proof-cap">Patient reviews</span></div>
+        <div class="proof-cell"><span class="proof-num">English</span><span class="proof-cap">Spoken at the clinic</span></div>
+        <div class="proof-cell"><span class="proof-num">Sat 9:30</span><span class="proof-cap">Weekend visits</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- services / care -->
+  <section class="band" id="care" aria-labelledby="care-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Our care</p>
+        <h2 id="care-h">Five kinds of care,<br>one calm clinic.</h2>
+      </div>
+      <ul class="tiers">
+        <li class="tier reveal">
+          <span class="tier-no">01</span>
+          <span class="tier-main">
+            <span class="tier-name">Implants</span>
+            <span class="tier-desc">Replacing missing teeth with natural-looking, long-lasting results.</span>
+          </span>
+          <span class="tier-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></span>
+        </li>
+        <li class="tier reveal">
+          <span class="tier-no">02</span>
+          <span class="tier-main">
+            <span class="tier-name">Orthodontics</span>
+            <span class="tier-desc">Gentle alignment for a confident, comfortable bite.</span>
+          </span>
+          <span class="tier-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></span>
+        </li>
+        <li class="tier reveal">
+          <span class="tier-no">03</span>
+          <span class="tier-main">
+            <span class="tier-name">Whitening</span>
+            <span class="tier-desc">Brighter teeth with safe, professional whitening.</span>
+          </span>
+          <span class="tier-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></span>
+        </li>
+        <li class="tier reveal">
+          <span class="tier-no">04</span>
+          <span class="tier-main">
+            <span class="tier-name">Cosmetic</span>
+            <span class="tier-desc">Subtle, natural improvements that still look like you.</span>
+          </span>
+          <span class="tier-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></span>
+        </li>
+        <li class="tier reveal">
+          <span class="tier-no">05</span>
+          <span class="tier-main">
+            <span class="tier-name">Paediatric</span>
+            <span class="tier-desc">Calm, friendly first visits for younger patients.</span>
+          </span>
+          <span class="tier-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- why us -->
+  <section class="band" id="why" aria-labelledby="why-h">
+    <div class="wrap why">
+      <div class="why-figure reveal" aria-hidden="true">
+        <div class="pane q1"></div>
+        <div class="pane q2"></div>
+        <div class="pane q3"></div>
+        <div class="leaf-grp" data-depth="14" style="right:5%;bottom:0;width:180px;height:160px">
+          <div class="sway" style="position:absolute;inset:0;transform-origin:bottom center">
+            <svg class="fol" viewBox="-40 -78 80 80" width="104" height="104" style="left:64px;color:#1b7a4a"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+            <svg class="fol" viewBox="-26 -92 52 94" width="80" height="145" style="left:6px;color:#1b7a4a;transform:rotate(-12deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+            <svg class="fol" viewBox="-22 -72 44 74" width="60" height="101" style="left:130px;color:#1f8a52"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+          </div>
+        </div>
+        <div class="leaf-grp" data-depth="10" style="left:7%;top:8%;width:54px;height:120px">
+          <div class="sway s3" style="position:absolute;inset:0;transform-origin:top center">
+            <svg class="fol" viewBox="-10 0 44 130" width="46" height="135" style="top:0;bottom:auto;color:#9bd3ad;transform-origin:top center"><use href="#g-vine" x="-10" y="0" width="44" height="130"/></svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:1.8rem">
+          <p class="eyebrow">Why expats choose us</p>
+          <h2 id="why-h">Dentistry without the language barrier.</h2>
+        </div>
+        <div class="reasons">
+          <div class="reason reveal">
+            <svg class="reason-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm-7 9h14M12 3c2.5 2.4 3.8 5.6 3.8 9S14.5 18.6 12 21M12 3C9.5 5.4 8.2 8.6 8.2 12S9.5 18.6 12 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <div><h3>In plain English</h3><p>Your diagnosis, your options and the costs — explained clearly, with time for questions.</p></div>
+          </div>
+          <div class="reason reveal">
+            <svg class="reason-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3m10-3v3M4 9h16M5 6h14a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><h3>Open on weekends</h3><p>Saturdays from 9:30, with weekend appointments to fit around busy schedules.</p></div>
+          </div>
+          <div class="reason reveal">
+            <svg class="reason-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <div><h3>By the terrace park</h3><p>Inside the Shinagawa Season Terrace in Konan — a few minutes' walk from Shinagawa Station.</p></div>
+          </div>
+          <div class="reason reveal">
+            <svg class="reason-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><h3>Trusted by patients</h3><p>Rated 4.7 across 195 Google reviews from people in the neighbourhood.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- visit -->
+  <section class="band" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Visit us</p>
+        <h2 id="visit-h">Come visit the terrace.</h2>
+      </div>
+      <div class="visit-panel reveal">
+        <div class="visit-block">
+          <h3>Hours</h3>
+          <p>Open weekdays and weekends.<br>Saturdays from 9:30.</p>
+          <p class="muted">Hours can vary by day, so please call ahead to confirm a time that suits you.</p>
+        </div>
+        <div class="visit-block">
+          <h3>Find us</h3>
+          <p>Shinagawa Season Terrace,<br>Konan, Shinagawa, Tokyo.</p>
+          <p class="muted">A short walk from Shinagawa Station, wrapped by the green terrace park.</p>
+          <div class="visit-contact">
+            <a href="tel:+81357834111">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z" fill="currentColor"/></svg>
+              +81 3-5783-4111
+            </a>
+            <a href="https://st-shika.com" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.5 4 5.6 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.6-4-9s1.4-6.5 4-9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              st-shika.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- closing CTA -->
+  <section class="closing" aria-labelledby="closing-h">
+    <div class="closing-sky" aria-hidden="true"></div>
+    <div class="terrace" aria-hidden="true">
+      <div class="plane p2" data-depth="14" style="opacity:.55"></div>
+      <div class="plane p4" data-depth="38"></div>
+      <div class="leaf-grp c-bl" data-depth="40" style="left:-2%;bottom:0;width:300px;height:230px">
+        <div class="sway s2" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-26 -92 52 94" width="100" height="181" style="left:8px;color:#1b7a4a;transform:rotate(-12deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+          <svg class="fol" viewBox="-40 -78 80 80" width="150" height="150" style="left:62px;color:#1b7a4a"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-22 -72 44 74" width="94" height="158" style="left:154px;color:#1f8a52"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+        </div>
+      </div>
+      <div class="leaf-grp c-br" data-depth="46" style="right:-2%;bottom:0;width:320px;height:240px">
+        <div class="sway s3" style="position:absolute;inset:0;transform-origin:bottom center">
+          <svg class="fol" viewBox="-40 -78 80 80" width="158" height="158" style="left:124px;color:#15633c"><use href="#g-tropic" x="-40" y="-78" width="80" height="80"/></svg>
+          <svg class="fol" viewBox="-26 -92 52 94" width="100" height="181" style="left:34px;color:#1b7a4a;transform:rotate(-12deg)"><use href="#g-frond" x="-26" y="-92" width="52" height="94"/></svg>
+          <svg class="fol" viewBox="-22 -72 44 74" width="88" height="148" style="left:0;color:#1f8a52"><use href="#g-grass" x="-22" y="-72" width="44" height="74"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="wrap closing-inner">
+      <p class="eyebrow reveal">Book a visit</p>
+      <h2 id="closing-h" class="reveal">Ready when you are.</h2>
+      <p class="lede reveal">Book online, or call the clinic directly — we'll greet you in English.</p>
+      <div class="cta-row reveal">
+        <button type="button" class="btn btn-primary" id="book-foot" aria-label="Book online — opening soon">
+          Book Online
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn-ghost" href="tel:+81357834111">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z" fill="currentColor"/></svg>
+          Call +81 3-5783-4111
+        </a>
+        <a class="btn btn-ghost" href="https://st-shika.com" target="_blank" rel="noopener">Visit st-shika.com</a>
+      </div>
+      <p class="soon-note" id="soon-note" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-name" style="font-family:var(--serif);font-size:1.25rem;">Shinagawa Season Terrace Dental<small style="display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;margin-top:.6em;">Konan · Shinagawa · Tokyo</small></span>
+        <p>English-speaking dental care in the glass terrace by the bay.</p>
+      </div>
+      <div class="foot-contact">
+        <a href="tel:+81357834111">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z" fill="currentColor"/></svg>
+          +81 3-5783-4111
+        </a>
+        <a href="https://st-shika.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.5 4 5.6 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.6-4-9s1.4-6.5 4-9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          st-shika.com
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Shinagawa Season Terrace Dental. English landing page — demo.</span>
+      <span>Designed by <a class="credit" href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* year */
+  var yr = document.getElementById("yr");
+  if(yr) yr.textContent = new Date().getFullYear();
+
+  /* nav background on scroll */
+  var nav = document.getElementById("nav");
+  function onNav(){ if(nav) nav.classList.toggle("scrolled", window.scrollY > 24); }
+  onNav();
+  window.addEventListener("scroll", onNav, {passive:true});
+
+  /* hero load sequence */
+  window.addEventListener("load", function(){
+    var hi = document.querySelector(".hero-inner");
+    if(hi) hi.classList.add("seq");
+  });
+  // ensure sequence runs even if load already fired
+  requestAnimationFrame(function(){
+    var hi = document.querySelector(".hero-inner");
+    if(hi) hi.classList.add("seq");
+  });
+
+  /* scroll reveals */
+  var reveal = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var sibs = e.target.parentNode ? e.target.parentNode.querySelectorAll(":scope > .reveal") : [];
+          var idx = Array.prototype.indexOf.call(sibs, e.target);
+          e.target.style.transitionDelay = (idx>0 ? Math.min(idx,6)*80 : 0) + "ms";
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.16, rootMargin:"0px 0px -8% 0px"});
+    reveal.forEach(function(el){ io.observe(el); });
+  } else {
+    reveal.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* parallax — scroll + pointer, transform/opacity only */
+  var layers = Array.prototype.slice.call(document.querySelectorAll("[data-depth]"));
+  var pointer = {x:0,y:0};
+  var fine = window.matchMedia && window.matchMedia("(pointer:fine)").matches;
+
+  function applyParallax(){
+    var vh = window.innerHeight || 1;
+    layers.forEach(function(el){
+      var depth = parseFloat(el.getAttribute("data-depth")) || 0;
+      var rect = el.parentNode.getBoundingClientRect();
+      // progress of the layer's section through the viewport
+      var prog = (rect.top + rect.height/2 - vh/2) / vh; // ~ -1..1
+      var ty = -prog * depth;                 // scroll parallax
+      var px = pointer.x * (depth*0.18);       // pointer parallax x
+      var py = pointer.y * (depth*0.12);       // pointer parallax y
+      el.style.transform = "translate3d(" + px.toFixed(2) + "px," + (ty+py).toFixed(2) + "px,0)";
+    });
+    ticking = false;
+  }
+  var ticking = false;
+  function requestParallax(){ if(!ticking){ ticking = true; requestAnimationFrame(applyParallax); } }
+
+  if(!reduce && fine && layers.length){
+    applyParallax();
+    window.addEventListener("scroll", requestParallax, {passive:true});
+    window.addEventListener("resize", requestParallax, {passive:true});
+    window.addEventListener("pointermove", function(ev){
+      pointer.x = (ev.clientX / window.innerWidth - 0.5) * 2;
+      pointer.y = (ev.clientY / window.innerHeight - 0.5) * 2;
+      requestParallax();
+    }, {passive:true});
+  }
+
+  /* Book Online — demo only (non-functional, gentle "coming soon") */
+  var soonTimer = null;
+  function bookDemo(btn){
+    var note = document.getElementById("soon-note");
+    btn.classList.add("is-soon");
+    var label = btn.childNodes[0];
+    if(label && label.nodeType === 3){ label.textContent = "Coming soon "; }
+    if(note){ note.textContent = "Online booking is launching shortly — for now, please call the clinic."; }
+    if(soonTimer) clearTimeout(soonTimer);
+    soonTimer = setTimeout(function(){
+      btn.classList.remove("is-soon");
+      if(label && label.nodeType === 3){ label.textContent = "Book Online "; }
+      if(note){ note.textContent = ""; }
+    }, 3200);
+  }
+  ["book-hero","book-foot"].forEach(function(id){
+    var b = document.getElementById(id);
+    if(b) b.addEventListener("click", function(e){ e.preventDefault(); bookDemo(b); });
+  });
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81357834111", CHAN="", CHANLABEL="";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

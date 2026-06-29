@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kannai Bashamichi Dental Office — English-speaking care, Yokohama</title>
+<meta name="description" content="English-speaking dental care on Bashamichi, the Yokohama street first lit by gaslight in 1872. Kannai Bashamichi Dental Office — implants, orthodontics, whitening, cosmetic and oral surgery in Naka-ku." />
+<meta name="theme-color" content="#1C3A2E" />
+<meta name="color-scheme" content="light" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     TOKENS — Meiji Gaslight Editorial
+     porcelain · deep evergreen · Bashamichi brick-red · antique brass
+     ============================================================ */
+  :root{
+    --porcelain:   #F4ECDC;
+    --porcelain-2: #ECE0CB;
+    --porcelain-3: #E4D5BB;
+    --ink:         #16271F;
+    --ink-soft:    #3a4a40;
+    --evergreen:   #1C3A2E;
+    --evergreen-2: #244a3b;
+    --brick:       #9E3A2A;
+    --brick-2:     #7c2c20;
+    --brass:       #B0823F;
+    --brass-2:     #D8B574;
+    --brass-3:     #E9CF92;
+    --flame-warm:  #FFC061;
+
+    --gut: clamp(1.25rem, 5vw, 4.75rem);
+    --frame: clamp(13px, 2.4vw, 24px);
+    --maxw: 1240px;
+
+    --serif: "Fraunces", "Times New Roman", serif;
+    --sans:  "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --ease: cubic-bezier(.19,.78,.22,1);
+    --ease-soft: cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ============================================================ RESET / BASE */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0;
+    background:var(--porcelain);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.7;
+    font-size:clamp(1rem, .96rem + .2vw, 1.08rem);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  h1,h2,h3,p{ margin:0; }
+  ::selection{ background:var(--brass-2); color:var(--evergreen); }
+
+  body.menu-open{ overflow:hidden; }
+
+  /* Optical sizing for the variable serif */
+  h1,h2,h3,.serif{ font-family:var(--serif); font-optical-sizing:auto; }
+
+  /* ============================================================ ATMOSPHERE LAYERS */
+  /* fine engraved paper grain */
+  .grain{
+    position:fixed; inset:0; z-index:1; pointer-events:none;
+    opacity:.6; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* antique-brass letterpress frame */
+  .frame{
+    position:fixed; inset:var(--frame); z-index:6; pointer-events:none;
+    border:1px solid color-mix(in srgb, var(--brass) 55%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brass) 16%, transparent);
+  }
+  .frame .corner{ position:absolute; width:clamp(26px,4vw,46px); height:clamp(26px,4vw,46px); color:var(--brass); opacity:.8; }
+  .frame .corner svg{ width:100%; height:100%; }
+  .frame .tl{ top:-1px; left:-1px; }
+  .frame .tr{ top:-1px; right:-1px; transform:scaleX(-1); }
+  .frame .bl{ bottom:-1px; left:-1px; transform:scaleY(-1); }
+  .frame .br{ bottom:-1px; right:-1px; transform:scale(-1,-1); }
+
+  /* ============================================================ LAYOUT */
+  .wrap{ width:min(var(--maxw), calc(100% - 2 * var(--gut))); margin-inline:auto; }
+  .section{ position:relative; padding-block:clamp(5rem, 9vw, 9.5rem); }
+  main{ position:relative; z-index:2; }
+
+  .eyebrow{
+    font-family:var(--sans); font-size:.72rem; font-weight:600;
+    letter-spacing:.26em; text-transform:uppercase;
+    color:var(--brick); display:inline-flex; align-items:center; gap:.7em;
+  }
+  .eyebrow .ja{ font-family:var(--serif); letter-spacing:.12em; font-weight:500; font-size:.86rem; }
+  .eyebrow .tick{ width:clamp(20px,4vw,42px); height:1px; background:currentColor; opacity:.5; }
+
+  .folio{
+    font-family:var(--sans); font-size:.7rem; font-weight:600;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--brass);
+    display:flex; align-items:baseline; gap:.7em;
+  }
+  .folio b{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:1.05rem; color:var(--brick); letter-spacing:0; }
+
+  /* ============================================================ NAV */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:7;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:clamp(.9rem,2vw,1.5rem) calc(var(--gut) + var(--frame));
+    transition:background .5s var(--ease-soft), backdrop-filter .5s var(--ease-soft), box-shadow .5s var(--ease-soft), padding .5s var(--ease-soft);
+  }
+  .nav--solid{
+    background:color-mix(in srgb, var(--porcelain) 86%, transparent);
+    -webkit-backdrop-filter:blur(9px); backdrop-filter:blur(9px);
+    box-shadow:0 1px 0 color-mix(in srgb, var(--brass) 30%, transparent);
+    padding-top:clamp(.7rem,1.4vw,1rem); padding-bottom:clamp(.7rem,1.4vw,1rem);
+  }
+  .brand{ display:flex; align-items:center; gap:.7rem; text-decoration:none; color:var(--ink); }
+  .brand .glyph{ width:22px; height:30px; color:var(--evergreen); flex:0 0 auto; }
+  .brand .glyph .gl-flame{ color:var(--brick); }
+  .brand .name{ display:flex; flex-direction:column; line-height:1; }
+  .brand .name b{ font-family:var(--serif); font-weight:500; font-size:1.05rem; letter-spacing:.01em; }
+  .brand .name span{ font-family:var(--sans); font-size:.6rem; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--brick); margin-top:.32em; }
+
+  .nav__links{ display:flex; align-items:center; gap:clamp(1.2rem,2.6vw,2.6rem); }
+  .nav__links a.lnk{
+    font-family:var(--sans); font-size:.78rem; font-weight:600; letter-spacing:.12em;
+    text-transform:uppercase; text-decoration:none; color:var(--ink);
+    position:relative; padding:.3em 0;
+  }
+  .nav__links a.lnk::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+    background:var(--brick); transform:scaleX(0); transform-origin:right; transition:transform .45s var(--ease);
+  }
+  .nav__links a.lnk:hover::after, .nav__links a.lnk:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+
+  .nav__call{
+    font-family:var(--sans); font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    text-decoration:none; color:var(--porcelain); background:var(--evergreen);
+    padding:.7em 1.2em; border-radius:999px; display:inline-flex; align-items:center; gap:.55em;
+    transition:background .4s var(--ease), transform .4s var(--ease), box-shadow .4s var(--ease);
+    box-shadow:0 0 0 0 color-mix(in srgb, var(--brass-2) 60%, transparent);
+  }
+  .nav__call svg{ width:14px; height:14px; }
+  .nav__call:hover, .nav__call:focus-visible{ background:var(--brick); transform:translateY(-1px); box-shadow:0 8px 24px -10px var(--brick-2); }
+
+  .burger{
+    display:none; width:42px; height:42px; border:1px solid color-mix(in srgb,var(--evergreen) 40%,transparent);
+    background:transparent; border-radius:50%; cursor:pointer; position:relative; color:var(--evergreen);
+  }
+  .burger span{ position:absolute; left:11px; right:11px; height:1.5px; background:currentColor; transition:transform .4s var(--ease), opacity .3s; }
+  .burger span:nth-child(1){ top:15px; } .burger span:nth-child(2){ top:20px; } .burger span:nth-child(3){ top:25px; }
+  body.menu-open .burger span:nth-child(1){ transform:translateY(5px) rotate(45deg); }
+  body.menu-open .burger span:nth-child(2){ opacity:0; }
+  body.menu-open .burger span:nth-child(3){ transform:translateY(-5px) rotate(-45deg); }
+
+  /* ============================================================ HERO */
+  .hero{ position:relative; padding-top:clamp(8.5rem, 16vh, 12rem); padding-bottom:clamp(3.5rem,6vw,6rem); overflow:hidden; }
+  .hero__bgnum{
+    position:absolute; right:-2vw; top:6%; font-family:var(--serif); font-weight:300;
+    font-size:clamp(13rem, 42vw, 40rem); line-height:.8; color:var(--brass);
+    opacity:.07; pointer-events:none; z-index:0; user-select:none; letter-spacing:-.04em;
+  }
+  .hero__wash{
+    position:absolute; z-index:0; pointer-events:none; right:-6%; top:2%;
+    width:min(70vw,720px); aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle at 50% 40%, color-mix(in srgb,var(--flame-warm) 45%, transparent) 0%, transparent 62%);
+    opacity:0; transition:opacity 1.8s var(--ease-soft) .5s;
+    filter:blur(8px);
+  }
+  .hero.lit .hero__wash{ opacity:.5; }
+
+  .hero__grid{ position:relative; z-index:2; display:grid; grid-template-columns:1fr; gap:clamp(2.5rem,6vw,4rem); align-items:center; }
+
+  .hero__copy{ max-width:46rem; }
+  .hero h1{
+    font-weight:360; line-height:1.0; letter-spacing:-.018em;
+    font-size:clamp(2.9rem, 2rem + 6.4vw, 6.4rem);
+    margin:1.1rem 0 0;
+  }
+  .hero h1 em{ font-style:italic; color:var(--brick); }
+  .hero h1 .ja{ font-weight:400; }
+  /* line-clip reveal */
+  .clip{ display:block; overflow:hidden; }
+  .clip > span{ display:block; transform:translateY(112%); transition:transform 1.05s var(--ease); }
+  .lead{
+    margin-top:clamp(1.4rem,3vw,2rem); max-width:34rem;
+    font-size:clamp(1.06rem, 1rem + .45vw, 1.32rem); line-height:1.62; color:var(--ink-soft);
+  }
+  .lead b{ color:var(--ink); font-weight:600; }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:clamp(1.8rem,3.6vw,2.6rem); align-items:center; }
+  .btn{
+    --bg:var(--evergreen); --fg:var(--porcelain);
+    font-family:var(--sans); font-weight:700; font-size:.82rem; letter-spacing:.06em;
+    text-decoration:none; color:var(--fg); background:var(--bg);
+    padding:.95em 1.5em; border-radius:999px; display:inline-flex; align-items:center; gap:.7em;
+    position:relative; overflow:hidden; isolation:isolate;
+    transition:transform .45s var(--ease), box-shadow .45s var(--ease), color .45s var(--ease);
+    box-shadow:0 10px 30px -18px rgba(22,39,31,.7);
+  }
+  .btn svg{ width:16px; height:16px; flex:0 0 auto; transition:transform .45s var(--ease); }
+  .btn::before{ content:""; position:absolute; inset:0; z-index:-1; background:var(--brick); transform:translateY(101%); transition:transform .5s var(--ease); }
+  .btn:hover, .btn:focus-visible{ transform:translateY(-2px); box-shadow:0 16px 34px -16px var(--brick-2); }
+  .btn:hover::before, .btn:focus-visible::before{ transform:translateY(0); }
+  .btn:hover svg, .btn:focus-visible svg{ transform:translate(2px,-2px); }
+  .btn--ghost{
+    --bg:transparent; --fg:var(--ink); border:1px solid color-mix(in srgb,var(--evergreen) 38%, transparent);
+    box-shadow:none;
+  }
+  .btn--ghost:hover, .btn--ghost:focus-visible{ color:var(--porcelain); border-color:var(--brick); }
+  .btn--line .dot{ width:9px; height:9px; border-radius:50%; background:var(--brass-3); flex:0 0 auto; }
+
+  .hero__meta{ display:flex; align-items:center; gap:.9rem; margin-top:1.7rem; flex-wrap:wrap; }
+  .stars{ display:inline-flex; gap:.15em; color:var(--brass); }
+  .stars svg{ width:15px; height:15px; }
+  .hero__meta .txt{ font-size:.82rem; letter-spacing:.02em; color:var(--ink-soft); }
+  .hero__meta .txt b{ color:var(--ink); font-weight:600; }
+  .sep{ width:4px; height:4px; border-radius:50%; background:color-mix(in srgb,var(--brass) 70%, transparent); }
+
+  /* lamp column */
+  .hero__lamp{ position:relative; display:flex; justify-content:center; align-items:flex-start; min-height:1px; }
+  .lamp-wrap{ position:relative; width:min(82vw, 300px); }
+  .lamp-svg{ width:100%; height:auto; overflow:visible; }
+  .vkanji{
+    position:absolute; left:-2.4em; top:6%; writing-mode:vertical-rl; text-orientation:upright;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif JP","Noto Serif CJK JP",serif;
+    font-weight:500; font-size:clamp(1rem,2.2vw,1.35rem); line-height:1;
+    letter-spacing:.3em; color:var(--evergreen); opacity:.62;
+  }
+  .vkanji .sub{
+    display:inline-block; margin-top:.9em;
+    font-family:var(--sans); font-weight:500; font-size:.5em; letter-spacing:.42em; color:var(--brick);
+  }
+
+  /* ============================================================ HERITAGE — the dusk band */
+  .heritage{ background:var(--evergreen); color:var(--porcelain); overflow:hidden; }
+  .heritage::before{
+    content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(60% 80% at 84% 18%, color-mix(in srgb,var(--flame-warm) 26%, transparent) 0%, transparent 60%),
+      radial-gradient(50% 60% at 12% 90%, color-mix(in srgb,var(--brass) 18%, transparent) 0%, transparent 60%);
+    opacity:.85;
+  }
+  .heritage .hr-num{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    font-family:var(--serif); font-weight:300; font-size:clamp(11rem,30vw,30rem);
+    color:var(--brass-2); opacity:.08; letter-spacing:-.03em; z-index:0; pointer-events:none; user-select:none; white-space:nowrap;
+  }
+  .heritage .wrap{ position:relative; z-index:2; }
+  .heritage__grid{ display:grid; grid-template-columns:1fr; gap:clamp(1.6rem,4vw,3rem); }
+  .heritage h2{
+    font-weight:340; line-height:1.06; letter-spacing:-.012em;
+    font-size:clamp(1.9rem, 1.3rem + 3vw, 3.5rem); color:var(--porcelain); max-width:18ch;
+  }
+  .heritage h2 em{ font-style:italic; color:var(--brass-3); }
+  .heritage__body{ max-width:40rem; }
+  .heritage__body p{ color:color-mix(in srgb,var(--porcelain) 80%, transparent); font-size:clamp(1rem,.98rem+.3vw,1.18rem); line-height:1.7; }
+  .heritage__body p + p{ margin-top:1.1rem; }
+  .heritage hr{ border:0; height:1px; background:color-mix(in srgb,var(--brass) 50%, transparent); margin:0 0 1.6rem; max-width:60px; }
+
+  /* ============================================================ CARE — why us */
+  .care__head{ display:grid; grid-template-columns:1fr; gap:1.2rem; margin-bottom:clamp(2.6rem,5vw,4rem); align-items:end; }
+  .care h2{
+    font-weight:350; line-height:1.04; letter-spacing:-.012em;
+    font-size:clamp(2rem, 1.4rem + 3.4vw, 4rem); max-width:14ch;
+  }
+  .care h2 em{ font-style:italic; color:var(--brick); }
+  .care__lede{ color:var(--ink-soft); font-size:clamp(1rem,.98rem+.3vw,1.18rem); max-width:32rem; }
+
+  .care__list{ display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid color-mix(in srgb,var(--brass) 38%, transparent); }
+  .care-item{
+    display:grid; grid-template-columns:auto 1fr; gap:clamp(1rem,3vw,2.4rem);
+    padding:clamp(1.5rem,3.4vw,2.6rem) 0; align-items:start;
+    border-bottom:1px solid color-mix(in srgb,var(--brass) 22%, transparent);
+    position:relative;
+  }
+  .care-item .ci-mark{
+    width:clamp(38px,5vw,52px); height:clamp(38px,5vw,52px); color:var(--evergreen);
+    border:1px solid color-mix(in srgb,var(--evergreen) 30%, transparent); border-radius:50%;
+    display:grid; place-items:center; transition:background .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease);
+  }
+  .care-item .ci-mark svg{ width:50%; height:50%; }
+  .care-item h3{ font-family:var(--serif); font-weight:500; font-size:clamp(1.2rem,1rem+.9vw,1.7rem); line-height:1.18; letter-spacing:-.01em; }
+  .care-item p{ margin-top:.5rem; color:var(--ink-soft); max-width:48ch; font-size:clamp(.98rem,.96rem+.2vw,1.08rem); }
+  .care-item:hover .ci-mark{ background:var(--evergreen); color:var(--brass-3); border-color:var(--evergreen); }
+
+  /* ============================================================ INDEX — services as a contents page */
+  .index{ background:var(--porcelain-2); }
+  .index__top{ display:flex; flex-wrap:wrap; gap:1rem 2rem; justify-content:space-between; align-items:baseline; margin-bottom:clamp(2rem,4vw,3.2rem); }
+  .index__top h2{ font-weight:350; font-style:italic; font-size:clamp(1.7rem,1.2rem+2.6vw,3rem); letter-spacing:-.01em; }
+  .index__top .note{ color:var(--ink-soft); font-size:.95rem; max-width:26ch; }
+
+  .svc{ border-top:1px solid color-mix(in srgb,var(--brass) 42%, transparent); }
+  .svc-row{
+    display:grid; grid-template-columns:auto 1fr; align-items:baseline;
+    gap:clamp(.8rem,2.4vw,2rem); padding:clamp(1.15rem,2.6vw,1.9rem) clamp(.3rem,1.4vw,1.2rem);
+    border-bottom:1px solid color-mix(in srgb,var(--brass) 24%, transparent);
+    position:relative; text-decoration:none; color:var(--ink); overflow:hidden;
+    transition:padding-left .55s var(--ease), background .55s var(--ease);
+  }
+  .svc-row::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--brick); transform:scaleY(0); transform-origin:bottom; transition:transform .5s var(--ease); }
+  .svc-row .num{ font-family:var(--serif); font-weight:400; font-style:italic; color:var(--brass); font-size:clamp(1rem,.9rem+.6vw,1.35rem); min-width:2.4ch; transition:color .5s var(--ease); }
+  .svc-row .body{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem 1.4rem; justify-content:space-between; }
+  .svc-row .nm{ font-family:var(--serif); font-weight:430; font-size:clamp(1.55rem,1.1rem+2.4vw,3rem); line-height:1.05; letter-spacing:-.014em; transition:transform .55s var(--ease); }
+  .svc-row .ds{ font-family:var(--sans); color:var(--ink-soft); font-size:clamp(.92rem,.9rem+.2vw,1.04rem); max-width:40ch; opacity:.0; transform:translateY(6px); transition:opacity .55s var(--ease), transform .55s var(--ease); }
+  .svc-row:hover, .svc-row:focus-visible{ background:color-mix(in srgb,var(--porcelain-3) 60%, transparent); padding-left:clamp(1rem,2.6vw,2rem); }
+  .svc-row:hover::before, .svc-row:focus-visible::before{ transform:scaleY(1); transform-origin:top; }
+  .svc-row:hover .num, .svc-row:focus-visible .num{ color:var(--brick); }
+  .svc-row:hover .nm, .svc-row:focus-visible .nm{ transform:translateX(2px); }
+  /* show description inline on hover for wide screens; always visible (stacked) on small */
+  @media (min-width:760px){ .svc-row:hover .ds, .svc-row:focus-visible .ds{ opacity:1; transform:none; } }
+  @media (max-width:759px){ .svc-row .ds{ opacity:1; transform:none; flex-basis:100%; } }
+
+  /* ============================================================ VISIT — the calling card */
+  .visit__grid{ display:grid; grid-template-columns:1fr; gap:clamp(2rem,5vw,3.5rem); align-items:stretch; }
+  .visit__lead h2{ font-weight:350; line-height:1.04; font-size:clamp(2rem,1.4rem+3.2vw,3.8rem); letter-spacing:-.012em; margin-top:1rem; }
+  .visit__lead h2 em{ font-style:italic; color:var(--brick); }
+  .visit__lead .p{ color:var(--ink-soft); margin-top:1.2rem; max-width:36rem; font-size:clamp(1rem,.98rem+.3vw,1.15rem); }
+  .visit__lead .p b{ color:var(--ink); font-weight:600; }
+  .visit__cta{ margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:.8rem; }
+
+  /* the dark letterpress card */
+  .card{
+    background:var(--evergreen); color:var(--porcelain); border-radius:4px;
+    padding:clamp(1.6rem,4vw,2.8rem); position:relative; overflow:hidden;
+    box-shadow:0 30px 60px -34px rgba(22,39,31,.7), inset 0 0 0 1px color-mix(in srgb,var(--brass) 30%, transparent);
+  }
+  .card::after{
+    content:""; position:absolute; inset:9px; border:1px solid color-mix(in srgb,var(--brass) 30%, transparent); border-radius:2px; pointer-events:none;
+  }
+  .card .cwash{ position:absolute; z-index:0; right:-30%; top:-30%; width:80%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,color-mix(in srgb,var(--flame-warm) 22%,transparent),transparent 65%); pointer-events:none; }
+  .card__inner{ position:relative; z-index:2; }
+  .card .label{ font-family:var(--sans); font-size:.66rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--brass-3); }
+  .card dl{ margin:0; }
+  .card .grp + .grp{ margin-top:1.35rem; padding-top:1.35rem; border-top:1px solid color-mix(in srgb,var(--brass) 28%, transparent); }
+  .card dt{ font-family:var(--sans); font-size:.66rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--brass-3); margin-bottom:.5rem; }
+  .card dd{ margin:0; font-family:var(--serif); font-weight:430; font-size:clamp(1.05rem,1rem+.5vw,1.32rem); line-height:1.4; }
+  .card dd.small{ font-family:var(--sans); font-size:.96rem; font-weight:400; line-height:1.55; color:color-mix(in srgb,var(--porcelain) 82%, transparent); }
+  .card dd .muted{ color:color-mix(in srgb,var(--porcelain) 64%, transparent); }
+  .card a.thread{ color:var(--brass-3); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--brass) 50%, transparent); transition:color .4s, border-color .4s; }
+  .card a.thread:hover, .card a.thread:focus-visible{ color:var(--brass-2); border-color:var(--brass-2); }
+
+  /* station-line diagram */
+  .map{ margin-top:1.4rem; }
+  .map svg{ width:100%; height:auto; }
+
+  /* ============================================================ FOOTER */
+  .foot{ background:var(--evergreen); color:var(--porcelain); position:relative; overflow:hidden; padding-block:clamp(3.5rem,7vw,6rem); }
+  .foot::before{ content:""; position:absolute; inset:0; background:radial-gradient(70% 120% at 50% 120%, color-mix(in srgb,var(--brass) 16%, transparent), transparent 60%); pointer-events:none; }
+  .foot .wrap{ position:relative; z-index:2; }
+  .foot__top{ display:flex; flex-wrap:wrap; gap:2rem; align-items:flex-start; justify-content:space-between; }
+  .foot__brand{ display:flex; gap:1rem; align-items:flex-start; max-width:30rem; }
+  .foot__brand .glyph{ width:30px; height:42px; color:var(--brass-2); flex:0 0 auto; }
+  .foot__brand .glyph .gl-flame{ color:var(--flame-warm); }
+  .foot__brand .ja{ font-family:var(--serif); font-weight:500; font-size:clamp(1.3rem,1.1rem+1vw,1.9rem); letter-spacing:.04em; line-height:1.2; }
+  .foot__brand .en{ font-family:var(--sans); font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--brass-3); margin-top:.5rem; }
+  .foot__brand .tag{ color:color-mix(in srgb,var(--porcelain) 74%, transparent); margin-top:.9rem; font-size:.98rem; line-height:1.6; }
+  .foot__chan{ display:flex; flex-direction:column; gap:.8rem; }
+  .foot__chan a{ display:inline-flex; align-items:center; gap:.7em; text-decoration:none; color:var(--porcelain); font-size:.96rem; letter-spacing:.02em; transition:color .4s, gap .4s; }
+  .foot__chan a svg{ width:16px; height:16px; color:var(--brass-3); transition:transform .4s; }
+  .foot__chan a:hover, .foot__chan a:focus-visible{ color:var(--brass-3); gap:1em; }
+  .foot__chan a:hover svg, .foot__chan a:focus-visible svg{ transform:translateX(2px); }
+  .foot__rule{ height:1px; background:color-mix(in srgb,var(--brass) 30%, transparent); margin:clamp(2rem,4vw,3rem) 0 1.4rem; }
+  .foot__base{ display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between; align-items:center; font-size:.74rem; letter-spacing:.04em; color:color-mix(in srgb,var(--porcelain) 56%, transparent); }
+  .foot__base .totop{ text-decoration:none; color:var(--brass-3); border-bottom:1px solid transparent; transition:border-color .4s; }
+  .foot__base .totop:hover, .foot__base .totop:focus-visible{ border-color:var(--brass-3); }
+
+  /* ============================================================ REVEAL / MOTION */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity 1s var(--ease-soft), transform 1s var(--ease-soft); transition-delay:var(--d, 0ms); }
+  .reveal.in{ opacity:1; transform:none; }
+  .no-js .reveal{ opacity:1; transform:none; }
+
+  /* draw lines (SVG rules) */
+  .draw{ stroke-dasharray:1; stroke-dashoffset:1; pathLength:1; transition:stroke-dashoffset 1.4s var(--ease); }
+  .in .draw, .reveal.in .draw{ stroke-dashoffset:0; }
+
+  /* ---- lamp ignition + perpetual life ---- */
+  .lamp-glow{ opacity:0; transform-box:fill-box; transform-origin:center; animation:ignite-glow 1.5s var(--ease-soft) .55s forwards, glow-breathe 6s ease-in-out 2.4s infinite; }
+  .flame{ opacity:0; transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(.1) scaleX(.7); animation:ignite-flame .7s cubic-bezier(.3,1.3,.5,1) .5s forwards, flicker 2.6s ease-in-out 1.4s infinite; }
+  .flame-core{ transform-box:fill-box; transform-origin:50% 100%; animation:corepulse 1.7s ease-in-out 1.6s infinite; }
+  .lamp-body{ opacity:0; animation:fade-in 1.2s var(--ease-soft) .1s forwards; }
+
+  @keyframes ignite-glow{ from{opacity:0;} to{opacity:1;} }
+  @keyframes ignite-flame{ 0%{opacity:0; transform:scaleY(.1) scaleX(.7);} 55%{opacity:1; transform:scaleY(1.12) scaleX(1.04);} 100%{opacity:1; transform:scaleY(1) scaleX(1);} }
+  @keyframes fade-in{ from{opacity:0;} to{opacity:1;} }
+  @keyframes glow-breathe{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.78; transform:scale(1.045);} }
+  @keyframes flicker{
+    0%,100%{ transform:scaleY(1) scaleX(1) translateX(0); }
+    20%{ transform:scaleY(1.04) scaleX(.985) translateX(-.4px); }
+    38%{ transform:scaleY(.97) scaleX(1.015) translateX(.4px); }
+    55%{ transform:scaleY(1.05) scaleX(.99) translateX(-.2px); }
+    72%{ transform:scaleY(.98) scaleX(1.01) translateX(.3px); }
+    86%{ transform:scaleY(1.02) scaleX(.995) translateX(-.3px); }
+  }
+  @keyframes corepulse{ 0%,100%{ opacity:.9; } 50%{ opacity:.65; } }
+
+  /* hero headline lines in */
+  .hero.lit .clip > span{ transform:none; }
+
+  /* ============================================================ RESPONSIVE — desktop enhancements */
+  @media (min-width:760px){
+    .care__head{ grid-template-columns:1.2fr .8fr; gap:clamp(2rem,5vw,4rem); }
+    .care__list{ grid-template-columns:1fr 1fr; column-gap:clamp(2.5rem,5vw,5rem); }
+    .care__list{ border-top:none; }
+    .care-item{ border-top:1px solid color-mix(in srgb,var(--brass) 38%, transparent); border-bottom:none; }
+  }
+  @media (min-width:920px){
+    .hero__grid{ grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr); }
+    .hero__lamp{ align-items:center; }
+    .heritage__grid{ grid-template-columns:.95fr 1.05fr; align-items:center; gap:clamp(2.5rem,6vw,5rem); }
+    .visit__grid{ grid-template-columns:1.05fr .95fr; }
+  }
+
+  /* ============================================================ RESPONSIVE — mobile nav */
+  @media (max-width:860px){
+    .burger{ display:block; }
+    .nav__call{ display:none; }
+    .nav__links{
+      position:fixed; inset:0; z-index:-1;
+      flex-direction:column; justify-content:center; align-items:flex-start; gap:1.6rem;
+      padding:calc(var(--frame) + 5rem) calc(var(--gut) + var(--frame));
+      background:var(--porcelain);
+      opacity:0; visibility:hidden; transform:translateY(-8px);
+      transition:opacity .5s var(--ease), transform .5s var(--ease), visibility .5s;
+    }
+    body.menu-open .nav__links{ opacity:1; visibility:visible; transform:none; }
+    .nav__links a.lnk{ font-size:1.5rem; font-family:var(--serif); text-transform:none; letter-spacing:0; }
+    .nav__links a.lnk::after{ height:1.5px; }
+    .nav__links .menu-call{
+      display:inline-flex; margin-top:1rem; font-family:var(--sans); font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      background:var(--evergreen); color:var(--porcelain); padding:.85em 1.4em; border-radius:999px; text-decoration:none;
+    }
+    .nav__links .menu-call::after{ display:none; }
+  }
+  @media (min-width:861px){ .nav__links .menu-call{ display:none; } }
+
+  /* utilities */
+  .skip{ position:absolute; left:-9999px; top:0; background:var(--evergreen); color:var(--porcelain); padding:.8em 1.2em; z-index:50; border-radius:0 0 6px 0; font-weight:600; }
+  .skip:focus{ left:0; }
+  :focus-visible{ outline:2px solid var(--brick); outline-offset:3px; border-radius:2px; }
+  .vh{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+  /* ============================================================ REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+    .reveal{ opacity:1 !important; transform:none !important; }
+    .clip > span{ transform:none !important; }
+    .draw{ stroke-dashoffset:0 !important; }
+    .lamp-glow{ opacity:1; animation:none; }
+    .flame{ opacity:1; transform:none; animation:none; }
+    .flame-core{ animation:none; }
+    .lamp-body{ opacity:1; animation:none; }
+    .hero__wash{ transition:none; }
+  }
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#ffc061;--bk-accent-ink:#0d0d0f;--bk-ink:#16271f;--bk-panel:#f7f5f0;--bk-muted:rgba(22,39,31,0.6);--bk-line:rgba(22,39,31,0.14);--bk-serif:"Fraunces", "Times New Roman", serif;--bk-sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- atmosphere -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true">
+    <span class="corner tl"><svg viewBox="0 0 48 48" fill="none"><path d="M1 47V15Q1 1 15 1H47" stroke="currentColor" stroke-width="1.2"/><path d="M8 47V18Q8 8 18 8H47" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></span>
+    <span class="corner tr"><svg viewBox="0 0 48 48" fill="none"><path d="M1 47V15Q1 1 15 1H47" stroke="currentColor" stroke-width="1.2"/><path d="M8 47V18Q8 8 18 8H47" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></span>
+    <span class="corner bl"><svg viewBox="0 0 48 48" fill="none"><path d="M1 47V15Q1 1 15 1H47" stroke="currentColor" stroke-width="1.2"/><path d="M8 47V18Q8 8 18 8H47" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></span>
+    <span class="corner br"><svg viewBox="0 0 48 48" fill="none"><path d="M1 47V15Q1 1 15 1H47" stroke="currentColor" stroke-width="1.2"/><path d="M8 47V18Q8 8 18 8H47" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></span>
+  </div>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Kannai Bashamichi Dental Office, home">
+      <svg class="glyph" viewBox="0 0 22 30" fill="none" aria-hidden="true">
+        <path d="M11 2.4C8 2.4 6 4.2 6 6.6c0 1 .4 1.7 1 2.4H4l1.2 2H16.8L18 9H15c.6-.7 1-1.4 1-2.4 0-2.4-2-4.2-5-4.2Z" stroke="currentColor" stroke-width="1.1" fill="none"/>
+        <path class="gl-flame" d="M11 4.6c-1.5 1.5-1.4 3.2-.3 4.2.5-.5.4-1.1.8-1.4.7.4.6 1.1.1 1.7 1.4-.5 1.6-2.4.3-3.7-.4-.4-.5-.5-.9-.8Z" fill="currentColor"/>
+        <path d="M6.1 11 6.6 22h8.8L16 11" stroke="currentColor" stroke-width="1.1" fill="none"/>
+        <path d="M7.4 25h7.2l-.5 3H7.9z" stroke="currentColor" stroke-width="1.1" fill="none"/>
+        <path d="M11 11v11" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+      </svg>
+      <span class="name"><b>Kannai Bashamichi</b><span>Dental Office</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="lnk" href="#heritage">Heritage</a>
+      <a class="lnk" href="#care">Care</a>
+      <a class="lnk" href="#services">Services</a>
+      <a class="lnk" href="#visit">Visit</a>
+      <a class="menu-call" href="tel:+81452990488">Call the clinic</a>
+    </nav>
+
+    <a class="nav__call" href="tel:+81452990488" aria-label="Call Kannai Bashamichi Dental Office at plus 81 45 299 0488">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a11 11 0 0 0 6.5 6.5L16 18l4 1 .5 2.5a2 2 0 0 1-2.2 1.7A18 18 0 0 1 2.8 7.7 2 2 0 0 1 4.5 5.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span>+81 45-299-0488</span>
+    </a>
+
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero section" aria-labelledby="hero-h">
+      <div class="hero__bgnum" data-par="0.10" aria-hidden="true">1872</div>
+      <div class="hero__wash" aria-hidden="true"></div>
+
+      <div class="wrap">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow"><span class="tick"></span>English-speaking dental care <span class="ja" lang="ja">馬車道・横浜</span></p>
+
+            <h1 id="hero-h">
+              <span class="clip"><span>Dentistry that</span></span>
+              <span class="clip"><span>speaks <em>your</em> language.</span></span>
+            </h1>
+
+            <p class="lead">On Bashamichi — the Yokohama street first lit by gaslight in <b>1872</b> — we offer calm, unhurried dental care, explained clearly in English, in the heart of Naka-ku.</p>
+
+            <div class="cta-row">
+              <a class="btn" href="tel:+81452990488" aria-label="Call the clinic at plus 81 45 299 0488">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a11 11 0 0 0 6.5 6.5L16 18l4 1 .5 2.5a2 2 0 0 1-2.2 1.7A18 18 0 0 1 2.8 7.7 2 2 0 0 1 4.5 5.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Call us
+              </a>
+              <a class="btn btn--ghost btn--line" href="https://line.me/R/ti/p/@kabashika" target="_blank" rel="noopener" aria-label="Message us on LINE, opens in a new tab">
+                <span class="dot" aria-hidden="true"></span>
+                Message on LINE
+              </a>
+              <a class="btn btn--ghost" href="https://www.instagram.com/kabashika/" target="_blank" rel="noopener" aria-label="Visit our Instagram, at kabashika, opens in a new tab">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg>
+                @kabashika
+              </a>
+            </div>
+
+            <div class="hero__meta">
+              <span class="stars" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 16.8 6.1 20.3l1.7-6.6L2.6 9.3l6.8-.5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 16.8 6.1 20.3l1.7-6.6L2.6 9.3l6.8-.5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 16.8 6.1 20.3l1.7-6.6L2.6 9.3l6.8-.5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 16.8 6.1 20.3l1.7-6.6L2.6 9.3l6.8-.5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="hg" x1="0" x2="1" y1="0" y2="0"><stop offset="10%" stop-color="currentColor"/><stop offset="10%" stop-color="transparent"/></linearGradient></defs><path d="m12 2 2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 16.8 6.1 20.3l1.7-6.6L2.6 9.3l6.8-.5z" fill="url(#hg)" stroke="currentColor" stroke-width="1"/></svg>
+              </span>
+              <span class="txt"><b>4.1</b> · 234 Google reviews</span>
+              <span class="sep" aria-hidden="true"></span>
+              <span class="txt">Onoecho, Naka-ku, Yokohama</span>
+            </div>
+          </div>
+
+          <!-- THE SIGNATURE: hand-drawn brass gas lamp, flame ignites on load -->
+          <div class="hero__lamp">
+            <div class="lamp-wrap" data-par="0.06">
+              <span class="vkanji" lang="ja" aria-hidden="true">馬車道<span class="sub">GASLIGHT</span></span>
+              <svg class="lamp-svg" viewBox="0 0 220 600" role="img" aria-label="An illustration of a Meiji-era Bashamichi gas lamp, its flame lit.">
+                <defs>
+                  <linearGradient id="brassV" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#7d5d2f"/>
+                    <stop offset="20%" stop-color="#d8b574"/>
+                    <stop offset="48%" stop-color="#a87f3f"/>
+                    <stop offset="74%" stop-color="#e6c988"/>
+                    <stop offset="100%" stop-color="#7d5d2f"/>
+                  </linearGradient>
+                  <linearGradient id="brassH" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#e6c988"/>
+                    <stop offset="100%" stop-color="#8a6833"/>
+                  </linearGradient>
+                  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#fff6e2" stop-opacity=".22"/>
+                    <stop offset="48%" stop-color="#ffce82" stop-opacity=".14"/>
+                    <stop offset="100%" stop-color="#1c3a2e" stop-opacity=".10"/>
+                  </linearGradient>
+                  <linearGradient id="flameG" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="#e8662a"/>
+                    <stop offset="42%" stop-color="#ff9a3d"/>
+                    <stop offset="100%" stop-color="#ffe9a8"/>
+                  </linearGradient>
+                  <radialGradient id="glowG" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffe6a8" stop-opacity=".95"/>
+                    <stop offset="34%" stop-color="#ffc061" stop-opacity=".5"/>
+                    <stop offset="68%" stop-color="#e8893a" stop-opacity=".12"/>
+                    <stop offset="100%" stop-color="#e8893a" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- warm glow (ignites + breathes) -->
+                <circle class="lamp-glow" cx="110" cy="150" r="165" fill="url(#glowG)"/>
+
+                <g class="lamp-body" stroke="url(#brassV)" stroke-width="2.4" fill="none" stroke-linejoin="round">
+                  <!-- finial -->
+                  <path d="M110 30 V46" stroke="url(#brassH)" stroke-width="3"/>
+                  <circle cx="110" cy="52" r="7" fill="url(#brassH)" stroke="none"/>
+                  <rect x="98" y="58" width="24" height="7" rx="1.5" fill="url(#brassH)" stroke="none"/>
+                  <!-- roof -->
+                  <path d="M86 90 L98 65 H122 L134 90 Z" fill="url(#brassH)" stroke="url(#brassV)" stroke-width="2"/>
+                  <path d="M82 90 H138" stroke="url(#brassV)" stroke-width="3.5"/>
+                  <!-- glass lantern -->
+                  <path d="M88 90 L132 90 L139 154 L81 154 Z" fill="url(#glass)" stroke="url(#brassV)" stroke-width="3"/>
+                  <path d="M101 91 L98 153" stroke-width="1.4" opacity=".7"/>
+                  <path d="M119 91 L122 153" stroke-width="1.4" opacity=".7"/>
+                  <!-- skirt -->
+                  <path d="M81 154 L139 154 L146 178 L74 178 Z" fill="url(#brassH)" stroke="url(#brassV)" stroke-width="2.4"/>
+                  <path d="M74 178 H146" stroke-width="3"/>
+
+                  <!-- ladder bar with scroll brackets -->
+                  <path d="M44 250 H176" stroke="url(#brassH)" stroke-width="6"/>
+                  <path d="M44 250 c-10 0 -16 -6 -16 -13 c0 -6 5 -9 9 -9 c4 0 6 3 6 6" stroke-width="2.4"/>
+                  <path d="M176 250 c10 0 16 -6 16 -13 c0 -6 -5 -9 -9 -9 c-4 0 -6 3 -6 6" stroke-width="2.4"/>
+
+                  <!-- fluted column -->
+                  <path d="M96 178 L124 178 L131 520 L89 520 Z" fill="url(#brassV)" stroke="url(#brassV)" stroke-width="2"/>
+                  <path d="M104 184 L107 514" stroke-width="1.2" opacity=".55"/>
+                  <path d="M110 184 L110 514" stroke-width="1.2" opacity=".4"/>
+                  <path d="M116 184 L113 514" stroke-width="1.2" opacity=".55"/>
+
+                  <!-- base -->
+                  <path d="M86 520 H134 L138 540 H82 Z" fill="url(#brassH)" stroke="url(#brassV)" stroke-width="2"/>
+                  <path d="M78 540 H142 L148 562 H72 Z" fill="url(#brassH)" stroke="url(#brassV)" stroke-width="2"/>
+                  <path d="M66 562 H154 L160 584 H60 Z" fill="url(#brassH)" stroke="url(#brassV)" stroke-width="2"/>
+                </g>
+
+                <!-- flame (ignites + flickers) -->
+                <g class="flame">
+                  <path d="M110 150 C92 142 95 118 107 104 C112 99 110 113 116 116 C127 121 128 140 110 150 Z" fill="url(#flameG)"/>
+                  <path class="flame-core" d="M110 146 C101 141 103 124 108 115 C111 110 110 121 113 122 C119 126 118 139 110 146 Z" fill="#fff1c4"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HERITAGE (dusk band) ============================== -->
+    <section class="heritage section" id="heritage" aria-labelledby="her-h">
+      <span class="hr-num" data-par="0.07" aria-hidden="true">1872</span>
+      <div class="wrap">
+        <div class="heritage__grid">
+          <div class="reveal">
+            <p class="folio"><b>I</b><span>Heritage · 馬車道</span></p>
+            <h2 id="her-h" style="margin-top:1.2rem;">Where modern Japan was first <em>lit.</em></h2>
+          </div>
+          <div class="heritage__body reveal" style="--d:120ms;">
+            <hr>
+            <p>In 1872, the first gas lamps in the country flickered to life on Bashamichi — the moment Yokohama opened its doors and the West and Japan began to meet, here on this street.</p>
+            <p>A century and a half later, we keep that welcome lit: thoughtful, modern dentistry for everyone who calls Naka-ku home — in whatever language they speak best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CARE (why us) ============================== -->
+    <section class="care section" id="care" aria-labelledby="care-h">
+      <div class="wrap">
+        <div class="care__head">
+          <div class="reveal">
+            <p class="folio"><b>II</b><span>Why patients choose us</span></p>
+            <h2 id="care-h" style="margin-top:1.1rem;">Care without the <em>language barrier.</em></h2>
+          </div>
+          <p class="care__lede reveal" style="--d:120ms;">A dental visit shouldn't feel like a translation exercise. Here, the conversation is as careful as the treatment.</p>
+        </div>
+
+        <div class="care__list">
+          <article class="care-item reveal">
+            <span class="ci-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h11M4 17h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <div><h3>Understood, in English</h3><p>We explain diagnoses, options and costs clearly and patiently — English-speaking care our patients note again and again in their reviews.</p></div>
+          </article>
+          <article class="care-item reveal" style="--d:80ms;">
+            <span class="ci-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <div><h3>Unhurried by design</h3><p>We listen first and treat second, taking the time to make sure you know exactly what is happening and why.</p></div>
+          </article>
+          <article class="care-item reveal" style="--d:160ms;">
+            <span class="ci-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.5 6 6.5.4-5 4.2 1.6 6.4L12 16.6 5.9 20.4 7.5 14l-5-4.2L9 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <div><h3>Trusted in the neighbourhood</h3><p>Rated 4.1 across 234 Google reviews — a long-standing fixture for residents and international patients alike.</p></div>
+          </article>
+          <article class="care-item reveal" style="--d:240ms;">
+            <span class="ci-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <div><h3>Minutes from the stations</h3><p>A short walk from both Kannai and Bashamichi stations, in the historic heart of Yokohama's Naka ward.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SERVICES (contents page) ============================== -->
+    <section class="index section" id="services" aria-labelledby="svc-h">
+      <div class="wrap">
+        <div class="index__top">
+          <div class="reveal">
+            <p class="folio"><b>III</b><span>The care index</span></p>
+            <h2 id="svc-h" style="margin-top:1rem;">Five disciplines, one steady hand.</h2>
+          </div>
+          <p class="note reveal" style="--d:120ms;">Everyday dentistry through to specialist work — all under one roof.</p>
+        </div>
+
+        <div class="svc">
+          <a class="svc-row reveal" href="tel:+81452990488" aria-label="Implants — call to ask about treatment">
+            <span class="num">01</span>
+            <span class="body"><span class="nm">Implants</span><span class="ds">Permanent, natural-feeling replacements for missing teeth.</span></span>
+          </a>
+          <a class="svc-row reveal" href="tel:+81452990488" style="--d:70ms;" aria-label="Orthodontics — call to ask about treatment">
+            <span class="num">02</span>
+            <span class="body"><span class="nm">Orthodontics</span><span class="ds">Straighter teeth and a confident bite, carefully planned.</span></span>
+          </a>
+          <a class="svc-row reveal" href="tel:+81452990488" style="--d:140ms;" aria-label="Teeth whitening — call to ask about treatment">
+            <span class="num">03</span>
+            <span class="body"><span class="nm">Teeth Whitening</span><span class="ds">Professional whitening for a brighter, even smile.</span></span>
+          </a>
+          <a class="svc-row reveal" href="tel:+81452990488" style="--d:210ms;" aria-label="Cosmetic dentistry — call to ask about treatment">
+            <span class="num">04</span>
+            <span class="body"><span class="nm">Cosmetic Dentistry</span><span class="ds">Subtle, considered work that still looks like you.</span></span>
+          </a>
+          <a class="svc-row reveal" href="tel:+81452990488" style="--d:280ms;" aria-label="Oral surgery — call to ask about treatment">
+            <span class="num">05</span>
+            <span class="body"><span class="nm">Oral Surgery</span><span class="ds">Extractions and surgical care, handled with calm precision.</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== VISIT (calling card) ============================== -->
+    <section class="visit section" id="visit" aria-labelledby="visit-h">
+      <div class="wrap">
+        <div class="visit__grid">
+          <div class="visit__lead reveal">
+            <p class="folio"><b>IV</b><span>Visit · お越しください</span></p>
+            <h2 id="visit-h">Come and <em>see us.</em></h2>
+            <p class="p">We keep no online booking, on purpose — we would rather speak with you and find a time that truly works. <b>Call, message us on LINE, or send a DM</b>, and tell us you'd prefer English. We're glad to help.</p>
+            <div class="visit__cta">
+              <a class="btn" href="tel:+81452990488" aria-label="Call the clinic at plus 81 45 299 0488">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a11 11 0 0 0 6.5 6.5L16 18l4 1 .5 2.5a2 2 0 0 1-2.2 1.7A18 18 0 0 1 2.8 7.7 2 2 0 0 1 4.5 5.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Call us
+              </a>
+              <a class="btn btn--ghost btn--line" href="https://line.me/R/ti/p/@kabashika" target="_blank" rel="noopener" aria-label="Message us on LINE, opens in a new tab"><span class="dot" aria-hidden="true"></span>LINE</a>
+              <a class="btn btn--ghost" href="https://www.instagram.com/kabashika/" target="_blank" rel="noopener" aria-label="Visit our Instagram, opens in a new tab">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+
+          <div class="card reveal" style="--d:140ms;">
+            <span class="cwash" aria-hidden="true"></span>
+            <div class="card__inner">
+              <p class="label">Kannai Bashamichi Dental Office</p>
+              <dl style="margin-top:1.2rem;">
+                <div class="grp">
+                  <dt>Where</dt>
+                  <dd>Onoecho, Naka-ku<br>Yokohama, Kanagawa</dd>
+                  <dd class="small" style="margin-top:.5rem;">A short walk from <span style="color:var(--brass-3)">Kannai</span> &amp; <span style="color:var(--brass-3)">Bashamichi</span> stations.</dd>
+                </div>
+                <div class="grp">
+                  <dt>Hours</dt>
+                  <dd>Saturday · 11:00–14:00, 16:00–19:00</dd>
+                  <dd class="small" style="margin-top:.45rem;">Sunday · <span class="muted">Closed</span></dd>
+                  <dd class="small" style="margin-top:.2rem;">Weekdays · by appointment — please call or message</dd>
+                </div>
+                <div class="grp">
+                  <dt>Reach us</dt>
+                  <dd><a class="thread" href="tel:+81452990488">+81 45-299-0488</a></dd>
+                  <dd class="small" style="margin-top:.45rem;">LINE · <a class="thread" href="https://line.me/R/ti/p/@kabashika" target="_blank" rel="noopener">official account</a></dd>
+                  <dd class="small" style="margin-top:.2rem;">Instagram · <a class="thread" href="https://www.instagram.com/kabashika/" target="_blank" rel="noopener">@kabashika</a></dd>
+                </div>
+              </dl>
+
+              <!-- abstract station-line diagram (not a map) -->
+              <div class="map" aria-hidden="true">
+                <svg viewBox="0 0 320 96" fill="none">
+                  <path class="draw" d="M8 30 H312" stroke="#9E3A2A" stroke-width="3" stroke-linecap="round"/>
+                  <path class="draw" d="M40 88 L150 88 L196 42 L312 42" stroke="#D8B574" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="92" cy="30" r="5" fill="#F4ECDC" stroke="#9E3A2A" stroke-width="2"/>
+                  <circle cx="196" cy="42" r="5" fill="#F4ECDC" stroke="#D8B574" stroke-width="2"/>
+                  <circle cx="150" cy="62" r="7" fill="#9E3A2A" stroke="#F4ECDC" stroke-width="2.5"/>
+                  <text x="92" y="20" fill="#D8B574" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" text-anchor="middle">KANNAI</text>
+                  <text x="208" y="36" fill="#D8B574" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">BASHAMICHI</text>
+                  <text x="150" y="84" fill="#F4ECDC" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="2" text-anchor="middle">HERE</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="foot" aria-label="Footer">
+    <div class="wrap">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <svg class="glyph" viewBox="0 0 22 30" fill="none" aria-hidden="true">
+            <path d="M11 2.4C8 2.4 6 4.2 6 6.6c0 1 .4 1.7 1 2.4H4l1.2 2H16.8L18 9H15c.6-.7 1-1.4 1-2.4 0-2.4-2-4.2-5-4.2Z" stroke="currentColor" stroke-width="1.1" fill="none"/>
+            <path class="gl-flame" d="M11 4.6c-1.5 1.5-1.4 3.2-.3 4.2.5-.5.4-1.1.8-1.4.7.4.6 1.1.1 1.7 1.4-.5 1.6-2.4.3-3.7-.4-.4-.5-.5-.9-.8Z" fill="currentColor"/>
+            <path d="M6.1 11 6.6 22h8.8L16 11" stroke="currentColor" stroke-width="1.1" fill="none"/>
+            <path d="M7.4 25h7.2l-.5 3H7.9z" stroke="currentColor" stroke-width="1.1" fill="none"/>
+          </svg>
+          <div>
+            <p class="ja" lang="ja">関内馬車道デンタルオフィス</p>
+            <p class="en">Kannai Bashamichi Dental Office</p>
+            <p class="tag">English-speaking dental care on Bashamichi — the Yokohama street where modern Japan was first lit by gaslight.</p>
+          </div>
+        </div>
+
+        <nav class="foot__chan" aria-label="Contact">
+          <a href="tel:+81452990488" aria-label="Call plus 81 45 299 0488">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a11 11 0 0 0 6.5 6.5L16 18l4 1 .5 2.5a2 2 0 0 1-2.2 1.7A18 18 0 0 1 2.8 7.7 2 2 0 0 1 4.5 5.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            +81 45-299-0488
+          </a>
+          <a href="https://line.me/R/ti/p/@kabashika" target="_blank" rel="noopener" aria-label="Message us on LINE, opens in a new tab">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="6" stroke="currentColor" stroke-width="1.6"/><path d="M9 21l1-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            LINE official account
+          </a>
+          <a href="https://www.instagram.com/kabashika/" target="_blank" rel="noopener" aria-label="Visit our Instagram, opens in a new tab">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg>
+            @kabashika
+          </a>
+        </nav>
+      </div>
+
+      <div class="foot__rule"></div>
+      <div class="foot__base">
+        <span>© 2026 Kannai Bashamichi Dental Office · Onoecho, Naka-ku, Yokohama</span>
+        <span class="credit">Designed by <a class="totop" href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+        <a class="totop" href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var root = document.documentElement;
+    root.classList.remove('no-js'); root.classList.add('js');
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    /* ---- light the hero on load ---- */
+    var hero = document.querySelector('.hero');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(hero) hero.classList.add('lit'); }); });
+
+    /* ---- scroll reveals ---- */
+    var revs = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window && !reduce.matches){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold:0.16, rootMargin:'0px 0px -7% 0px' });
+      revs.forEach(function(el){ io.observe(el); });
+    } else {
+      revs.forEach(function(el){ el.classList.add('in'); });
+    }
+
+    /* ---- gentle parallax ---- */
+    if(!reduce.matches){
+      var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+      var ticking = false;
+      function apply(){
+        var y = window.pageYOffset || 0;
+        for(var i=0;i<pars.length;i++){
+          var s = parseFloat(pars[i].getAttribute('data-par')) || 0;
+          pars[i].style.transform = 'translate3d(0,' + (y*s).toFixed(2) + 'px,0)';
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){
+        if(!ticking){ window.requestAnimationFrame(apply); ticking = true; }
+      }, { passive:true });
+      apply();
+    }
+
+    /* ---- nav condense ---- */
+    var nav = document.querySelector('.nav');
+    function onScroll(){
+      if((window.pageYOffset||0) > 22){ nav.classList.add('nav--solid'); }
+      else{ nav.classList.remove('nav--solid'); }
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    /* ---- mobile menu ---- */
+    var burger = document.querySelector('.burger');
+    var links  = document.querySelector('.nav__links');
+    if(burger && links){
+      burger.addEventListener('click', function(){
+        var open = document.body.classList.toggle('menu-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      links.addEventListener('click', function(ev){
+        if(ev.target.closest('a')){
+          document.body.classList.remove('menu-open');
+          burger.setAttribute('aria-expanded','false');
+          burger.setAttribute('aria-label','Open menu');
+        }
+      });
+      document.addEventListener('keydown', function(ev){
+        if(ev.key === 'Escape' && document.body.classList.contains('menu-open')){
+          document.body.classList.remove('menu-open');
+          burger.setAttribute('aria-expanded','false');
+          burger.focus();
+        }
+      });
+    }
+  })();
+  </script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text or LINE.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81452990488", CHAN="https://line.me/R/ti/p/@kabashika", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

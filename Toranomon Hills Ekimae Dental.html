@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Toranomon Hills Ekimae Dental — English-Speaking Dentistry in Toranomon, Tokyo</title>
+<meta name="description" content="English-speaking dental care steps from Toranomon Hills Station in Minato, Tokyo. Saturday appointments. Rated 4.9★ on Google. Everything explained in plain English." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     TORANOMON HILLS EKIMAE DENTAL — "Skyline Ascent"
+     Single-file landing page. All CSS/JS inline.
+     ============================================================ */
+
+  :root{
+    /* palette */
+    --ink:#0a0f14;
+    --graphite:#0e141b;
+    --graphite-2:#121b25;
+    --steel-600:#2f567f;
+    --steel-500:#4a7fb5;
+    --steel-400:#6f9fcf;
+    --steel-300:#9cc1e6;
+    --sky-low:#16212c;
+    --sky-mid:#345a7e;
+    --sky-high:#bcdcf6;
+    --sky-top:#eaf3fb;
+    --cyan:#cfe8ff;
+    --warm:#ffcf99;
+    --text-bright:#eef4fa;
+    --text-soft:#c4d6e7;
+    --text-mute:#90a6ba;
+    --text-ink:#0d141b;
+    --text-ink-soft:#3a4d5e;
+    --hair:rgba(180,210,238,.16);
+    --hair-strong:rgba(196,222,247,.34);
+
+    /* live values driven by JS (sensible static defaults) */
+    --alt:0.12;      /* 0 ground .. 1 summit -> sky brightness */
+    --p:0;           /* scroll progress 0..1 */
+
+    /* type scale */
+    --f-display: clamp(2.7rem, 9.2vw, 6.6rem);
+    --f-h2: clamp(2rem, 5.6vw, 3.9rem);
+    --f-stat: clamp(3.4rem, 12vw, 8rem);
+    --f-lead: clamp(1.05rem, 2.3vw, 1.32rem);
+    --f-body: clamp(1rem, 1.5vw, 1.075rem);
+
+    --maxw: 1180px;
+    --rail: 96px;          /* right lane reserved for gauge on desktop */
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color:var(--text-bright);
+    background:var(--ink);
+    line-height:1.62;
+    font-size:var(--f-body);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3{ font-family:"Sora", sans-serif; line-height:1.02; margin:0; letter-spacing:-.018em; }
+  p{ margin:0; }
+  a{ color:inherit; }
+  img,svg{ display:block; max-width:100%; }
+  ::selection{ background:var(--steel-400); color:var(--ink); }
+
+  /* ---------- atmospheric sky (fixed, brightens with --alt) ---------- */
+  .sky{ position:fixed; inset:0; z-index:-3; pointer-events:none; }
+  .sky__base{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(120% 80% at 50% 118%, #0b1118 0%, transparent 55%),
+      linear-gradient(180deg, #0c151f 0%, #122436 42%, #16314a 72%, #1b2a3a 100%);
+  }
+  .sky__bright{
+    position:absolute; inset:0; opacity:var(--alt);
+    transition:opacity .25s linear;
+    background:
+      radial-gradient(95% 60% at 50% -8%, #f3f9ff 0%, #d6ebfc 26%, transparent 60%),
+      linear-gradient(180deg, #d6ecfd 0%, #aacef0 30%, #6f9fcf 60%, #2f4f6e 100%);
+  }
+  .sky__sun{
+    position:absolute; left:50%; top:-14vmin; width:64vmin; height:64vmin;
+    transform:translateX(-50%) scale(calc(.55 + var(--alt)*.8));
+    opacity:calc(var(--alt)*.9);
+    background:radial-gradient(circle, rgba(255,252,243,.95) 0%, rgba(207,232,255,.55) 28%, transparent 62%);
+    filter:blur(6px);
+    transition:opacity .25s linear, transform .25s linear;
+  }
+  .noise{
+    position:fixed; inset:0; z-index:-2; pointer-events:none;
+    opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- skip link ---------- */
+  .skip{
+    position:fixed; left:14px; top:-60px; z-index:200;
+    background:var(--cyan); color:var(--ink); padding:.6rem 1rem; border-radius:8px;
+    font-weight:600; transition:top .2s; text-decoration:none;
+  }
+  .skip:focus{ top:14px; }
+
+  /* ---------- header ---------- */
+  .header{
+    position:fixed; top:0; left:0; right:0; z-index:90;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem; padding:.85rem clamp(1rem, 4vw, 2.4rem);
+    transition:background .4s var(--ease), border-color .4s, backdrop-filter .4s;
+    border-bottom:1px solid transparent;
+  }
+  .header.is-stuck{
+    background:rgba(9,14,20,.62);
+    backdrop-filter:blur(16px) saturate(1.2);
+    -webkit-backdrop-filter:blur(16px) saturate(1.2);
+    border-bottom:1px solid var(--hair);
+  }
+  .brand{ display:flex; align-items:center; gap:.62rem; text-decoration:none; min-width:0; }
+  .brand__mark{
+    width:30px; height:30px; flex:none; position:relative;
+    border-radius:6px;
+    background:linear-gradient(160deg, var(--steel-400), var(--steel-600));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 4px 14px rgba(20,40,64,.5);
+    overflow:hidden;
+  }
+  .brand__mark::before{ /* little tower glyph */
+    content:""; position:absolute; left:50%; bottom:4px; transform:translateX(-50%);
+    width:8px; height:18px; background:rgba(255,255,255,.92);
+    clip-path:polygon(28% 0, 72% 0, 100% 100%, 0 100%);
+    box-shadow:0 0 8px rgba(255,255,255,.6);
+  }
+  .brand__name{
+    font-family:"Sora"; font-weight:600; font-size:.92rem; letter-spacing:.01em;
+    color:var(--text-bright); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .brand__name b{ font-weight:700; }
+  .nav{ display:none; align-items:center; gap:1.6rem; }
+  .nav a{
+    text-decoration:none; color:var(--text-soft); font-size:.82rem; font-weight:500;
+    letter-spacing:.06em; text-transform:uppercase; position:relative; padding:.2rem 0;
+    transition:color .25s;
+  }
+  .nav a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px;
+    background:var(--cyan); transition:right .3s var(--ease);
+  }
+  .nav a:hover, .nav a:focus-visible{ color:var(--text-bright); }
+  .nav a:hover::after, .nav a:focus-visible::after{ right:0; }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    --bg:var(--cyan); --fg:var(--ink);
+    appearance:none; border:0; cursor:pointer; text-decoration:none;
+    font-family:"Inter"; font-weight:600; font-size:.92rem; letter-spacing:.01em;
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:.78rem 1.4rem; border-radius:999px;
+    color:var(--fg); background:var(--bg);
+    position:relative; overflow:hidden; isolation:isolate;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s;
+    box-shadow:0 6px 22px rgba(120,170,210,.28);
+    white-space:nowrap;
+  }
+  .btn::before{ /* light sweep */
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+    transform:translateX(-130%); transition:transform .6s var(--ease);
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(120,170,210,.42); }
+  .btn:hover::before{ transform:translateX(130%); }
+  .btn:active{ transform:translateY(0); }
+  .btn:focus-visible{ outline:3px solid var(--cyan); outline-offset:3px; }
+
+  .btn--ghost{
+    --bg:transparent; --fg:var(--text-bright);
+    border:1px solid var(--hair-strong);
+    box-shadow:none; backdrop-filter:blur(6px);
+  }
+  .btn--ghost:hover{ background:rgba(159,193,231,.1); box-shadow:none; }
+  .btn--sm{ padding:.55rem 1.05rem; font-size:.84rem; }
+  .btn--ink{ --bg:var(--ink); --fg:var(--text-bright); }
+  .btn .ico{ width:17px; height:17px; flex:none; }
+
+  /* ---------- altitude gauge (signature) ---------- */
+  .gauge{
+    position:fixed; z-index:80; right:clamp(14px,2.4vw,30px); top:50%;
+    transform:translateY(-50%);
+    display:none; flex-direction:column; align-items:center; gap:14px;
+    pointer-events:none;
+  }
+  .gauge__read{
+    font-family:"Inter"; font-variant-numeric:tabular-nums; text-align:right;
+    line-height:1;
+  }
+  .gauge__num{
+    display:block; font-size:1rem; font-weight:600; color:var(--text-bright);
+    letter-spacing:.02em;
+  }
+  .gauge__num small{ font-size:.62em; color:var(--text-mute); font-weight:500; }
+  .gauge__floor{
+    display:block; margin-top:5px; font-size:.58rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--cyan); font-weight:600; min-height:.7em;
+  }
+  .gauge__track{
+    position:relative; width:2px; height:46vh; max-height:430px;
+    background:var(--hair); border-radius:2px; overflow:visible;
+  }
+  .gauge__fill{
+    position:absolute; left:0; top:0; width:100%; height:100%;
+    transform-origin:top; transform:scaleY(var(--p));
+    background:linear-gradient(180deg, var(--cyan), var(--steel-400));
+    box-shadow:0 0 10px rgba(207,232,255,.6);
+    transition:transform .1s linear;
+  }
+  .gauge__ticks{ position:absolute; inset:0; pointer-events:auto; }
+  .tick{
+    position:absolute; left:50%; width:8px; height:8px; margin:-4px 0 0 -4px;
+    border-radius:50%; background:var(--graphite-2);
+    border:1.5px solid var(--hair-strong); cursor:pointer; padding:0;
+    transition:transform .25s var(--ease), border-color .25s, background .25s;
+  }
+  .tick::after{ /* label on hover/active */
+    content:attr(data-label); position:absolute; right:18px; top:50%;
+    transform:translateY(-50%) translateX(6px);
+    font-size:.58rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--text-soft); white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity .25s, transform .25s;
+  }
+  .tick:hover, .tick:focus-visible{ transform:scale(1.5); border-color:var(--cyan); outline:none; }
+  .tick:hover::after, .tick:focus-visible::after{ opacity:1; transform:translateY(-50%) translateX(0); }
+  .tick.is-active{ background:var(--cyan); border-color:var(--cyan); box-shadow:0 0 10px rgba(207,232,255,.7); }
+  .tick.is-active::after{ opacity:1; color:var(--text-bright); transform:translateY(-50%) translateX(0); }
+
+  /* top progress bar (mobile / fallback) */
+  .progress{
+    position:fixed; top:0; left:0; right:0; height:3px; z-index:95;
+    transform-origin:left; transform:scaleX(var(--p));
+    background:linear-gradient(90deg, var(--steel-400), var(--cyan));
+    box-shadow:0 0 12px rgba(207,232,255,.5);
+  }
+
+  /* ---------- shared layout ---------- */
+  .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:clamp(1.1rem,5vw,2rem); }
+  main{ position:relative; z-index:1; }
+  .section{ position:relative; padding-block:clamp(5rem, 13vh, 9rem); scroll-margin-top:80px; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.6rem;
+    font-size:.7rem; letter-spacing:.28em; text-transform:uppercase; font-weight:600;
+    color:var(--cyan); margin-bottom:1.3rem;
+  }
+  .eyebrow::before{
+    content:""; width:26px; height:1px; background:linear-gradient(90deg,var(--cyan),transparent);
+  }
+  .alt-tag{
+    font-family:"Inter"; font-variant-numeric:tabular-nums;
+    font-size:.72rem; letter-spacing:.2em; color:var(--text-mute); font-weight:600;
+  }
+
+  /* glass panels */
+  .glass{
+    position:relative; border-radius:20px;
+    background:linear-gradient(160deg, rgba(20,30,42,.66), rgba(11,17,24,.6));
+    border:1px solid var(--hair);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter:blur(14px) saturate(1.15);
+    -webkit-backdrop-filter:blur(14px) saturate(1.15);
+  }
+  .glass--light{
+    background:linear-gradient(160deg, rgba(244,250,255,.9), rgba(222,238,252,.84));
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 34px 80px -34px rgba(36,72,110,.55), inset 0 1px 0 rgba(255,255,255,.9);
+    color:var(--text-ink);
+  }
+  @supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+    .glass{ background:rgba(11,17,24,.92); }
+    .glass--light{ background:rgba(236,245,253,.97); }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    position:relative; min-height:100svh;
+    display:flex; align-items:flex-end;
+    padding-bottom:clamp(2.5rem,7vh,5rem);
+    padding-right:0;
+    overflow:hidden;
+  }
+  .hero__sky-pad{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+
+  /* parallax background skyline */
+  .skyline{
+    position:absolute; left:0; right:0; bottom:0; height:46vh; min-height:300px;
+    z-index:0; pointer-events:none;
+    will-change:transform;
+  }
+  .skyline svg{ width:100%; height:100%; }
+  .sky-far{ opacity:.5; }
+  .sky-mid{ opacity:.8; }
+
+  /* foreground supertall tower */
+  .tower{
+    position:absolute; z-index:1; bottom:0;
+    right:clamp(-30px, 4vw, 90px);
+    width:clamp(150px, 30vw, 340px);
+    height:clamp(58vh, 70vh, 86vh);
+    will-change:transform;
+  }
+  .tower__body{
+    position:absolute; inset:0; top:6%;
+    clip-path:polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    background:
+      linear-gradient(100deg, rgba(255,255,255,.16) 0%, transparent 16%, transparent 84%, rgba(0,0,0,.22) 100%),
+      linear-gradient(180deg, #5d8cbe 0%, #3f6c9c 48%, #2c4f74 100%);
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.25);
+    overflow:hidden;
+    /* assemble reveal handled by .js .lift */
+  }
+  /* window grid */
+  .tower__body::before{
+    content:""; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 11px, rgba(8,18,30,.32) 11px 12px),
+      repeating-linear-gradient(180deg, transparent 0 19px, rgba(8,18,30,.4) 19px 21px);
+    mix-blend-mode:multiply; opacity:.85;
+  }
+  /* moving sheen */
+  .tower__body::after{
+    content:""; position:absolute; top:-20%; bottom:-20%; left:-40%; width:40%;
+    background:linear-gradient(105deg, transparent, rgba(225,242,255,.55), transparent);
+    transform:skewX(-8deg);
+    animation:sheen 7s var(--ease) infinite;
+  }
+  @keyframes sheen{
+    0%,100%{ transform:translateX(0) skewX(-8deg); opacity:0; }
+    18%{ opacity:.9; }
+    60%{ transform:translateX(560%) skewX(-8deg); opacity:0; }
+  }
+  /* lit floor bands (turn on staggered = assembling) */
+  .floorlight{
+    position:absolute; left:0; right:0; height:7.5%;
+    background:linear-gradient(180deg, rgba(255,207,153,.0), rgba(255,207,153,.42), rgba(255,207,153,.0));
+    mix-blend-mode:screen; opacity:0;
+  }
+  .tower__spire{
+    position:absolute; left:50%; top:-2px; transform:translateX(-50%);
+    width:3px; height:8%; background:linear-gradient(180deg,#cfe0ee,#5d8cbe);
+  }
+  .tower__beacon{
+    position:absolute; left:50%; top:-10px; transform:translateX(-50%);
+    width:7px; height:7px; border-radius:50%; background:var(--warm);
+    box-shadow:0 0 12px 3px rgba(255,200,120,.8);
+    animation:beacon 2.6s ease-in-out infinite;
+  }
+  @keyframes beacon{ 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
+
+  /* clouds */
+  .cloud{
+    position:absolute; z-index:1; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(225,240,253,.5), transparent);
+    filter:blur(14px); will-change:transform; pointer-events:none;
+  }
+  .cloud.c1{ width:280px; height:90px; left:-8%; top:30%; animation:drift1 38s linear infinite; }
+  .cloud.c2{ width:200px; height:70px; right:-10%; top:48%; animation:drift2 52s linear infinite; opacity:.7; }
+  .cloud.c3{ width:160px; height:60px; left:20%; top:18%; animation:drift1 64s linear infinite; opacity:.5; }
+  @keyframes drift1{ from{ transform:translateX(-40px);} to{ transform:translateX(110vw);} }
+  @keyframes drift2{ from{ transform:translateX(40px);} to{ transform:translateX(-110vw);} }
+
+  .hero__inner{ position:relative; z-index:2; width:100%; }
+  .hero__scrim{
+    display:none; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(95deg, rgba(8,12,17,.74) 8%, rgba(8,12,17,.4) 48%, rgba(8,12,17,.05) 76%, transparent 90%);
+  }
+  @media (max-width:900px){
+    .hero__scrim{ display:block; }
+    .tower{ width:clamp(120px, 40vw, 230px); right:-14px; opacity:.9; }
+  }
+  .hero__eyebrow{
+    font-size:.72rem; letter-spacing:.32em; text-transform:uppercase; font-weight:600;
+    color:var(--steel-300); margin-bottom:1.5rem;
+    display:flex; align-items:center; gap:.7rem;
+  }
+  .hero__eyebrow .dot{ width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan); }
+  .hero h1{
+    font-size:var(--f-display); font-weight:300; max-width:14ch;
+    color:var(--text-bright); text-shadow:0 2px 40px rgba(6,14,22,.6);
+  }
+  .hero h1 b{ font-weight:700; display:block; }
+  .hero h1 .accent{
+    background:linear-gradient(90deg, var(--cyan), var(--steel-300));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero__lead{
+    margin-top:1.5rem; max-width:46ch; font-size:var(--f-lead);
+    color:var(--text-soft);
+  }
+  .hero__chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.8rem; }
+  .chip{
+    display:inline-flex; align-items:center; gap:.45rem;
+    font-size:.78rem; font-weight:500; letter-spacing:.02em;
+    padding:.42rem .85rem; border-radius:999px;
+    border:1px solid var(--hair); background:rgba(13,20,28,.5);
+    backdrop-filter:blur(6px); color:var(--text-soft);
+  }
+  .chip .star{ color:var(--warm); }
+  .chip .glyph{ width:14px;height:14px;color:var(--steel-300); }
+  .hero__cta{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2.1rem; align-items:center; }
+
+  .scrollcue{
+    margin-top:2.6rem; display:inline-flex; align-items:center; gap:.6rem;
+    font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--text-mute);
+  }
+  .scrollcue .bar{
+    width:1px; height:34px; background:linear-gradient(180deg,var(--cyan),transparent);
+    position:relative; overflow:hidden;
+  }
+  .scrollcue .bar::after{
+    content:""; position:absolute; left:0; top:0; width:100%; height:40%;
+    background:var(--cyan); animation:cue 1.9s var(--ease) infinite;
+  }
+  @keyframes cue{ 0%{ transform:translateY(-100%);} 60%,100%{ transform:translateY(250%);} }
+
+  /* ============================================================
+     ASCENT FLOORS (why us — a real vertical sequence)
+     ============================================================ */
+  .floor{ position:relative; }
+  .floor + .floor{ padding-top:clamp(3.4rem,8vh,6rem); }
+  .floor__grid{
+    display:grid; grid-template-columns:1fr; gap:1.4rem;
+    align-items:start;
+  }
+  .floor__head{ display:flex; flex-direction:column; gap:.5rem; }
+  .floor__panel{ padding:clamp(1.5rem,3.4vw,2.6rem); }
+  .floor h2{ font-size:var(--f-h2); font-weight:700; color:var(--text-bright); }
+  .floor__body{ margin-top:1rem; max-width:54ch; color:var(--text-soft); }
+  .mini-list{
+    list-style:none; padding:0; margin:1.3rem 0 0; display:flex; flex-wrap:wrap; gap:.5rem .6rem;
+  }
+  .mini-list li{
+    font-size:.8rem; letter-spacing:.02em; color:var(--text-soft);
+    padding:.4rem .8rem; border-radius:8px; border:1px solid var(--hair);
+    background:rgba(255,255,255,.03);
+  }
+
+  /* rating waypoint */
+  .rating{ display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; }
+  .rating__num{
+    font-family:"Sora"; font-weight:700; font-size:var(--f-stat); line-height:.9;
+    background:linear-gradient(180deg, #ffe6c2, var(--warm));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    font-variant-numeric:tabular-nums; letter-spacing:-.03em;
+  }
+  .rating__meta{ display:flex; flex-direction:column; gap:.3rem; }
+  .stars{ display:flex; gap:3px; color:var(--warm); }
+  .stars svg{ width:18px;height:18px; }
+  .rating__sub{ font-size:.85rem; color:var(--text-mute); }
+
+  /* ============================================================
+     CARE  (light tonal zone)
+     ============================================================ */
+  .care__panel{ padding:clamp(1.8rem,4.4vw,3.4rem); }
+  .care h2{ font-size:var(--f-h2); font-weight:700; color:var(--text-ink); max-width:16ch; }
+  .care__lead{ margin-top:1.2rem; max-width:58ch; color:var(--text-ink-soft); font-size:var(--f-lead); }
+  .care__tags{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:2rem;
+    background:rgba(36,72,110,.16); border:1px solid rgba(36,72,110,.16); border-radius:14px; overflow:hidden; }
+  .care__tags div{
+    background:rgba(255,255,255,.66); padding:1.1rem 1.2rem;
+    display:flex; flex-direction:column; gap:.25rem;
+  }
+  .care__tags .k{ font-family:"Sora"; font-weight:600; font-size:1rem; color:var(--text-ink); }
+  .care__tags .v{ font-size:.8rem; color:var(--text-ink-soft); }
+
+  /* ============================================================
+     VISIT
+     ============================================================ */
+  .visit__grid{ display:grid; grid-template-columns:1fr; gap:1.2rem; }
+  .visit__panel{ padding:clamp(1.6rem,3.6vw,2.6rem); }
+  .visit h2{ font-size:var(--f-h2); font-weight:700; color:var(--text-ink); }
+  .info-row{ display:flex; align-items:flex-start; gap:.85rem; padding:.95rem 0; border-bottom:1px solid rgba(36,72,110,.14); }
+  .info-row:last-child{ border-bottom:0; }
+  .info-row .ic{
+    width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+    background:linear-gradient(160deg,var(--steel-400),var(--steel-600));
+    color:#fff; box-shadow:0 4px 12px rgba(36,72,110,.35);
+  }
+  .info-row .ic svg{ width:17px;height:17px; }
+  .info-row .lbl{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-ink-soft); font-weight:600; }
+  .info-row .val{ font-family:"Sora"; font-weight:500; color:var(--text-ink); font-size:1.02rem; }
+  .info-row a.val{ text-decoration:none; }
+  .info-row a.val:hover{ text-decoration:underline; }
+
+  .hours{ list-style:none; margin:.3rem 0 0; padding:0; }
+  .hours li{ display:flex; justify-content:space-between; gap:1rem; padding:.5rem 0; border-bottom:1px dashed rgba(36,72,110,.18); font-size:.95rem; color:var(--text-ink); }
+  .hours li:last-child{ border-bottom:0; }
+  .hours .day{ color:var(--text-ink-soft); }
+  .hours .closed{ color:#b15858; font-weight:600; }
+  .hours .open{ color:#2f6b4f; font-weight:600; }
+  .hours__note{ font-size:.78rem; color:var(--text-ink-soft); margin-top:.7rem; }
+
+  /* abstract locator */
+  .locator{ display:flex; flex-direction:column; gap:.9rem; }
+  .locator svg{ width:100%; height:auto; border-radius:14px; border:1px solid rgba(36,72,110,.16); background:linear-gradient(180deg,#eaf3fb,#cfe3f5); }
+  .locator__cap{ font-size:.74rem; color:var(--text-ink-soft); letter-spacing:.02em; }
+
+  /* ============================================================
+     BOOK (summit)
+     ============================================================ */
+  .summit{ text-align:center; }
+  .summit__panel{ padding:clamp(2.2rem,6vw,4.2rem) clamp(1.4rem,5vw,3.6rem); }
+  .summit .eyebrow{ justify-content:center; color:var(--steel-600); }
+  .summit .eyebrow::before{ background:linear-gradient(90deg,var(--steel-500),transparent); }
+  .summit h2{ font-size:clamp(2.2rem,6.5vw,4.4rem); font-weight:700; color:var(--text-ink); margin-inline:auto; max-width:16ch; }
+  .summit__lead{ margin:1.1rem auto 0; max-width:48ch; color:var(--text-ink-soft); font-size:var(--f-lead); }
+  .summit__cta{ display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; margin-top:2.2rem; }
+  .summit .btn--ghost{ --fg:var(--text-ink); border-color:rgba(36,72,110,.3); }
+  .summit .btn--ghost:hover{ background:rgba(36,72,110,.08); }
+
+  .booknote{
+    margin:1.4rem auto 0; max-width:40ch;
+    font-size:.9rem; color:var(--text-ink); line-height:1.5;
+    background:rgba(255,255,255,.7); border:1px solid rgba(36,72,110,.2);
+    border-radius:12px; padding:.95rem 1.1rem;
+    display:none;
+  }
+  .booknote.is-open{ display:block; animation:fadeUp .4s var(--ease) both; }
+  .booknote b{ font-weight:600; }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:none;} }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer{
+    position:relative; z-index:1; background:linear-gradient(180deg, #0a0f14, #05080b);
+    border-top:1px solid var(--hair);
+    padding:clamp(2.6rem,6vw,4rem) 0 2rem;
+    margin-top:0;
+  }
+  .footer__top{ display:grid; grid-template-columns:1fr; gap:1.6rem; align-items:start; }
+  .footer__brand{ display:flex; flex-direction:column; gap:.7rem; max-width:34ch; }
+  .footer__brand .nm{ font-family:"Sora"; font-weight:700; font-size:1.1rem; color:var(--text-bright); }
+  .footer__brand p{ color:var(--text-mute); font-size:.9rem; }
+  .footer__links{ display:flex; flex-direction:column; gap:.6rem; }
+  .footer__links a{
+    text-decoration:none; color:var(--text-soft); font-size:.92rem;
+    display:inline-flex; align-items:center; gap:.5rem; width:fit-content;
+    transition:color .2s;
+  }
+  .footer__links a:hover{ color:var(--cyan); }
+  .footer__links svg{ width:15px;height:15px;color:var(--steel-300); }
+  .footer__bar{
+    margin-top:2.4rem; padding-top:1.4rem; border-top:1px solid var(--hair);
+    display:flex; flex-wrap:wrap; gap:.8rem 1.4rem; justify-content:space-between; align-items:center;
+  }
+  .footer__copy{ font-size:.78rem; color:var(--text-mute); }
+  .credit{
+    font-size:.78rem; color:var(--text-mute); text-decoration:none;
+    display:inline-flex; align-items:center; gap:.45rem; transition:color .25s;
+  }
+  .credit b{ color:var(--text-soft); font-weight:600; }
+  .credit:hover{ color:var(--text-soft); }
+  .credit:hover b{ color:var(--cyan); }
+  .credit .spark{ width:12px;height:12px;color:var(--steel-400); }
+
+  /* ============================================================
+     REVEAL MOTION  (only when JS on + motion allowed)
+     ============================================================ */
+  .js .reveal{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+  .js .reveal.in{ opacity:1; transform:none; }
+  .js .reveal.d1{ transition-delay:.08s; }
+  .js .reveal.d2{ transition-delay:.16s; }
+  .js .reveal.d3{ transition-delay:.24s; }
+
+  /* hero load sequence (JS adds .lift) */
+  .js .tower__body{ clip-path:polygon(20% 100%, 80% 100%, 80% 100%, 20% 100%); }
+  .js .lift .tower__body{
+    clip-path:polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    transition:clip-path 1.5s var(--ease) .15s;
+  }
+  .js .tower__spire,.js .tower__beacon{ opacity:0; }
+  .js .lift .tower__spire{ opacity:1; transition:opacity .6s 1.5s; }
+  .js .lift .tower__beacon{ animation:beacon 2.6s ease-in-out 1.7s infinite; }
+  .js .hero__inner > *{ opacity:0; transform:translateY(26px); }
+  .js .lift .hero__inner > *{ opacity:1; transform:none; transition:opacity .85s var(--ease), transform .85s var(--ease); }
+  .js .lift .hero__inner > *:nth-child(1){ transition-delay:.35s; }
+  .js .lift .hero__inner > *:nth-child(2){ transition-delay:.48s; }
+  .js .lift .hero__inner > *:nth-child(3){ transition-delay:.6s; }
+  .js .lift .hero__inner > *:nth-child(4){ transition-delay:.72s; }
+  .js .lift .hero__inner > *:nth-child(5){ transition-delay:.84s; }
+  .js .lift .hero__inner > *:nth-child(6){ transition-delay:.96s; }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (min-width:680px){
+    .footer__top{ grid-template-columns:1.4fr 1fr; }
+    .care__tags{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (min-width:860px){
+    .nav{ display:flex; }
+    .floor__grid{ grid-template-columns:0.46fr 1fr; gap:2.2rem; }
+    .visit__grid{ grid-template-columns:1.05fr .95fr; gap:1.6rem; }
+  }
+  @media (min-width:1024px){
+    body{ /* reserve gauge lane so content never collides */ }
+    .progress{ display:none; }
+    .gauge{ display:flex; }
+    .wrap{ padding-right:clamp(2rem, 6vw, var(--rail)); }
+    .footer .wrap{ padding-right:clamp(2rem,6vw,var(--rail)); }
+  }
+  @media (min-width:1380px){
+    .wrap{ padding-right:2rem; } /* gauge sits in outer margin on very wide screens */
+  }
+
+  /* ============================================================
+     REDUCED MOTION  — everything visible & still
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+    .js .reveal{ opacity:1 !important; transform:none !important; }
+    .js .hero__inner > *{ opacity:1 !important; transform:none !important; }
+    .js .tower__body{ clip-path:polygon(20% 0, 80% 0, 100% 100%, 0 100%) !important; }
+    .js .tower__spire,.js .tower__beacon{ opacity:1 !important; }
+    .tower__body::after{ display:none; }
+    .cloud{ display:none; }
+    .scrollcue .bar::after,.btn::before{ display:none; }
+  }
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#345a7e;--bk-accent-ink:#ffffff;--bk-ink:#0a0f14;--bk-panel:#f7f5f0;--bk-muted:rgba(10,15,20,0.6);--bk-line:rgba(10,15,20,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Sora", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+
+  <a class="skip" href="#english">Skip to content</a>
+
+  <!-- atmosphere -->
+  <div class="sky" aria-hidden="true">
+    <div class="sky__base"></div>
+    <div class="sky__bright"></div>
+    <div class="sky__sun"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- header -->
+  <header class="header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="Toranomon Hills Ekimae Dental — back to top">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Toranomon Hills <b>Ekimae Dental</b></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#english">English</a>
+      <a href="#access">Access</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn--sm" href="#book">Book online</a>
+  </header>
+
+  <!-- altitude gauge (signature) -->
+  <aside class="gauge" aria-hidden="true">
+    <div class="gauge__read">
+      <span class="gauge__num" id="gaugeNum">0<small> m</small></span>
+      <span class="gauge__floor" id="gaugeFloor">Ground</span>
+    </div>
+    <div class="gauge__track">
+      <div class="gauge__fill"></div>
+      <div class="gauge__ticks" id="gaugeTicks"></div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="hero__sky-pad" aria-hidden="true">
+        <!-- parallax skyline -->
+        <div class="skyline sky-far" data-par="0.18">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <g fill="#1b3147">
+              <rect x="40" y="170" width="70" height="150"/><rect x="130" y="120" width="54" height="200"/>
+              <rect x="210" y="200" width="80" height="120"/><rect x="320" y="150" width="60" height="170"/>
+              <rect x="410" y="100" width="48" height="220"/><rect x="980" y="160" width="70" height="160"/>
+              <rect x="1070" y="120" width="56" height="200"/><rect x="1150" y="190" width="80" height="130"/>
+              <rect x="1250" y="140" width="60" height="180"/><rect x="1330" y="180" width="70" height="140"/>
+            </g>
+          </svg>
+        </div>
+        <div class="skyline sky-mid" data-par="0.34">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <g fill="#27425e">
+              <rect x="0" y="210" width="90" height="110"/><rect x="100" y="160" width="64" height="160"/>
+              <rect x="180" y="120" width="70" height="200"/><rect x="270" y="190" width="58" height="130"/>
+              <rect x="350" y="150" width="44" height="170"/>
+              <polygon points="1180,320 1180,150 1215,120 1250,150 1250,320"/>
+              <rect x="1270" y="180" width="60" height="140"/><rect x="1350" y="140" width="90" height="180"/>
+              <rect x="1080" y="200" width="80" height="120"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- clouds -->
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+
+        <!-- foreground supertall tower -->
+        <div class="tower" data-par="0.55" aria-hidden="true">
+          <span class="tower__beacon"></span>
+          <span class="tower__spire"></span>
+          <div class="tower__body">
+            <span class="floorlight" style="bottom:8%"></span>
+            <span class="floorlight" style="bottom:20%"></span>
+            <span class="floorlight" style="bottom:33%"></span>
+            <span class="floorlight" style="bottom:46%"></span>
+            <span class="floorlight" style="bottom:59%"></span>
+            <span class="floorlight" style="bottom:72%"></span>
+            <span class="floorlight" style="bottom:85%"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="wrap">
+        <div class="hero__inner">
+          <p class="hero__eyebrow"><span class="dot"></span>Toranomon · Minato · Tokyo</p>
+          <h1>Dental care in plain <span class="accent">English,</span> <b>at the foot of Toranomon Hills.</b></h1>
+          <p class="hero__lead">Steps from Toranomon Hills Station — where your symptoms, your options and your costs are all explained in a language you actually speak.</p>
+          <div class="hero__chips">
+            <span class="chip"><span class="star">★</span> 4.9 on Google</span>
+            <span class="chip"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> Open Saturdays</span>
+            <span class="chip"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5-5 18-3-7-7-3z"/></svg> English spoken</span>
+          </div>
+          <div class="hero__cta">
+            <a class="btn" href="#book">Book online</a>
+            <a class="btn btn--ghost" href="tel:+81335003630">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +81 3-3500-3630
+            </a>
+          </div>
+          <span class="scrollcue"><span class="bar"></span> Scroll to ascend</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLOOR · ENGLISH ===================== -->
+    <section class="section floor care-anchor" id="english">
+      <div class="wrap">
+        <div class="floor__grid">
+          <div class="floor__head reveal">
+            <span class="alt-tag">ALT · 048 m</span>
+            <span class="eyebrow">No translation required</span>
+          </div>
+          <div class="floor__panel glass reveal d1">
+            <h2>Your dentist<br>speaks English.</h2>
+            <p class="floor__body">You shouldn't have to translate your own toothache. Here, every symptom, every option and every cost is explained clearly in English — so each decision about your care is one you genuinely understand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLOOR · ACCESS ===================== -->
+    <section class="section floor" id="access">
+      <div class="wrap">
+        <div class="floor__grid">
+          <div class="floor__head reveal">
+            <span class="alt-tag">ALT · 112 m</span>
+            <span class="eyebrow">Getting here</span>
+          </div>
+          <div class="floor__panel glass reveal d1">
+            <h2>By Toranomon<br>Hills Station.</h2>
+            <p class="floor__body">In the heart of Minato, a short walk from the station — easy to reach before work, on a lunch break, or between meetings in the towers above.</p>
+            <ul class="mini-list">
+              <li>Toranomon, Minato</li>
+              <li>By the station</li>
+              <li>Central Tokyo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLOOR · SATURDAYS ===================== -->
+    <section class="section floor" id="saturdays">
+      <div class="wrap">
+        <div class="floor__grid">
+          <div class="floor__head reveal">
+            <span class="alt-tag">ALT · 168 m</span>
+            <span class="eyebrow">When we're open</span>
+          </div>
+          <div class="floor__panel glass reveal d1">
+            <h2>Saturdays, too.</h2>
+            <p class="floor__body">Saturday appointments are available — closed Sundays. Call to confirm weekday hours and we'll find a time that fits around your week.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLOOR · RATING ===================== -->
+    <section class="section floor" id="rating">
+      <div class="wrap">
+        <div class="floor__grid">
+          <div class="floor__head reveal">
+            <span class="alt-tag">ALT · 208 m</span>
+            <span class="eyebrow">Reputation</span>
+          </div>
+          <div class="floor__panel glass reveal d1">
+            <div class="rating">
+              <span class="rating__num">4.9</span>
+              <div class="rating__meta">
+                <span class="stars" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.8 5.9 20.8 7.1 14 2.1 9.2 9 8.3z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.8 5.9 20.8 7.1 14 2.1 9.2 9 8.3z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.8 5.9 20.8 7.1 14 2.1 9.2 9 8.3z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.8 5.9 20.8 7.1 14 2.1 9.2 9 8.3z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.8 5.9 20.8 7.1 14 2.1 9.2 9 8.3z"/></svg>
+                </span>
+                <span class="rating__sub">from 54 Google reviews</span>
+              </div>
+            </div>
+            <p class="floor__body" style="margin-top:1.4rem">Trusted by neighbours and newcomers alike — with new reviews as recent as April 2026.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARE (light zone) ===================== -->
+    <section class="section care" id="care">
+      <div class="wrap">
+        <div class="care__panel glass glass--light reveal">
+          <span class="eyebrow" style="color:var(--steel-600)">The care</span>
+          <h2>Unhurried, modern, gentle.</h2>
+          <p class="care__lead">Thorough exams, careful cleanings and the everyday dentistry that keeps a smile healthy — at a calm, considered pace, with every step explained before it happens.</p>
+          <div class="care__tags">
+            <div><span class="k">Check-ups</span><span class="v">Honest, thorough assessments</span></div>
+            <div><span class="k">Cleanings</span><span class="v">Careful, comfortable hygiene</span></div>
+            <div><span class="k">Everyday dentistry</span><span class="v">The routine care that lasts</span></div>
+            <div><span class="k">Clear English</span><span class="v">Explained at every step</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VISIT ===================== -->
+    <section class="section visit" id="visit">
+      <div class="wrap">
+        <div class="visit__grid">
+          <div class="visit__panel glass glass--light reveal">
+            <span class="eyebrow" style="color:var(--steel-600)">Visit</span>
+            <h2>Find us in Toranomon.</h2>
+
+            <div class="info-row" style="margin-top:1.3rem">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div>
+                <div class="lbl">Area</div>
+                <div class="val">Toranomon, Minato — Tokyo · by Toranomon Hills Station</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div>
+                <div class="lbl">Phone</div>
+                <a class="val" href="tel:+81335003630">+81 3-3500-3630</a>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></span>
+              <div>
+                <div class="lbl">Instagram</div>
+                <a class="val" href="https://instagram.com/toranomonhills_dentalclinic" target="_blank" rel="noopener">@toranomonhills_dentalclinic</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="visit__panel glass glass--light reveal d1">
+            <span class="eyebrow" style="color:var(--steel-600)">Hours</span>
+            <ul class="hours">
+              <li><span class="day">Monday – Friday</span><span>By appointment</span></li>
+              <li><span class="day">Saturday</span><span class="open">Open</span></li>
+              <li><span class="day">Sunday</span><span class="closed">Closed</span></li>
+            </ul>
+            <p class="hours__note">Weekday times vary — please call to confirm today's availability.</p>
+
+            <div class="locator" style="margin-top:1.6rem">
+              <svg viewBox="0 0 400 200" role="img" aria-label="Stylised locator showing the clinic beside Toranomon Hills Station">
+                <defs>
+                  <linearGradient id="tw" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#6f9fcf"/><stop offset="1" stop-color="#2f567f"/>
+                  </linearGradient>
+                </defs>
+                <!-- ground -->
+                <line x1="0" y1="168" x2="400" y2="168" stroke="#9cc1e6" stroke-width="2"/>
+                <!-- background towers -->
+                <rect x="40" y="80" width="40" height="88" fill="#bcd6ee"/>
+                <rect x="92" y="56" width="34" height="112" fill="#a9c8e6"/>
+                <!-- supertall -->
+                <polygon points="150,168 150,40 170,24 190,40 190,168" fill="url(#tw)"/>
+                <line x1="170" y1="24" x2="170" y2="8" stroke="#2f567f" stroke-width="2"/>
+                <circle cx="170" cy="8" r="3" fill="#ffcf99"/>
+                <!-- station -->
+                <rect x="208" y="120" width="74" height="48" fill="#cddff0" stroke="#7fa6cc"/>
+                <text x="245" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#3a4d5e" font-weight="600">STATION</text>
+                <!-- pin (clinic) -->
+                <g>
+                  <path d="M320 96 a16 16 0 1 0 -0.1 0 L320 130 z" fill="#ffffff" stroke="#2f567f" stroke-width="2.5"/>
+                  <circle cx="320" cy="80" r="6" fill="#4a7fb5"/>
+                </g>
+                <text x="320" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#3a4d5e" font-weight="600">YOU ARE HERE</text>
+              </svg>
+              <span class="locator__cap">A short walk from Toranomon Hills Station, in the heart of Minato.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOOK (summit) ===================== -->
+    <section class="section summit" id="book">
+      <div class="wrap">
+        <div class="summit__panel glass glass--light reveal">
+          <span class="eyebrow">Summit · 247 m</span>
+          <h2>Ready when you are.</h2>
+          <p class="summit__lead">Book online, or call and we'll take it from there. New patients from across Tokyo's international community are always welcome.</p>
+          <div class="summit__cta">
+            <button class="btn" id="bookBtn" type="button" aria-expanded="false" aria-controls="bookNote">Book online</button>
+            <a class="btn btn--ghost" href="tel:+81335003630">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call +81 3-3500-3630
+            </a>
+            <a class="btn btn--ghost" href="https://instagram.com/toranomonhills_dentalclinic" target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+              Instagram
+            </a>
+          </div>
+          <p class="booknote" id="bookNote" role="status">
+            <b>Online booking is on its way to this page.</b> For now, call <a href="tel:+81335003630">+81 3-3500-3630</a> or message us on <a href="https://instagram.com/toranomonhills_dentalclinic" target="_blank" rel="noopener">Instagram</a> and we'll find you a time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="nm">Toranomon Hills Ekimae Dental</span>
+          <p>English-speaking dental care in Toranomon, Minato — steps from the station, in the heart of Tokyo.</p>
+        </div>
+        <div class="footer__links">
+          <a href="tel:+81335003630">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +81 3-3500-3630
+          </a>
+          <a href="https://instagram.com/toranomonhills_dentalclinic" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+            @toranomonhills_dentalclinic
+          </a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span class="footer__copy">© 2026 Toranomon Hills Ekimae Dental · Toranomon, Minato, Tokyo</span>
+        <a class="credit" href="https://stellarhausmedia.com" target="_blank" rel="noopener">
+          <svg class="spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.4L20 10l-6.4 1.6L12 18l-1.6-6.4L4 10l6.4-1.6z"/></svg>
+          Designed by <b>Stellar Haus Media</b>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    "use strict";
+    var root = document.documentElement;
+    root.classList.add("js");
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce) root.classList.add("reduced");
+
+    /* ---------- hero load sequence ---------- */
+    var hero = document.getElementById("top");
+    window.addEventListener("load", function(){
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ hero.classList.add("lift"); });
+      });
+    });
+    // safety: ensure lift even if load already fired
+    if(document.readyState === "complete"){ hero.classList.add("lift"); }
+
+    /* ---------- build gauge ticks ---------- */
+    var waypoints = [
+      {id:"top",      label:"Ascent"},
+      {id:"english",  label:"English"},
+      {id:"access",   label:"Access"},
+      {id:"saturdays",label:"Saturdays"},
+      {id:"rating",   label:"4.9★"},
+      {id:"care",     label:"Care"},
+      {id:"visit",    label:"Visit"},
+      {id:"book",     label:"Book"}
+    ];
+    var ticksWrap = document.getElementById("gaugeTicks");
+    var tickEls = [];
+    waypoints.forEach(function(w, i){
+      var b = document.createElement("button");
+      b.className = "tick";
+      b.style.top = (i/(waypoints.length-1))*100 + "%";
+      b.setAttribute("data-label", w.label);
+      b.setAttribute("aria-label", "Go to " + w.label);
+      b.addEventListener("click", function(){
+        var el = document.getElementById(w.id);
+        if(el) el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+      });
+      ticksWrap.appendChild(b);
+      tickEls.push(b);
+    });
+
+    /* ---------- scroll-driven values (rAF) ---------- */
+    var header = document.getElementById("siteHeader");
+    var gaugeNum = document.getElementById("gaugeNum");
+    var gaugeFloor = document.getElementById("gaugeFloor");
+    var parEls = [].slice.call(document.querySelectorAll("[data-par]"));
+    var SUMMIT_M = 247;
+    var ticking = false;
+    var lastShown = -1;
+
+    function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+
+    function update(){
+      ticking = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var y = window.scrollY || window.pageYOffset;
+      var p = max > 0 ? clamp(y / max, 0, 1) : 0;
+
+      root.style.setProperty("--p", p.toFixed(4));
+      // brighten sky a touch beyond raw progress so summit feels luminous
+      root.style.setProperty("--alt", clamp(0.1 + p*0.95, 0, 1).toFixed(4));
+
+      // altitude readout
+      var m = Math.round(p * SUMMIT_M);
+      if(m !== lastShown){
+        lastShown = m;
+        gaugeNum.innerHTML = m + "<small> m</small>";
+      }
+
+      // header backdrop
+      if(y > 40) header.classList.add("is-stuck"); else header.classList.remove("is-stuck");
+
+      // parallax (skip if reduced)
+      if(!reduce){
+        for(var i=0;i<parEls.length;i++){
+          var f = parseFloat(parEls[i].getAttribute("data-par")) || 0;
+          // only shift while hero is roughly in view for performance
+          if(y < window.innerHeight * 1.2){
+            parEls[i].style.transform = "translate3d(0," + (y * f * 0.4) + "px,0)";
+          }
+        }
+      }
+    }
+    function onScroll(){
+      if(!ticking){ ticking = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", onScroll);
+    update();
+
+    /* ---------- active section -> gauge floor + tick ---------- */
+    var floorName = {top:"Ground", english:"Language", access:"Access",
+      saturdays:"Hours", rating:"Reviews", care:"Care", visit:"Visit", book:"Summit"};
+    var sectionObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id = e.target.id;
+          if(floorName[id]) gaugeFloor.textContent = floorName[id];
+          var idx = waypoints.findIndex(function(w){ return w.id === id; });
+          tickEls.forEach(function(t,i){ t.classList.toggle("is-active", i === idx); });
+        }
+      });
+    }, {rootMargin:"-45% 0px -45% 0px", threshold:0});
+    waypoints.forEach(function(w){
+      var el = document.getElementById(w.id);
+      if(el) sectionObserver.observe(el);
+    });
+
+    /* ---------- reveal on scroll ---------- */
+    if("IntersectionObserver" in window){
+      var revealObserver = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add("in"); obs.unobserve(e.target); }
+        });
+      }, {rootMargin:"0px 0px -10% 0px", threshold:0.12});
+      document.querySelectorAll(".reveal").forEach(function(el){ revealObserver.observe(el); });
+    } else {
+      document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+    }
+
+    /* ---------- "Book online" demo (non-functional) ---------- */
+    var bookBtn = document.getElementById("bookBtn");
+    var bookNote = document.getElementById("bookNote");
+    if(bookBtn){
+      bookBtn.addEventListener("click", function(){
+        var open = bookNote.classList.toggle("is-open");
+        bookBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        bookBtn.textContent = open ? "Booking — coming soon" : "Book online";
+      });
+    }
+  })();
+  </script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81335003630", CHAN="", CHANLABEL="";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

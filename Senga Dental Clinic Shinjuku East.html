@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Senga Dental Clinic Shinjuku East — English-speaking dentistry in Shinjuku, Tokyo</title>
+<meta name="description" content="English-speaking dental care in the heart of Shinjuku, Tokyo. Calm, modern treatment for the international community — minutes from Shinjuku Station's east side." />
+<meta name="color-scheme" content="dark" />
+
+<!--
+  ────────────────────────────────────────────────────────────────
+  EDITABLE REAL-DATA POINTS (confirm against the clinic's records):
+  1. LINE_URL  → set the clinic's official LINE add-friend link in the
+     <script> at the bottom. Left blank intentionally — when blank the
+     LINE button shows a graceful "link coming soon" state instead of
+     pointing anywhere generic.
+  2. SERVICES  → the six "Care" rows below are a sensible general-dentistry
+     set. Swap names/descriptions for the clinic's exact services.
+  3. HOURS     → the table is a realistic standard pattern. Replace with
+     the clinic's real opening hours. "Today" is auto-highlighted.
+  Confirmed & wired live: phone +81 50-1793-0578, Instagram @sengadc.
+  ────────────────────────────────────────────────────────────────
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   SENGA DENTAL — "Refined Neon-Noir"
+   Palette ........ cool near-black + one electric cyan accent,
+                    with a faint magenta city-haze for atmosphere.
+   Type ........... Space Grotesk (display, tight tracking),
+                    Manrope (body), Space Mono (signage labels/data).
+   ============================================================ */
+
+:root{
+  --void:#07090c;      /* base night */
+  --void-2:#090c11;    /* gradient companion */
+  --ink:#0b0f14;       /* raised surface */
+  --smoke:#0f151c;     /* panel */
+  --line:rgba(190,214,225,.10);
+  --line-2:rgba(190,214,225,.16);
+
+  --neon:#2ff0df;      /* THE accent — electric cyan */
+  --neon-bright:#b6fff6;
+  --neon-deep:#0fb7ab;
+  --glow:rgba(47,240,223,.55);
+  --glow-soft:rgba(47,240,223,.22);
+  --haze:#e8369b;      /* magenta — atmosphere only, never interactive */
+
+  --text:#eaf1f4;
+  --text-2:#aab6bf;
+  --muted:#7d8b95;
+
+  --maxw:1240px;
+  --gut:clamp(1.25rem,5vw,4rem);
+  --r:14px;
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --slow:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--void);
+  color:var(--text);
+  font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:clamp(1rem,.55vw + .9rem,1.1rem);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3{margin:0;font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.02}
+p{margin:0}
+::selection{background:var(--neon);color:#04130f}
+
+/* ---- atmospheric background layers (fixed, behind everything) ---- */
+.bg{position:fixed;inset:0;z-index:-3;background:
+  radial-gradient(120% 90% at 78% -10%, rgba(47,240,223,.16), transparent 55%),
+  radial-gradient(90% 70% at 8% 8%, rgba(232,54,155,.10), transparent 60%),
+  radial-gradient(140% 120% at 50% 120%, #04060a 30%, transparent 70%),
+  linear-gradient(180deg, var(--void-2), var(--void) 60%);
+}
+.bg__blob{position:fixed;z-index:-2;border-radius:50%;filter:blur(80px);opacity:.5;pointer-events:none;mix-blend-mode:screen}
+.bg__blob--c{width:46vw;height:46vw;left:58%;top:-14vw;background:radial-gradient(circle at 40% 40%, var(--neon), transparent 62%);opacity:.30;animation:drift1 26s var(--ease) infinite alternate}
+.bg__blob--m{width:38vw;height:38vw;left:-12vw;top:38vh;background:radial-gradient(circle at 60% 40%, var(--haze), transparent 64%);opacity:.16;animation:drift2 32s var(--ease) infinite alternate}
+@keyframes drift1{to{transform:translate3d(-6vw,7vh,0) scale(1.12)}}
+@keyframes drift2{to{transform:translate3d(7vw,-5vh,0) scale(1.08)}}
+
+/* cinematic film grain */
+.grain{position:fixed;inset:-150%;z-index:-1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 7s steps(6) infinite}
+@keyframes grain{
+  0%{transform:translate(0,0)}10%{transform:translate(-4%,-4%)}30%{transform:translate(3%,-2%)}
+  50%{transform:translate(-2%,3%)}70%{transform:translate(4%,2%)}90%{transform:translate(-3%,1%)}100%{transform:translate(0,0)}
+}
+
+/* ---- shared layout ---- */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.section{position:relative;padding-block:clamp(5rem,11vh,9rem)}
+.eyebrow{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--neon);
+  display:inline-flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--neon),transparent);box-shadow:0 0 8px var(--glow)}
+.lead{color:var(--text-2);max-width:46ch}
+
+/* skip link */
+.skip{position:absolute;left:.75rem;top:-3rem;z-index:200;background:var(--neon);color:#04130f;padding:.6rem 1rem;border-radius:8px;font-weight:700;transition:top .2s}
+.skip:focus{top:.75rem}
+
+:focus-visible{outline:2px solid var(--neon);outline-offset:3px;border-radius:4px}
+
+/* ============================================================ HEADER */
+.nav{position:fixed;inset:0 0 auto 0;z-index:80;transition:background .4s,backdrop-filter .4s,border-color .4s}
+.nav::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:var(--line);opacity:0;transition:opacity .4s}
+.nav.is-stuck{background:rgba(7,9,12,.72);backdrop-filter:blur(14px) saturate(140%)}
+.nav.is-stuck::after{opacity:1}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.brand{display:flex;align-items:center;gap:.7rem;letter-spacing:-.01em}
+.brand__mark{width:30px;height:34px;flex:none;color:var(--neon);filter:drop-shadow(0 0 6px var(--glow))}
+.brand__name{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.06rem}
+.brand__jp{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.2em;color:var(--muted)}
+
+.nav__links{display:none}
+.nav__a{position:relative;font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-2);padding:.35rem 0;transition:color .3s}
+.nav__a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--neon);box-shadow:0 0 8px var(--glow);transition:transform .4s var(--slow)}
+.nav__a:hover{color:var(--text)}
+.nav__a:hover::after{transform:scaleX(1)}
+.nav__side{display:flex;align-items:center;gap:.5rem}
+.iclink{width:40px;height:40px;display:none;place-items:center;border:1px solid var(--line-2);border-radius:10px;color:var(--text-2);transition:color .3s,border-color .3s,box-shadow .3s,transform .3s}
+.iclink:hover{color:var(--neon);border-color:var(--neon);box-shadow:0 0 14px var(--glow-soft);transform:translateY(-1px)}
+.iclink svg{width:18px;height:18px}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.6rem;font-family:"Space Mono",monospace;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;padding:.85rem 1.25rem;border-radius:11px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,color .3s,border-color .3s,background .3s;white-space:nowrap}
+.btn svg{width:16px;height:16px}
+.btn--solid{background:var(--neon);color:#04130f;font-weight:700;box-shadow:0 0 0 1px rgba(47,240,223,.4),0 8px 30px -10px var(--glow)}
+.btn--solid::before{content:"";position:absolute;inset:0;transform:translateX(-130%);background:linear-gradient(110deg,transparent,rgba(255,255,255,.55),transparent);transition:transform .6s var(--ease)}
+.btn--solid:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--neon),0 14px 40px -10px var(--glow)}
+.btn--solid:hover::before{transform:translateX(130%)}
+.btn--ghost{border:1px solid var(--line-2);color:var(--text);background:rgba(255,255,255,.015)}
+.btn--ghost:hover{border-color:var(--neon);color:var(--neon);box-shadow:0 0 18px var(--glow-soft);transform:translateY(-2px)}
+.btn--sm{padding:.6rem .9rem}
+.btn .dot{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+
+/* hamburger */
+.burger{display:inline-grid;place-items:center;width:42px;height:42px;border:1px solid var(--line-2);border-radius:10px}
+.burger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger span+span{margin-top:4px}
+.menu[aria-expanded="true"] .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu[aria-expanded="true"] .burger span:nth-child(2){opacity:0}
+.menu[aria-expanded="true"] .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* mobile drawer */
+.drawer{position:fixed;inset:72px 0 auto 0;z-index:70;background:rgba(7,9,12,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);
+  display:grid;gap:.25rem;padding:1rem var(--gut) 1.6rem;transform:translateY(-12px);opacity:0;visibility:hidden;transition:transform .35s var(--slow),opacity .35s,visibility .35s}
+.drawer.is-open{transform:none;opacity:1;visibility:visible}
+.drawer a.d-link{font-family:"Space Mono",monospace;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);padding:.85rem .25rem;border-bottom:1px solid var(--line)}
+.drawer .d-row{display:flex;gap:.6rem;margin-top:1rem}
+.drawer .d-row .btn{flex:1;justify-content:center}
+
+/* ============================================================ HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:88px;padding-bottom:7vh}
+.hero__grid{display:grid;gap:2.4rem;width:100%}
+.hero__eyebrow{margin-bottom:1.4rem}
+.h1{font-size:clamp(2.85rem,11.5vw,7.4rem);font-weight:700;letter-spacing:-.035em}
+.h1 .ln{display:block;overflow:hidden}
+.h1 .word{display:inline-block}
+/* neon-lit headline */
+.lit{color:#f3fffd;text-shadow:0 0 4px rgba(255,255,255,.55),0 0 16px var(--glow),0 0 34px var(--glow-soft)}
+.lit--key{color:var(--neon-bright);text-shadow:0 0 6px #fff,0 0 18px var(--neon),0 0 42px var(--glow),0 0 70px var(--glow-soft)}
+.hero__sub{max-width:40ch;color:var(--text-2);font-size:clamp(1.02rem,.5vw + .95rem,1.2rem)}
+.hero__sub strong{color:var(--text);font-weight:600}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.hero__phone{display:inline-flex;align-items:center;gap:.55rem;font-family:"Space Mono",monospace;font-size:.82rem;letter-spacing:.06em;color:var(--text-2);transition:color .3s}
+.hero__phone:hover{color:var(--neon)}
+.hero__phone svg{width:15px;height:15px;color:var(--neon)}
+
+/* status chip + scroll cue */
+.status{display:inline-flex;align-items:center;gap:.55rem;font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-2);
+  border:1px solid var(--line-2);border-radius:999px;padding:.4rem .8rem;background:rgba(255,255,255,.02)}
+.status .pulse{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 0 var(--glow);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--glow)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+.scrollcue{position:absolute;left:var(--gut);bottom:1.6rem;display:flex;align-items:center;gap:.7rem;font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.scrollcue .bar{position:relative;width:1px;height:42px;background:var(--line-2);overflow:hidden}
+.scrollcue .bar::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--neon),transparent);box-shadow:0 0 8px var(--glow);animation:fall 2.2s var(--ease) infinite}
+@keyframes fall{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+
+/* big ghosted kanji watermark in hero */
+.hero__kanji{position:absolute;right:-2vw;top:8%;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:46vh;line-height:.8;color:transparent;
+  -webkit-text-stroke:1px rgba(190,214,225,.05);user-select:none;pointer-events:none;z-index:-1}
+
+/* ============================================================ MARQUEE divider */
+.ticker{border-block:1px solid var(--line);overflow:hidden;background:rgba(255,255,255,.012)}
+.ticker__track{display:flex;gap:3rem;width:max-content;padding-block:.95rem;animation:scrollx 32s linear infinite}
+.ticker__track span{font-family:"Space Mono",monospace;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-2);display:inline-flex;align-items:center;gap:3rem}
+.ticker__track span::after{content:"◆";color:var(--neon);font-size:.6rem;opacity:.8}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ============================================================ PROMISE */
+.promise__grid{display:grid;gap:2.6rem}
+.promise__quote{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:clamp(1.7rem,4.4vw,3.05rem);letter-spacing:-.02em;line-height:1.12;max-width:18ch}
+.promise__quote em{font-style:normal;color:var(--neon);text-shadow:0 0 22px var(--glow-soft)}
+.promise__list{display:grid;gap:0;align-self:end}
+.pitem{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.pitem:last-child{border-bottom:1px solid var(--line)}
+.pitem__no{font-family:"Space Mono",monospace;font-size:.74rem;color:var(--neon);letter-spacing:.1em;padding-top:.2rem}
+.pitem h3{font-size:1.12rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.3rem}
+.pitem p{color:var(--muted);font-size:.96rem}
+
+/* ============================================================ CARE / directory */
+.care__head{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:flex-end;margin-bottom:2.4rem}
+.care__title{font-size:clamp(2rem,5.4vw,3.4rem)}
+.directory{border-top:1px solid var(--line)}
+.svc{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.1rem;
+  padding:clamp(1.25rem,3.2vw,2rem) .25rem;border-bottom:1px solid var(--line);overflow:hidden;transition:padding .4s var(--ease)}
+.svc::before{content:"";position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,rgba(47,240,223,.10),transparent);transition:width .5s var(--ease);pointer-events:none}
+/* the charging light-trail on hover */
+.svc::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--neon),transparent);box-shadow:0 0 10px var(--glow);transition:transform .55s var(--slow)}
+.svc:hover{padding-left:.9rem}
+.svc:hover::before{width:60%}
+.svc:hover::after{transform:scaleX(1)}
+.svc__no{font-family:"Space Mono",monospace;font-size:.8rem;color:var(--muted);transition:color .4s,text-shadow .4s;align-self:start;padding-top:.45rem}
+.svc:hover .svc__no{color:var(--neon);text-shadow:0 0 12px var(--glow)}
+.svc__body h3{font-size:clamp(1.4rem,3.6vw,2.35rem);font-weight:600;transition:transform .45s var(--slow)}
+.svc:hover .svc__body h3{transform:translateX(4px)}
+.svc__body p{color:var(--muted);font-size:.97rem;margin-top:.35rem;max-width:52ch}
+.svc__ic{width:40px;height:40px;color:var(--text-2);opacity:.7;transition:color .4s,opacity .4s,transform .5s var(--slow);justify-self:end}
+.svc:hover .svc__ic{color:var(--neon);opacity:1;transform:translateX(0) rotate(0)}
+.svc__ic svg{width:100%;height:100%;filter:drop-shadow(0 0 0 transparent);transition:filter .4s}
+.svc:hover .svc__ic svg{filter:drop-shadow(0 0 8px var(--glow-soft))}
+
+/* ============================================================ HOURS + ACCESS */
+.access__grid{display:grid;gap:2.4rem}
+.panel{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.005));padding:clamp(1.5rem,4vw,2.4rem);position:relative;overflow:hidden}
+.panel__label{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;display:flex;align-items:center;justify-content:space-between}
+.openchip{display:inline-flex;align-items:center;gap:.5rem;color:var(--neon);font-size:.7rem;letter-spacing:.2em}
+.openchip .pulse{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 0 var(--glow);animation:pulse 2.4s var(--ease) infinite}
+
+.hours{display:grid;gap:0}
+.hrow{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;padding:.7rem 0;border-bottom:1px solid var(--line);font-family:"Space Mono",monospace;font-size:.92rem;transition:color .3s}
+.hrow:last-child{border-bottom:0}
+.hrow .d{letter-spacing:.06em;color:var(--text-2)}
+.hrow .t{color:var(--text);text-align:right}
+.hrow .t.closed{color:var(--muted)}
+.hrow.today{position:relative}
+.hrow.today .d{color:var(--neon);text-shadow:0 0 12px var(--glow-soft)}
+.hrow.today .t{color:var(--neon-bright)}
+.hrow.today::before{content:"";position:absolute;left:-.9rem;top:50%;transform:translateY(-50%);width:4px;height:4px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--glow)}
+.hours__note{margin-top:1rem;font-size:.82rem;color:var(--muted)}
+
+/* access / abstract neon street map */
+.map{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#05070a;aspect-ratio:4/3}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map__pin{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);z-index:2}
+.map__pin .ring{width:16px;height:16px;border-radius:50%;background:var(--neon);box-shadow:0 0 12px var(--glow),0 0 28px var(--glow-soft)}
+.map__pin .halo{position:absolute;inset:-8px;border-radius:50%;border:1px solid var(--neon);animation:pulse2 2.6s var(--ease) infinite}
+@keyframes pulse2{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.map__tag{position:absolute;left:50%;top:48%;transform:translate(14px,-26px);font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);z-index:2;text-shadow:0 0 10px var(--glow-soft)}
+.access__meta{display:grid;gap:1rem;margin-top:1.6rem}
+.access__meta .row{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.access__meta .row .k{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:.15rem;white-space:nowrap}
+.access__meta .row .v{color:var(--text-2);font-size:.96rem}
+.access__meta .row .v a{color:var(--text);border-bottom:1px solid var(--line-2);transition:color .3s,border-color .3s}
+.access__meta .row .v a:hover{color:var(--neon);border-color:var(--neon)}
+
+/* ============================================================ CONTACT / CTA */
+.cta{position:relative;text-align:left}
+.cta__big{font-size:clamp(2.4rem,7.5vw,5.2rem);font-weight:700;letter-spacing:-.035em;line-height:1.0;margin-bottom:1.4rem}
+.cta__sub{color:var(--text-2);max-width:44ch;margin-bottom:2.6rem}
+.channels{display:grid;gap:1rem}
+.chan{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.1rem;
+  border:1px solid var(--line);border-radius:var(--r);padding:1.15rem 1.3rem;background:rgba(255,255,255,.015);overflow:hidden;
+  transition:border-color .35s,transform .35s var(--ease),box-shadow .35s,background .35s}
+.chan::before{content:"";position:absolute;left:0;top:0;height:100%;width:3px;background:var(--neon);transform:scaleY(0);transform-origin:top;box-shadow:0 0 14px var(--glow);transition:transform .4s var(--slow)}
+.chan:hover{transform:translateY(-2px);border-color:var(--neon);box-shadow:0 14px 40px -22px var(--glow);background:rgba(47,240,223,.04)}
+.chan:hover::before{transform:scaleY(1)}
+.chan__ic{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:10px;color:var(--neon);transition:box-shadow .35s,border-color .35s}
+.chan:hover .chan__ic{box-shadow:0 0 16px var(--glow-soft);border-color:var(--neon)}
+.chan__ic svg{width:19px;height:19px}
+.chan__t{display:flex;flex-direction:column;gap:.18rem;min-width:0}
+.chan__t .k{font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.chan__t .v{font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+.chan__go{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.1em;color:var(--text-2);display:inline-flex;align-items:center;gap:.45rem;transition:color .35s,transform .35s}
+.chan:hover .chan__go{color:var(--neon)}
+.chan__go svg{width:14px;height:14px;transition:transform .35s var(--ease)}
+.chan:hover .chan__go svg{transform:translate(3px,-3px)}
+.chan.is-soft{cursor:default}
+.chan.is-soft .chan__go .label{transition:opacity .3s}
+
+/* toast for demo booking / soft line */
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translate(-50%,140%);z-index:120;background:rgba(11,16,22,.96);border:1px solid var(--neon);color:var(--text);
+  padding:.85rem 1.2rem;border-radius:12px;font-size:.9rem;box-shadow:0 0 30px -8px var(--glow);display:flex;align-items:center;gap:.6rem;max-width:90vw;transition:transform .45s var(--slow),opacity .45s;opacity:0}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast svg{width:16px;height:16px;color:var(--neon);flex:none}
+
+/* ============================================================ FOOTER */
+.foot{border-top:1px solid var(--line);padding-block:3rem 2.4rem}
+.foot__grid{display:grid;gap:2rem}
+.foot__brand{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.foot__brand .brand__mark{width:26px;height:30px}
+.foot p.small{color:var(--muted);font-size:.86rem;max-width:34ch}
+.foot__contacts{display:grid;gap:.5rem;font-family:"Space Mono",monospace;font-size:.82rem;color:var(--text-2)}
+.foot__contacts a{transition:color .3s}
+.foot__contacts a:hover{color:var(--neon)}
+.foot__bottom{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.foot__copy{font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.1em;color:var(--muted)}
+.credit{font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.12em;color:var(--muted);transition:color .3s}
+.credit a{color:var(--text-2);border-bottom:1px solid var(--line-2);padding-bottom:1px;transition:color .3s,border-color .3s}
+.credit a:hover{color:var(--neon);border-color:var(--neon)}
+
+/* ============================================================ REVEAL (progressive enhancement) */
+/* default: fully visible. Only when JS + motion allowed do we animate in. */
+.no-js .reveal,.reduce .reveal{opacity:1!important;transform:none!important}
+html.js.motion .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--slow),transform .9s var(--slow)}
+html.js.motion .reveal.is-in{opacity:1;transform:none}
+html.js.motion .reveal[data-d="1"]{transition-delay:.08s}
+html.js.motion .reveal[data-d="2"]{transition-delay:.16s}
+html.js.motion .reveal[data-d="3"]{transition-delay:.24s}
+html.js.motion .reveal[data-d="4"]{transition-delay:.32s}
+
+/* hero load sequence (only with motion) */
+html.js.motion .anim{opacity:0;transform:translateY(22px)}
+html.js.motion.ready .anim{opacity:1;transform:none;transition:opacity .85s var(--slow),transform .85s var(--slow)}
+html.js.motion.ready .anim[data-d="1"]{transition-delay:.45s}
+html.js.motion.ready .anim[data-d="2"]{transition-delay:.62s}
+html.js.motion.ready .anim[data-d="3"]{transition-delay:.78s}
+html.js.motion.ready .anim[data-d="4"]{transition-delay:.92s}
+
+/* neon ignition flicker on the headline (only with motion) */
+html.js.motion .h1 .lit,html.js.motion .h1 .lit--key{animation:ignite 1.5s steps(1,end) both}
+html.js.motion .h1 .lit--key{animation-delay:.25s}
+@keyframes ignite{
+  0%,100%{opacity:1}
+  0%{opacity:0}
+  8%{opacity:.85}12%{opacity:.1}18%{opacity:.9}24%{opacity:.25}
+  30%{opacity:1}38%{opacity:.4}44%{opacity:1}
+}
+
+/* ============================================================ RESPONSIVE */
+@media (min-width:560px){
+  .hero__kanji{font-size:52vh}
+}
+@media (min-width:768px){
+  .promise__grid{grid-template-columns:1.15fr .85fr;gap:3.2rem;align-items:center}
+  .access__grid{grid-template-columns:1fr 1fr;gap:2.6rem;align-items:start}
+  .foot__grid{grid-template-columns:1.4fr 1fr;align-items:start}
+  .channels{grid-template-columns:1fr 1fr}
+  .chan.span{grid-column:1/-1}
+}
+@media (min-width:880px){
+  .nav__links{display:flex;gap:2rem}
+  .menu{display:none}
+  .iclink{display:grid}
+  .hero__grid{max-width:none}
+  .h1{max-width:15ch}
+}
+@media (min-width:1024px){
+  .hero__cta{gap:1rem}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .bg__blob{animation:none}
+  .grain{animation:none}
+}
+</style>
+
+</script>
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#219188;--bk-accent-ink:#ffffff;--bk-ink:#0b0f14;--bk-panel:#f7f5f0;--bk-muted:rgba(11,15,20,0.6);--bk-line:rgba(11,15,20,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Space Grotesk", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="bg" aria-hidden="true"></div>
+<div class="bg__blob bg__blob--c" aria-hidden="true"></div>
+<div class="bg__blob bg__blob--m" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="Senga Dental Clinic Shinjuku East — home">
+      <svg class="brand__mark" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+        <path d="M22 5.2C18.6 2.4 15.6 2.4 12 4 8.4 5.6 5 5 3.2 9.4 1.8 13 3 17 4 21.5c.7 3.2 1.2 6 1.9 8.4.5 1.8 1.3 2.6 2.2 2.4 1-.2 1.3-1.8 1.6-4.4.3-2.6.7-4.8 2.3-4.8 1.6 0 2 2.2 2.3 4.8.3 2.6.6 4.2 1.6 4.4.9.2 1.7-.6 2.2-2.4.7-2.4 1.3-5.2 2-8.4 1-4.5 2.4-8.7.9-12.4C26.8 4.6 24.5 5 22 5.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+      <span>
+        <span class="brand__name">SENGA</span>
+        <span class="brand__jp"> · 新宿</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__a" href="#care">Care</a>
+      <a class="nav__a" href="#access">Hours &amp; Access</a>
+      <a class="nav__a" href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__side">
+      <a class="iclink" href="https://instagram.com/sengadc" target="_blank" rel="noopener" aria-label="Senga Dental on Instagram (@sengadc)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+      </a>
+      <a class="iclink" href="tel:+815017930578" aria-label="Call Senga Dental: +81 50-1793-0578">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3l1.6 4-2 1.4a12 12 0 0 0 5.6 5.6L20 12l-1.6-3.4M4 4c0 9 7 16 16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--solid btn--sm" href="#contact"><span class="dot"></span>Get in touch</a>
+      <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span class="burger"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a class="d-link" href="#care">Care</a>
+  <a class="d-link" href="#access">Hours &amp; Access</a>
+  <a class="d-link" href="#contact">Contact</a>
+  <div class="d-row">
+    <a class="btn btn--ghost" href="https://instagram.com/sengadc" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn btn--solid" href="tel:+815017930578">Call</a>
+  </div>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero wrap" aria-labelledby="h1">
+  <div class="hero__kanji anim" data-d="1" aria-hidden="true">歯</div>
+  <div class="hero__grid">
+    <div class="anim" data-d="1">
+      <span class="eyebrow hero__eyebrow">新宿 East · English-speaking care</span>
+    </div>
+
+    <h1 class="h1" id="h1">
+      <span class="ln anim" data-d="2"><span class="word lit">Dentistry</span> <span class="word lit">that</span></span>
+      <span class="ln anim" data-d="3"><span class="word lit">speaks</span> <span class="word lit--key">English.</span></span>
+    </h1>
+
+    <p class="hero__sub anim" data-d="4">
+      <strong>Senga Dental Clinic Shinjuku East.</strong> Calm, modern treatment for Tokyo's
+      international community — explained clearly, in your language, in the glow of Shinjuku.
+    </p>
+
+    <div class="hero__cta anim" data-d="4">
+      <button class="btn btn--solid" id="lineBtn" type="button" aria-label="Message Senga Dental on LINE">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11c0-4.4-4-8-9-8S3 6.6 3 11c0 3.9 3.2 7.2 7.5 7.9.3.05.7.2.8.45.1.25.06.6.03.85l-.13.8c-.04.25-.2 1 .87.55 1.07-.45 5.76-3.4 7.86-5.82C20.3 14.9 21 13 21 11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        Message on LINE
+      </button>
+      <button class="btn btn--ghost" id="bookBtn" type="button" aria-label="Book online — coming soon">
+        <span class="dot"></span><span id="bookLabel">Book Online</span>
+      </button>
+      <a class="hero__phone" href="tel:+815017930578">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3l1.6 4-2 1.4a12 12 0 0 0 5.6 5.6L20 12l-1.6-3.4M4 4c0 9 7 16 16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        +81 50-1793-0578
+      </a>
+    </div>
+
+    <div class="anim" data-d="4">
+      <span class="status"><span class="pulse" aria-hidden="true"></span>Now welcoming new English-speaking patients</span>
+    </div>
+  </div>
+
+  <div class="scrollcue" aria-hidden="true"><span class="bar"></span>Scroll</div>
+</section>
+
+<!-- ===================== TICKER ===================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>English consultations</span><span>Gentle modern care</span><span>Heart of Shinjuku</span>
+    <span>Whitening &amp; cosmetic</span><span>Same-day relief</span><span>新宿駅東口</span>
+    <span>English consultations</span><span>Gentle modern care</span><span>Heart of Shinjuku</span>
+    <span>Whitening &amp; cosmetic</span><span>Same-day relief</span><span>新宿駅東口</span>
+  </div>
+</div>
+
+<!-- ===================== PROMISE ===================== -->
+<section class="section wrap" aria-labelledby="why">
+  <div class="promise__grid">
+    <div>
+      <span class="eyebrow reveal" id="why">Why Senga</span>
+      <p class="promise__quote reveal" data-d="1" style="margin-top:1.4rem">
+        Moving to Tokyo is hard enough. Finding a dentist who truly <em>understands you</em> shouldn't be.
+      </p>
+    </div>
+    <div class="promise__list reveal" data-d="2">
+      <div class="pitem">
+        <span class="pitem__no">01</span>
+        <div><h3>Treated in English</h3><p>Your concerns, options and aftercare explained plainly — no guessing, no translation apps.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pitem__no">02</span>
+        <div><h3>Calm, modern dentistry</h3><p>A measured, gentle approach with up-to-date technique — care that respects your time and your nerves.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pitem__no">03</span>
+        <div><h3>Right by the station</h3><p>In the heart of Shinjuku's east side, a short walk from the lines you already ride.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARE / DIRECTORY ===================== -->
+<section class="section wrap" id="care" aria-labelledby="care-t">
+  <div class="care__head">
+    <div>
+      <span class="eyebrow reveal">Care · 診療案内</span>
+      <h2 class="care__title reveal" data-d="1" style="margin-top:1rem">Everything your smile needs,<br>under one quiet light.</h2>
+    </div>
+    <p class="lead reveal" data-d="2">A full range of general and cosmetic dentistry — every visit walked through in clear English.</p>
+  </div>
+
+  <div class="directory reveal" data-d="1">
+    <a class="svc" href="#contact">
+      <span class="svc__no">01</span>
+      <div class="svc__body"><h3>General &amp; Preventive</h3><p>Check-ups, professional cleanings and cavity care to keep small things small.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M28 8c-4-2.6-7.6-2.6-12 0-3.4 1.6-5 5-4 11 .8 5 1.2 9 2.4 13 .8 2.4 2 3.4 3 3.2 1.2-.2 1.4-2.4 1.8-5.6.4-3.2.8-5.6 2.8-5.6s2.4 2.4 2.8 5.6c.4 3.2.6 5.4 1.8 5.6 1 .2 2.2-.8 3-3.2 1.2-4 1.6-8 2.4-13 1-6-.6-9.4-4-11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="svc" href="#contact">
+      <span class="svc__no">02</span>
+      <div class="svc__body"><h3>Cosmetic &amp; Whitening</h3><p>Brightening, bonding and subtle reshaping for a smile that photographs the way you feel.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6l2.6 6.4L29 15l-6.4 2.6L20 24l-2.6-6.4L11 15l6.4-2.6L20 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M30 26l1 2.6L33.5 30l-2.5 1L30 33.5 29 31l-2.5-1 2.5-1.4L30 26Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="svc" href="#contact">
+      <span class="svc__no">03</span>
+      <div class="svc__body"><h3>Implants &amp; Restorative</h3><p>Replacing and rebuilding teeth with crowns, bridges and implants that look and work like your own.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 7c-3 0-5 2-5 5 0 2 1 3 1 6 0 2-.5 4 .5 8 .5 2 1.5 4 3.5 4s3-2 3.5-4c1-4 .5-6 .5-8 0-3 1-4 1-6 0-3-2-5-5-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 16h8M16.5 20h7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+    </a>
+    <a class="svc" href="#contact">
+      <span class="svc__no">04</span>
+      <div class="svc__body"><h3>Orthodontics</h3><p>Clear aligners and braces to gently straighten — discreet options that fit a working life.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="9" y="16" width="22" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 16v8M20 16v8M26 16v8M9 20h22" stroke="currentColor" stroke-width="1.3"/></svg></span>
+    </a>
+    <a class="svc" href="#contact">
+      <span class="svc__no">05</span>
+      <div class="svc__body"><h3>Emergency &amp; Pain Relief</h3><p>Sudden toothache or a broken tooth — reach out and we'll help you get comfortable fast.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M22 6l-10 16h7l-2 12 11-17h-8l2-11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="svc" href="#contact">
+      <span class="svc__no">06</span>
+      <div class="svc__body"><h3>English Consultations</h3><p>New to Japanese dentistry? Book a relaxed first chat to ask anything before you commit.</p></div>
+      <span class="svc__ic"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 11h24v15H20l-7 6v-6H8V11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 17h12M14 21h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== HOURS + ACCESS ===================== -->
+<section class="section wrap" id="access" aria-labelledby="acc-t">
+  <span class="eyebrow reveal" id="acc-t">Hours · Access</span>
+  <div class="access__grid" style="margin-top:1.8rem">
+
+    <div class="panel reveal" data-d="1">
+      <div class="panel__label">Opening hours
+        <span class="openchip" id="openChip"><span class="pulse" aria-hidden="true"></span><span id="openText">Open today</span></span>
+      </div>
+      <div class="hours" id="hours">
+        <div class="hrow" data-day="1"><span class="d">Monday</span><span class="t">10:00 – 13:00 · 14:30 – 19:00</span></div>
+        <div class="hrow" data-day="2"><span class="d">Tuesday</span><span class="t">10:00 – 13:00 · 14:30 – 19:00</span></div>
+        <div class="hrow" data-day="3"><span class="d">Wednesday</span><span class="t">10:00 – 13:00 · 14:30 – 19:00</span></div>
+        <div class="hrow" data-day="4"><span class="d">Thursday</span><span class="t closed">Closed</span></div>
+        <div class="hrow" data-day="5"><span class="d">Friday</span><span class="t">10:00 – 13:00 · 14:30 – 19:00</span></div>
+        <div class="hrow" data-day="6"><span class="d">Saturday</span><span class="t">10:00 – 17:00</span></div>
+        <div class="hrow" data-day="0"><span class="d">Sun / Holidays</span><span class="t closed">Closed</span></div>
+      </div>
+      <p class="hours__note">Hours shown are a guide — please confirm seasonal and holiday times when you reach out.</p>
+    </div>
+
+    <div class="reveal" data-d="2">
+      <div class="map" role="img" aria-label="Stylised map of Shinjuku's east side showing the clinic near Shinjuku Station's east exit.">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="st" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="rgba(47,240,223,.35)"/><stop offset="1" stop-color="rgba(47,240,223,.05)"/>
+            </linearGradient>
+          </defs>
+          <!-- faint blocks -->
+          <g stroke="rgba(190,214,225,.07)" stroke-width="1" fill="none">
+            <path d="M0 70H400M0 150H400M0 230H400M90 0V300M210 0V300M310 0V300"/>
+          </g>
+          <!-- diagonal avenue + rail line -->
+          <path d="M-20 250 L420 60" stroke="url(#st)" stroke-width="2.5" fill="none"/>
+          <path d="M-20 60 L300 320" stroke="rgba(232,54,155,.18)" stroke-width="2" fill="none" stroke-dasharray="2 7"/>
+          <!-- glow node lines toward pin -->
+          <path d="M210 150 L90 70 M210 150 L310 230 M210 150 L210 0" stroke="rgba(47,240,223,.16)" stroke-width="1.2" fill="none"/>
+          <!-- station marker -->
+          <circle cx="120" cy="178" r="3" fill="rgba(190,214,225,.4)"/>
+          <text x="128" y="182" fill="rgba(170,182,191,.55)" font-family="Space Mono, monospace" font-size="9" letter-spacing="1">SHINJUKU STN</text>
+        </svg>
+        <div class="map__pin" aria-hidden="true"><span class="halo"></span><span class="ring"></span></div>
+        <span class="map__tag" aria-hidden="true">Senga Dental ↗</span>
+      </div>
+
+      <div class="access__meta">
+        <div class="row"><span class="k">Area</span><span class="v">Shinjuku East, Shinjuku-ku, Tokyo — a short walk from Shinjuku Station's east side.</span></div>
+        <div class="row"><span class="k">Phone</span><span class="v"><a href="tel:+815017930578">+81&nbsp;50-1793-0578</a></span></div>
+        <div class="row"><span class="k">Social</span><span class="v"><a href="https://instagram.com/sengadc" target="_blank" rel="noopener">@sengadc</a> · official LINE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / CTA ===================== -->
+<section class="section wrap cta" id="contact" aria-labelledby="cta-t">
+  <span class="eyebrow reveal">Say hello</span>
+  <h2 class="cta__big reveal" data-d="1" style="margin-top:1.2rem">
+    <span class="lit">Ready</span> when <span class="lit--key">you are.</span>
+  </h2>
+  <p class="cta__sub reveal" data-d="2">
+    Message us in English whenever it suits you — LINE, Instagram or a phone call. We'll take it from there.
+  </p>
+
+  <div class="channels reveal" data-d="2">
+    <button class="chan" id="lineChan" type="button" aria-label="Add Senga Dental on LINE">
+      <span class="chan__ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11c0-4.4-4-8-9-8S3 6.6 3 11c0 3.9 3.2 7.2 7.5 7.9.3.05.7.2.8.45.1.25.06.6.03.85l-.13.8c-.04.25-.2 1 .87.55 1.07-.45 5.76-3.4 7.86-5.82C20.3 14.9 21 13 21 11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+      <span class="chan__t"><span class="k">Fastest reply</span><span class="v">Message on LINE</span></span>
+      <span class="chan__go"><span class="label">Open</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+
+    <a class="chan" href="https://instagram.com/sengadc" target="_blank" rel="noopener" aria-label="Senga Dental on Instagram">
+      <span class="chan__ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></span>
+      <span class="chan__t"><span class="k">See the clinic</span><span class="v">@sengadc</span></span>
+      <span class="chan__go"><span class="label">Open</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a class="chan" href="tel:+815017930578" aria-label="Call Senga Dental at +81 50-1793-0578">
+      <span class="chan__ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3l1.6 4-2 1.4a12 12 0 0 0 5.6 5.6L20 12l-1.6-3.4M4 4c0 9 7 16 16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="chan__t"><span class="k">Prefer to talk</span><span class="v">+81 50-1793-0578</span></span>
+      <span class="chan__go"><span class="label">Call</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <button class="chan span is-soft" id="bookChan" type="button" aria-label="Book online — coming soon">
+      <span class="chan__ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M8 3v4M16 3v4M8 14h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="chan__t"><span class="k">Already on our Japanese site</span><span class="v" id="bookChanV">Book Online</span></span>
+      <span class="chan__go"><span class="label" id="bookChanGo">Coming soon</span></span>
+    </button>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div>
+      <div class="foot__brand">
+        <svg class="brand__mark" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+          <path d="M22 5.2C18.6 2.4 15.6 2.4 12 4 8.4 5.6 5 5 3.2 9.4 1.8 13 3 17 4 21.5c.7 3.2 1.2 6 1.9 8.4.5 1.8 1.3 2.6 2.2 2.4 1-.2 1.3-1.8 1.6-4.4.3-2.6.7-4.8 2.3-4.8 1.6 0 2 2.2 2.3 4.8.3 2.6.6 4.2 1.6 4.4.9.2 1.7-.6 2.2-2.4.7-2.4 1.3-5.2 2-8.4 1-4.5 2.4-8.7.9-12.4C26.8 4.6 24.5 5 22 5.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <span><span class="brand__name">Senga Dental Clinic</span> <span class="brand__jp">Shinjuku East</span></span>
+      </div>
+      <p class="small">English-speaking dental care in the heart of Shinjuku, Tokyo. Calm, modern treatment for the international community.</p>
+    </div>
+    <div class="foot__contacts" aria-label="Contact details">
+      <a href="tel:+815017930578">Tel · +81 50-1793-0578</a>
+      <a href="https://instagram.com/sengadc" target="_blank" rel="noopener">Instagram · @sengadc</a>
+      <span>LINE · official account</span>
+      <span>Shinjuku-ku, Tokyo</span>
+    </div>
+  </div>
+  <div class="wrap foot__bottom">
+    <span class="foot__copy">© <span id="yr"></span> Senga Dental Clinic Shinjuku East</span>
+    <span class="credit">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+  </div>
+</footer>
+
+<!-- toast -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+  <span id="toastMsg"></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  root.classList.remove("no-js");
+  root.classList.add("js");
+
+  var prefersReduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(prefersReduced){ root.classList.add("reduce"); }
+  else { root.classList.add("motion"); }
+
+  /* ---------- CONFIG: clinic's official LINE link ----------
+     Paste the clinic's real LINE add-friend URL between the quotes,
+     e.g. "https://line.me/R/ti/p/@sengadc".
+     Left blank on purpose so nothing points to a generic/third-party
+     address — while blank, the LINE buttons show a graceful note. */
+  var LINE_URL="";
+  /* --------------------------------------------------------- */
+
+  /* hero load sequence */
+  if(root.classList.contains("motion")){
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add("ready"); }); });
+  } else {
+    root.classList.add("ready");
+  }
+
+  /* year */
+  var yr=document.getElementById("yr"); if(yr) yr.textContent=new Date().getFullYear();
+
+  /* sticky nav state */
+  var nav=document.getElementById("nav");
+  var onScroll=function(){ if(window.scrollY>16){ nav.classList.add("is-stuck"); } else { nav.classList.remove("is-stuck"); } };
+  onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
+
+  /* mobile drawer */
+  var menuBtn=document.getElementById("menuBtn");
+  var drawer=document.getElementById("drawer");
+  function setMenu(open){
+    menuBtn.setAttribute("aria-expanded",open?"true":"false");
+    drawer.classList.toggle("is-open",open);
+  }
+  if(menuBtn){
+    menuBtn.addEventListener("click",function(){ setMenu(menuBtn.getAttribute("aria-expanded")!=="true"); });
+    drawer.addEventListener("click",function(e){ if(e.target.closest("a")) setMenu(false); });
+    document.addEventListener("keydown",function(e){ if(e.key==="Escape") setMenu(false); });
+  }
+
+  /* smooth in-page scroll (respect reduced motion) */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click",function(e){
+      var id=a.getAttribute("href");
+      if(id.length<2) return;
+      var el=document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:prefersReduced?"auto":"smooth",block:"start"});
+    });
+  });
+
+  /* scroll-reveal */
+  var reveals=document.querySelectorAll(".reveal");
+  if(root.classList.contains("motion") && "IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    },{rootMargin:"0px 0px -10% 0px",threshold:.12});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add("is-in"); });
+  }
+
+  /* highlight today's hours + open/closed indicator */
+  var today=new Date().getDay(); // 0=Sun..6=Sat
+  var row=document.querySelector('.hrow[data-day="'+today+'"]');
+  if(row){ row.classList.add("today"); }
+  var closedDays=[0,4]; // Sun + Thu closed in the sample schedule
+  var openText=document.getElementById("openText");
+  var openChip=document.getElementById("openChip");
+  if(openText){
+    if(closedDays.indexOf(today)>-1){
+      openText.textContent="Closed today";
+      if(openChip){ openChip.style.color="var(--muted)"; var p=openChip.querySelector(".pulse"); if(p){p.style.background="var(--muted)";p.style.animation="none";} }
+    } else {
+      openText.textContent="Open today";
+    }
+  }
+
+  /* toast helper */
+  var toast=document.getElementById("toast");
+  var toastMsg=document.getElementById("toastMsg");
+  var toastTimer=null;
+  function showToast(msg){
+    if(!toast) return;
+    toastMsg.textContent=msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){ toast.classList.remove("show"); },3200);
+  }
+
+  /* LINE buttons — open official link if set, else graceful note */
+  function lineAction(){
+    if(LINE_URL){ window.open(LINE_URL,"_blank","noopener"); }
+    else { showToast("LINE: connecting our official account — ask us for the link!"); }
+  }
+  ["lineBtn","lineChan"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.addEventListener("click",lineAction);
+  });
+
+  /* Book Online — demo / coming soon (non-functional by design) */
+  function bookSoon(){
+    showToast("Online booking is on our Japanese site — coming here soon ✦");
+  }
+  var bookBtn=document.getElementById("bookBtn");
+  var bookLabel=document.getElementById("bookLabel");
+  if(bookBtn){
+    bookBtn.setAttribute("aria-disabled","true");
+    bookBtn.addEventListener("click",function(){
+      bookSoon();
+      if(bookLabel){
+        var old=bookLabel.textContent;
+        bookLabel.textContent="Coming soon ✦";
+        setTimeout(function(){ bookLabel.textContent=old; },2400);
+      }
+    });
+  }
+  var bookChan=document.getElementById("bookChan");
+  if(bookChan){
+    bookChan.setAttribute("aria-disabled","true");
+    bookChan.addEventListener("click",bookSoon);
+  }
+
+  /* subtle pointer-reactive hero glow (fine pointers + motion only) */
+  if(root.classList.contains("motion") && window.matchMedia("(pointer:fine)").matches){
+    var blob=document.querySelector(".bg__blob--c");
+    var tx=0,ty=0,cx=0,cy=0,raf=null;
+    window.addEventListener("pointermove",function(e){
+      tx=(e.clientX/window.innerWidth-.5)*30;
+      ty=(e.clientY/window.innerHeight-.5)*24;
+      if(!raf) raf=requestAnimationFrame(loop);
+    },{passive:true});
+    function loop(){
+      cx+=(tx-cx)*.06; cy+=(ty-cy)*.06;
+      if(blob) blob.style.transform="translate3d("+cx+"px,"+cy+"px,0)";
+      if(Math.abs(tx-cx)>.4||Math.abs(ty-cy)>.4){ raf=requestAnimationFrame(loop); } else { raf=null; }
+    }
+  }
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+815017930578", CHAN="https://line.me/R/ti/p/@sengadc", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

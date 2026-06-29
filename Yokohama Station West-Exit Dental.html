@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yokohama Station West-Exit Dental — English-speaking care at the west exit</title>
+<meta name="description" content="English-speaking dental care at Yokohama Station's west exit. Implants and oral surgery, open seven days a week. 4.8★ from 194 patients. Nishi-ku, Kitasaiwai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&family=Saira+Expanded:wght@600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --paper-pure:#FFFFFF;
+    --ink:#15171C;
+    --ink-2:#21242D;
+    --ink-3:#2E323D;
+    --red:#E2152B;
+    --red-deep:#B30E20;
+    --green:#02A95B;
+    --green-deep:#018549;
+    --line:rgba(21,23,28,.14);
+    --line-soft:rgba(21,23,28,.08);
+    --muted:#5A5E68;
+    --font-display:'Saira Expanded',system-ui,sans-serif;
+    --font-sans:'Saira',system-ui,sans-serif;
+    --font-mono:'Spline Sans Mono',ui-monospace,monospace;
+    --pad-x:clamp(1.25rem,5vw,4rem);
+    --rail-x:clamp(1.25rem,5vw,4rem);
+    --easing:cubic-bezier(.16,.84,.3,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    font-family:var(--font-sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--red);color:#fff}
+
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:var(--pad-x)}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  .skip{position:absolute;left:50%;top:-60px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:.7rem 1.2rem;font:600 .85rem/1 var(--font-sans);border-radius:0;z-index:200;transition:top .2s}
+  .skip:focus{top:.5rem;outline:3px solid var(--green)}
+
+  /* ---------- utility type ---------- */
+  .label{
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .station-code{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-family:var(--font-mono);
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink);font-weight:500;
+  }
+  .station-code::before{
+    content:"";width:.62rem;height:.62rem;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(2,169,91,.18);
+    flex:none;
+  }
+
+  /* ============================================================
+     TOP BAR — signage strip
+  ============================================================ */
+  .topbar{
+    position:sticky;top:0;z-index:100;
+    background:var(--ink);
+    color:#fff;
+    border-bottom:2px solid var(--red);
+    transform:translateY(-100%);
+  }
+  .topbar.ready{transform:translateY(0);transition:transform .7s var(--easing)}
+  .topbar__row{
+    display:flex;align-items:center;gap:1rem;
+    height:60px;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;min-width:0}
+  .brand__badge{
+    flex:none;width:34px;height:34px;border-radius:6px;
+    background:var(--red);
+    display:grid;place-items:center;
+    font:800 .82rem/1 var(--font-display);letter-spacing:.04em;color:#fff;
+  }
+  .brand__name{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+  .brand__jp{font:600 .82rem/1.1 var(--font-sans);color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand__en{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);white-space:nowrap}
+  .topbar__spacer{flex:1}
+  .topbar__status{display:none}
+  @media(min-width:680px){
+    .topbar__status{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+    .topbar__status .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--green);animation:pulse 2.4s var(--easing) infinite}
+    .topbar__status.is-closed .dot{background:var(--red)}
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(2,169,91,.6)}50%{box-shadow:0 0 0 5px rgba(2,169,91,0)}}
+
+  .btn{
+    font-family:var(--font-sans);font-weight:600;font-size:.92rem;
+    border:none;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.7rem 1.15rem;border-radius:7px;
+    line-height:1;white-space:nowrap;
+    transition:transform .25s var(--easing),background .25s var(--easing),box-shadow .25s var(--easing),color .25s var(--easing);
+  }
+  .btn__arrow{display:inline-block;transition:transform .3s var(--easing)}
+  .btn:hover .btn__arrow,.btn:focus-visible .btn__arrow{transform:translateX(4px)}
+  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+  .btn--red{background:var(--red);color:#fff;box-shadow:0 1px 0 var(--red-deep)}
+  .btn--red:hover,.btn--red:focus-visible{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 6px 18px -8px rgba(226,21,43,.7)}
+
+  .btn--book{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+  .btn--book::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--green);flex:none}
+  .btn--book:hover,.btn--book:focus-visible{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+  .topbar .btn{padding:.55rem .9rem;font-size:.82rem}
+  .topbar .btn--book{font-size:.78rem}
+  @media(max-width:520px){.topbar .btn--book .full{display:none}}
+
+  /* ============================================================
+     RAIL SPINE (desktop ambient wayfinding line)
+  ============================================================ */
+  .rail{
+    position:fixed;top:60px;bottom:0;left:calc(var(--rail-x) - 1px);width:2px;z-index:40;
+    background:var(--line);display:none;pointer-events:none;
+  }
+  .rail__fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--green);transition:height .1s linear}
+  @media(min-width:1080px){.rail{display:block}}
+
+  /* ============================================================
+     SECTION SCAFFOLD
+  ============================================================ */
+  .stop{position:relative;padding-block:clamp(4.5rem,9vw,8rem)}
+  .stop--tight{padding-block:clamp(3rem,6vw,5rem)}
+  .stop__head{margin-bottom:clamp(2rem,4vw,3.2rem);max-width:46ch}
+  .stop__title{
+    font-family:var(--font-display);font-weight:800;
+    font-size:clamp(1.9rem,4.6vw,3.1rem);
+    line-height:.98;letter-spacing:-.01em;
+    margin-top:1rem;text-wrap:balance;
+  }
+  .stop__lead{margin-top:1.1rem;font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted);max-width:52ch}
+
+  @media(min-width:1080px){
+    .stop .wrap{padding-left:calc(var(--rail-x) + 2.5rem)}
+    .topbar__row,.ticker__inner,.foot__inner{padding-left:0}
+  }
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateX(38px);transition:opacity .8s var(--easing),transform .8s var(--easing)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-dir="up"]{transform:translateY(34px)}
+  .reveal[data-dir="left"]{transform:translateX(-38px)}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero{position:relative;overflow:hidden;padding-block:clamp(3.2rem,7vw,6rem) clamp(3.5rem,7vw,6rem)}
+  .hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.9}
+  .hero__bg svg{position:absolute;width:140%;height:140%;top:-10%;left:-8%}
+  .hero .wrap{position:relative;z-index:2}
+
+  .hero__eyebrow{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
+  .hero__eyebrow .pill{
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid var(--line);padding:.32rem .6rem;border-radius:4px;color:var(--ink);background:var(--paper-pure)
+  }
+
+  .hero__title{
+    font-family:var(--font-display);font-weight:800;
+    font-size:clamp(2.5rem,8vw,5.6rem);
+    line-height:.92;letter-spacing:-.02em;
+    margin:1.2rem 0 0;max-width:15ch;text-wrap:balance;
+  }
+  .hero__title .accent{color:var(--red);position:relative;white-space:nowrap}
+  .hero__title .accent::after{
+    content:"";position:absolute;left:0;right:0;bottom:.06em;height:.1em;background:var(--green);
+    transform:scaleX(0);transform-origin:left;transition:transform .9s var(--easing) .8s
+  }
+  .hero.lit .hero__title .accent::after{transform:scaleX(1)}
+
+  .hero__sub{margin-top:1.5rem;font-size:clamp(1.05rem,2vw,1.3rem);max-width:42ch;color:var(--ink)}
+  .hero__sub b{font-weight:600}
+
+  /* split-flap board */
+  .board{
+    margin-top:2rem;
+    background:linear-gradient(180deg,#1b1e26,#111318);
+    border-radius:12px;
+    padding:clamp(.9rem,2.5vw,1.4rem);
+    box-shadow:0 24px 50px -28px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05);
+    max-width:640px;border:1px solid #000;
+  }
+  .board__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem}
+  .board__nb{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+  .board__nb .led{width:.5rem;height:.5rem;border-radius:50%;background:var(--green);box-shadow:0 0 8px 1px rgba(2,169,91,.8);animation:blink 1.6s steps(1) infinite}
+  @keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
+  .board__track{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+  .flaps{display:flex;gap:.28rem;flex-wrap:nowrap}
+  .flap{
+    position:relative;
+    flex:1 1 0;min-width:0;
+    aspect-ratio:.72;
+    background:var(--ink-2);
+    border-radius:4px;
+    overflow:hidden;
+    display:grid;place-items:center;
+    font-family:var(--font-display);font-weight:800;
+    color:#fff;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.6);
+    container-type:inline-size;
+  }
+  .flap::after{ /* center hinge line */
+    content:"";position:absolute;left:0;right:0;top:50%;height:2px;
+    background:rgba(0,0,0,.55);transform:translateY(-1px);z-index:3;
+  }
+  .flap__char{
+    font-size:clamp(1.1rem,5.4vw,2.2rem);
+    line-height:1;
+    position:relative;z-index:1;
+    color:#F2F3F5;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 49.9%,#C5C8D1 50%,#C5C8D1 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 1px 1px rgba(0,0,0,.35);
+  }
+  .flap.flip .flap__leaf{
+    position:absolute;left:0;right:0;top:0;height:50%;
+    background:var(--ink-3);z-index:4;transform-origin:bottom;
+    border-radius:4px 4px 0 0;
+    animation:flapdrop .12s linear;
+  }
+  @keyframes flapdrop{0%{transform:rotateX(0)}100%{transform:rotateX(-90deg)}}
+
+  .hero__cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;align-items:center}
+  .hero .btn--red,.hero .btn--book{padding:.9rem 1.4rem;font-size:1rem}
+  .hero .btn--book{color:var(--ink);border-color:var(--line)}
+  .hero .btn--book::before{background:var(--green)}
+  .hero .btn--book:hover,.hero .btn--book:focus-visible{border-color:var(--ink);background:rgba(21,23,28,.04)}
+
+  .hero__meta{display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:1.8rem;align-items:center}
+  .metaitem{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink)}
+  .metaitem .dot{width:.6rem;height:.6rem;border-radius:50%;flex:none}
+  .metaitem .dot--g{background:var(--green)}
+  .metaitem .stars{color:var(--red);letter-spacing:.05em}
+
+  /* ============================================================
+     TICKER
+  ============================================================ */
+  .ticker{background:var(--ink);color:#fff;border-block:2px solid var(--red);overflow:hidden;position:relative}
+  .ticker__inner{display:flex;width:max-content;animation:scrollx 32s linear infinite}
+  .ticker__inner:hover{animation-play-state:paused}
+  .ticker__set{display:flex;align-items:center;flex:none}
+  .ticker__item{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.6rem;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;white-space:nowrap}
+  .ticker__item .d{width:.45rem;height:.45rem;border-radius:50%}
+  .ticker__item .d.g{background:var(--green)}
+  .ticker__item .d.r{background:var(--red)}
+  @keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============================================================
+     WHY — gap / fix + stats
+  ============================================================ */
+  .why__grid{display:grid;gap:2.5rem}
+  @media(min-width:860px){.why__grid{grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}}
+
+  .why__copy p{font-size:clamp(1.05rem,1.7vw,1.25rem);max-width:44ch}
+  .why__copy p+p{margin-top:1.1rem;color:var(--muted)}
+  .why__copy .hook{
+    font-family:var(--font-display);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.75rem);
+    line-height:1.18;letter-spacing:-.01em;color:var(--ink);max-width:24ch;margin-bottom:1.4rem;text-wrap:balance;
+  }
+  .why__copy .hook em{font-style:normal;color:var(--red)}
+
+  .stats{display:grid;grid-template-columns:1fr;border-top:2px solid var(--ink)}
+  .stat{
+    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+    padding:1.25rem 0;border-bottom:1px solid var(--line);
+  }
+  .stat__num{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,2.9rem);line-height:1;letter-spacing:-.02em}
+  .stat__num .u{font-size:.42em;color:var(--red);margin-left:.15em;letter-spacing:0}
+  .stat__lab{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;max-width:14ch}
+  .stat .stars{color:var(--red)}
+
+  /* ============================================================
+     SERVICES — departure rows
+  ============================================================ */
+  .dep{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;
+    padding:clamp(1.1rem,2.4vw,1.7rem) 0;
+    border-top:1px solid var(--line);
+    position:relative;
+    transition:padding-left .35s var(--easing);
+  }
+  .dep:last-of-type{border-bottom:1px solid var(--line)}
+  .dep__track{position:absolute;left:0;top:0;height:2px;width:0;background:var(--green);transition:width .5s var(--easing)}
+  .dep:hover .dep__track,.dep:focus-within .dep__track{width:100%}
+  .dep:hover,.dep:focus-within{padding-left:.9rem}
+
+  .dep__no{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;color:var(--muted);font-weight:500}
+  .dep__main{min-width:0}
+  .dep__name{
+    display:block;
+    font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,3.4vw,2.2rem);
+    line-height:1.02;letter-spacing:-.01em;
+  }
+  .dep__desc{display:block;margin-top:.4rem;color:var(--muted);font-size:clamp(.95rem,1.4vw,1.05rem);max-width:46ch}
+  .dep__status{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--green-deep);white-space:nowrap;
+  }
+  .dep__status .arr{display:inline-block;transition:transform .3s var(--easing);color:var(--green)}
+  .dep:hover .dep__status .arr,.dep:focus-within .dep__status .arr{transform:translateX(5px)}
+  .dep__status .pt{width:.55rem;height:.55rem;border-radius:50%;background:var(--green);flex:none}
+  @media(max-width:560px){
+    .dep{grid-template-columns:auto 1fr;gap:.7rem 1rem}
+    .dep__status{grid-column:2;justify-self:start;margin-top:.1rem}
+  }
+
+  /* ============================================================
+     HOURS — timetable + live status
+  ============================================================ */
+  .hours__grid{display:grid;gap:2.5rem}
+  @media(min-width:920px){.hours__grid{grid-template-columns:.85fr 1.15fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:start}}
+
+  .status-card{
+    background:var(--ink);color:#fff;border-radius:12px;padding:clamp(1.4rem,3vw,2rem);
+    border:1px solid #000;position:relative;overflow:hidden;
+  }
+  .status-card__lab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .status-card__state{
+    display:flex;align-items:center;gap:.7rem;margin-top:.8rem;
+    font-family:var(--font-display);font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.01em;line-height:1;
+  }
+  .status-card__state .lamp{width:.85rem;height:.85rem;border-radius:50%;flex:none}
+  .is-open .lamp{background:var(--green);box-shadow:0 0 12px 2px rgba(2,169,91,.8)}
+  .is-shut .lamp{background:var(--red);box-shadow:0 0 12px 2px rgba(226,21,43,.7)}
+  .is-open .status-card__state{color:#fff}
+  .status-card__sub{margin-top:.7rem;font-family:var(--font-mono);font-size:.82rem;letter-spacing:.06em;color:rgba(255,255,255,.7)}
+  .status-card__sub b{color:#fff;font-weight:500}
+  .status-card__now{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.14);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+  .status-card__clock{color:#fff}
+
+  table.timetable{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  .timetable caption{text-align:left;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:.9rem}
+  .timetable th,.timetable td{text-align:left;padding:.85rem .6rem;border-bottom:1px solid var(--line)}
+  .timetable thead th{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:2px solid var(--ink)}
+  .timetable thead th:first-child{width:34%}
+  .timetable tbody th{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:.01em}
+  .timetable td{font-family:var(--font-mono);font-size:.92rem;color:var(--ink)}
+  .timetable tr[data-today]{background:rgba(2,169,91,.07)}
+  .timetable tr[data-today] th{color:var(--green-deep)}
+  .timetable tr[data-today] th::after{content:" · TODAY";font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:var(--green)}
+  .timetable__note{margin-top:1rem;font-size:.85rem;color:var(--muted);max-width:48ch}
+
+  /* ============================================================
+     VISIT — wayfinding map + contact
+  ============================================================ */
+  .visit__grid{display:grid;gap:2.5rem}
+  @media(min-width:920px){.visit__grid{grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center}}
+
+  .mapcard{
+    background:var(--paper-pure);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 20px 40px -30px rgba(0,0,0,.4);
+  }
+  .mapcard__head{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.2rem;border-bottom:1px solid var(--line);background:var(--ink);color:#fff}
+  .mapcard__head .label{color:rgba(255,255,255,.6)}
+  .mapcard__head .mins{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;color:var(--green)}
+  .mapcard svg{width:100%;height:auto;display:block;background:var(--paper)}
+
+  .contact__list{display:flex;flex-direction:column;gap:.2rem;margin-top:1.6rem}
+  .crow{
+    display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);
+    transition:padding-left .3s var(--easing);position:relative;
+  }
+  .crow:first-child{border-top:1px solid var(--line)}
+  a.crow:hover,a.crow:focus-visible{padding-left:.7rem}
+  a.crow:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+  .crow__ic{flex:none;width:42px;height:42px;border-radius:9px;display:grid;place-items:center;background:var(--ink);color:#fff}
+  .crow__ic svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
+  .crow--red .crow__ic{background:var(--red)}
+  .crow__t{min-width:0}
+  .crow__lab{display:block;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+  .crow__val{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.1;letter-spacing:-.01em;word-break:break-word}
+  .crow__arr{margin-left:auto;color:var(--muted);transition:transform .3s var(--easing),color .3s var(--easing)}
+  a.crow:hover .crow__arr,a.crow:focus-visible .crow__arr{transform:translateX(5px);color:var(--red)}
+
+  .visit__cta{margin-top:1.8rem;display:flex;flex-wrap:wrap;gap:.8rem}
+  .visit .btn--red{padding:.9rem 1.4rem;font-size:1rem}
+  .visit .btn--book{color:var(--ink);border:1.5px solid var(--line);padding:.9rem 1.4rem;font-size:1rem}
+  .visit .btn--book::before{background:var(--green)}
+  .visit .btn--book:hover,.visit .btn--book:focus-visible{border-color:var(--ink);background:rgba(21,23,28,.04)}
+
+  /* ============================================================
+     FOOTER — last-train strip
+  ============================================================ */
+  .foot{background:var(--ink);color:#fff;border-top:2px solid var(--red);padding-block:clamp(2.5rem,5vw,4rem)}
+  .foot__inner{display:grid;gap:2rem}
+  @media(min-width:760px){.foot__inner{grid-template-columns:1fr auto;align-items:end}}
+  .foot__brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+  .foot__name{font-family:var(--font-display);font-weight:800;font-size:1.4rem;letter-spacing:-.01em}
+  .foot__addr{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;color:rgba(255,255,255,.6);line-height:1.8;text-transform:uppercase}
+  .foot__addr .r{color:var(--red)}
+  .foot__links{display:flex;flex-direction:column;gap:.6rem;font-family:var(--font-mono);font-size:.82rem;letter-spacing:.08em}
+  .foot__links a{color:rgba(255,255,255,.8);display:inline-flex;align-items:center;gap:.5rem;width:fit-content;transition:color .2s}
+  .foot__links a:hover,.foot__links a:focus-visible{color:#fff}
+  .foot__links a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  .foot__legal{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:rgba(255,255,255,.4);line-height:1.8;max-width:60ch}
+
+  /* ============================================================
+     TOAST (Book Online demo)
+  ============================================================ */
+  .toast{
+    position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,160%);
+    background:var(--ink);color:#fff;border-left:4px solid var(--green);
+    padding:.95rem 1.2rem;border-radius:8px;z-index:300;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.6);
+    display:flex;align-items:center;gap:.8rem;max-width:calc(100vw - 2rem);
+    transition:transform .5s var(--easing);
+  }
+  .toast.show{transform:translate(-50%,0)}
+  .toast .led{width:.6rem;height:.6rem;border-radius:50%;background:var(--green);flex:none;box-shadow:0 0 8px 1px rgba(2,169,91,.7)}
+  .toast__t{font-size:.9rem;line-height:1.35}
+  .toast__t b{font-weight:600}
+  .toast__t span{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.15rem}
+
+  /* ============================================================
+     REDUCED MOTION
+  ============================================================ */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .topbar{transform:none!important}
+    .ticker__inner{animation:none;flex-wrap:wrap;width:auto}
+    .hero__title .accent::after{transform:scaleX(1)}
+  }
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#e2152b;--bk-accent-ink:#ffffff;--bk-ink:#15171c;--bk-panel:#f6f5f1;--bk-muted:rgba(21,23,28,0.6);--bk-line:rgba(21,23,28,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Saira", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- =================== TOP BAR =================== -->
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <div class="topbar__row">
+      <a class="brand" href="#top" aria-label="Yokohama Station West-Exit Dental, Second Clinic — home">
+        <span class="brand__badge" aria-hidden="true">NK</span>
+        <span class="brand__name">
+          <span class="brand__jp">横浜駅西口歯科 第2医院</span>
+          <span class="brand__en">Yokohama Stn · West Exit</span>
+        </span>
+      </a>
+      <span class="topbar__spacer"></span>
+      <span class="topbar__status" id="topStatus" role="status" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="topStatusText">Checking hours…</span>
+      </span>
+      <button class="btn btn--book" data-book aria-label="Book online — demo, coming soon">
+        <span class="full">Book online</span><span aria-hidden="true" class="btn__arrow">▸</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="railFill"></div></div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- =================== HERO =================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" id="heroLines">
+      <g fill="none" stroke-width="3" stroke-linecap="round">
+        <path d="M-50 180 L 420 180 L 620 380 L 1250 380" stroke="var(--red)" opacity=".10"/>
+        <path d="M-50 520 L 360 520 L 560 320 L 1250 320" stroke="var(--green)" opacity=".10"/>
+        <path d="M-50 660 L 1250 660" stroke="var(--ink)" opacity=".06"/>
+        <path d="M180 -50 L 180 850" stroke="var(--ink)" opacity=".05"/>
+        <path d="M860 -50 L 860 850" stroke="var(--ink)" opacity=".05"/>
+      </g>
+      <g>
+        <circle cx="420" cy="180" r="9" fill="var(--paper)" stroke="var(--red)" stroke-width="3" opacity=".5"/>
+        <circle cx="620" cy="380" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="3" opacity=".4"/>
+        <circle cx="560" cy="320" r="9" fill="var(--paper)" stroke="var(--green)" stroke-width="3" opacity=".5"/>
+        <circle cx="860" cy="660" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="3" opacity=".35"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="hero__eyebrow reveal" data-dir="up">
+      <span class="pill">西区 KITASAIWAI</span>
+      <span class="pill">YOKOHAMA STN · WEST EXIT</span>
+    </div>
+
+    <h1 class="hero__title reveal d1" data-dir="up" id="hero-title">
+      English-speaking <span class="accent">dental care</span> at the west exit.
+    </h1>
+
+    <p class="hero__sub reveal d2" data-dir="up">
+      A seven-days-a-week clinic by Yokohama Station. International patients <b>welcome — and understood.</b>
+    </p>
+
+    <!-- SPLIT-FLAP DEPARTURE BOARD -->
+    <div class="board reveal d3" data-dir="up">
+      <div class="board__top">
+        <span class="board__nb"><span class="led" aria-hidden="true"></span> Now boarding</span>
+        <span class="board__track" aria-hidden="true">Track NK-2 · West Exit</span>
+      </div>
+      <div class="flaps" id="heroFlaps" role="img" aria-label="Now offering: implants, oral surgery, and English-speaking care, open seven days."></div>
+    </div>
+
+    <div class="hero__cta reveal d4" data-dir="up">
+      <a class="btn btn--red" href="tel:+81456203908">Call +81 45-620-3908 <span aria-hidden="true" class="btn__arrow">▸</span></a>
+      <button class="btn btn--book" data-book aria-label="Book online — demo, coming soon">Book online <span aria-hidden="true" class="btn__arrow">▸</span></button>
+    </div>
+
+    <div class="hero__meta reveal d5" data-dir="up">
+      <span class="metaitem"><span class="dot dot--g" aria-hidden="true"></span> Open 7 days</span>
+      <span class="metaitem"><span class="stars" aria-hidden="true">★</span> 4.8 <span style="color:var(--muted)">· 194 Google reviews</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- =================== TICKER =================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__inner">
+    <div class="ticker__set" id="tickerSet"></div>
+    <div class="ticker__set" id="tickerSet2"></div>
+  </div>
+</div>
+
+<!-- =================== WHY =================== -->
+<section class="stop" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="stop__head reveal" data-dir="up">
+      <span class="station-code">NK · 01 — Why us</span>
+      <h2 class="stop__title" id="why-title">Already rated for English. Just hard to find in it.</h2>
+    </div>
+    <div class="why__grid">
+      <div class="why__copy reveal" data-dir="left">
+        <p class="hook">International patients confirm it in the reviews: <em>care that speaks your language.</em></p>
+        <p>The only thing missing was a page in that language. Our website and online booking have lived in Japanese only — so expats searching in English scroll right past a clinic that would have looked after them.</p>
+        <p>This page fixes the wayfinding. The care was always here.</p>
+      </div>
+      <div class="reveal d2" data-dir="up">
+        <dl class="stats" aria-label="Clinic at a glance">
+          <div class="stat">
+            <dt class="stat__num"><span class="stars" aria-hidden="true">★</span> 4.8</dt>
+            <dd class="stat__lab">Google rating</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">194</dt>
+            <dd class="stat__lab">Patient reviews</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">7<span class="u">/wk</span></dt>
+            <dd class="stat__lab">Days open, every week</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">EN</dt>
+            <dd class="stat__lab">Spoken care, confirmed by patients</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SERVICES =================== -->
+<section class="stop" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="stop__head reveal" data-dir="up">
+      <span class="station-code">NK · 02 — On the board</span>
+      <h2 class="stop__title" id="svc-title">What we do best.</h2>
+      <p class="stop__lead">A focused clinic. We do a small number of things — and we do them with surgical care.</p>
+    </div>
+
+    <div role="list">
+      <div class="dep reveal" data-dir="left" role="listitem" tabindex="0">
+        <span class="dep__track" aria-hidden="true"></span>
+        <span class="dep__no">01</span>
+        <span class="dep__main">
+          <span class="dep__name">Dental implants</span>
+          <span class="dep__desc">Replacing missing teeth with a fixed, natural-feeling result — planned and placed in-house.</span>
+        </span>
+        <span class="dep__status"><span class="pt" aria-hidden="true"></span>On platform <span class="arr" aria-hidden="true">▸</span></span>
+      </div>
+
+      <div class="dep reveal d1" data-dir="left" role="listitem" tabindex="0">
+        <span class="dep__track" aria-hidden="true"></span>
+        <span class="dep__no">02</span>
+        <span class="dep__main">
+          <span class="dep__name">Oral surgery</span>
+          <span class="dep__desc">From difficult extractions to surgical care, handled by an experienced team you can trust.</span>
+        </span>
+        <span class="dep__status"><span class="pt" aria-hidden="true"></span>On platform <span class="arr" aria-hidden="true">▸</span></span>
+      </div>
+
+      <div class="dep reveal d2" data-dir="left" role="listitem" tabindex="0">
+        <span class="dep__track" aria-hidden="true"></span>
+        <span class="dep__no">03</span>
+        <span class="dep__main">
+          <span class="dep__name">English-speaking visits</span>
+          <span class="dep__desc">Explained clearly, in English, so you understand your options before anything begins — as our patients already attest.</span>
+        </span>
+        <span class="dep__status"><span class="pt" aria-hidden="true"></span>On platform <span class="arr" aria-hidden="true">▸</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== HOURS =================== -->
+<section class="stop" id="hours" aria-labelledby="hours-title">
+  <div class="wrap">
+    <div class="stop__head reveal" data-dir="up">
+      <span class="station-code">NK · 03 — Timetable</span>
+      <h2 class="stop__title" id="hours-title">Open every single day.</h2>
+      <p class="stop__lead">Morning and afternoon sessions, seven days a week — including weekends, when other clinics close.</p>
+    </div>
+
+    <div class="hours__grid">
+      <div class="reveal" data-dir="left">
+        <div class="status-card" id="statusCard">
+          <span class="status-card__lab">Live status · Yokohama time</span>
+          <span class="status-card__state"><span class="lamp" aria-hidden="true"></span><span id="bigState">—</span></span>
+          <span class="status-card__sub" id="bigSub">Reading the timetable…</span>
+          <div class="status-card__now">
+            Now in Yokohama · <span class="status-card__clock" id="jstClock">--:--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2" data-dir="up">
+        <table class="timetable" id="timetable">
+          <caption>Weekly sessions</caption>
+          <thead>
+            <tr><th scope="col">Day</th><th scope="col">Morning</th><th scope="col">Afternoon</th></tr>
+          </thead>
+          <tbody>
+            <tr data-day="1"><th scope="row">Monday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="2"><th scope="row">Tuesday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="4"><th scope="row">Thursday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="5"><th scope="row">Friday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="6"><th scope="row">Saturday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+            <tr data-day="0"><th scope="row">Sunday</th><td>9:00 – 13:30</td><td>15:00 – 18:30</td></tr>
+          </tbody>
+        </table>
+        <p class="timetable__note">Standard session times. Public holidays may differ — a quick call confirms same-day availability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== VISIT =================== -->
+<section class="stop visit" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="stop__head reveal" data-dir="up">
+      <span class="station-code">NK · 04 — Getting here</span>
+      <h2 class="stop__title" id="visit-title">Find us at the west exit.</h2>
+      <p class="stop__lead">In Kitasaiwai, Nishi-ku — on the west side of Yokohama Station.</p>
+    </div>
+
+    <div class="visit__grid">
+      <div class="reveal" data-dir="left">
+        <div class="mapcard">
+          <div class="mapcard__head">
+            <span class="label">Wayfinding · West Exit → Clinic</span>
+            <span class="mins" aria-hidden="true">▸ NISHI-KU</span>
+          </div>
+          <svg viewBox="0 0 600 360" role="img" aria-label="Schematic map: from Yokohama Station west exit, follow west into Kitasaiwai to reach the clinic.">
+            <rect width="600" height="360" fill="var(--paper)"/>
+            <!-- soft grid blocks -->
+            <g stroke="var(--line-soft)" stroke-width="1">
+              <path d="M0 120 H600 M0 240 H600 M150 0 V360 M300 0 V360 M450 0 V360"/>
+            </g>
+            <!-- station -->
+            <g>
+              <rect x="430" y="150" width="120" height="60" rx="8" fill="var(--ink)"/>
+              <text x="490" y="176" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="13" fill="#fff" letter-spacing="1">YOKOHAMA</text>
+              <text x="490" y="195" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="10" fill="rgba(255,255,255,.6)" letter-spacing="2">STATION</text>
+            </g>
+            <!-- rail lines through station -->
+            <g stroke-width="6" fill="none" stroke-linecap="round">
+              <path d="M430 165 H120" stroke="var(--red)" opacity=".25"/>
+              <path d="M550 195 H600" stroke="var(--green)" opacity=".25"/>
+            </g>
+            <!-- west exit node -->
+            <circle cx="430" cy="180" r="10" fill="var(--paper)" stroke="var(--red)" stroke-width="4"/>
+            <text x="430" y="222" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="10" fill="var(--muted)" letter-spacing="1.5">WEST EXIT</text>
+            <!-- walking route (animated dash) -->
+            <path id="routePath" d="M430 180 C 330 180, 300 110, 180 110" fill="none" stroke="var(--green)" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 10"/>
+            <!-- clinic marker -->
+            <g>
+              <path d="M150 110 a30 30 0 1 0 60 0 c0 -22 -30 -45 -30 -45 s-30 23 -30 45 z" fill="var(--red)"/>
+              <circle cx="180" cy="106" r="11" fill="#fff"/>
+              <text x="180" y="111" text-anchor="middle" font-family="Saira Expanded, sans-serif" font-weight="800" font-size="11" fill="var(--red)">NK</text>
+              <text x="180" y="178" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="10" fill="var(--ink)" letter-spacing="1.5">KITASAIWAI</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="reveal d2" data-dir="up">
+        <nav class="contact__list" aria-label="Contact the clinic">
+          <a class="crow crow--red" href="tel:+81456203908">
+            <span class="crow__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 3h3l2 5-2 1c1 2 3 4 5 5l1-2 5 2v3c0 1-1 2-2 2C12 22 2 12 2 5c0-1 1-2 2-2z" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="crow__t"><span class="crow__lab">Call the clinic</span><span class="crow__val">+81 45-620-3908</span></span>
+            <span class="crow__arr" aria-hidden="true">▸</span>
+          </a>
+
+          <a class="crow" href="https://instagram.com/yokohamaekinishiguchishika_2" target="_blank" rel="noopener noreferrer">
+            <span class="crow__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg>
+            </span>
+            <span class="crow__t"><span class="crow__lab">Follow on Instagram</span><span class="crow__val">@yokohamaekinishiguchishika_2</span></span>
+            <span class="crow__arr" aria-hidden="true">▸</span>
+          </a>
+
+          <div class="crow">
+            <span class="crow__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C7.5 2 4 5.5 4 10c0 6 8 12 8 12s8-6 8-12c0-4.5-3.5-8-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span class="crow__t"><span class="crow__lab">Address</span><span class="crow__val">Kitasaiwai, Nishi-ku, Yokohama</span></span>
+          </div>
+        </nav>
+
+        <div class="visit__cta">
+          <a class="btn btn--red" href="tel:+81456203908">Call to book <span aria-hidden="true" class="btn__arrow">▸</span></a>
+          <button class="btn btn--book" data-book aria-label="Book online — demo, coming soon">Book online <span aria-hidden="true" class="btn__arrow">▸</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__inner">
+      <div>
+        <div class="foot__brand">
+          <span class="brand__badge" aria-hidden="true">NK</span>
+          <span class="foot__name">横浜駅西口歯科 第2医院</span>
+        </div>
+        <p class="foot__addr">
+          Yokohama Station West-Exit Dental · 2nd Clinic<br>
+          <span class="r">●</span> Kitasaiwai, Nishi-ku · Yokohama<br>
+          Open 7 days · 9:00–13:30 / 15:00–18:30
+        </p>
+      </div>
+      <nav class="foot__links" aria-label="Footer">
+        <a href="tel:+81456203908"><span aria-hidden="true">▸</span> +81 45-620-3908</a>
+        <a href="https://instagram.com/yokohamaekinishiguchishika_2" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▸</span> @yokohamaekinishiguchishika_2</a>
+        <a href="#top"><span aria-hidden="true">▸</span> Back to top</a>
+      </nav>
+    </div>
+    <p class="foot__legal">
+      English-language information page for international patients. Services shown — implants, oral surgery and English-speaking care — and opening hours reflect this clinic's listing. Online booking is available through the clinic's existing Japanese-language system; the button here is a demonstration.
+    </p>
+    <p class="foot__legal credit" style="margin-top:1rem">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none">Stellar Haus Media</a></p>
+  </div>
+</footer>
+
+<!-- =================== TOAST =================== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="led" aria-hidden="true"></span>
+  <span class="toast__t"><b>English booking — coming soon.</b><span>For now, call +81 45-620-3908</span></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---------- topbar ready ---------- */
+  var topbar = document.getElementById('topbar');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ topbar.classList.add('ready'); }); });
+
+  /* ---------- reveal on scroll ---------- */
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+    // hero glow
+    var hero = document.querySelector('.hero');
+    if(hero) setTimeout(function(){ hero.classList.add('lit'); }, 700);
+  }
+
+  /* ---------- rail progress ---------- */
+  var railFill = document.getElementById('railFill');
+  if(railFill){
+    var rafQ = false;
+    function railUpdate(){
+      rafQ = false;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var p = max>0 ? (h.scrollTop || window.pageYOffset)/max : 0;
+      railFill.style.height = (Math.min(1,Math.max(0,p))*100)+'%';
+    }
+    window.addEventListener('scroll', function(){ if(!rafQ){ rafQ=true; requestAnimationFrame(railUpdate); } }, {passive:true});
+    railUpdate();
+  }
+
+  /* ============================================================
+     SPLIT-FLAP BOARD
+  ============================================================ */
+  var GLYPHS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·/-".split("");
+  function glyphIndex(ch){ var i = GLYPHS.indexOf(ch.toUpperCase()); return i<0?0:i; }
+
+  function SplitFlap(container, size){
+    this.el = container;
+    this.size = size;
+    this.cells = [];
+    for(var i=0;i<size;i++){
+      var cell = document.createElement('div');
+      cell.className = 'flap';
+      var ch = document.createElement('span');
+      ch.className = 'flap__char';
+      ch.textContent = '';
+      cell.appendChild(ch);
+      container.appendChild(cell);
+      this.cells.push({el:cell, ch:ch, cur:0});
+    }
+  }
+  SplitFlap.prototype.setInstant = function(text){
+    text = (text||'').toUpperCase();
+    for(var i=0;i<this.size;i++){
+      var t = i<text.length ? text[i] : ' ';
+      var idx = glyphIndex(t);
+      this.cells[i].cur = idx;
+      this.cells[i].ch.textContent = idx===0?'':GLYPHS[idx];
+    }
+  };
+  SplitFlap.prototype.flipTo = function(text){
+    var self = this;
+    text = (text||'').toUpperCase();
+    if(reduce){ this.setInstant(text); return; }
+    for(var i=0;i<this.size;i++){
+      (function(i){
+        var cell = self.cells[i];
+        var target = i<text.length ? glyphIndex(text[i]) : 0;
+        var delay = i*32 + Math.random()*40;
+        setTimeout(function(){ step(cell, target); }, delay);
+      })(i);
+    }
+    function step(cell, target){
+      if(cell.cur === target) return;
+      cell.cur = (cell.cur + 1) % GLYPHS.length;
+      // animate flap leaf
+      var leaf = document.createElement('span');
+      leaf.className = 'flap__leaf';
+      cell.el.classList.add('flip');
+      cell.el.appendChild(leaf);
+      leaf.addEventListener('animationend', function(){
+        if(leaf.parentNode) leaf.parentNode.removeChild(leaf);
+        cell.el.classList.remove('flip');
+      });
+      cell.ch.textContent = cell.cur===0?'':GLYPHS[cell.cur];
+      setTimeout(function(){ step(cell, target); }, 58);
+    }
+  };
+
+  var heroFlapsEl = document.getElementById('heroFlaps');
+  var heroBoard = null;
+  var HERO_WORDS = ["IMPLANTS","ORAL SURGERY","ENGLISH CARE","OPEN 7 DAYS"];
+  if(heroFlapsEl){
+    heroBoard = new SplitFlap(heroFlapsEl, 12);
+    heroBoard.setInstant(HERO_WORDS[0]); // correct content without JS-motion / reduced motion
+    if(!reduce){
+      var wi = 0;
+      // kick off after hero reveal
+      setTimeout(function(){
+        heroFlapsEl.querySelectorAll('.flap__char').forEach(function(c){c.textContent='';});
+        heroBoard.cells.forEach(function(c){c.cur=0;});
+        heroBoard.flipTo(HERO_WORDS[0]);
+        wi = 0;
+        setInterval(function(){
+          wi = (wi+1)%HERO_WORDS.length;
+          heroBoard.flipTo(HERO_WORDS[wi]);
+        }, 3600);
+      }, 950);
+    }
+  }
+
+  /* ============================================================
+     TICKER
+  ============================================================ */
+  var tickerItems = [
+    ['g','OPEN 7 DAYS A WEEK'],
+    ['r','★ 4.8 · 194 REVIEWS'],
+    ['g','ENGLISH-SPEAKING CARE'],
+    ['r','DENTAL IMPLANTS'],
+    ['g','ORAL SURGERY'],
+    ['r','YOKOHAMA STN · WEST EXIT'],
+    ['g','西区 KITASAIWAI'],
+    ['r','WEEKENDS INCLUDED']
+  ];
+  function buildTicker(el){
+    if(!el) return;
+    tickerItems.forEach(function(it){
+      var span = document.createElement('span');
+      span.className = 'ticker__item';
+      var d = document.createElement('span'); d.className='d '+it[0];
+      span.appendChild(d);
+      span.appendChild(document.createTextNode(it[1]));
+      el.appendChild(span);
+    });
+  }
+  buildTicker(document.getElementById('tickerSet'));
+  buildTicker(document.getElementById('tickerSet2'));
+
+  /* ============================================================
+     LIVE STATUS (Asia/Tokyo) + timetable highlight
+     Sessions every day: 09:00–13:30 and 15:00–18:30
+  ============================================================ */
+  var SESS = [[9*60, 13*60+30],[15*60, 18*60+30]];
+  function tokyoNow(){
+    // robust JST extraction independent of viewer timezone
+    try{
+      var parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',hour12:false,
+        weekday:'short',hour:'2-digit',minute:'2-digit'}).formatToParts(new Date());
+      var o={}; parts.forEach(function(p){o[p.type]=p.value;});
+      var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+      var hh = parseInt(o.hour,10)%24;
+      return {day:map[o.weekday], min: hh*60 + parseInt(o.minute,10), hh:hh, mm:parseInt(o.minute,10)};
+    }catch(e){
+      var d=new Date(); return {day:d.getDay(), min:d.getHours()*60+d.getMinutes(), hh:d.getHours(), mm:d.getMinutes()};
+    }
+  }
+  function fmt(mins){ var h=Math.floor(mins/60), m=mins%60; return h+':'+(m<10?'0'+m:m); }
+  function pad(n){return n<10?'0'+n:''+n;}
+
+  function computeStatus(){
+    var t = tokyoNow();
+    var m = t.min, open=false, closesAt=null, opensAt=null, onBreak=false;
+    for(var i=0;i<SESS.length;i++){
+      if(m>=SESS[i][0] && m<SESS[i][1]){ open=true; closesAt=SESS[i][1]; break; }
+    }
+    if(!open){
+      if(m < SESS[0][0]) opensAt=SESS[0][0];
+      else if(m>=SESS[0][1] && m<SESS[1][0]){ onBreak=true; opensAt=SESS[1][0]; }
+      else opensAt=SESS[0][0]; // after hours -> tomorrow 9:00
+    }
+    return {open:open,closesAt:closesAt,opensAt:opensAt,onBreak:onBreak,t:t};
+  }
+
+  function applyStatus(){
+    var s = computeStatus();
+    var card = document.getElementById('statusCard');
+    var big = document.getElementById('bigState');
+    var sub = document.getElementById('bigSub');
+    var clk = document.getElementById('jstClock');
+    var topWrap = document.getElementById('topStatus');
+    var topTxt = document.getElementById('topStatusText');
+
+    if(clk) clk.textContent = pad(s.t.hh)+':'+pad(s.t.mm);
+
+    var stateText, subText, topText;
+    if(s.open){
+      stateText = 'Open now';
+      subText = 'Closes at '+fmt(s.closesAt);
+      topText = 'Open now · until '+fmt(s.closesAt);
+    } else if(s.onBreak){
+      stateText = 'On break';
+      subText = 'Afternoon session opens '+fmt(s.opensAt);
+      topText = 'On break · reopens '+fmt(s.opensAt);
+    } else {
+      stateText = 'Closed';
+      var nextLabel = (s.t.min >= SESS[1][1]) ? 'tomorrow' : 'today';
+      subText = 'Opens '+fmt(s.opensAt)+' '+nextLabel;
+      topText = 'Opens '+fmt(s.opensAt)+' '+nextLabel;
+    }
+
+    if(big) big.textContent = stateText;
+    if(sub) sub.textContent = subText;
+    if(card){ card.classList.toggle('is-open', s.open); card.classList.toggle('is-shut', !s.open); }
+    if(topTxt) topTxt.textContent = topText;
+    if(topWrap) topWrap.classList.toggle('is-closed', !s.open);
+
+    // timetable today
+    var rows = document.querySelectorAll('#timetable tbody tr');
+    rows.forEach(function(r){
+      if(parseInt(r.getAttribute('data-day'),10) === s.t.day){ r.setAttribute('data-today',''); }
+      else r.removeAttribute('data-today');
+    });
+  }
+  applyStatus();
+  setInterval(applyStatus, 30000);
+
+  /* ============================================================
+     BOOK ONLINE — demo toast
+  ============================================================ */
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  function showToast(){
+    if(!toast) return;
+    toast.classList.add('show');
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3400);
+  }
+  [].slice.call(document.querySelectorAll('[data-book]')).forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); showToast(); });
+  });
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81456203908", CHAN="", CHANLABEL="";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

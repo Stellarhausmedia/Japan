@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shinjuku I'S Dental &amp; Ortho — Dentistry in your language, by Shinjuku Station</title>
+<meta name="description" content="A modern dental clinic two minutes from Shinjuku Station, Tokyo. Implants, orthodontics, whitening and everyday care — with consultations in Japanese, English and Chinese. Rated 4.7 on Google." />
+
+<!-- Latin display / body / mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- CJK, subsetted to only the glyphs used -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap&text=こんにちは日本語新宿" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap&text=你好中文欢迎" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --paper:#FBFCFE;
+  --mist:#E9EEF3;
+  --mist-2:#DEE7EE;
+  --ink:#13202D;
+  --ink-2:#1B2E3F;
+  --body:#27394A;
+  --slate:#3C5366;
+  --steel:#6E879B;
+  --line:rgba(110,135,155,.24);
+  --line-soft:rgba(110,135,155,.16);
+  --amber:#E9A35C;
+  --amber-deep:#C9822F;
+  --amber-soft:rgba(233,163,92,.16);
+  --board:#10202E;
+  --board-2:#16293A;
+  --board-line:rgba(180,205,225,.12);
+  --board-dim:#8AA4B8;
+
+  --jp:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --zh:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  --display:'Schibsted Grotesk',var(--jp),system-ui,sans-serif;
+  --sans:'Hanken Grotesk',var(--jp),system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+
+  --maxw:1180px;
+  --pad:clamp(1.15rem,5vw,2.5rem);
+  --band:clamp(4.5rem,10vw,8.5rem);
+  --r:10px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+body{
+  margin:0;font-family:var(--sans);color:var(--body);background:var(--paper);
+  line-height:1.62;font-weight:400;font-size:clamp(1rem,.96rem + .25vw,1.12rem);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--display);color:var(--ink);line-height:1.04;
+  letter-spacing:-.018em;font-weight:700;margin:0;}
+p{margin:0;}
+a{color:inherit;}
+img,svg{display:block;max-width:100%;}
+:focus-visible{outline:2.5px solid var(--amber-deep);outline-offset:3px;border-radius:4px;}
+.dark :focus-visible{outline-color:var(--amber);}
+::selection{background:var(--amber-soft);color:var(--ink);}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);}
+.band{padding-block:var(--band);}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--slate);display:inline-flex;align-items:center;gap:.6em;}
+.eyebrow .tick{width:18px;height:1px;background:var(--amber-deep);display:inline-block;}
+.lead{font-size:clamp(1.05rem,1rem + .5vw,1.32rem);color:var(--slate);max-width:46ch;line-height:1.55;}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);
+  padding:.7rem 1.1rem;border-radius:0 0 8px 0;z-index:200;font-weight:600;}
+.skip:focus{left:0;}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;
+  font-size:.98rem;line-height:1;padding:.95em 1.5em;border-radius:999px;border:1.5px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .35s var(--ease),background .3s var(--ease),
+  color .3s var(--ease),border-color .3s var(--ease),box-shadow .35s var(--ease);white-space:nowrap;}
+.btn svg{width:1.05em;height:1.05em;}
+.btn--primary{background:var(--amber);color:var(--ink);box-shadow:0 1px 0 rgba(201,130,47,.35);}
+.btn--primary:hover{background:var(--amber-deep);color:#fff;transform:translateY(-2px);
+  box-shadow:0 10px 26px -12px rgba(201,130,47,.85);}
+.btn--ghost{background:transparent;color:var(--ink);border-color:rgba(60,83,102,.38);}
+.btn--ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-2px);}
+.dark .btn--ghost{color:var(--paper);border-color:rgba(220,235,245,.35);}
+.dark .btn--ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.btn[aria-disabled="true"]{cursor:default;}
+
+.booking-note{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--slate);
+  margin-top:.9rem;max-width:34ch;opacity:0;transform:translateY(4px);
+  transition:opacity .4s var(--ease),transform .4s var(--ease);min-height:1px;}
+.booking-note.show{opacity:1;transform:none;}
+.dark .booking-note{color:var(--board-dim);}
+.booking-note b{color:var(--amber-deep);font-weight:500;}
+.dark .booking-note b{color:var(--amber);}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.head{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s var(--ease),
+  box-shadow .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent;}
+.head.scrolled{background:rgba(251,252,254,.82);backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom-color:var(--line-soft);
+  box-shadow:0 1px 30px -22px rgba(19,32,45,.7);}
+.head__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  height:68px;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);}
+.brand__mark{width:38px;height:38px;border-radius:9px;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.92rem;
+  letter-spacing:-.02em;position:relative;overflow:hidden;flex:none;}
+.brand__mark::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--amber);
+  opacity:.85;}
+.brand__name{font-family:var(--display);font-weight:700;font-size:.98rem;letter-spacing:-.01em;line-height:1.1;}
+.brand__sub{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--steel);margin-top:.15rem;}
+
+.nav{display:flex;align-items:center;gap:.3rem;}
+.nav a{font-size:.92rem;font-weight:500;color:var(--slate);text-decoration:none;padding:.5rem .8rem;
+  border-radius:8px;position:relative;transition:color .25s var(--ease);}
+.nav a::after{content:"";position:absolute;left:.8rem;right:.8rem;bottom:.34rem;height:1.5px;
+  background:var(--amber-deep);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+.nav a:hover{color:var(--ink);}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1);}
+.nav a[aria-current="true"]{color:var(--ink);}
+
+.head__cta{display:flex;align-items:center;gap:.8rem;}
+.langchip{display:inline-flex;gap:.36rem;align-items:center;padding:.4rem .6rem;border:1px solid var(--line);
+  border-radius:999px;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--slate);background:rgba(255,255,255,.4);}
+.langchip span{position:relative;}
+.langchip span+span::before{content:"";position:absolute;left:-.27rem;top:50%;width:1px;height:9px;
+  transform:translateY(-50%);background:var(--line);}
+.call-pill{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;
+  font-size:.9rem;color:var(--ink);text-decoration:none;padding:.55rem .95rem;border-radius:999px;
+  border:1.5px solid rgba(60,83,102,.38);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);}
+.call-pill svg{width:1em;height:1em;}
+.call-pill:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-1px);}
+
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.5);
+  cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px;}
+.menu-btn span{width:18px;height:1.7px;background:var(--ink);transition:transform .3s var(--ease),opacity .25s var(--ease);}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(5.7px) rotate(45deg);}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-5.7px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding-top:clamp(6.5rem,14vh,9rem);padding-bottom:var(--band);
+  background:
+    radial-gradient(120% 90% at 88% 8%, rgba(233,163,92,.10), transparent 55%),
+    radial-gradient(90% 80% at 8% 100%, rgba(60,83,102,.10), transparent 60%),
+    linear-gradient(176deg,var(--paper) 0%, #F2F5F9 60%, var(--mist) 100%);
+  overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(60,83,102,.22) 1px, transparent 1.4px);
+  background-size:30px 30px;opacity:.34;
+  -webkit-mask-image:radial-gradient(120% 80% at 70% 20%, #000 30%, transparent 78%);
+  mask-image:radial-gradient(120% 80% at 70% 20%, #000 30%, transparent 78%);}
+.hero__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative;}
+
+.hero__eyebrow{margin-bottom:clamp(1.6rem,4vw,2.6rem);}
+
+/* the split-flap greeting */
+.flip-wrap{perspective:900px;margin-bottom:.4rem;}
+.flip{position:relative;display:inline-block;}
+.flip__text{font-family:var(--display);font-weight:800;letter-spacing:-.03em;color:var(--ink);
+  font-size:clamp(3.6rem,12.5vw,8.6rem);line-height:.92;display:inline-block;transform-origin:center;
+  will-change:transform;}
+.flip__text[lang="ja"]{font-family:var(--jp);font-weight:700;letter-spacing:-.01em;}
+.flip__text[lang="zh"]{font-family:var(--zh);font-weight:700;letter-spacing:0;}
+.flip__seam{position:absolute;left:-.04em;right:-.04em;top:50%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--amber) 18%,var(--amber) 82%,transparent);
+  opacity:.55;transform:translateY(-1px);pointer-events:none;}
+.flip__label{display:flex;align-items:center;gap:.6rem;margin-top:1.1rem;font-family:var(--mono);
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);min-height:1.2em;}
+.flip__label .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px var(--amber-soft);}
+.flip__label .now{color:var(--steel);}
+.flip__label .lang[lang="ja"]{font-family:var(--jp);text-transform:none;letter-spacing:.04em;font-size:.92rem;color:var(--ink);font-weight:500;}
+.flip__label .lang[lang="zh"]{font-family:var(--zh);text-transform:none;letter-spacing:.04em;font-size:.92rem;color:var(--ink);font-weight:500;}
+.flip__label .lang[lang="en"]{color:var(--ink);font-weight:500;}
+.flip__alt{display:none;font-family:var(--jp);font-weight:500;color:var(--slate);font-size:clamp(1.3rem,3vw,1.7rem);margin-top:.7rem;letter-spacing:.02em;}
+
+.hero h1{font-size:clamp(1.55rem,1.1rem + 2vw,2.55rem);font-weight:600;letter-spacing:-.022em;
+  margin-top:clamp(1.4rem,3vw,2rem);max-width:17ch;color:var(--ink);}
+.hero h1 .accent{color:var(--amber-deep);}
+.hero__lead{margin-top:1.15rem;}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:1.8rem;align-items:center;}
+
+/* information board */
+.board{background:linear-gradient(168deg,var(--board) 0%, var(--board-2) 100%);
+  border-radius:16px;padding:1.4rem 1.5rem 1.55rem;color:#E8F0F6;position:relative;overflow:hidden;
+  box-shadow:0 40px 80px -50px rgba(16,32,46,.9),0 1px 0 rgba(255,255,255,.04) inset;
+  border:1px solid rgba(255,255,255,.06);}
+.board::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:radial-gradient(80% 50% at 80% 0%, rgba(233,163,92,.18), transparent 60%);}
+.board__head{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);
+  font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--board-dim);
+  padding-bottom:.95rem;margin-bottom:.3rem;border-bottom:1px solid var(--board-line);position:relative;z-index:1;}
+.board__head .live{display:inline-flex;align-items:center;gap:.45em;color:#CFE0EC;}
+.board__head .live .pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);}
+.board__rows{list-style:none;margin:0;padding:0;position:relative;z-index:1;}
+.brow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem;
+  padding:.82rem 0;border-bottom:1px solid var(--board-line);}
+.brow:last-child{border-bottom:0;}
+.brow .ic{width:9px;height:9px;border-radius:2px;background:var(--amber);flex:none;
+  box-shadow:0 0 10px 0 rgba(233,163,92,.7);}
+.brow .ic.cool{background:#5E7C92;box-shadow:none;}
+.brow .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--board-dim);}
+.brow .v{font-family:var(--display);font-weight:600;font-size:1.02rem;color:#EAF2F8;letter-spacing:-.01em;justify-self:start;}
+.brow .v[lang="ja"]{font-family:var(--jp);font-weight:500;}
+.brow .v[lang="zh"]{font-family:var(--zh);font-weight:500;}
+.brow .s{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);justify-self:end;}
+.brow .s.cool{color:var(--board-dim);}
+.board__foot{margin-top:1.1rem;padding-top:.95rem;border-top:1px solid var(--board-line);
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--board-dim);
+  display:flex;justify-content:space-between;gap:1rem;position:relative;z-index:1;}
+
+/* ============================================================
+   SECTION HEADER (shared)
+   ============================================================ */
+.sect-head{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:clamp(2.4rem,5vw,3.6rem);max-width:62ch;}
+.sect-head h2{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.7rem);}
+.sect-head p{color:var(--slate);font-size:clamp(1rem,.97rem + .3vw,1.15rem);}
+.sect-no{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--steel);}
+
+/* ============================================================
+   LANGUAGES — sign plates
+   ============================================================ */
+.langs{background:var(--paper);position:relative;}
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.8vw,1.4rem);}
+.plate{position:relative;border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.5rem 1.5rem;
+  background:linear-gradient(180deg,#fff, #F6F9FC);overflow:hidden;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);}
+.plate:nth-child(2){transform:translateY(0);}
+.plate__top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.6rem;}
+.plate__no{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--steel);}
+.plate__status{display:inline-flex;align-items:center;gap:.45em;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber-deep);}
+.plate__status .d{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--amber-soft);}
+.plate__word{font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,5vw,3.1rem);
+  line-height:.95;letter-spacing:-.02em;color:var(--ink);margin-bottom:.1rem;}
+.plate__word[lang="ja"]{font-family:var(--jp);}
+.plate__word[lang="zh"]{font-family:var(--zh);}
+.plate__en{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-bottom:1rem;}
+.plate__desc{color:var(--slate);font-size:.97rem;line-height:1.55;max-width:30ch;}
+.plate__rule{height:1px;background:var(--line-soft);margin:1.1rem 0;}
+.plate__greet{position:absolute;right:1.1rem;bottom:1rem;font-family:var(--display);font-weight:700;
+  font-size:2.2rem;color:var(--amber);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease);
+  pointer-events:none;letter-spacing:-.02em;}
+.plate__greet[lang="ja"]{font-family:var(--jp);}
+.plate__greet[lang="zh"]{font-family:var(--zh);}
+.plate:hover{transform:translateY(-6px);box-shadow:0 30px 60px -38px rgba(19,32,45,.45);border-color:rgba(233,163,92,.5);}
+.plate:hover .plate__greet{opacity:.16;transform:translateY(0);}
+
+/* ============================================================
+   SERVICES — directory index
+   ============================================================ */
+.svcs{background:var(--mist);position:relative;}
+.svcs::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px);background-size:100% 56px;opacity:.5;}
+.svc-list{position:relative;border-top:1px solid var(--line);}
+.svc{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:clamp(1rem,2.5vw,2rem);
+  padding:clamp(1.4rem,2.6vw,1.9rem) .4rem;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;
+  position:relative;transition:padding .4s var(--ease);}
+.svc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--amber);
+  transition:width .4s var(--ease);}
+.svc__no{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;color:var(--steel);width:2.6ch;}
+.svc__ic{width:46px;height:46px;border-radius:11px;background:#fff;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--slate);flex:none;
+  transition:transform .45s var(--ease),color .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease);}
+.svc__ic svg{width:24px;height:24px;}
+.svc__main{min-width:0;}
+.svc__name{font-family:var(--display);font-weight:600;font-size:clamp(1.18rem,1rem + .8vw,1.5rem);
+  color:var(--ink);letter-spacing:-.015em;line-height:1.1;}
+.svc__desc{color:var(--slate);font-size:.95rem;margin-top:.25rem;line-height:1.45;max-width:52ch;}
+.svc__tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;white-space:nowrap;
+  transition:color .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease);}
+.svc:hover{padding-left:1.3rem;}
+.svc:hover::before{width:3px;}
+.svc:hover .svc__ic{transform:translateY(-3px) rotate(-3deg);color:var(--amber-deep);border-color:rgba(233,163,92,.6);background:#fff;}
+.svc:hover .svc__tag{color:var(--amber-deep);border-color:rgba(233,163,92,.5);background:var(--amber-soft);}
+
+/* ============================================================
+   VISIT — hours board + access
+   ============================================================ */
+.visit{background:var(--paper);}
+.visit__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.4rem);align-items:stretch;}
+
+.hours{background:linear-gradient(168deg,var(--board),var(--board-2));border-radius:16px;
+  padding:1.6rem 1.7rem 1.5rem;color:#E9F1F7;position:relative;overflow:hidden;
+  box-shadow:0 40px 90px -55px rgba(16,32,46,.95);border:1px solid rgba(255,255,255,.06);}
+.hours::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 50% at 90% 0%, rgba(233,163,92,.16), transparent 60%);}
+.hours__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;z-index:1;
+  padding-bottom:1.1rem;border-bottom:1px solid var(--board-line);margin-bottom:.4rem;}
+.hours__title{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--board-dim);}
+.status{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:.82rem;
+  padding:.42em .85em;border-radius:999px;letter-spacing:.01em;border:1px solid transparent;}
+.status .dot{width:8px;height:8px;border-radius:50%;}
+.status.open{color:#1c2c20;background:#BFE6C2;border-color:#9fd6a6;}
+.status.open .dot{background:#2f8f43;}
+.status.closed{color:#EAF2F8;background:rgba(255,255,255,.07);border-color:var(--board-line);}
+.status.closed .dot{background:var(--board-dim);}
+.hrow{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:1rem;padding:.85rem 0;
+  border-bottom:1px solid var(--board-line);position:relative;z-index:1;}
+.hrow:last-of-type{border-bottom:0;}
+.hrow.is-today .hday{color:var(--amber);}
+.hrow.is-today::before{content:"";position:absolute;left:-.9rem;top:50%;transform:translateY(-50%);
+  width:4px;height:18px;border-radius:2px;background:var(--amber);}
+.hday{font-family:var(--display);font-weight:600;font-size:1.02rem;color:#EAF2F8;letter-spacing:-.01em;}
+.htime{font-family:var(--mono);font-size:.86rem;color:#CBDDEA;letter-spacing:.02em;text-align:right;}
+.htime.closed-day{color:var(--board-dim);}
+.hours__note{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--board-line);position:relative;z-index:1;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--board-dim);display:flex;align-items:center;gap:.5em;}
+
+.access{border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.7rem;background:linear-gradient(180deg,#fff,#F6F9FC);
+  display:flex;flex-direction:column;}
+.access__title{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);
+  padding-bottom:1.1rem;border-bottom:1px solid var(--line-soft);}
+.map{position:relative;margin:1.2rem 0 1.3rem;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);
+  background:radial-gradient(120% 120% at 30% 20%, #EFF4F8, #E2EAF1);aspect-ratio:16/9;}
+.map svg{width:100%;height:100%;}
+.addr{margin-bottom:1.2rem;}
+.addr__line{font-family:var(--display);font-weight:600;color:var(--ink);font-size:1.12rem;line-height:1.3;letter-spacing:-.01em;}
+.addr__sub{color:var(--slate);font-size:.95rem;margin-top:.3rem;}
+.stations{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.55rem;}
+.stations li{display:flex;align-items:center;gap:.7rem;font-size:.95rem;color:var(--body);}
+.stations .pin{width:24px;height:24px;border-radius:7px;background:var(--mist);border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--slate);flex:none;}
+.stations .pin svg{width:13px;height:13px;}
+.stations .min{margin-left:auto;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--amber-deep);}
+.access__cta{margin-top:auto;display:flex;flex-wrap:wrap;gap:.7rem;padding-top:.4rem;}
+
+/* ============================================================
+   REVIEWS / TRUST
+   ============================================================ */
+.trust{background:var(--mist);}
+.trust__grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+.score{display:flex;flex-direction:column;gap:.7rem;}
+.score__num{font-family:var(--display);font-weight:800;font-size:clamp(4rem,9vw,6.5rem);line-height:.85;
+  color:var(--ink);letter-spacing:-.04em;}
+.score__num sup{font-size:.32em;color:var(--steel);font-weight:600;vertical-align:super;margin-left:.1em;}
+.stars{display:flex;gap:.28rem;}
+.stars svg{width:26px;height:26px;}
+.score__src{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);}
+.trust__say h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem);max-width:18ch;margin-bottom:1rem;}
+.trust__say p{color:var(--slate);max-width:46ch;}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;}
+.fact{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5rem .85rem;display:inline-flex;align-items:center;gap:.5em;}
+.fact .d{width:6px;height:6px;border-radius:50%;background:var(--amber);}
+
+/* ============================================================
+   CLOSING + FOOTER (dark)
+   ============================================================ */
+.foot{background:var(--board);color:#D7E3EC;position:relative;overflow:hidden;}
+.foot::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;
+  background:
+   radial-gradient(60% 60% at 85% 0%, rgba(233,163,92,.16), transparent 60%),
+   radial-gradient(rgba(180,205,225,.10) 1px, transparent 1.4px);
+  background-size:auto, 30px 30px;}
+.cta-band{position:relative;z-index:1;padding-block:clamp(4rem,9vw,7rem);border-bottom:1px solid var(--board-line);}
+.cta-band__in{display:grid;grid-template-columns:1.2fr auto;gap:2.5rem;align-items:end;}
+.cta-band .eyebrow{color:var(--board-dim);}
+.cta-band .eyebrow .tick{background:var(--amber);}
+.cta-band h2{color:#F2F7FB;font-size:clamp(2rem,1.4rem + 2.6vw,3.6rem);max-width:14ch;margin:1.2rem 0 0;letter-spacing:-.025em;}
+.cta-band__lang{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--board-dim);margin-top:1.3rem;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;}
+.cta-band__lang b{color:#EAF2F8;font-weight:500;}
+.cta-band__lang b[lang="ja"]{font-family:var(--jp);}
+.cta-band__lang b[lang="zh"]{font-family:var(--zh);}
+.cta-band__actions{display:flex;flex-direction:column;gap:.85rem;align-items:flex-start;}
+.cta-phone{display:inline-flex;align-items:center;gap:.6em;font-family:var(--display);font-weight:700;
+  font-size:clamp(1.3rem,1rem + 1.4vw,1.9rem);color:#F2F7FB;text-decoration:none;letter-spacing:-.01em;
+  transition:color .3s var(--ease),transform .3s var(--ease);}
+.cta-phone svg{width:.9em;height:.9em;color:var(--amber);transition:transform .4s var(--ease);}
+.cta-phone:hover{color:#fff;transform:translateX(2px);}
+.cta-phone:hover svg{transform:rotate(-12deg) scale(1.05);}
+
+.foot__main{position:relative;z-index:1;padding-block:clamp(3rem,6vw,4.5rem);
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;}
+.foot__brand .brand__name{color:#EAF2F8;}
+.foot__brand .brand__sub{color:var(--board-dim);}
+.foot__brand .brand__mark{background:#fff;color:var(--ink);}
+.foot__brand p{color:var(--board-dim);margin-top:1.1rem;max-width:34ch;font-size:.95rem;line-height:1.55;}
+.foot__col h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--board-dim);
+  font-weight:500;margin-bottom:1rem;}
+.foot__col ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;}
+.foot__col a,.foot__col span{color:#CBDAE5;text-decoration:none;font-size:.95rem;transition:color .25s var(--ease);}
+.foot__col a:hover{color:var(--amber);}
+.foot__col .muted{color:var(--board-dim);font-size:.82rem;}
+.foot__bar{position:relative;z-index:1;border-top:1px solid var(--board-line);padding-block:1.5rem;
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--board-dim);}
+.credit{text-decoration:none;color:var(--board-dim);transition:color .25s var(--ease);display:inline-flex;align-items:center;gap:.5em;}
+.credit b{color:#CBDAE5;font-weight:500;letter-spacing:.04em;}
+.credit .star{color:var(--amber);}
+.credit:hover{color:#CBDAE5;}
+.credit:hover b{color:var(--amber);}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+[data-stagger]>*{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+[data-stagger].in>*{opacity:1;transform:none;}
+[data-stagger].in>*:nth-child(1){transition-delay:.04s}
+[data-stagger].in>*:nth-child(2){transition-delay:.12s}
+[data-stagger].in>*:nth-child(3){transition-delay:.2s}
+[data-stagger].in>*:nth-child(4){transition-delay:.28s}
+[data-stagger].in>*:nth-child(5){transition-delay:.36s}
+[data-stagger].in>*:nth-child(6){transition-delay:.44s}
+
+/* hero load sequence */
+.hero [data-load]{opacity:0;transform:translateY(20px);}
+.hero.ready [data-load]{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.hero.ready [data-load="1"]{transition-delay:.05s}
+.hero.ready [data-load="2"]{transition-delay:.18s}
+.hero.ready [data-load="3"]{transition-delay:.32s}
+.hero.ready [data-load="4"]{transition-delay:.46s}
+.hero.ready [data-load="5"]{transition-delay:.58s}
+.hero.ready .board{transition-delay:.3s}
+.board .brow{opacity:0;transform:translateY(10px);}
+.hero.ready .board.in .brow{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.hero.ready .board.in .brow:nth-child(1){transition-delay:.5s}
+.hero.ready .board.in .brow:nth-child(2){transition-delay:.58s}
+.hero.ready .board.in .brow:nth-child(3){transition-delay:.66s}
+.hero.ready .board.in .brow:nth-child(4){transition-delay:.74s}
+.hero.ready .board.in .brow:nth-child(5){transition-delay:.82s}
+.hero.ready .board.in .brow:nth-child(6){transition-delay:.9s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:980px){
+  .hero__grid{grid-template-columns:1fr;gap:2.6rem;}
+  .board{max-width:520px;}
+  .visit__grid{grid-template-columns:1fr;}
+  .cta-band__in{grid-template-columns:1fr;gap:2rem;align-items:start;}
+  .foot__main{grid-template-columns:1fr 1fr;}
+  .foot__brand{grid-column:1 / -1;}
+}
+@media (max-width:760px){
+  .nav,.head__cta .langchip,.head__cta .call-pill{display:none;}
+  .menu-btn{display:flex;}
+  .head__cta{gap:0;}
+  .plates{grid-template-columns:1fr;gap:.9rem;}
+  .plate{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.4rem;align-items:center;padding:1.3rem 1.4rem;}
+  .plate__top{grid-column:1 / -1;margin-bottom:.4rem;}
+  .plate__word{margin-bottom:0;}
+  .plate__rule{display:none;}
+  .plate__en{margin-bottom:0;align-self:center;}
+  .plate__desc{grid-column:1 / -1;margin-top:.6rem;}
+  .plate__greet{display:none;}
+  .svc{grid-template-columns:auto 1fr;gap:.5rem 1.1rem;}
+  .svc__no{display:none;}
+  .svc__tag{grid-column:1 / -1;justify-self:start;margin-top:.3rem;margin-left:62px;}
+  .svc:hover{padding-left:.6rem;}
+  .trust__grid{grid-template-columns:1fr;gap:1.8rem;}
+  .stars svg{width:22px;height:22px;}
+}
+@media (max-width:480px){
+  .foot__main{grid-template-columns:1fr;}
+  .hero__ctas .btn{flex:1 1 auto;justify-content:center;}
+}
+
+/* mobile menu panel */
+.mobile-menu{position:fixed;inset:68px 0 auto 0;z-index:99;background:rgba(251,252,254,.97);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);
+  transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);}
+.mobile-menu.open{opacity:1;transform:none;pointer-events:auto;}
+.mobile-menu ul{list-style:none;margin:0;padding:1rem var(--pad) 1.4rem;display:grid;gap:.2rem;}
+.mobile-menu a{display:block;padding:.85rem .4rem;font-family:var(--display);font-weight:600;font-size:1.15rem;
+  color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-soft);}
+.mobile-menu .mm-call{margin-top:.8rem;border:0;color:var(--amber-deep);font-family:var(--mono);font-size:.95rem;letter-spacing:.04em;}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  .reveal,[data-stagger]>*,.hero [data-load],.board .brow{opacity:1 !important;transform:none !important;}
+  .flip__seam{display:none;}
+  .flip__alt{display:block;}
+  .flip__label{display:none;}
+}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#e9a35c;--bk-accent-ink:#ffffff;--bk-ink:#13202d;--bk-panel:#fbfcfe;--bk-muted:rgba(19,32,45,0.6);--bk-line:rgba(19,32,45,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Schibsted Grotesk", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="head" id="head">
+  <div class="head__in">
+    <a class="brand" href="#top" aria-label="Shinjuku I'S Dental and Ortho — home">
+      <span class="brand__mark" aria-hidden="true">I'S</span>
+      <span>
+        <span class="brand__name">Shinjuku I'S Dental</span>
+        <span class="brand__sub">Dental &amp; Orthodontics</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#languages">Languages</a>
+      <a href="#services">Treatments</a>
+      <a href="#visit">Visit</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="head__cta">
+      <span class="langchip" aria-label="Languages spoken: Japanese, English, Chinese">
+        <span lang="ja" style="font-family:var(--jp)">日本語</span><span>EN</span><span lang="zh" style="font-family:var(--zh)">中文</span>
+      </span>
+      <a class="call-pill" href="tel:+81364574359">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a13 13 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg>
+        +81 3-6457-4359
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <ul>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#services">Treatments</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a class="mm-call" href="tel:+81364574359">Call +81 3-6457-4359</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero__grid">
+    <div class="hero__main">
+      <p class="eyebrow" data-load="1"><span class="tick"></span>Shinjuku · Tokyo &nbsp;—&nbsp; 新宿駅 2 min</p>
+
+      <div class="flip-wrap" data-load="2">
+        <div class="flip" aria-label="A warm welcome — in Japanese, English and Chinese">
+          <span class="flip__text" data-flip lang="en" aria-hidden="true">Hello</span>
+          <span class="flip__seam" aria-hidden="true"></span>
+        </div>
+        <span class="flip__alt" aria-hidden="true">こんにちは · 你好</span>
+        <p class="flip__label" aria-hidden="true">
+          <span class="dot"></span><span class="now">now serving</span>&nbsp;<span class="lang" data-flip-label lang="en">English</span>
+        </p>
+      </div>
+
+      <h1 id="hero-title" data-load="3">Dentistry in Shinjuku, in the language <span class="accent">you think in</span>.</h1>
+      <p class="lead hero__lead" data-load="4">Implants, orthodontics, whitening and everyday care from a modern clinic two minutes from Shinjuku Station — with consultations in Japanese, English and Chinese.</p>
+
+      <div class="hero__ctas" data-load="5">
+        <button class="btn btn--primary js-book" data-note="hero-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v3M16 3v3"/></svg>
+          Book online
+        </button>
+        <a class="btn btn--ghost" href="tel:+81364574359">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a13 13 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg>
+          Call the clinic
+        </a>
+      </div>
+      <p class="booking-note" id="hero-note" role="status" aria-live="polite"></p>
+    </div>
+
+    <!-- information board -->
+    <aside class="board" aria-label="Clinic information">
+      <div class="board__head">
+        <span>Information · 案内</span>
+        <span class="live"><span class="pulse" aria-hidden="true"></span>Open daily</span>
+      </div>
+      <ul class="board__rows">
+        <li class="brow"><span class="ic" aria-hidden="true"></span><span class="v" lang="ja">日本語</span><span class="s">Spoken</span></li>
+        <li class="brow"><span class="ic" aria-hidden="true"></span><span class="v">English</span><span class="s">Spoken</span></li>
+        <li class="brow"><span class="ic" aria-hidden="true"></span><span class="v" lang="zh">中文</span><span class="s">Spoken</span></li>
+        <li class="brow"><span class="ic cool" aria-hidden="true"></span><span class="k">Station</span><span class="s cool">Shinjuku · 2 min</span></li>
+        <li class="brow"><span class="ic cool" aria-hidden="true"></span><span class="k">Open</span><span class="s cool">7 days a week</span></li>
+        <li class="brow"><span class="ic" aria-hidden="true"></span><span class="k">Rating</span><span class="s">4.7 ★ · 163</span></li>
+      </ul>
+      <div class="board__foot">
+        <span>HULIC &amp; New · 6F</span>
+        <span>Gate&nbsp;—&nbsp;Shinjuku 3-chōme</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section class="langs band" id="languages" aria-labelledby="lang-title">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="sect-no">01 — Languages</span>
+      <h2 id="lang-title">Care, without the translation app.</h2>
+      <p>The same clinical standard, explained clearly in the language you’re most comfortable in. No interpreter, no guesswork — just a conversation about your teeth.</p>
+    </div>
+    <div class="plates" data-stagger>
+      <article class="plate">
+        <div class="plate__top"><span class="plate__no">A1</span><span class="plate__status"><span class="d"></span>Spoken here</span></div>
+        <div class="plate__word" lang="ja">日本語</div>
+        <div class="plate__en">Japanese</div>
+        <div class="plate__rule"></div>
+        <p class="plate__desc">Native-level care, the way Tokyo expects it — precise, polite and unhurried.</p>
+        <span class="plate__greet" lang="ja" aria-hidden="true">こんにちは</span>
+      </article>
+      <article class="plate">
+        <div class="plate__top"><span class="plate__no">A2</span><span class="plate__status"><span class="d"></span>Spoken here</span></div>
+        <div class="plate__word">English</div>
+        <div class="plate__en">English</div>
+        <div class="plate__rule"></div>
+        <p class="plate__desc">Full consultations and treatment plans explained clearly in English, start to finish.</p>
+        <span class="plate__greet" aria-hidden="true">Hello</span>
+      </article>
+      <article class="plate">
+        <div class="plate__top"><span class="plate__no">A3</span><span class="plate__status"><span class="d"></span>Spoken here</span></div>
+        <div class="plate__word" lang="zh">中文</div>
+        <div class="plate__en">Chinese</div>
+        <div class="plate__rule"></div>
+        <p class="plate__desc">中文接診 — consultations in Chinese, so nothing about your care gets lost.</p>
+        <span class="plate__greet" lang="zh" aria-hidden="true">你好</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="svcs band" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="sect-no">02 — Treatments</span>
+      <h2 id="svc-title">A full directory of dental care.</h2>
+      <p>From a single check-up to complete smile design, handled in one calm clinic above Shinjuku 3-chōme.</p>
+    </div>
+    <div class="svc-list" data-stagger>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">01</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 0-5 2-5 5 0 2 1 3 1 6 0 4 1 6 2 6s1-3 2-3 1 3 2 3 2-2 2-6c0-3 1-4 1-6 0-3-2-5-5-5z"/><path d="M12 8v9"/><path d="M9.6 11h4.8"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Implants</span>
+          <span class="svc__desc">Replacing missing teeth with a fixed, natural-feeling result that lasts.</span>
+        </span>
+        <span class="svc__tag">Restorative</span>
+      </a>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">02</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M7.5 9v6M12 9v6M16.5 9v6"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Orthodontics</span>
+          <span class="svc__desc">Clear aligners and braces to straighten your smile, on your schedule.</span>
+        </span>
+        <span class="svc__tag">Alignment</span>
+      </a>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">03</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-3 0-5 2-5 5 0 2 1 3 1 6 0 3 1 5 2 5s1-3 2-3 1 3 2 3 2-2 2-5c0-3 1-4 1-6 0-3-2-5-5-5z"/><path d="M18.5 4.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6L16 6.8l1.6-.7z"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Whitening</span>
+          <span class="svc__desc">Brightening treatments for a cleaner, more confident smile.</span>
+        </span>
+        <span class="svc__tag">Aesthetic</span>
+      </a>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">04</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a7 7 0 0 1 14 0"/><path d="M5 9c0 4 3 8 7 8s7-4 7-8"/><path d="M9.5 13c.8 1 1.6 1.4 2.5 1.4s1.7-.4 2.5-1.4"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Cosmetic dentistry</span>
+          <span class="svc__desc">Ceramics and smile design that look natural and feel like your own.</span>
+        </span>
+        <span class="svc__tag">Aesthetic</span>
+      </a>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">05</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-2.4 0-4 1.6-4 4 0 1.6.8 2.5.8 4.8 0 3 .9 4.7 1.6 4.7.7 0 .8-2.3 1.6-2.3s.9 2.3 1.6 2.3c.7 0 1.6-1.7 1.6-4.7 0-2.3.8-3.2.8-4.8 0-2.4-1.6-4-4-4z"/><circle cx="9.6" cy="8.4" r=".7" fill="currentColor" stroke="none"/><circle cx="14.4" cy="8.4" r=".7" fill="currentColor" stroke="none"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Paediatric care</span>
+          <span class="svc__desc">Gentle, friendly check-ups and treatment for younger patients.</span>
+        </span>
+        <span class="svc__tag">Children</span>
+      </a>
+      <a class="svc" href="tel:+81364574359">
+        <span class="svc__no">06</span>
+        <span class="svc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-3 0-5 2-5 5 0 2 1 3 1 6 0 3 1 5 2 5s1-3 2-3 1 3 2 3 2-2 2-5c0-3 1-4 1-6 0-3-2-5-5-5z"/><path d="M18.5 5v4M16.5 7h4"/></svg></span>
+        <span class="svc__main">
+          <span class="svc__name">Oral surgery</span>
+          <span class="svc__desc">Extractions and surgical care, with comfort and clarity throughout.</span>
+        </span>
+        <span class="svc__tag">Surgical</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit band" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="sect-no">03 — Visit</span>
+      <h2 id="visit-title">Open seven days. Two minutes from the station.</h2>
+      <p>Above the HULIC &amp; New SHINJUKU building, an easy walk from Shinjuku and Shinjuku-sanchōme stations.</p>
+    </div>
+    <div class="visit__grid">
+      <!-- HOURS BOARD -->
+      <div class="hours reveal" aria-labelledby="hours-title">
+        <div class="hours__head">
+          <span class="hours__title" id="hours-title">Today’s hours · 診療時間</span>
+          <span class="status closed" id="statusPill"><span class="dot" aria-hidden="true"></span><span id="statusText">Hours</span></span>
+        </div>
+        <div class="hrow" data-day="weekday">
+          <span class="hday">Mon — Fri</span>
+          <span class="htime">10:00–13:00 · 14:30–20:00</span>
+        </div>
+        <div class="hrow" data-day="sat">
+          <span class="hday">Saturday</span>
+          <span class="htime">09:00–17:00</span>
+        </div>
+        <div class="hrow" data-day="sun">
+          <span class="hday">Sunday</span>
+          <span class="htime">09:00–16:00</span>
+        </div>
+        <div class="hrow" data-day="hol">
+          <span class="hday">Public holidays</span>
+          <span class="htime closed-day">Closed</span>
+        </div>
+        <p class="hours__note"><span aria-hidden="true">●</span>&nbsp;Live status shown in Tokyo time · holidays excluded</p>
+      </div>
+
+      <!-- ACCESS -->
+      <div class="access reveal">
+        <span class="access__title">Access · アクセス</span>
+        <div class="map" role="img" aria-label="Wayfinding diagram: the clinic sits above Shinjuku 3-chōme, two minutes from Shinjuku Station.">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="glow" cx="72%" cy="44%" r="40%">
+                <stop offset="0%" stop-color="#E9A35C" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#E9A35C" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <g stroke="#A9BECF" stroke-width="1" fill="none" opacity=".55">
+              <path d="M-10 70 H410" /><path d="M-10 120 H410" /><path d="M-10 170 H410"/>
+              <path d="M90 -10 V235"/><path d="M210 -10 V235"/><path d="M300 -10 V235"/>
+            </g>
+            <circle cx="285" cy="98" r="70" fill="url(#glow)"/>
+            <!-- route -->
+            <path id="route" d="M70 150 C 130 150, 150 110, 210 110 S 250 98, 285 98"
+                  stroke="#3C5366" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-dasharray="6 7"/>
+            <!-- station node -->
+            <g>
+              <circle cx="70" cy="150" r="9" fill="#fff" stroke="#3C5366" stroke-width="2"/>
+              <circle cx="70" cy="150" r="3.4" fill="#3C5366"/>
+              <text x="70" y="178" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#3C5366" text-anchor="middle" letter-spacing="1">SHINJUKU STN</text>
+            </g>
+            <!-- clinic pin -->
+            <g id="pin">
+              <path d="M285 70 c-11 0 -19 8 -19 19 0 13 19 30 19 30 0 0 19-17 19-30 0-11-8-19-19-19z" fill="#E9A35C" stroke="#C9822F" stroke-width="1.6"/>
+              <circle cx="285" cy="89" r="6.4" fill="#13202D"/>
+              <text x="285" y="138" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#13202D" text-anchor="middle" letter-spacing="1" font-weight="600">I'S DENTAL · 6F</text>
+            </g>
+          </svg>
+        </div>
+        <div class="addr">
+          <p class="addr__line">HULIC &amp; New SHINJUKU, 6F</p>
+          <p class="addr__sub">3-17-10 Shinjuku, Shinjuku-ku, Tokyo 160-0022</p>
+        </div>
+        <ul class="stations">
+          <li>
+            <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span>
+            Shinjuku Station <span class="min">2 min</span>
+          </li>
+          <li>
+            <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span>
+            Shinjuku-sanchōme Station <span class="min">1 min</span>
+          </li>
+        </ul>
+        <div class="access__cta">
+          <button class="btn btn--primary js-book" data-note="visit-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v3M16 3v3"/></svg>
+            Book online
+          </button>
+          <a class="btn btn--ghost" href="tel:+81364574359">Call +81 3-6457-4359</a>
+        </div>
+        <p class="booking-note" id="visit-note" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="trust band" id="reviews" aria-labelledby="trust-title">
+  <div class="wrap">
+    <div class="trust__grid reveal">
+      <div class="score">
+        <div class="score__num">4.7<sup>/5</sup></div>
+        <div class="stars" id="stars" role="img" aria-label="Rated 4.7 out of 5"></div>
+        <div class="score__src">163 reviews on Google</div>
+      </div>
+      <div class="trust__say">
+        <h2 id="trust-title">Trusted by patients across central Tokyo.</h2>
+        <p>A calm, modern clinic with a strong reputation among the people who matter most — the patients who walk back in. Here is why they choose us.</p>
+        <div class="facts">
+          <span class="fact"><span class="d"></span>Open 7 days</span>
+          <span class="fact"><span class="d"></span>Trilingual care</span>
+          <span class="fact"><span class="d"></span>By Shinjuku Stn</span>
+          <span class="fact"><span class="d"></span>Evenings to 20:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ CLOSING + FOOTER ============ -->
+<footer class="foot dark">
+  <div class="cta-band">
+    <div class="wrap cta-band__in">
+      <div class="reveal">
+        <p class="eyebrow"><span class="tick"></span>Reserve your visit</p>
+        <h2>Let’s talk about your smile.</h2>
+        <p class="cta-band__lang">In <b lang="ja">日本語</b> · <b>English</b> · <b lang="zh">中文</b></p>
+      </div>
+      <div class="cta-band__actions reveal">
+        <a class="cta-phone" href="tel:+81364574359">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a13 13 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg>
+          +81 3-6457-4359
+        </a>
+        <button class="btn btn--primary js-book" data-note="foot-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v3M16 3v3"/></svg>
+          Book online
+        </button>
+        <p class="booking-note" id="foot-note" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap foot__main">
+    <div class="foot__brand">
+      <a class="brand" href="#top" aria-label="Shinjuku I'S Dental and Ortho — home">
+        <span class="brand__mark" aria-hidden="true">I'S</span>
+        <span>
+          <span class="brand__name">Shinjuku I'S Dental</span>
+          <span class="brand__sub">Dental &amp; Orthodontics</span>
+        </span>
+      </a>
+      <p>A modern dental &amp; orthodontic clinic in the heart of Shinjuku, welcoming international patients in Japanese, English and Chinese.</p>
+    </div>
+    <div class="foot__col">
+      <h3>Visit</h3>
+      <ul>
+        <li><span>HULIC &amp; New SHINJUKU, 6F</span></li>
+        <li><span>3-17-10 Shinjuku, Tokyo</span></li>
+        <li><span class="muted">Shinjuku Stn · 2 min walk</span></li>
+        <li><span class="muted">Shinjuku-sanchōme · 1 min</span></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h3>Hours &amp; Contact</h3>
+      <ul>
+        <li><span class="muted">Mon–Fri 10–13 · 14:30–20</span></li>
+        <li><span class="muted">Sat 9–17 · Sun 9–16</span></li>
+        <li><a href="tel:+81364574359">+81 3-6457-4359</a></li>
+        <li><a href="https://www.shinjukud-c.com" target="_blank" rel="noopener noreferrer">shinjukud-c.com ↗</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap foot__bar">
+    <span>© 2026 Shinjuku I'S Dental &amp; Ortho · Shinjuku, Tokyo</span>
+    <a class="credit" href="https://stellarhausmedia.com" target="_blank" rel="noopener noreferrer">
+      <span class="star" aria-hidden="true">✦</span>Designed by <b>Stellar Haus&nbsp;Media</b>
+    </a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- HERO LOAD ---------- */
+  var hero = document.getElementById('hero');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(hero){ hero.classList.add('ready'); var b=hero.querySelector('.board'); if(b) b.classList.add('in'); } }); });
+
+  /* ---------- SPLIT-FLAP GREETING ---------- */
+  var greetings = [
+    {g:'Hello',      lab:'English', lang:'en'},
+    {g:'こんにちは',  lab:'日本語',  lang:'ja'},
+    {g:'你好',        lab:'中文',    lang:'zh'}
+  ];
+  var flipEl = document.querySelector('[data-flip]');
+  var labEl  = document.querySelector('[data-flip-label]');
+  var idx = 0;
+  function setLabel(o){ if(!labEl) return; labEl.textContent = o.lab; labEl.setAttribute('lang', o.lang); }
+  if(flipEl && !reduce && typeof flipEl.animate === 'function'){
+    setLabel(greetings[0]);
+    setInterval(function(){
+      var next = (idx+1) % greetings.length;
+      var a = flipEl.animate([{transform:'rotateX(0deg)'},{transform:'rotateX(92deg)'}],
+        {duration:300, easing:'cubic-bezier(.45,0,1,1)', fill:'forwards'});
+      a.onfinish = function(){
+        var o = greetings[next];
+        flipEl.textContent = o.g; flipEl.setAttribute('lang', o.lang);
+        setLabel(o);
+        flipEl.animate([{transform:'rotateX(-92deg)'},{transform:'rotateX(0deg)'}],
+          {duration:380, easing:'cubic-bezier(.18,.7,.3,1.1)', fill:'forwards'});
+        idx = next;
+      };
+    }, 3200);
+  } else if (flipEl) {
+    // reduced motion: static; CSS reveals the .flip__alt trio
+    setLabel(greetings[0]);
+  }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  var revealEls = document.querySelectorAll('.reveal,[data-stagger]');
+  if(reduce || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.16, rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- HEADER SCROLL STATE ---------- */
+  var head = document.getElementById('head');
+  var onScroll = function(){ if(head) head.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- SCROLLSPY ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          navLinks.forEach(function(a){ a.removeAttribute('aria-current'); });
+          var link = navLinks.find(function(a){ return a.getAttribute('href') === '#'+e.target.id; });
+          if(link) link.setAttribute('aria-current','true');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* ---------- MOBILE MENU ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  function closeMenu(){ if(!menu) return; menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open menu'); }
+  if(menuBtn && menu){
+    menuBtn.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  }
+
+  /* ---------- BOOK ONLINE (demo, non-functional) ---------- */
+  var bookBtns = document.querySelectorAll('.js-book');
+  bookBtns.forEach(function(btn){
+    var noteId = btn.getAttribute('data-note');
+    var note = noteId ? document.getElementById(noteId) : null;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(note){
+        note.innerHTML = 'Online booking is launching here soon. For now, call <b>+81&nbsp;3-6457-4359</b> and we’ll find you a time.';
+        note.classList.add('show');
+      }
+      var label = btn.querySelector('svg') ? null : null;
+      btn.style.transform = 'translateY(-2px)';
+      setTimeout(function(){ btn.style.transform=''; }, 260);
+    });
+  });
+
+  /* ---------- STARS ---------- */
+  (function(){
+    var box = document.getElementById('stars');
+    if(!box) return;
+    var rating = 4.7, svgns='http://www.w3.org/2000/svg';
+    for(var i=0;i<5;i++){
+      var fillFrac = Math.max(0, Math.min(1, rating - i));
+      var uid = 'st'+i;
+      var svg = document.createElementNS(svgns,'svg');
+      svg.setAttribute('viewBox','0 0 24 24');
+      var pct = Math.round(fillFrac*100);
+      svg.innerHTML =
+        '<defs><linearGradient id="'+uid+'" x1="0" x2="1" y1="0" y2="0">'+
+        '<stop offset="'+pct+'%" stop-color="#E9A35C"/>'+
+        '<stop offset="'+pct+'%" stop-color="#E9A35C" stop-opacity="0"/></linearGradient></defs>'+
+        '<path d="M12 2.5l2.7 5.9 6.3.7-4.7 4.3 1.3 6.2L12 16.9 6.1 19.9l1.3-6.2L2.7 9.1l6.3-.7z" '+
+        'fill="url(#'+uid+')" stroke="#C9822F" stroke-width="1.1" stroke-linejoin="round"/>';
+      box.appendChild(svg);
+    }
+  })();
+
+  /* ---------- LIVE HOURS STATUS (Asia/Tokyo) ---------- */
+  (function(){
+    var pill = document.getElementById('statusPill');
+    var txt = document.getElementById('statusText');
+    if(!pill || !txt) return;
+
+    function tokyoNow(){
+      try{
+        var parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+        var map={}; parts.forEach(function(p){ map[p.type]=p.value; });
+        var days={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+        var h = parseInt(map.hour,10); if(h===24) h=0;
+        return {dow: days[map.weekday], mins: h*60 + parseInt(map.minute,10)};
+      }catch(err){ return null; }
+    }
+    function windows(dow){
+      if(dow===0) return [[540,960]];            // Sun 9–16
+      if(dow===6) return [[540,1020]];           // Sat 9–17
+      return [[600,780],[870,1200]];             // Mon–Fri 10–13, 14:30–20
+    }
+    function fmt(m){ var h=Math.floor(m/60), mm=m%60; return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm; }
+
+    var now = tokyoNow();
+    // highlight today's row
+    var rowSel = {0:'sun',6:'sat'};
+    if(now){
+      var key = rowSel[now.dow] || 'weekday';
+      var todayRow = document.querySelector('.hrow[data-day="'+key+'"]');
+      if(todayRow) todayRow.classList.add('is-today');
+    }
+
+    if(!now){ txt.textContent='See hours'; return; }
+    var wins = windows(now.dow), openNow=false, nextOpen=null;
+    for(var i=0;i<wins.length;i++){
+      if(now.mins>=wins[i][0] && now.mins<wins[i][1]){ openNow=true; var closeAt=wins[i][1]; break; }
+      if(now.mins<wins[i][0] && nextOpen===null){ nextOpen=wins[i][0]; }
+    }
+    if(openNow){
+      pill.classList.remove('closed'); pill.classList.add('open');
+      txt.textContent = 'Open now · until '+fmt(closeAt);
+    } else {
+      pill.classList.add('closed');
+      if(nextOpen!==null){ txt.textContent='Closed · opens '+fmt(nextOpen); }
+      else { txt.textContent='Closed · opens tomorrow'; }
+    }
+  })();
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81364574359", CHAN="", CHANLABEL="";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

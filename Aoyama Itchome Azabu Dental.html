@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aoyama Itchome Azabu Dental — English-speaking dentistry in Aoyama, Tokyo</title>
+<meta name="description" content="English-speaking dental care in the heart of Aoyama — Akasaka, Minato, Tokyo. Open weekends. Rated 4.7 across 181 Google reviews." />
+<meta name="theme-color" content="#0c0c0d" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   COUTURE MONOCHROME — Aoyama Itchome Azabu Dental
+   One self-contained document. All visuals from CSS/SVG/type.
+   ============================================================ */
+
+:root{
+  --ink:#0c0c0d;
+  --ink-2:#151517;
+  --paper:#efece4;
+  --paper-2:#e8e4da;
+  --smoke:#6b6862;            /* secondary text on paper */
+  --paper-dim:rgba(239,236,228,.56);  /* secondary text on ink */
+  --ox:#7a1620;              /* oxblood — the only accent */
+  --ox-bright:#9c2531;
+  --ox-on-ink:#b1323d;        /* brighter oxblood, accents on dark only */
+  --hair:rgba(12,12,13,.16);
+  --hair-on-ink:rgba(239,236,228,.16);
+
+  --maxw:1320px;
+  --gut:clamp(1.25rem, 5vw, 5rem);
+  --secpad:clamp(4.5rem, 11vh, 9rem);
+
+  --serif:"Bodoni Moda", "Times New Roman", serif;
+  --sans:"Jost", system-ui, -apple-system, sans-serif;
+  --jp:"Noto Sans JP", "Jost", sans-serif;
+
+  --e-out:cubic-bezier(.16,1,.3,1);
+  --e-soft:cubic-bezier(.2,.7,.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+/* desktop custom cursor hides native pointer */
+body.has-cursor, body.has-cursor a, body.has-cursor button{cursor:none}
+
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:where(h1,h2,h3,p,figure,blockquote){margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+
+::selection{background:var(--ox);color:var(--paper)}
+
+/* ---- skip link ---- */
+.skip{
+  position:absolute;left:1rem;top:-4rem;z-index:200;
+  background:var(--paper);color:var(--ink);
+  padding:.7rem 1rem;font-family:var(--sans);font-size:.8rem;
+  letter-spacing:.12em;text-transform:uppercase;transition:top .3s var(--e-out);
+}
+.skip:focus{top:1rem}
+
+/* ---- focus ---- */
+:focus-visible{outline:2px solid var(--ox-on-ink);outline-offset:3px}
+.sec--paper :focus-visible{outline-color:var(--ox)}
+
+/* ============ layout helpers ============ */
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.sec{position:relative;padding-block:var(--secpad)}
+.sec--ink{background:var(--ink);color:var(--paper);--hairc:var(--hair-on-ink);--dim:var(--paper-dim)}
+.sec--paper{background:var(--paper);color:var(--ink);--hairc:var(--hair);--dim:var(--smoke)}
+.rule{height:1px;background:var(--hairc);border:0;width:100%}
+
+/* ============ type system ============ */
+.eyebrow{
+  font-family:var(--sans);font-weight:500;
+  font-size:clamp(.62rem,.58rem+.18vw,.74rem);
+  text-transform:uppercase;letter-spacing:.34em;
+  color:var(--dim);display:inline-flex;align-items:center;gap:.85em;
+}
+.eyebrow::before{
+  content:"";width:.42em;height:.42em;background:var(--ox);
+  border-radius:50%;flex:none;transform:translateY(.04em);
+}
+.sec--ink .eyebrow::before{background:var(--ox-on-ink)}
+
+.display{font-family:var(--serif);font-weight:400;line-height:.95;letter-spacing:-.012em}
+.italic{font-style:italic}
+.ox{color:var(--ox)}
+.sec--ink .ox{color:var(--ox-on-ink)}
+
+.lede{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(1.05rem,1rem+.55vw,1.4rem);
+  line-height:1.62;color:var(--dim);max-width:46ch;
+}
+.copy{font-size:1.02rem;line-height:1.72;color:var(--dim);max-width:54ch}
+.jp{font-family:var(--jp);font-weight:400}
+
+/* ============ buttons ============ */
+.btn{
+  --bd:currentColor;
+  display:inline-flex;align-items:center;gap:.85em;
+  font-family:var(--sans);font-weight:500;font-size:.74rem;
+  text-transform:uppercase;letter-spacing:.2em;
+  padding:1.05rem 1.7rem;border:1px solid var(--bd);background:transparent;
+  border-radius:0;cursor:pointer;position:relative;overflow:hidden;
+  transition:color .5s var(--e-out),border-color .5s var(--e-out);
+}
+.btn .arr{transition:transform .5s var(--e-out)}
+.btn:hover .arr{transform:translateX(.35em)}
+.btn::after{
+  content:"";position:absolute;inset:0;background:currentColor;
+  transform:scaleY(0);transform-origin:bottom;z-index:-1;
+  transition:transform .5s var(--e-out);
+}
+.btn--ghost:hover{color:var(--ink)}
+.sec--ink .btn--ghost:hover{color:var(--paper)}
+.sec--ink .btn--ghost::after{background:var(--paper)}
+.sec--ink .btn--ghost:hover{color:var(--ink)}
+.btn--ghost:hover::after{transform:scaleY(1)}
+
+.btn--book{background:var(--ox);border-color:var(--ox);color:var(--paper)}
+.btn--book::after{display:none}
+.btn--book:hover{background:var(--ox-bright);border-color:var(--ox-bright);color:var(--paper)}
+.btn--book.is-soon{background:transparent;color:var(--ox-on-ink);border-color:var(--ox-on-ink)}
+.sec--paper .btn--book.is-soon{color:var(--ox)}
+
+/* ============ fixed top nav ============ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:80;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:1.15rem var(--gut);
+  color:var(--paper);
+  transition:background .5s var(--e-out),color .5s var(--e-out),padding .4s var(--e-out),box-shadow .5s;
+}
+.nav.solid{
+  background:rgba(12,12,13,.82);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  padding-block:.8rem;
+  box-shadow:0 1px 0 var(--hair-on-ink);
+}
+.brand{display:flex;flex-direction:column;line-height:1;gap:.32em;text-transform:uppercase}
+.brand b{font-weight:500;font-size:.86rem;letter-spacing:.2em}
+.brand small{font-weight:400;font-size:.58rem;letter-spacing:.34em;color:var(--paper-dim)}
+.brand .mk{color:var(--ox-on-ink)}
+
+.nav-right{display:flex;align-items:center;gap:clamp(.9rem,2vw,2rem)}
+.nav-links{display:none;align-items:center;gap:clamp(1rem,2.2vw,2.1rem)}
+.nav-links a{
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.22em;font-weight:400;
+  color:var(--paper);position:relative;padding-block:.3rem;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--ox-on-ink);transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--e-out);
+}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+
+.lang{display:flex;align-items:center;gap:.55em;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-dim)}
+.lang a{color:var(--paper-dim);transition:color .35s}
+.lang a:hover{color:var(--paper)}
+.lang .on{color:var(--paper)}
+.lang i{width:1px;height:.85em;background:var(--paper-dim);display:inline-block}
+
+.nav .btn{padding:.78rem 1.15rem;font-size:.66rem;letter-spacing:.18em}
+
+/* ============ fixed side label (desktop) ============ */
+.rail{
+  position:fixed;right:.55rem;top:50%;z-index:60;
+  transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
+  font-family:var(--sans);font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--paper-dim);pointer-events:none;display:none;mix-blend-mode:difference;
+}
+
+/* ============ grain + cursor ============ */
+.grain{
+  position:fixed;inset:0;z-index:90;pointer-events:none;
+  opacity:.05;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.cursor,.cursor-dot{position:fixed;top:0;left:0;z-index:120;pointer-events:none;border-radius:50%;will-change:transform}
+.cursor{width:34px;height:34px;border:1px solid var(--ox-on-ink);margin:-17px 0 0 -17px;transition:width .3s var(--e-out),height .3s var(--e-out),margin .3s var(--e-out),background .3s,border-color .3s}
+.cursor.grow{width:62px;height:62px;margin:-31px 0 0 -31px;background:rgba(177,50,61,.08)}
+.cursor-dot{width:5px;height:5px;background:var(--ox-on-ink);margin:-2.5px 0 0 -2.5px}
+
+/* ============ reveal motion ============ */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1s var(--e-out),transform 1s var(--e-out);transition-delay:calc(var(--i,0)*90ms)}
+[data-reveal].in{opacity:1;transform:none}
+
+.mask{clip-path:inset(0 0 102% 0);transform:translateY(.28em);transition:clip-path 1.05s var(--e-out),transform 1.05s var(--e-out);transition-delay:calc(var(--i,0)*105ms)}
+.in .mask,.mask.in{clip-path:inset(0 0 -10% 0);transform:none}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding-bottom:clamp(1.8rem,4.5vh,3.4rem);padding-top:clamp(5.5rem,12vh,7rem)}
+.hero .wrap{width:100%}
+.seam{position:absolute;top:0;bottom:0;left:var(--gut);width:1px;background:var(--ox-on-ink);transform:scaleY(0);transform-origin:top;transition:transform 1.4s var(--e-out) .15s;z-index:2}
+body.ready .seam{transform:scaleY(1)}
+
+.hero-seal{
+  display:none;
+  position:absolute;z-index:1;opacity:.9;
+  width:min(46vw,520px);right:calc(var(--gut) - 4%);top:clamp(5rem,15vh,10rem);
+  pointer-events:none;
+}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:clamp(1.1rem,4vh,2.2rem);position:relative;z-index:3}
+.hero-top .where{text-align:right;max-width:18ch}
+.hero-top .where span{display:block}
+
+.hero h1{
+  position:relative;z-index:3;
+  font-size:clamp(2.6rem,10.5vw,9.2rem);
+  letter-spacing:-.022em;text-wrap:balance;
+}
+.hero h1 .l{display:block;overflow:visible}
+.hero h1 .l:nth-child(2){text-indent:clamp(0px,6vw,4em)}
+
+.hero-foot{
+  position:relative;z-index:3;margin-top:clamp(1.3rem,4vh,2.2rem);
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(1.4rem,4vw,3rem) clamp(1.6rem,4vw,3.5rem);
+  justify-content:space-between;
+}
+.hero-lede{max-width:38ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.85rem}
+
+.credits{
+  display:flex;flex-wrap:wrap;gap:.55em 1.3em;align-items:center;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim);
+  margin-top:1.4rem;
+}
+.credits b{color:var(--paper);font-weight:500}
+.credits .star{color:var(--ox-on-ink)}
+.credits .dot{width:3px;height:3px;border-radius:50%;background:var(--paper-dim)}
+
+.scrollcue{
+  position:absolute;right:var(--gut);bottom:clamp(1.4rem,4vh,2.4rem);z-index:3;
+  display:none;align-items:center;gap:.7em;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper-dim);
+}
+.scrollcue .ln{width:42px;height:1px;background:var(--paper-dim);position:relative;overflow:hidden}
+.scrollcue .ln::after{content:"";position:absolute;inset:0;background:var(--ox-on-ink);animation:cue 2.4s var(--e-soft) infinite}
+@keyframes cue{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+
+/* ============================================================
+   THE HOUSE (manifesto, paper spread)
+   ============================================================ */
+.house-grid{display:grid;gap:clamp(2rem,5vw,4.5rem);grid-template-columns:1fr;align-items:start;margin-top:clamp(2.2rem,5vh,3.5rem)}
+.house-statement{font-size:clamp(1.7rem,5.2vw,3.6rem);max-width:18ch}
+.house-aside{display:flex;flex-direction:column;gap:1.6rem}
+.house-aside .copy{max-width:40ch}
+
+/* ============================================================
+   CARE (editorial index, ink)
+   ============================================================ */
+.care-head{display:grid;gap:1.4rem;margin-bottom:clamp(2.4rem,5vh,3.6rem)}
+.care-head h2{font-size:clamp(2rem,6.5vw,5rem);max-width:16ch}
+.ledger{border-top:1px solid var(--hairc)}
+.ledger li{
+  display:grid;grid-template-columns:1fr;gap:.5rem .5rem;
+  padding-block:clamp(1.4rem,3.2vh,2.1rem);border-bottom:1px solid var(--hairc);
+  position:relative;transition:background .5s var(--e-out);
+}
+.ledger .idx{font-family:var(--serif);font-size:.95rem;color:var(--dim);font-style:italic}
+.ledger h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,4.5vw,2.5rem);line-height:1.05;transition:transform .55s var(--e-out)}
+.ledger p{color:var(--dim);max-width:46ch;font-size:.98rem;line-height:1.6}
+.ledger li:hover h3{transform:translateX(.4rem)}
+.ledger li:hover h3 .tick{opacity:1;transform:translateX(0)}
+.ledger .tick{display:inline-block;color:var(--ox-on-ink);opacity:0;transform:translateX(-.4rem);transition:opacity .5s var(--e-out),transform .5s var(--e-out);margin-left:.35em;font-size:.6em;vertical-align:middle}
+.care-note{margin-top:clamp(2rem,4vh,3rem);font-size:.92rem;letter-spacing:.04em;color:var(--dim);max-width:52ch}
+
+/* ============================================================
+   YOUR VISIT (numbered sequence, paper)
+   ============================================================ */
+.visit-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:clamp(2.4rem,5vh,3.8rem)}
+.visit-head h2{font-size:clamp(2rem,6.5vw,5rem);max-width:14ch}
+.steps{display:grid;gap:0;grid-template-columns:1fr}
+.step{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2.4rem);
+  padding-block:clamp(1.5rem,3.4vh,2.4rem);border-top:1px solid var(--hairc);align-items:baseline;
+}
+.step:last-child{border-bottom:1px solid var(--hairc)}
+.step .no{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);line-height:1;color:var(--ox)}
+.step .body h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.35rem,3.6vw,2.1rem);margin-bottom:.5rem;line-height:1.05}
+.step .body p{color:var(--dim);max-width:48ch;font-size:.98rem;line-height:1.62}
+
+/* ============================================================
+   VISIT US (hours + location, ink)
+   ============================================================ */
+.find-grid{display:grid;gap:clamp(2.2rem,5vw,4rem);grid-template-columns:1fr;align-items:center;margin-top:clamp(2rem,4vh,3rem)}
+.find h2{font-size:clamp(2.2rem,7vw,5.4rem);max-width:11ch}
+.facts{display:grid;gap:0;margin-top:2rem}
+.fact{display:grid;grid-template-columns:1fr;gap:.35rem;padding-block:1.3rem;border-top:1px solid var(--hairc)}
+.fact:last-child{border-bottom:1px solid var(--hairc)}
+.fact dt{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+.fact dd{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.7rem);margin:0;line-height:1.15}
+.fact dd small{font-family:var(--sans);font-weight:300;font-size:.82rem;letter-spacing:.02em;color:var(--dim);display:block;margin-top:.35rem;line-height:1.5;text-transform:none}
+.find-sealwrap{display:flex;justify-content:center;align-items:center}
+
+/* ============================================================
+   CONTACT (close, ink deep)
+   ============================================================ */
+.contact{background:#0a0a0b}
+.contact-inner{display:grid;gap:clamp(2.4rem,5vw,4rem);grid-template-columns:1fr;align-items:end}
+.contact h2{font-size:clamp(2.6rem,9vw,7rem);line-height:.92;max-width:10ch}
+.contact .lede{margin-top:1.4rem}
+.channels{display:grid;gap:0;align-content:end}
+.channel{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-block:1.25rem;border-top:1px solid var(--hair-on-ink);
+  transition:padding-left .5s var(--e-out);
+}
+.channels .channel:last-of-type{border-bottom:1px solid var(--hair-on-ink)}
+.channel:hover{padding-left:.5rem}
+.channel .k{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-dim)}
+.channel .v{font-family:var(--serif);font-size:clamp(1.15rem,3vw,1.7rem);display:flex;align-items:center;gap:.6em}
+.channel .v .arr{color:var(--ox-on-ink);transition:transform .5s var(--e-out)}
+.channel:hover .v .arr{transform:translate(.3em,-.3em)}
+.contact-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.2rem}
+.toast-region{margin-top:1rem;min-height:1.2em}
+.book-note{font-size:.8rem;letter-spacing:.04em;color:var(--ox-on-ink);opacity:0;transform:translateY(.3rem);transition:opacity .4s var(--e-out),transform .4s var(--e-out);max-width:46ch;line-height:1.5}
+.book-note.show{opacity:1;transform:none}
+
+/* ============================================================
+   FOOTER / colophon
+   ============================================================ */
+.foot{background:#0a0a0b;color:var(--paper);padding-block:clamp(3rem,7vh,5rem) clamp(2rem,4vh,3rem)}
+.foot .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-start}
+.foot .name{font-family:var(--serif);font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.05;max-width:16ch}
+.foot .meta{display:flex;flex-wrap:wrap;gap:.5em 1.2em;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim);margin-top:1rem}
+.foot .cols{display:grid;grid-template-columns:1fr;gap:1.6rem;text-align:left}
+.foot .col h4{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper-dim);font-weight:500;margin-bottom:.7rem}
+.foot .col a,.foot .col p{display:block;font-size:.92rem;color:var(--paper);line-height:1.7;letter-spacing:.02em}
+.foot .col a{position:relative;width:fit-content}
+.foot .col a::after{content:"";position:absolute;left:0;bottom:.05em;height:1px;width:100%;background:var(--ox-on-ink);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--e-out)}
+.foot .col a:hover::after{transform:scaleX(1)}
+.foot .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;margin-top:clamp(2.4rem,5vh,3.5rem);padding-top:1.4rem;border-top:1px solid var(--hair-on-ink)}
+.foot .fine{font-size:.7rem;letter-spacing:.04em;color:var(--paper-dim);max-width:60ch;line-height:1.6}
+.credit{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);white-space:nowrap}
+.credit a{color:var(--paper);position:relative}
+.credit a::after{content:"";position:absolute;left:0;bottom:-.15em;height:1px;width:100%;background:var(--ox-on-ink);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--e-out)}
+.credit a:hover::after{transform:scaleX(1)}
+
+/* ============================================================
+   SEAL (svg)
+   ============================================================ */
+.seal-o,.seal-mark path,.seal-mark line{fill:none;stroke:currentColor;stroke-width:1.1;vector-effect:non-scaling-stroke}
+.seal-ring text{font-family:var(--sans);font-size:8.4px;letter-spacing:3.1px;fill:currentColor;text-transform:uppercase;font-weight:400}
+.seal-ring{transform-origin:110px 110px;animation:spin 70s linear infinite}
+.seal-dot{fill:var(--ox);stroke:none}
+.sec--ink .seal-dot,.hero .seal-dot{fill:var(--ox-on-ink)}
+.seal-c{font-family:var(--serif);font-size:9px;letter-spacing:2px;fill:currentColor;font-weight:400}
+
+/* draw-on for marks when revealed */
+.seal-draw .seal-o,.seal-draw .seal-mark path,.seal-draw .seal-mark line{
+  stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.8s var(--e-out) .2s;
+}
+.seal-draw.in .seal-o,.seal-draw.in .seal-mark path,.seal-draw.in .seal-mark line{stroke-dashoffset:0}
+body.ready .hero-seal .seal-o,body.ready .hero-seal .seal-mark path,body.ready .hero-seal .seal-mark line{stroke-dashoffset:0}
+.hero-seal .seal-o,.hero-seal .seal-mark path,.hero-seal .seal-mark line{stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 2.2s var(--e-out) .4s}
+.hero-seal{color:var(--paper-dim)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (min-width:620px){
+  .house-grid{grid-template-columns:1.4fr 1fr}
+  .find-grid{grid-template-columns:1.3fr .9fr}
+  .contact-inner{grid-template-columns:1.1fr .9fr}
+  .foot .cols{grid-template-columns:repeat(3,1fr)}
+  .step{grid-template-columns:auto 1fr}
+  .scrollcue{display:flex}
+}
+@media (min-width:920px){
+  .nav-links{display:flex}
+  .rail{display:block}
+  .hero-seal{display:block}
+  .ledger li{grid-template-columns:5rem 1fr 1.1fr;align-items:baseline;gap:1.5rem}
+  .ledger p{margin:0}
+  .care-head{grid-template-columns:1fr;max-width:none}
+  .hero h1 .l:nth-child(3){text-indent:clamp(0px,12vw,8em)}
+}
+@media (min-width:920px) and (max-width:1099px){
+  .hero-seal{width:min(40vw,400px);top:clamp(9rem,23vh,13rem);right:calc(var(--gut) - 1%);opacity:.78}
+}
+@media (min-width:1100px){
+  .house-statement{font-size:clamp(2.6rem,4vw,3.8rem)}
+}
+
+/* ============================================================
+   MOBILE REFINEMENTS (<=619px)
+   ============================================================ */
+@media (max-width:619px){
+  .brand small{display:none}
+  .brand b{font-size:.72rem;letter-spacing:.1em;line-height:1.2;max-width:48vw;white-space:normal}
+  .lang{display:none}
+  .nav{padding-block:.8rem}
+  .nav.solid{padding-block:.7rem}
+  .nav-right{gap:.55rem}
+  .nav .btn{padding:.6rem .85rem;font-size:.6rem;letter-spacing:.1em;white-space:nowrap}
+  .hero{padding-top:5.5rem}
+  .hero-top{flex-direction:column;align-items:flex-start;gap:.85rem}
+  .hero-top .where{text-align:left}
+  .hero h1 .l:nth-child(2){text-indent:0}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+  .mask{clip-path:none !important;transform:none !important}
+  .seam{transform:scaleY(1) !important}
+  .seal-ring{animation:none !important}
+  .seal-o,.seal-mark path,.seal-mark line{stroke-dashoffset:0 !important;stroke-dasharray:none !important}
+  .scrollcue .ln::after{animation:none !important}
+}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#b1323d;--bk-accent-ink:#ffffff;--bk-ink:#0c0c0d;--bk-panel:#efece4;--bk-muted:rgba(12,12,13,0.6);--bk-line:rgba(12,12,13,0.14);--bk-serif:"Bodoni Moda", "Times New Roman", serif;--bk-sans:"Jost", system-ui, -apple-system, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#house">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Aoyama Itchome Azabu Dental, home">
+    <b>Aoyama<span class="mk">·</span>Azabu Dental</b>
+    <small>Akasaka · Minato · Tokyo</small>
+  </a>
+  <div class="nav-right">
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#house">The House</a>
+      <a href="#care">Care</a>
+      <a href="#visit">Your Visit</a>
+      <a href="#find">Visit Us</a>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <span class="on">EN</span><i></i>
+      <a href="https://aoyama-azabu-dc.com" target="_blank" rel="noopener" class="jp">日本語</a>
+    </div>
+    <button class="btn btn--book js-book" type="button">Book Online</button>
+  </div>
+</header>
+
+<div class="rail" aria-hidden="true">English-speaking dental care · 東京</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero sec--ink" aria-labelledby="hero-title">
+    <span class="seam" aria-hidden="true"></span>
+
+    <!-- decorative house seal -->
+    <svg class="hero-seal" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
+      <defs>
+        <path id="ringPathHero" d="M110,110 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/>
+      </defs>
+      <circle class="seal-o" cx="110" cy="110" r="101"/>
+      <circle class="seal-o" cx="110" cy="110" r="70" style="opacity:.5"/>
+      <g class="seal-ring">
+        <text><textPath href="#ringPathHero" startOffset="0">Aoyama Itchome · Azabu Dental · Akasaka Minato Tokyo · English Spoken · </textPath></text>
+      </g>
+      <g class="seal-mark">
+        <path d="M110 86 L92 138"/>
+        <path d="M110 86 L128 138"/>
+        <line x1="99" y1="120" x2="121" y2="120"/>
+      </g>
+      <circle class="seal-dot" cx="110" cy="84" r="2.6"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="eyebrow" data-reveal>Est. care, in English</span>
+        <p class="where eyebrow" data-reveal style="--i:1;display:block">
+          <span>Akasaka, Minato</span>
+          <span>Tokyo · <span class="jp">東京</span></span>
+        </p>
+      </div>
+
+      <h1 class="display" id="hero-title">
+        <span class="l mask" style="--i:0">Your dentist</span>
+        <span class="l mask" style="--i:1">in Tokyo,</span>
+        <span class="l mask" style="--i:2"><span class="italic ox">in English.</span></span>
+      </h1>
+
+      <div class="hero-foot">
+        <div class="hero-lede">
+          <p class="lede" data-reveal style="--i:3">Considered, unhurried dental care in the heart of Aoyama — with an English-speaking team and weekend appointments. No translation app required.</p>
+          <div class="credits" data-reveal style="--i:4">
+            <span><b><span class="star">★</span> 4.7</b> · 181 Google reviews</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Open weekends</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>English spoken</span>
+          </div>
+        </div>
+        <div class="hero-cta" data-reveal style="--i:5">
+          <button class="btn btn--book js-book" type="button" data-note="book-note-hero" aria-describedby="book-note-hero">Book Online <span class="arr" aria-hidden="true">↗</span></button>
+          <a class="btn btn--ghost" href="tel:+81364349877">Call the clinic <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <p id="book-note-hero" class="book-note" role="status"></p>
+    </div>
+  </section>
+
+  <!-- ============ THE HOUSE ============ -->
+  <section class="sec sec--paper" id="house" aria-labelledby="house-h">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>The House — <span class="jp">主旨</span></span>
+      <div class="house-grid">
+        <h2 class="display house-statement" id="house-h" data-reveal>
+          Moving to Tokyo is hard enough. Finding a dentist who speaks your language <span class="italic ox">shouldn't be.</span>
+        </h2>
+        <div class="house-aside" data-reveal style="--i:1">
+          <p class="copy">Aoyama Itchome Azabu Dental welcomes English-speaking residents and visitors to Akasaka — a short, calm appointment where the conversation is as careful as the work.</p>
+          <p class="copy">Clear explanations. An unhurried chair. A team that meets you in your own words, from the first hello to aftercare.</p>
+          <hr class="rule" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARE ============ -->
+  <section class="sec sec--ink" id="care" aria-labelledby="care-h">
+    <div class="wrap">
+      <div class="care-head">
+        <span class="eyebrow" data-reveal>What we attend to</span>
+        <h2 class="display" id="care-h" data-reveal style="--i:1">Everyday dentistry, given <span class="italic ox">couture attention.</span></h2>
+      </div>
+
+      <ul class="ledger">
+        <li data-reveal>
+          <span class="idx">i</span>
+          <h3>Examination &amp; check-up<span class="tick" aria-hidden="true">●</span></h3>
+          <p>A thorough look, in plain English — so you understand exactly what we see before anything else.</p>
+        </li>
+        <li data-reveal style="--i:1">
+          <span class="idx">ii</span>
+          <h3>Cleaning &amp; hygiene<span class="tick" aria-hidden="true">●</span></h3>
+          <p>Professional cleaning and the quiet, regular care that keeps a smile well between visits.</p>
+        </li>
+        <li data-reveal style="--i:2">
+          <span class="idx">iii</span>
+          <h3>Everyday treatment<span class="tick" aria-hidden="true">●</span></h3>
+          <p>The routine restorative care that day-to-day life calls for, explained step by step.</p>
+        </li>
+        <li data-reveal style="--i:3">
+          <span class="idx">iv</span>
+          <h3>Plans, in your language<span class="tick" aria-hidden="true">●</span></h3>
+          <p>Honest options and clear next steps — discussed with you, never decided over your head.</p>
+        </li>
+      </ul>
+      <p class="care-note" data-reveal>For specific treatments and fees, a quick call or message is always the warmest place to start.</p>
+    </div>
+  </section>
+
+  <!-- ============ YOUR VISIT ============ -->
+  <section class="sec sec--paper" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="visit-head">
+        <h2 class="display" id="visit-h" data-reveal>Your visit, <span class="italic ox">in four moves.</span></h2>
+        <span class="eyebrow" data-reveal style="--i:1">Your Visit — <span class="jp">ご来院の流れ</span></span>
+      </div>
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="no">01</span>
+          <div class="body">
+            <h3>Get in touch</h3>
+            <p>Call, add us on LINE, or message us on Instagram. We'll find a time that works — in English.</p>
+          </div>
+        </li>
+        <li class="step" data-reveal style="--i:1">
+          <span class="no">02</span>
+          <div class="body">
+            <h3>Arrive in Aoyama</h3>
+            <p>Come in to Akasaka, Minato. Settle into the chair and tell us what's on your mind, plainly.</p>
+          </div>
+        </li>
+        <li class="step" data-reveal style="--i:2">
+          <span class="no">03</span>
+          <div class="body">
+            <h3>Care, explained</h3>
+            <p>We talk you through what we see and what we'd suggest — clearly — before anything begins.</p>
+          </div>
+        </li>
+        <li class="step" data-reveal style="--i:3">
+          <span class="no">04</span>
+          <div class="body">
+            <h3>Aftercare</h3>
+            <p>Simple next steps and easy follow-ups, whenever you need them. The door stays open.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ VISIT US ============ -->
+  <section class="sec sec--ink find" id="find" aria-labelledby="find-h">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Visit Us</span>
+      <div class="find-grid">
+        <div>
+          <h2 class="display" id="find-h" data-reveal style="--i:1">In the heart of <span class="italic ox">Aoyama.</span></h2>
+          <dl class="facts" data-reveal style="--i:2">
+            <div class="fact">
+              <dt>Where</dt>
+              <dd>Akasaka, Minato — Tokyo<small>Central Tokyo's design and fashion district. Message us for the exact address and the nearest exit.</small></dd>
+            </div>
+            <div class="fact">
+              <dt>Hours</dt>
+              <dd>Open all week<small>Saturdays and Sundays included. For today's exact hours, a quick call is best.</small></dd>
+            </div>
+            <div class="fact">
+              <dt>Language</dt>
+              <dd>English spoken<small>An English-speaking team, with our Japanese site at <a href="https://aoyama-azabu-dc.com" target="_blank" rel="noopener">aoyama-azabu-dc.com</a>.</small></dd>
+            </div>
+          </dl>
+        </div>
+        <div class="find-sealwrap" data-reveal style="--i:3">
+          <svg class="seal seal-draw" viewBox="0 0 220 220" width="260" height="260" role="img" aria-label="Aoyama Azabu Dental house seal">
+            <defs>
+              <path id="ringPathFind" d="M110,110 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/>
+            </defs>
+            <circle class="seal-o" cx="110" cy="110" r="101"/>
+            <g class="seal-ring">
+              <text><textPath href="#ringPathFind" startOffset="0">Aoyama Itchome · Azabu Dental · Est. Akasaka Minato · 東京 · </textPath></text>
+            </g>
+            <g class="seal-mark">
+              <path d="M110 84 L90 140"/>
+              <path d="M110 84 L130 140"/>
+              <line x1="98" y1="121" x2="122" y2="121"/>
+            </g>
+            <text class="seal-c" x="110" y="165" text-anchor="middle">EN</text>
+            <circle class="seal-dot" cx="110" cy="82" r="2.8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="sec contact sec--ink" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Book · Contact</span>
+      <div class="contact-inner">
+        <div>
+          <h2 class="display" id="contact-h" data-reveal style="--i:1">Come and <span class="italic ox">see us.</span></h2>
+          <p class="lede" data-reveal style="--i:2">Reach us however you like — we'll reply in English. Online booking is already live on our current site, and a one-tap version is coming to this page soon.</p>
+          <div class="contact-cta" data-reveal style="--i:3">
+            <button class="btn btn--book js-book" type="button" data-note="book-note-contact" aria-describedby="book-note-contact">Book Online <span class="arr" aria-hidden="true">↗</span></button>
+            <a class="btn btn--ghost" href="tel:+81364349877">Call now <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+          <div class="toast-region"><p id="book-note-contact" class="book-note" role="status"></p></div>
+        </div>
+
+        <div class="channels" data-reveal style="--i:2" aria-label="Contact channels">
+          <a class="channel" href="tel:+81364349877">
+            <span class="k">Telephone</span>
+            <span class="v">+81 3-6434-9877 <span class="arr" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="channel" href="https://www.instagram.com/aoyamaazabudc/" target="_blank" rel="noopener">
+            <span class="k">Instagram</span>
+            <span class="v">@aoyamaazabudc <span class="arr" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="channel" href="https://aoyama-azabu-dc.com" target="_blank" rel="noopener" title="Add our official LINE account">
+            <span class="k">LINE — official account</span>
+            <span class="v">Connect on LINE <span class="arr" aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <p class="name display">Aoyama Itchome<br>Azabu Dental</p>
+        <div class="meta">
+          <span>Akasaka · Minato · Tokyo</span>
+          <span>·</span>
+          <span>English spoken</span>
+          <span>·</span>
+          <span>Issue 01 · <span class="jp">東京</span> · MMXXVI</span>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="col">
+          <h4>Visit</h4>
+          <p>Akasaka, Minato</p>
+          <p>Tokyo, Japan</p>
+          <p>Open all week</p>
+        </div>
+        <div class="col">
+          <h4>Reach us</h4>
+          <a href="tel:+81364349877">+81 3-6434-9877</a>
+          <a href="https://www.instagram.com/aoyamaazabudc/" target="_blank" rel="noopener">@aoyamaazabudc</a>
+          <a href="https://aoyama-azabu-dc.com" target="_blank" rel="noopener">LINE · official account</a>
+        </div>
+        <div class="col">
+          <h4>More</h4>
+          <a href="https://aoyama-azabu-dc.com" target="_blank" rel="noopener" class="jp">日本語サイト</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <p class="fine">An English-language page for Aoyama Itchome Azabu Dental, made to welcome English-speaking patients in Tokyo. Please confirm exact hours, services and address with the clinic directly.</p>
+      <p class="credit">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+(function(){
+  "use strict";
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- scroll reveals ---------- */
+  var revealEls = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  var maskEls = [].slice.call(document.querySelectorAll('.hero h1 .mask'));
+
+  if (rm || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.seal-draw').forEach(function(s){ s.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.seal-draw').forEach(function(s){ io.observe(s); });
+  }
+
+  /* ---------- hero load sequence ---------- */
+  function startHero(){
+    document.body.classList.add('ready');
+    if (rm){
+      maskEls.forEach(function(m){ m.classList.add('in'); });
+      revealEls.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    requestAnimationFrame(function(){
+      maskEls.forEach(function(m){ m.classList.add('in'); });
+      document.querySelectorAll('.hero [data-reveal]').forEach(function(el){ el.classList.add('in'); });
+    });
+  }
+  if (document.readyState === 'complete') startHero();
+  else window.addEventListener('load', startHero);
+
+  /* ---------- nav background on scroll ---------- */
+  var nav = document.getElementById('nav');
+  var onScroll = function(){
+    if (window.scrollY > 40) nav.classList.add('solid');
+    else nav.classList.remove('solid');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---------- Book Online: gentle "coming soon" demo state ---------- */
+  var timers = {};
+  document.querySelectorAll('.js-book').forEach(function(btn){
+    var noteId = btn.getAttribute('data-note');
+    var note = noteId ? document.getElementById(noteId) : null;
+    var original = btn.innerHTML;
+    btn.addEventListener('click', function(){
+      btn.classList.add('is-soon');
+      btn.innerHTML = 'Coming soon <span class="arr" aria-hidden="true">✓</span>';
+      if (note){
+        note.textContent = 'Online booking is already live on our current site — a one-tap version arrives here soon. In the meantime, please call or message us.';
+        note.classList.add('show');
+      }
+      clearTimeout(timers[noteId]);
+      timers[noteId] = setTimeout(function(){
+        btn.classList.remove('is-soon');
+        btn.innerHTML = original;
+        if (note){ note.classList.remove('show'); }
+      }, 5200);
+    });
+  });
+
+  /* ---------- custom couture cursor (desktop, fine pointer only) ---------- */
+  var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
+  if (!rm && fine && window.innerWidth >= 920){
+    var ring = document.createElement('div'); ring.className = 'cursor';
+    var dot = document.createElement('div'); dot.className = 'cursor-dot';
+    document.body.appendChild(ring); document.body.appendChild(dot);
+    document.body.classList.add('has-cursor');
+
+    var mx = window.innerWidth/2, my = window.innerHeight/2, rx = mx, ry = my;
+    window.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    }, { passive: true });
+
+    (function loop(){
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+      requestAnimationFrame(loop);
+    })();
+
+    var hoverSel = 'a, button, .channel, .ledger li';
+    document.addEventListener('mouseover', function(e){
+      if (e.target.closest(hoverSel)) ring.classList.add('grow');
+    });
+    document.addEventListener('mouseout', function(e){
+      if (e.target.closest(hoverSel)) ring.classList.remove('grow');
+    });
+    document.addEventListener('mouseleave', function(){ ring.style.opacity = 0; dot.style.opacity = 0; });
+    document.addEventListener('mouseenter', function(){ ring.style.opacity = 1; dot.style.opacity = 1; });
+  }
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81364349877", CHAN="https://lin.ee/iAXKP7r", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

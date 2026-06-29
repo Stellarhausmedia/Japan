@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soai Dental Clinic — English-Speaking Dentist in Kobe</title>
+<meta name="description" content="Soai Dental Clinic, Kominatodori, Chuo-ku, Kobe. English-speaking dental care — implants, orthodontics, cosmetic, paediatric, and more. Book online or call us today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --ink-void:     oklch(0.08 0.03 268);
+  --ink-deep:     oklch(0.12 0.05 268);
+  --ink-navy:     oklch(0.18 0.07 265);
+  --ink-surface:  oklch(0.22 0.06 265);
+  --gold-warm:    oklch(0.82 0.12 82);
+  --gold-pale:    oklch(0.91 0.06 78);
+  --gold-dim:     oklch(0.68 0.10 80);
+  --gold-glow:    oklch(0.78 0.14 80);
+  --harbour-mid:  oklch(0.28 0.09 270);
+  --harbour-blue: oklch(0.45 0.12 260);
+  --text-primary: oklch(0.93 0.02 78);
+  --text-muted:   oklch(0.72 0.04 78);
+  --text-dim:     oklch(0.55 0.04 78);
+  --shimmer-1:    oklch(0.78 0.08 80 / 0.15);
+  --shimmer-2:    oklch(0.50 0.08 260 / 0.12);
+
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'DM Sans', system-ui, sans-serif;
+
+  --space-xs:   0.5rem;
+  --space-sm:   1rem;
+  --space-md:   2rem;
+  --space-lg:   4rem;
+  --space-xl:   7rem;
+  --space-2xl: 12rem;
+
+  --radius-sm:  4px;
+  --radius-md:  10px;
+  --radius-full: 9999px;
+
+  --z-base:   1;
+  --z-sticky: 100;
+  --z-modal:  200;
+  --z-toast:  300;
+}
+
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--ink-void);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ─── UTILITY ────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: var(--z-sticky);
+  padding: 1.25rem 0;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+}
+.nav.scrolled {
+  background: oklch(0.10 0.04 268 / 0.85);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  padding: 0.85rem 0;
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  line-height: 1;
+}
+.nav__logo-en {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gold-pale);
+}
+.nav__logo-ja {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav__links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.nav__links a:hover { color: var(--gold-pale); }
+.nav__book-btn {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid oklch(0.82 0.12 82 / 0.45);
+  border-radius: var(--radius-full);
+  color: var(--gold-warm);
+  background: oklch(0.82 0.12 82 / 0.08);
+  transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.nav__book-btn:hover, .nav__book-btn:focus-visible {
+  background: oklch(0.82 0.12 82 / 0.18);
+  border-color: var(--gold-warm);
+  box-shadow: 0 0 20px oklch(0.82 0.12 82 / 0.20);
+  outline: none;
+}
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.4rem;
+}
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--gold-pale);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav__mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: oklch(0.08 0.04 268 / 0.97);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.nav__mobile-menu.open { display: flex; }
+.nav__mobile-menu a {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.06em;
+}
+.nav__mobile-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  background: none;
+}
+.nav__mobile-book {
+  padding: 0.9rem 2.5rem;
+  border: 1px solid oklch(0.82 0.12 82 / 0.5);
+  border-radius: var(--radius-full);
+  color: var(--gold-warm);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: oklch(0.82 0.12 82 / 0.08);
+  transition: background 0.25s;
+}
+.nav__mobile-book:hover { background: oklch(0.82 0.12 82 / 0.18); }
+
+/* ─── HERO ────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Sky gradient */
+.hero__sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 0%, oklch(0.22 0.12 280) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 70% 10%, oklch(0.18 0.09 260) 0%, transparent 60%),
+    linear-gradient(175deg,
+      oklch(0.10 0.06 272) 0%,
+      oklch(0.14 0.08 268) 25%,
+      oklch(0.16 0.07 262) 55%,
+      oklch(0.20 0.09 255) 75%,
+      oklch(0.25 0.10 248) 100%
+    );
+  z-index: 0;
+}
+
+/* SVG harbour & water */
+.hero__harbour {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Animated port lights */
+.hero__lights {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.port-light {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle var(--dur, 3.2s) ease-in-out infinite var(--delay, 0s) alternate;
+}
+@keyframes twinkle {
+  0%   { opacity: var(--dim, 0.3); transform: scale(1); }
+  50%  { opacity: var(--bright, 0.9); transform: scale(1.3); }
+  100% { opacity: var(--dim, 0.3); transform: scale(0.9); }
+}
+
+/* Water shimmer strips */
+.hero__water-shimmer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 42%;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+.shimmer-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    oklch(0.82 0.12 82 / 0.08) 15%,
+    oklch(0.82 0.12 82 / 0.35) 40%,
+    oklch(0.82 0.12 82 / 0.45) 50%,
+    oklch(0.82 0.12 82 / 0.35) 60%,
+    oklch(0.82 0.12 82 / 0.08) 85%,
+    transparent 100%
+  );
+  animation: shimmer-drift var(--sd, 6s) ease-in-out infinite var(--sdelay, 0s) alternate;
+}
+@keyframes shimmer-drift {
+  0%   { transform: translateX(var(--sx, -6%)) scaleX(0.85); opacity: var(--so1, 0.4); }
+  100% { transform: translateX(var(--sx2, 8%)) scaleX(1.1); opacity: var(--so2, 0.9); }
+}
+
+/* Hero content */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-xl) 0 var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hero__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
+.hero__h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-wrap: balance;
+  max-width: 14ch;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fade-up 1.1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+}
+.hero__h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-warm);
+}
+.hero__sub {
+  margin-top: 2rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 46ch;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.75s forwards;
+}
+.hero__ctas {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 1s forwards;
+}
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, oklch(0.82 0.14 80), oklch(0.74 0.12 75));
+  color: var(--ink-void);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, oklch(0.92 0.10 82 / 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.btn-primary:hover { box-shadow: 0 4px 32px oklch(0.82 0.12 82 / 0.4); transform: translateY(-1px); }
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:focus-visible { outline: 2px solid var(--gold-warm); outline-offset: 3px; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-full);
+  border: 1px solid oklch(0.93 0.02 78 / 0.25);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  border-color: oklch(0.93 0.02 78 / 0.6);
+  color: var(--text-primary);
+  background: oklch(0.93 0.02 78 / 0.06);
+  outline: none;
+}
+
+.btn-coming-soon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.coming-soon-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink-surface);
+  border: 1px solid oklch(0.82 0.12 82 / 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-dim);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.coming-soon-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: oklch(0.82 0.12 82 / 0.2);
+}
+.btn-coming-soon-wrapper:hover .coming-soon-tooltip,
+.btn-coming-soon-wrapper:focus-within .coming-soon-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─── SCROLL INDICATOR ────────────────────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 1.4s forwards;
+}
+.scroll-indicator__label {
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.scroll-indicator__line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, oklch(0.82 0.12 82 / 0.5), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+@keyframes scroll-line {
+  0%, 100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  20% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  80% { transform: scaleY(1); transform-origin: top; opacity: 0.6; }
+}
+
+/* ─── DIVIDER ─────────────────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 4rem;
+}
+.section-divider__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, oklch(0.82 0.12 82 / 0.12), oklch(0.82 0.12 82 / 0.0));
+}
+.section-divider__line.right {
+  background: linear-gradient(270deg, oklch(0.82 0.12 82 / 0.12), oklch(0.82 0.12 82 / 0.0));
+}
+.section-divider__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ─── ENGLISH PROMISE STRIP ───────────────────────────────── */
+.english-strip {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.english-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 50%,
+      oklch(0.28 0.10 265 / 0.55) 0%,
+      transparent 70%
+    );
+}
+.english-strip__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+.english-strip__text {
+  grid-column: 1;
+}
+.english-strip__badge {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.english-strip__badge-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid oklch(0.82 0.12 82 / 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.english-strip__badge-ring::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px dashed oklch(0.82 0.12 82 / 0.15);
+}
+.english-strip__badge-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.english-strip__badge-en {
+  font-family: var(--serif);
+  font-size: 1.0rem;
+  font-weight: 500;
+  color: var(--gold-warm);
+  letter-spacing: 0.04em;
+}
+.english-strip__badge-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.english-strip__stat {
+  grid-column: 3;
+  text-align: right;
+}
+.english-strip__stat-num {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
+  font-weight: 300;
+  color: var(--gold-warm);
+  line-height: 1;
+}
+.english-strip__stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  max-width: 20ch;
+  margin-left: auto;
+  line-height: 1.5;
+}
+.english-strip__lead {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+.english-strip__body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 38ch;
+}
+
+/* ─── SERVICES ────────────────────────────────────────────── */
+.services {
+  padding: 6rem 0 7rem;
+}
+.services__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.services__title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.services__title em {
+  font-style: italic;
+  color: var(--gold-warm);
+}
+.services__intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: oklch(0.82 0.12 82 / 0.1);
+  border: 1px solid oklch(0.82 0.12 82 / 0.1);
+}
+.service-cell {
+  background: var(--ink-void);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.service-cell::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.service-cell:hover { background: oklch(0.14 0.05 268); }
+.service-cell:hover::before { opacity: 1; }
+.service-cell__icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.service-cell__name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+.service-cell__desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ─── HOURS & LOCATION ────────────────────────────────────── */
+.info {
+  padding: 6rem 0;
+  position: relative;
+}
+.info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 20% 50%,
+      oklch(0.18 0.08 268 / 0.7) 0%,
+      transparent 65%
+    );
+  pointer-events: none;
+}
+.info__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.info__block-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.info__block-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.hours-table tr {
+  border-bottom: 1px solid oklch(0.82 0.12 82 / 0.08);
+}
+.hours-table tr:first-child { border-top: 1px solid oklch(0.82 0.12 82 / 0.08); }
+.hours-table td {
+  padding: 0.9rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.hours-table td:first-child {
+  color: var(--text-primary);
+  font-weight: 400;
+  padding-right: 2rem;
+}
+.hours-table .today {
+  color: var(--gold-warm);
+}
+.hours-table .hours-open { color: var(--text-muted); }
+.hours-table .hours-closed { color: var(--text-dim); }
+.map-placeholder {
+  position: relative;
+  border: 1px solid oklch(0.82 0.12 82 / 0.15);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: oklch(0.14 0.06 265);
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(oklch(0.82 0.12 82 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.82 0.12 82 / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-streets {
+  position: absolute;
+  inset: 0;
+}
+.map-pin {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.map-pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold-warm);
+  box-shadow: 0 0 0 4px oklch(0.82 0.12 82 / 0.2), 0 0 20px oklch(0.82 0.12 82 / 0.4);
+  animation: pin-pulse 2.5s ease-in-out infinite;
+}
+@keyframes pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px oklch(0.82 0.12 82 / 0.2), 0 0 20px oklch(0.82 0.12 82 / 0.4); }
+  50% { box-shadow: 0 0 0 8px oklch(0.82 0.12 82 / 0.1), 0 0 32px oklch(0.82 0.12 82 / 0.5); }
+}
+.map-label {
+  position: relative;
+  z-index: 2;
+  margin-top: 0.75rem;
+  background: oklch(0.12 0.05 268 / 0.9);
+  border: 1px solid oklch(0.82 0.12 82 / 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+.map-label strong {
+  display: block;
+  color: var(--gold-pale);
+  font-weight: 500;
+  font-size: 0.82rem;
+  margin-bottom: 0.1rem;
+}
+
+/* ─── CONTACT ─────────────────────────────────────────────── */
+.contact {
+  padding: 6rem 0 8rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%,
+      oklch(0.22 0.10 265 / 0.5) 0%,
+      transparent 65%
+    );
+  pointer-events: none;
+}
+.contact__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.contact__heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+.contact__heading em {
+  font-style: italic;
+  color: var(--gold-warm);
+}
+.contact__sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 42ch;
+}
+.contact__channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact__channel {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid oklch(0.82 0.12 82 / 0.12);
+  border-radius: var(--radius-md);
+  background: oklch(0.82 0.12 82 / 0.04);
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s, transform 0.2s;
+}
+.contact__channel:hover, .contact__channel:focus-visible {
+  border-color: oklch(0.82 0.12 82 / 0.3);
+  background: oklch(0.82 0.12 82 / 0.08);
+  transform: translateX(4px);
+  outline: none;
+}
+.contact__channel-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: oklch(0.82 0.12 82 / 0.08);
+}
+.contact__channel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.contact__channel-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.contact__channel-value {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+.contact__cta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact__cta-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+.contact__cta-sub {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid oklch(0.82 0.12 82 / 0.08);
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__copy {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer__links a {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+.footer__links a:hover { color: var(--text-muted); }
+
+/* ─── REVEAL ANIMATIONS ───────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__book-btn { display: none; }
+  .nav__hamburger { display: flex; }
+
+  .hero__h1 { font-size: clamp(2.5rem, 9vw, 3.5rem); max-width: 100%; }
+  .hero__sub { max-width: 100%; }
+  .hero__content { padding: 7rem 0 5rem; }
+
+  .english-strip__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  .english-strip__text { grid-column: 1; }
+  .english-strip__badge { grid-column: 1; }
+  .english-strip__stat { grid-column: 1; text-align: center; }
+  .english-strip__body { max-width: 100%; }
+  .english-strip__stat-label { margin: 0.4rem auto 0; }
+
+  .services__header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .services__grid { grid-template-columns: 1fr; }
+
+  .info__inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  .contact__inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  .footer__inner { flex-direction: column; align-items: flex-start; }
+
+  .scroll-indicator { display: none; }
+
+  .section-divider { margin-bottom: 2.5rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .hero__h1 { max-width: 100%; }
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero__eyebrow, .hero__h1, .hero__sub, .hero__ctas,
+  .scroll-indicator { opacity: 1; transform: none; animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#d4a855;--bk-accent-ink:#ffffff;--bk-ink:#0d0d0f;--bk-panel:#f7f5f0;--bk-muted:rgba(13,13,15,0.6);--bk-line:rgba(13,13,15,0.14);--bk-serif:"Cormorant Garamond", Georgia, serif;--bk-sans:"DM Sans", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────── -->
+<header>
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="Soai Dental Clinic home">
+          <span class="nav__logo-en">Soai Dental</span>
+          <span class="nav__logo-ja">相愛歯科クリニック · Kobe</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="btn-coming-soon-wrapper">
+          <button class="nav__book-btn" aria-label="Book online (coming soon)">Book Online</button>
+          <span class="coming-soon-tooltip" role="tooltip">Online booking coming soon — call or LINE to book now</span>
+        </div>
+        <button class="nav__hamburger" aria-label="Open menu" id="hamburger" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button class="nav__mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#hours" onclick="closeMobile()">Hours</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <div class="btn-coming-soon-wrapper">
+      <button class="nav__mobile-book" aria-label="Book online (coming soon)">Book Online</button>
+      <span class="coming-soon-tooltip" role="tooltip">Online booking coming soon</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__sky" aria-hidden="true"></div>
+
+  <!-- Harbour SVG -->
+  <div class="hero__harbour" aria-hidden="true">
+    <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="oklch(0.16 0.07 265)" stop-opacity="0"/>
+          <stop offset="100%" stop-color="oklch(0.14 0.07 264)" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="oklch(0.20 0.09 258)"/>
+          <stop offset="100%" stop-color="oklch(0.09 0.04 268)"/>
+        </linearGradient>
+        <radialGradient id="lightGlow1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#d4a855" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#d4a855" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="lightGlow2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#e8c87a" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#e8c87a" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Sky fade bottom -->
+      <rect x="0" y="0" width="1440" height="240" fill="url(#skyGrad)"/>
+
+      <!-- Water body -->
+      <path d="M0,240 Q360,230 720,240 Q1080,250 1440,240 L1440,420 L0,420 Z" fill="url(#waterGrad)"/>
+      <!-- Water subtle waveline -->
+      <path d="M0,242 Q180,236 360,242 Q540,248 720,242 Q900,236 1080,242 Q1260,248 1440,242" fill="none" stroke="rgba(120,140,180,0.15)" stroke-width="1"/>
+
+      <!-- Port skyline silhouette — LEFT cluster -->
+      <g fill="oklch(0.11 0.05 265)">
+        <!-- Crane -->
+        <rect x="38" y="120" width="4" height="120"/>
+        <path d="M38,120 L80,100 L82,104 L42,124 Z"/>
+        <rect x="58" y="100" width="2" height="50"/>
+        <!-- Warehouse blocks -->
+        <rect x="20" y="170" width="70" height="70"/>
+        <rect x="30" y="155" width="14" height="15"/>
+        <rect x="50" y="160" width="18" height="10"/>
+        <!-- Container tower -->
+        <rect x="10" y="185" width="12" height="55"/>
+        <!-- Small structure right -->
+        <rect x="95" y="185" width="40" height="55"/>
+        <rect x="100" y="175" width="8" height="10"/>
+        <rect x="115" y="178" width="12" height="7"/>
+      </g>
+
+      <!-- Port skyline — RIGHT cluster -->
+      <g fill="oklch(0.10 0.04 265)">
+        <rect x="1280" y="155" width="60" height="85"/>
+        <rect x="1340" y="175" width="30" height="65"/>
+        <rect x="1370" y="185" width="50" height="55"/>
+        <rect x="1290" y="140" width="8" height="15"/>
+        <rect x="1305" y="148" width="12" height="7"/>
+        <!-- Crane right -->
+        <rect x="1395" y="130" width="4" height="110"/>
+        <path d="M1395,130 L1355,112 L1353,116 L1393,134 Z"/>
+        <rect x="1374" y="112" width="2" height="42"/>
+      </g>
+
+      <!-- Port lighthouse / tower mid-right -->
+      <g fill="oklch(0.13 0.06 265)">
+        <rect x="1150" y="150" width="18" height="90"/>
+        <rect x="1146" y="148" width="26" height="6"/>
+        <rect x="1153" y="140" width="12" height="8"/>
+        <rect x="1155" y="135" width="8" height="5"/>
+        <!-- Lighthouse light glow -->
+        <circle cx="1159" cy="135" r="16" fill="url(#lightGlow1)" opacity="0.6"/>
+        <circle cx="1159" cy="135" r="5" fill="#d4a855" opacity="0.7"/>
+      </g>
+
+      <!-- Mid-distance building cluster -->
+      <g fill="oklch(0.12 0.055 265)">
+        <rect x="240" y="175" width="35" height="65"/>
+        <rect x="252" y="165" width="10" height="10"/>
+        <rect x="280" y="185" width="22" height="55"/>
+        <rect x="310" y="168" width="28" height="72"/>
+        <rect x="318" y="158" width="12" height="10"/>
+      </g>
+
+      <!-- Far mid buildings -->
+      <g fill="oklch(0.145 0.06 265)">
+        <rect x="600" y="190" width="45" height="50"/>
+        <rect x="610" y="180" width="14" height="10"/>
+        <rect x="650" y="195" width="30" height="45"/>
+        <rect x="685" y="188" width="20" height="52"/>
+        <rect x="720" y="192" width="38" height="48"/>
+      </g>
+
+      <!-- Bridge elements - Kobe style -->
+      <g opacity="0.6">
+        <line x1="130" y1="240" x2="420" y2="240" stroke="oklch(0.15 0.05 265)" stroke-width="3"/>
+        <line x1="220" y1="190" x2="220" y2="245" stroke="oklch(0.14 0.04 265)" stroke-width="2"/>
+        <line x1="310" y1="185" x2="310" y2="245" stroke="oklch(0.14 0.04 265)" stroke-width="2"/>
+        <path d="M130,240 Q175,190 220,190 Q265,190 310,185 Q355,180 420,240" fill="none" stroke="oklch(0.15 0.05 265)" stroke-width="1.5"/>
+        <!-- Cable lines -->
+        <line x1="220" y1="190" x2="155" y2="240" stroke="oklch(0.14 0.04 265)" stroke-width="0.8" opacity="0.6"/>
+        <line x1="220" y1="190" x2="190" y2="240" stroke="oklch(0.14 0.04 265)" stroke-width="0.8" opacity="0.6"/>
+        <line x1="310" y1="185" x2="340" y2="240" stroke="oklch(0.14 0.04 265)" stroke-width="0.8" opacity="0.6"/>
+        <line x1="310" y1="185" x2="380" y2="240" stroke="oklch(0.14 0.04 265)" stroke-width="0.8" opacity="0.6"/>
+      </g>
+
+      <!-- Reflection columns in water — gold tones -->
+      <line x1="1159" y1="242" x2="1140" y2="340" stroke="rgba(212,168,85,0.12)" stroke-width="6"/>
+      <line x1="1159" y1="242" x2="1159" y2="380" stroke="rgba(212,168,85,0.18)" stroke-width="4"/>
+      <line x1="1159" y1="242" x2="1178" y2="350" stroke="rgba(212,168,85,0.10)" stroke-width="5"/>
+
+      <!-- Window lights on buildings -->
+      <g filter="url(#glow)" opacity="0.9">
+        <!-- Left cluster windows -->
+        <rect x="26" y="178" width="4" height="3" fill="#d4a855" opacity="0.8"/>
+        <rect x="36" y="183" width="4" height="3" fill="#e8c87a" opacity="0.6"/>
+        <rect x="46" y="176" width="4" height="3" fill="#d4a855" opacity="0.7"/>
+        <rect x="56" y="182" width="4" height="3" fill="#b8962e" opacity="0.5"/>
+        <rect x="66" y="178" width="4" height="3" fill="#e8c87a" opacity="0.7"/>
+        <rect x="100" y="190" width="5" height="3" fill="#d4a855" opacity="0.6"/>
+        <rect x="110" y="196" width="5" height="3" fill="#e8c87a" opacity="0.5"/>
+        <rect x="120" y="192" width="5" height="3" fill="#d4a855" opacity="0.7"/>
+        <!-- Right cluster windows -->
+        <rect x="1288" y="165" width="5" height="3" fill="#d4a855" opacity="0.7"/>
+        <rect x="1298" y="172" width="5" height="3" fill="#e8c87a" opacity="0.6"/>
+        <rect x="1308" y="168" width="5" height="3" fill="#d4a855" opacity="0.8"/>
+        <rect x="1320" y="175" width="5" height="3" fill="#b8962e" opacity="0.5"/>
+        <rect x="1345" y="182" width="5" height="3" fill="#e8c87a" opacity="0.6"/>
+        <rect x="1375" y="192" width="6" height="3" fill="#d4a855" opacity="0.7"/>
+        <rect x="1388" y="197" width="6" height="3" fill="#e8c87a" opacity="0.5"/>
+        <!-- Mid buildings -->
+        <rect x="246" y="182" width="4" height="3" fill="#d4a855" opacity="0.6"/>
+        <rect x="256" y="178" width="4" height="3" fill="#e8c87a" opacity="0.5"/>
+        <rect x="284" y="192" width="4" height="3" fill="#d4a855" opacity="0.7"/>
+        <rect x="315" y="175" width="4" height="3" fill="#e8c87a" opacity="0.6"/>
+        <rect x="325" y="182" width="4" height="3" fill="#d4a855" opacity="0.5"/>
+        <!-- Far mid -->
+        <rect x="605" y="198" width="4" height="3" fill="#d4a855" opacity="0.5"/>
+        <rect x="615" y="195" width="4" height="3" fill="#e8c87a" opacity="0.4"/>
+        <rect x="655" y="202" width="4" height="3" fill="#d4a855" opacity="0.5"/>
+        <rect x="688" y="196" width="4" height="3" fill="#e8c87a" opacity="0.5"/>
+        <rect x="727" y="200" width="4" height="3" fill="#d4a855" opacity="0.4"/>
+      </g>
+
+      <!-- Distant horizon glow -->
+      <ellipse cx="720" cy="240" rx="420" ry="18" fill="rgba(180,160,100,0.05)"/>
+      <ellipse cx="1159" cy="240" rx="80" ry="10" fill="rgba(212,168,85,0.10)"/>
+    </svg>
+  </div>
+
+  <!-- Port lights / stars -->
+  <div class="hero__lights" aria-hidden="true">
+    <!-- Twinkle lights positioned like distant harbour -->
+    <div class="port-light" style="width:3px;height:3px;top:18%;left:5%;background:#d4a855;--dur:3.4s;--delay:0.2s;--dim:0.2;--bright:0.8;"></div>
+    <div class="port-light" style="width:2px;height:2px;top:22%;left:8%;background:#e8c87a;--dur:4.1s;--delay:1.1s;--dim:0.1;--bright:0.6;"></div>
+    <div class="port-light" style="width:3px;height:3px;top:15%;left:12%;background:#c8e0ff;--dur:2.9s;--delay:0.7s;--dim:0.2;--bright:0.7;"></div>
+    <div class="port-light" style="width:2px;height:2px;top:25%;left:88%;background:#d4a855;--dur:3.7s;--delay:0.5s;--dim:0.15;--bright:0.75;"></div>
+    <div class="port-light" style="width:4px;height:4px;top:20%;left:92%;background:#e8c87a;--dur:4.3s;--delay:1.4s;--dim:0.2;--bright:0.9;"></div>
+    <div class="port-light" style="width:2px;height:2px;top:12%;left:78%;background:#fff5d4;--dur:3.1s;--delay:0.3s;--dim:0.15;--bright:0.65;"></div>
+    <div class="port-light" style="width:3px;height:3px;top:30%;left:72%;background:#d4a855;--dur:5.0s;--delay:2.1s;--dim:0.1;--bright:0.55;"></div>
+    <div class="port-light" style="width:2px;height:2px;top:8%;left:45%;background:#c8e0ff;--dur:3.8s;--delay:0.9s;--dim:0.1;--bright:0.45;"></div>
+    <div class="port-light" style="width:2px;height:2px;top:10%;left:55%;background:#fff5d4;--dur:4.5s;--delay:1.8s;--dim:0.1;--bright:0.5;"></div>
+    <div class="port-light" style="width:3px;height:3px;top:5%;left:30%;background:#e8c87a;--dur:3.2s;--delay:0.6s;--dim:0.15;--bright:0.6;"></div>
+  </div>
+
+  <!-- Water shimmer -->
+  <div class="hero__water-shimmer" aria-hidden="true">
+    <div class="shimmer-line" style="bottom:38%;left:5%;width:28%;--sd:7.5s;--sdelay:0s;--sx:-4%;--sx2:6%;--so1:0.35;--so2:0.8;"></div>
+    <div class="shimmer-line" style="bottom:34%;left:18%;width:22%;--sd:9.1s;--sdelay:1.2s;--sx:-2%;--sx2:5%;--so1:0.2;--so2:0.6;"></div>
+    <div class="shimmer-line" style="bottom:30%;left:8%;width:35%;--sd:8.2s;--sdelay:0.4s;--sx:-5%;--sx2:7%;--so1:0.3;--so2:0.75;"></div>
+    <div class="shimmer-line" style="bottom:25%;left:2%;width:42%;--sd:10.0s;--sdelay:2.0s;--sx:-3%;--sx2:4%;--so1:0.25;--so2:0.65;"></div>
+    <div class="shimmer-line" style="bottom:20%;left:10%;width:30%;--sd:6.8s;--sdelay:0.8s;--sx:-6%;--sx2:8%;--so1:0.3;--so2:0.7;"></div>
+    <div class="shimmer-line" style="bottom:38%;right:5%;width:24%;--sd:8.4s;--sdelay:1.5s;--sx:4%;--sx2:-6%;--so1:0.3;--so2:0.7;"></div>
+    <div class="shimmer-line" style="bottom:32%;right:12%;width:32%;--sd:7.0s;--sdelay:0.2s;--sx:3%;--sx2:-5%;--so1:0.25;--so2:0.8;"></div>
+    <div class="shimmer-line" style="bottom:26%;right:8%;width:20%;--sd:9.5s;--sdelay:2.5s;--sx:2%;--sx2:-4%;--so1:0.15;--so2:0.55;"></div>
+    <!-- Lighthouse reflection — distinct gold -->
+    <div class="shimmer-line" style="bottom:42%;left:75%;width:6%;background:linear-gradient(90deg,transparent,rgba(212,168,85,0.5),rgba(212,168,85,0.7),rgba(212,168,85,0.5),transparent);--sd:5.5s;--sdelay:0.0s;--sx:-1%;--sx2:1%;--so1:0.4;--so2:0.95;"></div>
+    <div class="shimmer-line" style="bottom:36%;left:73%;width:10%;background:linear-gradient(90deg,transparent,rgba(212,168,85,0.25),rgba(212,168,85,0.4),rgba(212,168,85,0.25),transparent);--sd:6.0s;--sdelay:0.3s;--sx:-2%;--sx2:2%;--so1:0.35;--so2:0.85;"></div>
+    <div class="shimmer-line" style="bottom:29%;left:71%;width:14%;background:linear-gradient(90deg,transparent,rgba(212,168,85,0.15),rgba(212,168,85,0.28),rgba(212,168,85,0.15),transparent);--sd:6.8s;--sdelay:0.6s;--sx:-2%;--sx2:3%;--so1:0.25;--so2:0.7;"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Kominatodori, Chuo-ku · Kobe</p>
+      <h1 class="hero__h1" id="hero-heading">
+        Dental care<br>at <em>the water's edge</em>
+      </h1>
+      <p class="hero__sub">English-speaking dental clinic in the heart of Kobe. From routine check-ups to implants and cosmetic treatment — care you can discuss, in the language you think in.</p>
+      <div class="hero__ctas">
+        <a href="tel:+81783516770" class="btn-primary" aria-label="Call Soai Dental Clinic">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Us
+        </a>
+        <a href="https://www.instagram.com/soaidental/" target="_blank" rel="noopener noreferrer" class="btn-ghost" aria-label="Follow Soai Dental on Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-indicator__label">Explore</span>
+    <span class="scroll-indicator__line"></span>
+  </div>
+</section>
+
+<!-- ─── ENGLISH PROMISE ───────────────────────────────────── -->
+<section class="english-strip" aria-labelledby="english-heading">
+  <div class="container">
+    <div class="section-divider reveal">
+      <span class="section-divider__line"></span>
+      <span class="section-divider__label">For expats in Kobe</span>
+      <span class="section-divider__line right"></span>
+    </div>
+
+    <div class="english-strip__inner">
+      <div class="english-strip__text reveal reveal-delay-1">
+        <p class="english-strip__lead" id="english-heading">Your dentist speaks your language.</p>
+        <p class="english-strip__body">Finding dental care abroad shouldn't mean guessing what the dentist is saying. At Soai, our team communicates in English — so you can ask questions, understand your options, and leave with confidence, not confusion.</p>
+      </div>
+
+      <div class="english-strip__badge reveal reveal-delay-2">
+        <div class="english-strip__badge-ring">
+          <div class="english-strip__badge-inner">
+            <span class="english-strip__badge-en">English</span>
+            <span class="english-strip__badge-sub">Spoken Here</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="english-strip__stat reveal reveal-delay-3">
+        <div class="english-strip__stat-num">110+</div>
+        <p class="english-strip__stat-label">Google reviews — English speakers confirmed in patient feedback</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─────────────────────────────────────────── -->
+<section class="services" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-divider reveal">
+      <span class="section-divider__line"></span>
+      <span class="section-divider__label">Treatments</span>
+      <span class="section-divider__line right"></span>
+    </div>
+
+    <div class="services__header">
+      <h2 class="services__title reveal" id="services-heading">
+        Everything your<br><em>smile needs,</em><br>under one roof.
+      </h2>
+      <p class="services__intro reveal reveal-delay-1">From your child's first check-up to full-arch implant restoration — comprehensive dental care in a calm, modern clinic two minutes from Kominatodori Station.</p>
+    </div>
+
+    <div class="services__grid" role="list">
+
+      <div class="service-cell reveal reveal-delay-1" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="18" cy="18" r="14" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1"/>
+          <path d="M11 18c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="3" stroke="#d4a855" stroke-width="1.5"/>
+          <line x1="18" y1="8" x2="18" y2="11" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="25.2" y1="10.8" x2="23.1" y2="12.9" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-cell__name">Implants</h3>
+        <p class="service-cell__desc">Permanent tooth replacement that looks, feels, and functions like your natural teeth. Single implants to full-arch restoration.</p>
+      </div>
+
+      <div class="service-cell reveal reveal-delay-2" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 28 Q12 14 18 10 Q24 14 28 28" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1" fill="none"/>
+          <path d="M10 28 Q14 16 18 12 Q22 16 26 28" stroke="#d4a855" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="14" cy="22" r="1.5" fill="#d4a855"/>
+          <circle cx="22" cy="22" r="1.5" fill="#d4a855"/>
+          <path d="M16 26 Q18 28 20 26" stroke="#d4a855" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-cell__name">Orthodontics</h3>
+        <p class="service-cell__desc">Traditional braces and clear aligner options to straighten teeth at any age, with transparent progress reporting in English.</p>
+      </div>
+
+      <div class="service-cell reveal reveal-delay-3" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 26 C12 20 10 16 13 12 C15 9 21 9 23 12 C26 16 24 20 24 26" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1" fill="none"/>
+          <path d="M13 26 C13 20 11 16 14 12.5 C16 10 20 10 22 12.5 C25 16 23 20 23 26" stroke="#d4a855" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M15 14 Q18 16 21 14" stroke="#d4a855" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <line x1="18" y1="16" x2="18" y2="22" stroke="#d4a855" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+          <line x1="15" y1="24" x2="21" y2="24" stroke="#d4a855" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-cell__name">Whitening</h3>
+        <p class="service-cell__desc">Professional in-clinic whitening for visible results, with at-home maintenance kits to keep your smile bright between visits.</p>
+      </div>
+
+      <div class="service-cell reveal reveal-delay-1" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="8" y="10" width="20" height="16" rx="3" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1"/>
+          <rect x="10" y="12" width="16" height="12" rx="2" stroke="#d4a855" stroke-width="1.5"/>
+          <path d="M13 18 Q18 14 23 18" stroke="#d4a855" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <path d="M13 21 Q18 18 23 21" stroke="#d4a855" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <line x1="18" y1="8" x2="18" y2="10" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+          <line x1="18" y1="26" x2="18" y2="28" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <h3 class="service-cell__name">Cosmetic</h3>
+        <p class="service-cell__desc">Veneers, bonding, and smile design consultations to refine the aesthetics of your teeth, tailored to your face and goals.</p>
+      </div>
+
+      <div class="service-cell reveal reveal-delay-2" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 8 C14 8 10 12 10 16 C10 22 18 28 18 28 C18 28 26 22 26 16 C26 12 22 8 18 8 Z" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1" fill="none"/>
+          <path d="M18 10 C15 10 12 13 12 16 C12 21 18 26 18 26 C18 26 24 21 24 16 C24 13 21 10 18 10 Z" stroke="#d4a855" stroke-width="1.5" fill="none"/>
+          <circle cx="18" cy="16" r="2.5" fill="#d4a855" opacity="0.4"/>
+          <circle cx="18" cy="16" r="1.2" fill="#d4a855"/>
+        </svg>
+        <h3 class="service-cell__name">Paediatric</h3>
+        <p class="service-cell__desc">Child-friendly care from first teeth through teenage years. Gentle technique, clear explanation, and a space that doesn't feel intimidating.</p>
+      </div>
+
+      <div class="service-cell reveal reveal-delay-3" role="listitem">
+        <svg class="service-cell__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 14 L14 10 L22 18 L26 14" stroke="oklch(0.82 0.12 82 / 0.3)" stroke-width="1" fill="none"/>
+          <path d="M8 15 L13 10 L18 15 L23 10 L28 15" stroke="#d4a855" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="18" y1="15" x2="18" y2="26" stroke="#d4a855" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 26 C14 23 16 21 18 21 C20 21 22 23 22 26" stroke="#d4a855" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-cell__name">Oral Surgery</h3>
+        <p class="service-cell__desc">Extractions, wisdom teeth, and minor surgical procedures carried out with precision and full aftercare instructions you can actually understand.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOURS & LOCATION ──────────────────────────────────── -->
+<section class="info" id="hours" aria-labelledby="hours-heading">
+  <div class="container">
+    <div class="section-divider reveal">
+      <span class="section-divider__line"></span>
+      <span class="section-divider__label">Hours &amp; Location</span>
+      <span class="section-divider__line right"></span>
+    </div>
+
+    <div class="info__inner">
+      <div>
+        <p class="info__block-label reveal" id="hours-heading">Opening Hours</p>
+        <table class="hours-table reveal reveal-delay-1" aria-label="Clinic opening hours">
+          <tbody>
+            <tr>
+              <td>Monday – Friday</td>
+              <td class="hours-open">9:30 – 13:00 &amp; 14:30 – 18:00</td>
+            </tr>
+            <tr>
+              <td class="today">Saturday</td>
+              <td class="hours-open today">9:30 – 13:00 &amp; 14:30 – 17:30</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td class="hours-closed">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:2.5rem;" class="reveal reveal-delay-2">
+          <p class="info__block-label">Getting Here</p>
+          <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;max-width:38ch;">
+            A short walk from <strong style="color:var(--text-primary);">Kominatodori Station</strong> on the Kobe City Subway Kaigan Line. Close to Meriken Park and the waterfront — we're easy to find even on your first visit to Kobe.
+          </p>
+          <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-dim);">
+            Chuo-ku, Kobe · Hyogo Prefecture
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="info__block-label reveal">Map</p>
+        <div class="map-placeholder reveal reveal-delay-1" role="img" aria-label="Approximate clinic location: Kominatodori, Chuo-ku, Kobe">
+          <div class="map-grid"></div>
+          <svg class="map-streets" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Street grid - Kobe harbour area style -->
+            <line x1="0" y1="150" x2="400" y2="150" stroke="oklch(0.35 0.06 265)" stroke-width="6" opacity="0.5"/>
+            <line x1="0" y1="100" x2="400" y2="100" stroke="oklch(0.30 0.05 265)" stroke-width="4" opacity="0.35"/>
+            <line x1="0" y1="200" x2="400" y2="205" stroke="oklch(0.30 0.05 265)" stroke-width="3" opacity="0.3"/>
+            <line x1="0" y1="240" x2="400" y2="240" stroke="oklch(0.25 0.06 260)" stroke-width="8" opacity="0.4"/>
+            <!-- Waterfront -->
+            <path d="M0,265 Q100,258 200,262 Q300,266 400,260" fill="oklch(0.18 0.08 260)" opacity="0.6"/>
+            <path d="M0,275 Q100,268 200,272 Q300,276 400,270 L400,300 L0,300 Z" fill="oklch(0.15 0.07 260)" opacity="0.5"/>
+            <!-- Vertical streets -->
+            <line x1="80" y1="0" x2="80" y2="300" stroke="oklch(0.30 0.05 265)" stroke-width="3" opacity="0.3"/>
+            <line x1="160" y1="0" x2="160" y2="300" stroke="oklch(0.35 0.06 265)" stroke-width="5" opacity="0.4"/>
+            <line x1="240" y1="0" x2="240" y2="300" stroke="oklch(0.30 0.05 265)" stroke-width="3" opacity="0.3"/>
+            <line x1="320" y1="0" x2="320" y2="300" stroke="oklch(0.30 0.05 265)" stroke-width="3" opacity="0.25"/>
+            <!-- Buildings -->
+            <rect x="90" y="115" width="55" height="25" rx="2" fill="oklch(0.18 0.06 265)" opacity="0.7"/>
+            <rect x="170" y="108" width="55" height="35" rx="2" fill="oklch(0.20 0.07 265)" opacity="0.6"/>
+            <rect x="250" y="115" width="55" height="25" rx="2" fill="oklch(0.18 0.06 265)" opacity="0.6"/>
+            <rect x="92" y="158" width="50" height="30" rx="2" fill="oklch(0.17 0.06 265)" opacity="0.6"/>
+            <rect x="252" y="157" width="50" height="30" rx="2" fill="oklch(0.17 0.06 265)" opacity="0.5"/>
+            <!-- Station marker -->
+            <rect x="148" y="135" width="24" height="12" rx="2" fill="oklch(0.32 0.08 268)" opacity="0.8"/>
+            <text x="155" y="145" font-size="7" fill="oklch(0.82 0.12 82)" opacity="0.8" font-family="sans-serif">駅</text>
+          </svg>
+          <div class="map-pin">
+            <div class="map-pin-dot"></div>
+          </div>
+          <div class="map-label">
+            <strong>Soai Dental Clinic</strong>
+            Kominatodori, Chuo-ku, Kobe
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-divider reveal">
+      <span class="section-divider__line"></span>
+      <span class="section-divider__label">Get in Touch</span>
+      <span class="section-divider__line right"></span>
+    </div>
+
+    <div class="contact__inner">
+      <div>
+        <h2 class="contact__heading reveal" id="contact-heading">
+          Ready to <em>book</em><br>your visit?
+        </h2>
+        <p class="contact__sub reveal reveal-delay-1">Call us directly, send a message on LINE, or follow us on Instagram for clinic news, treatment guides, and appointment reminders. English queries welcome on every channel.</p>
+
+        <nav class="contact__channels reveal reveal-delay-2" aria-label="Contact channels">
+          <a href="tel:+81783516770" class="contact__channel" aria-label="Call Soai Dental: +81 78-351-6770">
+            <div class="contact__channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a855" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="contact__channel-text">
+              <span class="contact__channel-label">Telephone</span>
+              <span class="contact__channel-value">+81 78-351-6770</span>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/soaidental/" target="_blank" rel="noopener noreferrer" class="contact__channel" aria-label="Instagram @soaidental">
+            <div class="contact__channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a855" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="contact__channel-text">
+              <span class="contact__channel-label">Instagram</span>
+              <span class="contact__channel-value">@soaidental</span>
+            </div>
+          </a>
+
+          <a href="#" class="contact__channel" onclick="alert('LINE: Please search for Soai Dental Clinic (@soaidental) in the LINE app.'); return false;" aria-label="LINE official account">
+            <div class="contact__channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a855" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9.5c0-4.14-4.03-7.5-9-7.5S4 5.36 4 9.5c0 3.7 3.21 6.82 7.55 7.4.29.06.7.2.8.45.1.23.06.58.03.81l-.13.77c-.04.23-.18.9.79.49.97-.41 5.23-3.08 7.13-5.27C21.37 12.42 22 11.04 22 9.5z"/></svg>
+            </div>
+            <div class="contact__channel-text">
+              <span class="contact__channel-label">LINE Official</span>
+              <span class="contact__channel-value">Message us on LINE</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+
+      <div class="contact__cta-wrap reveal reveal-delay-2">
+        <div style="padding:2.5rem;border:1px solid oklch(0.82 0.12 82 / 0.12);border-radius:12px;background:oklch(0.82 0.12 82 / 0.03);">
+          <p class="contact__cta-title">Book Online</p>
+          <p class="contact__cta-sub">We offer convenient online booking for new and returning patients. Our online booking system is currently available on our Japanese-language site — an English booking experience is coming soon.</p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div class="btn-coming-soon-wrapper">
+              <button class="btn-primary" style="width:100%;justify-content:center;" aria-label="Online booking — coming soon" aria-disabled="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Book Online
+              </button>
+              <span class="coming-soon-tooltip" role="tooltip">English online booking is coming soon. Call or LINE us in the meantime.</span>
+            </div>
+            <p style="font-size:0.72rem;color:var(--text-dim);text-align:center;line-height:1.5;">In the meantime — call us or send a message on LINE. We respond quickly and in English.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <p class="footer__copy">© 2025 Soai Dental Clinic · Kominatodori, Chuo-ku, Kobe</p>
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="tel:+81783516770">+81 78-351-6770</a>
+        <a href="https://www.instagram.com/soaidental/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span class="footer__copy">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener" style="color:var(--gold-dim)">Stellar Haus Media</a></span>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── JS ────────────────────────────────────────────────── -->
+<script>
+// ── Nav scroll ──────────────────────────────────────────────
+const nav = document.getElementById('nav');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+// ── Mobile menu ─────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileClose = document.getElementById('mobile-close');
+
+function openMobile() {
+  mobileMenu.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  mobileClose.focus();
+}
+
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  hamburger.focus();
+}
+
+hamburger.addEventListener('click', openMobile);
+mobileClose.addEventListener('click', closeMobile);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobile();
+});
+
+// ── Scroll reveals ──────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObs.observe(el));
+
+// ── Saturday highlight ──────────────────────────────────────
+// (Already coded in HTML — Saturday row has the 'today' class)
+
+// ── Tidal shimmer randomization ────────────────────────────
+// Already handled via CSS custom properties in HTML
+
+// ── Reduced motion guard ────────────────────────────────────
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  revealEls.forEach(el => el.classList.add('revealed'));
+}
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text or LINE.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81783516770", CHAN="https://line.me/R/ti/p/@soaidental", CHANLABEL="Message us on LINE";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>

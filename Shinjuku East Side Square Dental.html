@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinjuku East Side Square Dental — English-speaking dentist in Shinjuku, Tokyo</title>
+<meta name="description" content="English-speaking dental care in the heart of Shinjuku, Tokyo. Implants, orthodontics, whitening, cosmetic and children's dentistry — explained to you in English.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   SHINJUKU EAST SIDE SQUARE DENTAL
+   Art direction: "Modular Square Grid" — concrete + vermilion,
+   blocky grotesque type, square modules that assemble, lines
+   that draw themselves.
+   ============================================================ */
+
+:root{
+  --paper:#F2F1EC;
+  --paper-2:#E8E6DF;
+  --concrete:#D6D4CB;
+  --concrete-2:#C4C2B8;
+  --ink:#16161A;
+  --ink-2:#43434A;
+  --mute:#7B7A75;
+  --line:rgba(22,22,26,.06);
+  --line-2:rgba(22,22,26,.14);
+  --accent:#FF4D1A;
+  --accent-deep:#E23E0B;
+  --on-accent:#16161A;
+  --dark:#161519;
+  --dark-2:#1f1e23;
+
+  --u:clamp(44px,6.6vw,72px);          /* base module unit */
+  --maxw:1320px;
+  --pad:clamp(20px,5vw,72px);
+
+  --ff:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ff-mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --fs-hero:clamp(2.4rem,7.2vw,6rem);
+  --fs-h2:clamp(2rem,4.8vw,3.7rem);
+  --fs-h3:clamp(1.15rem,2vw,1.5rem);
+  --fs-body:clamp(1rem,1.05vw,1.135rem);
+  --fs-lead:clamp(1.08rem,1.5vw,1.32rem);
+  --fs-label:.72rem;
+
+  --ease:cubic-bezier(.16,.82,.24,1);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+body{
+  margin:0;
+  font-family:var(--ff);
+  font-size:var(--fs-body);
+  line-height:1.55;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  /* faint global module grid — everything sits on squares */
+  background-image:
+    linear-gradient(to right,var(--line) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:var(--u) var(--u);
+  background-position:center top;
+}
+
+h1,h2,h3,p{margin:0}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+
+/* focus visibility */
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{
+  position:absolute;left:8px;top:-60px;z-index:200;
+  background:var(--ink);color:var(--paper);padding:.7em 1.1em;
+  font:700 .85rem/1 var(--ff);letter-spacing:.04em;transition:top .2s;
+}
+.skip:focus{top:8px}
+
+/* mono label */
+.label{
+  font-family:var(--ff-mono);font-size:var(--fs-label);font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:.7em;
+}
+.label::before{
+  content:"";width:9px;height:9px;background:var(--accent);
+  flex:none;transform:translateY(.5px);
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  --bg:var(--ink);--fg:var(--paper);--bd:var(--ink);
+  position:relative;display:inline-flex;align-items:center;gap:.65em;
+  font-weight:700;font-size:.95rem;letter-spacing:.01em;line-height:1;
+  padding:1.05em 1.6em;background:var(--bg);color:var(--fg);
+  border:2px solid var(--bd);overflow:hidden;isolation:isolate;
+  transition:color .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease);
+}
+.btn .arrow{transition:transform .4s var(--ease)}
+.btn::before{ /* square wipe on hover */
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);
+  transform:translateY(101%);transition:transform .4s var(--ease);
+}
+.btn:hover::before,.btn:focus-visible::before{transform:translateY(0)}
+.btn:hover,.btn:focus-visible{color:var(--on-accent);border-color:var(--accent)}
+.btn:hover .arrow{transform:translate(4px,-4px)}
+
+.btn--accent{--bg:var(--accent);--fg:var(--on-accent);--bd:var(--accent)}
+.btn--accent::before{background:var(--ink)}
+.btn--accent:hover,.btn--accent:focus-visible{color:var(--paper);border-color:var(--ink)}
+
+.btn--ghost{--bg:transparent;--fg:var(--ink);--bd:var(--line-2)}
+
+.btn.is-soon{--bg:var(--paper-2);--fg:var(--ink-2);--bd:var(--line-2)}
+.btn.is-soon::before{transform:translateY(101%)}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-head{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:color-mix(in srgb,var(--paper) 78%,transparent);
+  border-bottom:1px solid var(--line-2);
+  transition:transform .4s var(--ease);
+}
+.site-head__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(60px,9vw,76px)}
+.brand{display:inline-flex;align-items:center;gap:.7em;color:var(--ink)}
+.brand__mark{width:30px;height:30px;flex:none}
+.brand__mark rect{transition:transform .5s var(--ease)}
+.brand:hover .brand__mark .b-accent{transform:translate(2px,2px)}
+.brand__type{display:flex;flex-direction:column;line-height:1}
+.brand__type b{font-weight:800;font-size:.98rem;letter-spacing:.02em}
+.brand__type span{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.22em;color:var(--mute);margin-top:.3em}
+
+.nav{display:none;align-items:center;gap:clamp(1rem,2.4vw,2.2rem)}
+.nav a.nav__link{
+  position:relative;font-weight:600;font-size:.92rem;padding:.3em 0;color:var(--ink);
+}
+.nav a.nav__link::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.nav a.nav__link:hover::after,.nav a.nav__link:focus-visible::after{transform:scaleX(1)}
+
+.nav-actions{display:none;align-items:center;gap:.85rem}
+.nav-actions .telmini{font-family:var(--ff-mono);font-weight:700;font-size:.85rem;letter-spacing:.02em;white-space:nowrap}
+.nav-actions .telmini:hover{color:var(--accent-deep)}
+.nav .btn{padding:.85em 1.25em}
+
+.burger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:2px solid var(--line-2)}
+.burger span{display:block;height:2px;width:20px;margin-inline:auto;background:var(--ink);transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile overlay menu */
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;background:var(--paper);
+  display:grid;grid-template-rows:auto 1fr auto;
+  padding:calc(clamp(60px,9vw,76px) + 8px) var(--pad) var(--pad);
+  transform:translateY(-100%);transition:transform .5s var(--ease);
+  visibility:hidden;
+}
+.mobile-menu.open{transform:translateY(0);visibility:visible}
+.mobile-menu__links{display:flex;flex-direction:column;justify-content:center;gap:.2em}
+.mobile-menu__links a{
+  display:flex;align-items:baseline;gap:.6em;font-weight:800;
+  font-size:clamp(2.1rem,11vw,3.4rem);letter-spacing:-.02em;padding:.18em 0;
+  border-bottom:1px solid var(--line-2);
+}
+.mobile-menu__links a i{font-family:var(--ff-mono);font-style:normal;font-size:.8rem;font-weight:700;color:var(--mute);letter-spacing:.1em}
+.mobile-menu__links a:hover{color:var(--accent-deep)}
+.mobile-menu__foot{display:flex;flex-wrap:wrap;gap:.8rem}
+.mobile-menu__foot .btn{flex:1 1 140px;justify-content:center}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding-top:clamp(108px,16vw,172px);padding-bottom:clamp(44px,7vw,96px)}
+.hero__grid{
+  display:grid;gap:clamp(30px,5vw,64px);align-items:center;
+  grid-template-columns:1fr;
+}
+.hero__copy{max-width:46rem;min-width:0}
+.hero__eyebrow{margin-bottom:clamp(18px,3vw,30px)}
+.hero h1{
+  font-weight:900;font-size:var(--fs-hero);line-height:.94;letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.07em}
+.hero h1 .ln > span{display:block;transform:translateY(110%);transition:transform .95s var(--ease)}
+.hero.is-in h1 .ln > span{transform:translateY(0)}
+.hero.is-in h1 .ln:nth-child(1) > span{transition-delay:.12s}
+.hero.is-in h1 .ln:nth-child(2) > span{transition-delay:.24s}
+.hero.is-in h1 .ln:nth-child(3) > span{transition-delay:.36s}
+@media (min-width:980px){
+  .hero__grid{grid-template-columns:1.05fr .95fr}
+  .hero__copy{max-width:none}
+}
+.hero h1 em{font-style:normal;position:relative;display:inline-block}
+.hero h1 em::after{ /* drawn underline */
+  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.12em;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+}
+.hero.is-in h1 em::after{transform:scaleX(1);transition:transform .6s 1.15s var(--ease)}
+.hero__lead{
+  margin-top:clamp(22px,3vw,34px);font-size:var(--fs-lead);color:var(--ink-2);
+  max-width:34rem;line-height:1.5;
+}
+.hero__lead b{color:var(--ink);font-weight:700}
+
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin-top:clamp(26px,3.4vw,38px)}
+.hero__proof{
+  display:inline-flex;align-items:center;gap:.55em;margin-top:1.3rem;
+  font-family:var(--ff-mono);font-size:.8rem;letter-spacing:.04em;color:var(--ink-2);
+}
+.hero__proof .star{color:var(--accent-deep);font-size:1rem;line-height:1}
+.hero__note{
+  margin-top:1.1rem;font-size:.82rem;color:var(--mute);max-width:30rem;
+  border-left:2px solid var(--line-2);padding-left:.9em;
+}
+
+/* hero square art */
+.hero__art{position:relative;width:100%}
+.hero-board{
+  position:relative;width:100%;max-width:min(560px,100%);margin-left:auto;
+  aspect-ratio:1/1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);
+  gap:clamp(6px,1vw,10px);
+}
+.cell{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--paper-2)}
+.cell--concrete{background:var(--concrete)}
+.cell--concrete2{background:var(--concrete-2)}
+.cell--paper{background:var(--paper)}
+.cell--white{background:#fff}
+.cell--ink{background:var(--ink)}
+.cell--accent{background:var(--accent)}
+.cell svg{width:54%;height:54%}
+.cell .tooth{fill:var(--ink)}
+.cell .kanji{font-weight:800;font-size:clamp(1.1rem,3.6vw,1.9rem);color:var(--ink);letter-spacing:.04em}
+.cell .en{font-family:var(--ff-mono);font-weight:700;font-size:clamp(.95rem,3vw,1.5rem);color:var(--on-accent);letter-spacing:.04em}
+
+/* assemble animation */
+.cell{opacity:0;transform:translateY(14px) scale(.82);transition:opacity .6s var(--ease-out),transform .7s var(--ease-out)}
+.hero-board.is-in .cell{opacity:1;transform:none}
+.cell--pulse{animation:none}
+.hero-board.is-in .cell--pulse{animation:pulse 3.4s 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(.9)}}
+
+/* drawn grid lines over the board */
+.hero-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.hero-lines line{stroke:var(--line-2);stroke-width:.5;stroke-dasharray:100;stroke-dashoffset:100;}
+.hero-board.is-in .hero-lines line{animation:draw 1.2s .15s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{
+  border-block:1px solid var(--line-2);background:var(--paper);
+  overflow:hidden;padding-block:clamp(12px,1.6vw,18px);margin-top:clamp(30px,5vw,60px);
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee__track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marq 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{
+  font-weight:800;font-size:clamp(1.1rem,2.4vw,1.7rem);text-transform:uppercase;
+  letter-spacing:.01em;padding-inline:clamp(.5em,2vw,1.1em);display:inline-flex;align-items:center;gap:1em;
+}
+.marquee__track span[lang="ja"]{letter-spacing:.06em}
+.marquee__track i{display:inline-block;width:.5em;height:.5em;background:var(--accent);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   SECTION SCAFFOLD
+   ============================================================ */
+.section{padding-block:clamp(72px,11vw,148px);position:relative}
+.section__head{max-width:48rem;margin-bottom:clamp(40px,5vw,72px)}
+.section__head h2{
+  font-weight:800;font-size:var(--fs-h2);line-height:1.02;letter-spacing:-.025em;margin-top:.6rem;
+}
+.section__head p{margin-top:1.1rem;color:var(--ink-2);font-size:var(--fs-lead);max-width:36rem}
+
+/* reveal util */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.is-in{opacity:1;transform:none}
+.reveal[data-d]{transition-delay:calc(var(--d,0) * 80ms)}
+
+/* drawn divider line */
+.rule{height:2px;background:var(--line-2);position:relative;overflow:hidden}
+.rule::after{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.rule.is-in::after{transform:scaleX(1)}
+
+/* ============================================================
+   SERVICES — bento square mosaic
+   ============================================================ */
+.services{background:var(--paper)}
+.bento{display:grid;gap:clamp(10px,1.3vw,16px);grid-template-columns:1fr}
+
+.tile{
+  position:relative;background:var(--paper-2);border:1px solid var(--line-2);
+  padding:clamp(22px,3vw,32px);min-height:clamp(170px,24vw,230px);
+  display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);
+}
+.tile__no{font-family:var(--ff-mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--mute)}
+.tile__ico{width:42px;height:42px;color:var(--ink);transition:transform .5s var(--ease)}
+.tile__ico svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:square;stroke-linejoin:miter}
+.tile__body{margin-top:auto}
+.tile h3{font-weight:800;font-size:var(--fs-h3);letter-spacing:-.01em;margin-top:.9rem}
+.tile p{margin-top:.5rem;color:var(--ink-2);font-size:.95rem;line-height:1.45;max-width:26ch}
+.tile__fill{position:absolute;inset:0;z-index:0;background:var(--accent);transform:translateY(101%);transition:transform .5s var(--ease)}
+.tile > *{position:relative;z-index:1}
+.tile:hover{transform:translateY(-6px);border-color:var(--accent)}
+.tile:hover .tile__fill{transform:translateY(0)}
+.tile:hover .tile__ico{transform:translate(2px,-2px)}
+.tile.svc:hover .tile__no,.tile.svc:hover h3,.tile.svc:hover p{color:var(--on-accent)}
+.tile.svc:hover .tile__ico{color:var(--on-accent)}
+
+/* heading tile (big square) */
+.tile--head{
+  background:var(--ink);color:var(--paper);justify-content:space-between;cursor:default;
+}
+.tile--head:hover{transform:none;border-color:var(--ink)}
+.tile--head .tile__fill{display:none}
+.tile--head .label{color:#cfcdd6}
+.tile--head h2{font-weight:800;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.02;letter-spacing:-.02em;margin-top:1rem}
+.tile--head p{margin-top:1rem;color:#bdbcc4;font-size:1rem;max-width:30ch}
+.tile--head .tinytag{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.18em;color:var(--accent);margin-top:1.3rem}
+.tile--head .gridmark{position:absolute;right:clamp(18px,3vw,28px);top:clamp(18px,3vw,28px);width:34px;height:34px;opacity:.9}
+
+/* cta tile */
+.tile--cta{background:var(--accent);color:var(--on-accent);border-color:var(--accent);justify-content:space-between}
+.tile--cta .tile__fill{background:var(--ink)}
+.tile--cta:hover{transform:translateY(-6px);border-color:var(--ink)}
+.tile--cta:hover .label,.tile--cta:hover h3,.tile--cta:hover p,.tile--cta:hover .ctabtn{color:var(--paper)}
+.tile--cta .label{color:var(--on-accent)}
+.tile--cta .label::before{background:var(--ink)}
+.tile--cta:hover .label::before{background:var(--paper)}
+.tile--cta h3{font-weight:800;font-size:clamp(1.4rem,2.6vw,2rem);margin-top:.8rem;line-height:1.05}
+.tile--cta p{color:#2c1109;margin-top:.5rem;max-width:24ch}
+.tile--cta .ctabtn{display:inline-flex;align-items:center;gap:.5em;font-weight:800;margin-top:1.2rem;font-size:.95rem}
+.tile--cta .ctabtn .arrow{transition:transform .4s var(--ease)}
+.tile--cta:hover .ctabtn .arrow{transform:translate(4px,-4px)}
+.tile--cta button{text-align:left}
+
+@media (min-width:620px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:980px){
+  .bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}
+  .tile--head{grid-column:span 2;grid-row:span 2}
+  .tile--cta{grid-column:span 2}
+}
+
+/* ============================================================
+   IN YOUR LANGUAGE (dark)
+   ============================================================ */
+.lang{
+  background:var(--dark);color:var(--paper);position:relative;
+  background-image:
+    linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:var(--u) var(--u);
+}
+.lang .section__head h2{color:var(--paper)}
+.lang .section__head p{color:#b9b8c0}
+.lang .label{color:#d6d5dc}
+.lang__caption{font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.14em;color:var(--accent);margin-bottom:clamp(20px,2.5vw,28px);text-transform:uppercase}
+
+.bili-grid{display:grid;gap:clamp(10px,1.3vw,16px);grid-template-columns:repeat(2,1fr)}
+.bili{
+  position:relative;background:var(--dark-2);border:1px solid rgba(255,255,255,.1);
+  padding:clamp(20px,2.6vw,30px);min-height:clamp(120px,15vw,160px);overflow:hidden;
+  transition:transform .45s var(--ease),border-color .45s var(--ease),background .45s var(--ease);
+}
+.bili__sq{position:absolute;right:0;top:0;width:14px;height:14px;background:var(--accent);transition:width .4s var(--ease),height .4s var(--ease)}
+.bili__jp{display:block;font-weight:800;font-size:clamp(1.6rem,5vw,2.7rem);letter-spacing:.04em;line-height:1}
+.bili__en{
+  display:block;margin-top:.7em;font-family:var(--ff-mono);font-weight:700;
+  font-size:clamp(.85rem,1.8vw,1.05rem);letter-spacing:.04em;color:var(--accent);
+  clip-path:inset(0 100% 0 0);transition:clip-path .6s .15s var(--ease)
+}
+.bili.is-in .bili__en{clip-path:inset(0 0 0 0)}
+.bili:hover{transform:translateY(-5px);border-color:var(--accent);background:#26242b}
+.bili:hover .bili__sq{width:26px;height:26px}
+
+@media (min-width:760px){.bili-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ============================================================
+   VISIT
+   ============================================================ */
+.visit{background:var(--paper-2)}
+.visit__layout{display:grid;gap:clamp(16px,2vw,26px);grid-template-columns:1fr}
+.visit__col h3{font-weight:800;font-size:var(--fs-h3);letter-spacing:-.01em}
+
+/* contact cards */
+.contact{display:grid;gap:clamp(10px,1.3vw,16px);grid-template-columns:1fr}
+.ccard{
+  position:relative;display:flex;flex-direction:column;gap:.4rem;
+  background:var(--paper);border:1px solid var(--line-2);padding:clamp(20px,2.6vw,28px);
+  overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease)
+}
+.ccard .label{margin-bottom:.3rem}
+.ccard .big{font-weight:800;font-size:clamp(1.2rem,2.1vw,1.55rem);letter-spacing:-.015em;line-height:1.06;overflow-wrap:anywhere}
+.ccard--ig .big{font-size:clamp(1rem,1.7vw,1.3rem);letter-spacing:0}
+.ccard .sub{color:var(--ink-2);font-size:.9rem}
+.ccard .arrow{position:absolute;right:clamp(16px,2vw,22px);top:clamp(16px,2vw,22px);transition:transform .4s var(--ease);color:var(--ink-2)}
+a.ccard:hover{transform:translateY(-5px);border-color:var(--accent)}
+a.ccard:hover .arrow{transform:translate(4px,-4px);color:var(--accent-deep)}
+
+.ccard--book{background:var(--accent);color:var(--on-accent);border-color:var(--accent);text-align:left}
+.ccard--book .label{color:var(--on-accent)}
+.ccard--book .label::before{background:var(--ink)}
+.ccard--book .sub{color:#2c1109}
+.ccard--book .arrow{color:var(--on-accent)}
+.ccard--book.is-soon{background:var(--paper);color:var(--ink);border-color:var(--line-2)}
+.ccard--book.is-soon .label{color:var(--ink-2)}
+.ccard--book.is-soon .label::before{background:var(--accent)}
+.ccard--book.is-soon .sub{color:var(--ink-2)}
+
+.visit__note{
+  margin-top:clamp(18px,2.5vw,26px);font-size:.95rem;color:var(--ink-2);line-height:1.55;
+  border-left:2px solid var(--accent);padding-left:1em;max-width:40rem
+}
+
+/* info stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.3vw,16px);margin-top:clamp(16px,2vw,22px)}
+.stat{background:var(--ink);color:var(--paper);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:.3rem}
+.stat .num{font-weight:900;font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .num .star{color:var(--accent)}
+.stat .cap{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#b9b8c0}
+
+/* abstract block map */
+.map{
+  position:relative;background:var(--ink);border:1px solid var(--ink);min-height:clamp(280px,40vw,460px);
+  overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3vw,30px)
+}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .blk{fill:#22212a}
+.map .blk2{fill:#2b2933}
+.map .st{stroke:rgba(255,255,255,.10);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1}
+.map.is-in .st{animation:draw 1.3s var(--ease) forwards}
+.map .pin-ring{fill:none;stroke:var(--accent);stroke-width:2;opacity:.0}
+.map.is-in .pin-ring{animation:ping 2.6s 1s ease-out infinite}
+@keyframes ping{0%{transform-box:fill-box;transform-origin:center;transform:scale(.6);opacity:.9}80%,100%{transform:scale(2.2);opacity:0}}
+.map .pin-dot{fill:var(--accent)}
+.map__tag{position:relative;z-index:1;display:flex;flex-direction:column;gap:.3rem;color:var(--paper)}
+.map__tag .l1{font-weight:800;font-size:clamp(1.2rem,2.4vw,1.7rem);letter-spacing:-.01em}
+.map__tag .l2{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.14em;color:var(--accent)}
+.map__tag .l3{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.1em;color:#8c8b94}
+
+@media (min-width:880px){
+  .visit__layout{grid-template-columns:1.05fr .95fr;align-items:stretch}
+  .contact{grid-template-columns:repeat(2,1fr)}
+  .ccard--book{grid-column:span 2}
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-foot{background:var(--dark);color:var(--paper);padding-block:clamp(54px,8vw,96px);position:relative;
+  background-image:
+    linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:var(--u) var(--u);
+}
+.foot-name{
+  font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;
+  font-size:clamp(2.2rem,8.5vw,6.2rem);
+}
+.foot-name .o{color:var(--accent)}
+.foot-grid{display:grid;gap:clamp(28px,4vw,40px);grid-template-columns:1fr;margin-top:clamp(36px,5vw,56px)}
+.foot-col h4{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8c8b94;margin:0 0 1rem;font-weight:700}
+.foot-col a,.foot-col p{display:block;color:var(--paper);font-size:1rem;line-height:1.7;margin:0}
+.foot-col a{width:fit-content;position:relative}
+.foot-col a:hover{color:var(--accent)}
+.foot-col .muted{color:#8c8b94;font-size:.86rem}
+.foot-proof{font-family:var(--ff-mono);font-size:.8rem;color:#b9b8c0;letter-spacing:.03em}
+.foot-proof .star{color:var(--accent)}
+
+.foot-bar{
+  display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;align-items:center;justify-content:space-between;
+  margin-top:clamp(40px,6vw,68px);padding-top:clamp(20px,3vw,28px);border-top:1px solid rgba(255,255,255,.12);
+}
+.foot-bar small{color:#8c8b94;font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.06em}
+.credit{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.08em;color:#9c9ba3}
+.credit a{color:#cfcdd6;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:1px;transition:color .3s,border-color .3s}
+.credit a:hover{color:var(--accent);border-color:var(--accent)}
+.totop{display:inline-flex;align-items:center;gap:.5em;font-weight:700;font-size:.82rem;color:var(--paper)}
+.totop:hover{color:var(--accent)}
+
+@media (min-width:760px){.foot-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- nav reveal at desktop ---------- */
+@media (min-width:1000px){
+  .nav,.nav-actions{display:flex}
+  .burger{display:none}
+}
+
+/* ---------- live region ---------- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .hero h1 .ln > span{transform:none!important}
+  .cell{opacity:1!important;transform:none!important}
+  .marquee__track{animation:none!important}
+  .bili__en{clip-path:none!important}
+  .hero-lines line,.map .st{stroke-dashoffset:0!important}
+  .map .pin-ring{display:none}
+  .hero h1 em::after,.rule::after,.tile__fill,.btn::before{transition:none!important}
+  .hero h1 em::after{transform:scaleX(1)}
+  .rule::after{transform:scaleX(1)}
+}
+</style>
+
+
+<style id="shm-bk-style">
+.shm-bk *{box-sizing:border-box}
+.shm-bk-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px;background:rgba(10,10,12,.55);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--bk-sans)}
+.shm-bk-overlay.open{display:flex}
+.shm-bk-card{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bk-panel);
+  color:var(--bk-ink);border-radius:var(--bk-r);box-shadow:0 30px 80px -20px rgba(0,0,0,.55),0 0 0 1px var(--bk-line);
+  padding:26px 26px 22px;transform:translateY(10px);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s}
+.shm-bk-overlay.open .shm-bk-card{transform:none;opacity:1}
+.shm-bk-eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bk-accent);
+  font-weight:600;display:flex;align-items:center;gap:.6em;margin:0 0 .5rem}
+.shm-bk-eyebrow::before{content:"";width:.42em;height:.42em;border-radius:50%;background:var(--bk-accent)}
+.shm-bk h2.shm-bk-title{font-family:var(--bk-serif);font-weight:500;line-height:1.05;font-size:1.7rem;margin:0 0 .35rem}
+.shm-bk-sub{color:var(--bk-muted);font-size:.92rem;line-height:1.5;margin:0 0 1.15rem}
+.shm-bk-close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--bk-muted);
+  font-size:1.5rem;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+.shm-bk-close:hover{color:var(--bk-ink);background:var(--bk-line)}
+.shm-bk-card{position:relative}
+.shm-bk-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-muted);
+  font-weight:600;margin:1.1rem 0 .55rem}
+.shm-bk-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.shm-bk-chip{flex:0 0 auto;min-width:62px;text-align:center;padding:.6rem .7rem;border:1px solid var(--bk-line);
+  background:transparent;color:var(--bk-ink);border-radius:calc(var(--bk-r)*.6);cursor:pointer;
+  font:inherit;font-size:.8rem;transition:.18s;line-height:1.25}
+.shm-bk-chip small{display:block;font-size:.62rem;color:var(--bk-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.shm-bk-chip:hover{border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"]{background:var(--bk-accent);color:var(--bk-accent-ink);border-color:var(--bk-accent)}
+.shm-bk-chip[aria-pressed="true"] small{color:var(--bk-accent-ink);opacity:.8}
+.shm-bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.shm-bk-field{margin-top:.7rem}
+.shm-bk-field input,.shm-bk-field select,.shm-bk-field textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bk-line);
+  background:var(--bk-panel);color:var(--bk-ink);border-radius:calc(var(--bk-r)*.55);font:inherit;font-size:.9rem}
+.shm-bk-field input:focus,.shm-bk-field select:focus,.shm-bk-field textarea:focus{outline:2px solid var(--bk-accent);outline-offset:1px;border-color:var(--bk-accent)}
+.shm-bk-field input::placeholder,.shm-bk-field textarea::placeholder{color:var(--bk-muted)}
+.shm-bk-cta{width:100%;margin-top:1.25rem;padding:.95rem 1rem;border:0;border-radius:calc(var(--bk-r)*.55);
+  background:var(--bk-ink);color:var(--bk-panel);font:inherit;font-weight:600;letter-spacing:.04em;cursor:pointer;
+  font-size:.92rem;transition:.18s;display:flex;align-items:center;justify-content:center;gap:.5em}
+.shm-bk-cta:hover{filter:brightness(1.12)}
+.shm-bk-cta:disabled{opacity:.4;cursor:not-allowed}
+.shm-bk-ghost{display:block;text-align:center;margin-top:.7rem;padding:.85rem;border:1px solid var(--bk-line);
+  border-radius:calc(var(--bk-r)*.55);color:var(--bk-ink);text-decoration:none;font-size:.88rem;font-weight:600;transition:.18s}
+.shm-bk-ghost:hover{border-color:var(--bk-accent);color:var(--bk-accent)}
+.shm-bk-fine{font-size:.72rem;color:var(--bk-muted);text-align:center;margin:.95rem 0 0;line-height:1.45}
+.shm-bk-hide{display:none}
+.shm-bk-tick{width:54px;height:54px;border-radius:50%;background:var(--bk-accent);color:var(--bk-accent-ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1rem}
+.shm-bk-conf{text-align:center}
+.shm-bk-conf .shm-bk-title{font-size:1.5rem}
+.shm-bk-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9998;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85rem 1.4rem;border:0;border-radius:999px;
+  background:var(--bk-accent);color:var(--bk-accent-ink);font-family:var(--bk-sans);font-weight:600;
+  font-size:.92rem;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,0,0,.42)}
+.shm-bk-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,0,0,.52)}
+@media (max-width:520px){.shm-bk-fab{bottom:14px;font-size:.88rem;padding:.8rem 1.15rem}}
+@media (prefers-reduced-motion:reduce){.shm-bk-card{transition:none}}
+.shm-bk{--bk-accent:#ff4d1a;--bk-accent-ink:#ffffff;--bk-ink:#16161a;--bk-panel:#f2f1ec;--bk-muted:rgba(22,22,26,0.6);--bk-line:rgba(22,22,26,0.14);--bk-serif:Georgia, "Times New Roman", serif;--bk-sans:"Archivo", system-ui, sans-serif;--bk-r:18px;}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head" id="top">
+  <div class="wrap site-head__in">
+    <a class="brand" href="#top" aria-label="Shinjuku East Side Square Dental — home">
+      <svg class="brand__mark" viewBox="0 0 30 30" aria-hidden="true" fill="none">
+        <rect x="0" y="0" width="8" height="8" fill="#16161A"/>
+        <rect x="11" y="0" width="8" height="8" fill="#16161A"/>
+        <rect x="22" y="0" width="8" height="8" fill="#16161A"/>
+        <rect x="0" y="11" width="8" height="8" fill="#16161A"/>
+        <rect class="b-accent" x="11" y="11" width="8" height="8" fill="#FF4D1A"/>
+        <rect x="22" y="11" width="8" height="8" fill="#16161A"/>
+        <rect x="0" y="22" width="8" height="8" fill="#16161A"/>
+        <rect x="11" y="22" width="8" height="8" fill="#16161A"/>
+        <rect x="22" y="22" width="8" height="8" fill="#16161A"/>
+      </svg>
+      <span class="brand__type">
+        <b>SES&nbsp;DENTAL</b>
+        <span>SHINJUKU · TOKYO</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="#care">Care</a>
+      <a class="nav__link" href="#english">In English</a>
+      <a class="nav__link" href="#visit">Visit</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="telmini" href="tel:+81362280086">+81 3-6228-0086</a>
+      <button class="btn btn--accent js-book" type="button">Book online</button>
+    </div>
+
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- mobile overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div></div>
+  <nav class="mobile-menu__links" aria-label="Mobile">
+    <a href="#care"><i>01</i> Care</a>
+    <a href="#english"><i>02</i> In English</a>
+    <a href="#visit"><i>03</i> Visit</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <button class="btn btn--accent js-book" type="button" style="flex:1 1 100%;justify-content:center">Book online</button>
+    <a class="btn btn--ghost" href="tel:+81362280086">Call us</a>
+    <a class="btn btn--ghost" href="https://www.instagram.com/shinjukuess.shika/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="hero__eyebrow label reveal">English-speaking dental care · Shinjuku</p>
+      <h1 id="hero-h" class="reveal" data-d="1">
+        <span class="ln"><span>Dentistry</span></span>
+        <span class="ln"><span>in&nbsp;plain</span></span>
+        <span class="ln"><span><em>English.</em></span></span>
+      </h1>
+      <p class="hero__lead reveal" data-d="2">
+        No phrasebook, no guesswork — just expert dental care in the heart of Shinjuku.
+        Implants, orthodontics, whitening, cosmetic work and children's visits, all
+        <b>explained to you in English</b>.
+      </p>
+      <div class="hero__cta reveal" data-d="3">
+        <button class="btn btn--accent js-book" type="button">
+          Book online <span class="arrow" aria-hidden="true">↗</span>
+        </button>
+        <a class="btn btn--ghost" href="tel:+81362280086">
+          Call +81 3-6228-0086
+        </a>
+      </div>
+      <p class="hero__proof reveal" data-d="3">
+        <span class="star" aria-hidden="true">★</span> 4.2 · 125 reviews on Google
+      </p>
+      <p class="hero__note reveal" data-d="4" id="bookNote" aria-live="polite">
+        Online booking is launching in English soon. For now, call or message us and we'll book you straight in.
+      </p>
+    </div>
+
+    <div class="hero__art reveal" data-d="2" aria-hidden="true">
+      <div class="hero-board" id="heroBoard">
+        <!-- row 0 -->
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--concrete"></div>
+        <div class="cell cell--ink"></div>
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--accent cell--pulse"></div>
+        <!-- row 1 -->
+        <div class="cell cell--white"></div>
+        <div class="cell cell--concrete2"></div>
+        <div class="cell cell--accent"><span class="en">EN</span></div>
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--ink"></div>
+        <!-- row 2 -->
+        <div class="cell cell--concrete"></div>
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--white">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="tooth" d="M6 3C4 3 3 5 3 8c0 4 1 6 2 10 .5 2 1.5 3 2.5 3s1.5-1 2-3.5c.3-1.5.7-2.5 1.5-2.5s1.2 1 1.5 2.5c.5 2.5 1 3.5 2 3.5s2-1 2.5-3c1-4 2-6 2-10 0-3-1-5-3-5-2.5 0-3.5 1.5-5 1.5S8.5 3 6 3Z"/></svg>
+        </div>
+        <div class="cell cell--paper-2"></div>
+        <div class="cell cell--paper"></div>
+        <!-- row 3 -->
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--concrete"></div>
+        <div class="cell cell--white"></div>
+        <div class="cell cell--concrete2"></div>
+        <div class="cell cell--paper"></div>
+        <!-- row 4 -->
+        <div class="cell cell--ink"></div>
+        <div class="cell cell--paper"></div>
+        <div class="cell cell--concrete"></div>
+        <div class="cell cell--paper-2"></div>
+        <div class="cell cell--paper-2"><span class="kanji" lang="ja">新宿</span></div>
+
+        <svg class="hero-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="0" x2="100" y2="0"/>
+          <line x1="0" y1="100" x2="100" y2="100"/>
+          <line x1="0" y1="0" x2="0" y2="100"/>
+          <line x1="100" y1="0" x2="100" y2="100"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marq">
+      <span>English spoken <i></i> 英語対応 <i></i> Implants <i></i> Orthodontics <i></i> Whitening <i></i> Cosmetic <i></i> Children's care <i></i> Shinjuku 新宿 <i></i></span>
+      <span>English spoken <i></i> 英語対応 <i></i> Implants <i></i> Orthodontics <i></i> Whitening <i></i> Cosmetic <i></i> Children's care <i></i> Shinjuku 新宿 <i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="care" aria-labelledby="care-h">
+  <div class="wrap">
+    <div class="bento">
+
+      <!-- big heading tile -->
+      <article class="tile tile--head reveal">
+        <svg class="gridmark" viewBox="0 0 30 30" aria-hidden="true">
+          <rect x="0" y="0" width="8" height="8" fill="#FF4D1A"/>
+          <rect x="11" y="0" width="8" height="8" fill="#3a3942"/>
+          <rect x="22" y="0" width="8" height="8" fill="#3a3942"/>
+          <rect x="0" y="11" width="8" height="8" fill="#3a3942"/>
+          <rect x="11" y="11" width="8" height="8" fill="#3a3942"/>
+          <rect x="22" y="11" width="8" height="8" fill="#FF4D1A"/>
+          <rect x="0" y="22" width="8" height="8" fill="#3a3942"/>
+          <rect x="11" y="22" width="8" height="8" fill="#3a3942"/>
+          <rect x="22" y="22" width="8" height="8" fill="#3a3942"/>
+        </svg>
+        <p class="label">What we do</p>
+        <div>
+          <h2 id="care-h">Five kinds of care, under one roof.</h2>
+          <p>Everything handled in-house in Shinjuku — and every step explained to you, clearly, in English.</p>
+          <p class="tinytag">新宿 · TOKYO — SES/01</p>
+        </div>
+      </article>
+
+      <!-- service tiles -->
+      <article class="tile svc reveal" data-d="1">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <span class="tile__no">01</span>
+        <span class="tile__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="5"/><path d="M9 8h6l-1 6-2 7-2-7-1-6Z"/><path d="M9.5 11h5M9.8 14h4.4"/></svg>
+        </span>
+        <div class="tile__body">
+          <h3>Implants</h3>
+          <p>A permanent, natural-feeling replacement for a missing tooth.</p>
+        </div>
+      </article>
+
+      <article class="tile svc reveal" data-d="2">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <span class="tile__no">02</span>
+        <span class="tile__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 9h18"/><rect x="4" y="6" width="4" height="6"/><rect x="10" y="6" width="4" height="6"/><rect x="16" y="6" width="4" height="6"/></svg>
+        </span>
+        <div class="tile__body">
+          <h3>Orthodontics</h3>
+          <p>Straighter teeth — from traditional braces to clear aligners.</p>
+        </div>
+      </article>
+
+      <article class="tile svc reveal" data-d="1">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <span class="tile__no">03</span>
+        <span class="tile__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3Z"/></svg>
+        </span>
+        <div class="tile__body">
+          <h3>Whitening</h3>
+          <p>Safe, professional brightening with results you can see.</p>
+        </div>
+      </article>
+
+      <article class="tile svc reveal" data-d="2">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <span class="tile__no">04</span>
+        <span class="tile__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 4l7 6-7 10-7-10 7-6Z"/><path d="M5 10h14M12 4v16"/></svg>
+        </span>
+        <div class="tile__body">
+          <h3>Cosmetic</h3>
+          <p>Reshape, repair and refine the look of your smile.</p>
+        </div>
+      </article>
+
+      <article class="tile svc reveal" data-d="1">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <span class="tile__no">05</span>
+        <span class="tile__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="11" height="11"/><rect x="13" y="13" width="7" height="7"/></svg>
+        </span>
+        <div class="tile__body">
+          <h3>Children's care</h3>
+          <p>Gentle, friendly visits that put younger patients at ease.</p>
+        </div>
+      </article>
+
+      <!-- cta tile -->
+      <article class="tile tile--cta reveal" data-d="2">
+        <span class="tile__fill" aria-hidden="true"></span>
+        <p class="label">New patient</p>
+        <button class="js-book" type="button" style="background:none;border:0;padding:0;cursor:pointer">
+          <h3>Start with a check-up.</h3>
+          <p>Book your first visit — in English, start to finish.</p>
+          <span class="ctabtn">Book online <span class="arrow" aria-hidden="true">↗</span></span>
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ IN YOUR LANGUAGE ============ -->
+<section class="section lang" id="english" aria-labelledby="eng-h">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="label">In your language · 英語対応</p>
+      <h2 id="eng-h">Care you can actually follow.</h2>
+      <p>Living in Tokyo is enough of an adventure. Your dental visit shouldn't be. Here, your
+        consultation, your options and your aftercare are explained in clear English — so you
+        always know what's happening, and why.</p>
+    </div>
+
+    <p class="lang__caption">A few words you'll never have to look up</p>
+    <ul class="bili-grid">
+      <li class="bili reveal" data-d="0"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">予約</span><span class="bili__en">Booking</span></li>
+      <li class="bili reveal" data-d="1"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">虫歯</span><span class="bili__en">Cavity</span></li>
+      <li class="bili reveal" data-d="2"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">親知らず</span><span class="bili__en">Wisdom tooth</span></li>
+      <li class="bili reveal" data-d="1"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">矯正</span><span class="bili__en">Braces</span></li>
+      <li class="bili reveal" data-d="2"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">麻酔</span><span class="bili__en">Anaesthetic</span></li>
+      <li class="bili reveal" data-d="3"><span class="bili__sq" aria-hidden="true"></span><span class="bili__jp" lang="ja">痛い</span><span class="bili__en">“It hurts”</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="section visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="label">Visit · 新宿</p>
+      <h2 id="visit-h">Find us in Shinjuku.</h2>
+      <p>We're on Shinjuku's east side in central Tokyo. Reach out by phone or Instagram and
+        we'll get you booked — with an English-speaking appointment whenever you'd like one.</p>
+    </div>
+
+    <div class="visit__layout">
+      <!-- left: contact -->
+      <div class="visit__col">
+        <div class="contact">
+          <a class="ccard reveal" data-d="0" href="tel:+81362280086">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <span class="label">Call</span>
+            <span class="big">+81 3-6228-0086</span>
+            <span class="sub">Speak to the front desk directly.</span>
+          </a>
+          <a class="ccard ccard--ig reveal" data-d="1" href="https://www.instagram.com/shinjukuess.shika/" target="_blank" rel="noopener">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <span class="label">Instagram</span>
+            <span class="big">@shinjukuess.shika</span>
+            <span class="sub">Message us — see the clinic on the feed.</span>
+          </a>
+          <button class="ccard ccard--book js-book reveal" data-d="2" type="button">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <span class="label">Online booking</span>
+            <span class="big">Book online</span>
+            <span class="sub">Launching in English soon.</span>
+          </button>
+        </div>
+
+        <p class="visit__note reveal">
+          Opening hours vary through the year, so the surest way to lock in a time is a quick call or message.
+          Tell us you'd prefer English and we'll make sure the right team is ready for you.
+        </p>
+
+        <div class="stats">
+          <div class="stat reveal" data-d="0"><span class="num" data-count="4.2" data-dec="1">0</span><span class="cap">Google rating</span></div>
+          <div class="stat reveal" data-d="1"><span class="num" data-count="125">0</span><span class="cap">Patient reviews</span></div>
+          <div class="stat reveal" data-d="2"><span class="num" data-count="5">0</span><span class="cap">Areas of care</span></div>
+        </div>
+      </div>
+
+      <!-- right: abstract block map -->
+      <div class="visit__col">
+        <div class="map reveal" role="img" aria-label="Stylised map showing the clinic's location in Shinjuku, east side, Tokyo.">
+          <svg viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <!-- city blocks -->
+            <rect class="blk"  x="20"  y="20"  width="120" height="90"/>
+            <rect class="blk2" x="150" y="20"  width="90"  height="120"/>
+            <rect class="blk"  x="250" y="20"  width="130" height="70"/>
+            <rect class="blk2" x="20"  y="120" width="120" height="110"/>
+            <rect class="blk"  x="250" y="100" width="60"  height="80"/>
+            <rect class="blk2" x="320" y="100" width="60"  height="130"/>
+            <rect class="blk"  x="150" y="150" width="90"  height="80"/>
+            <rect class="blk2" x="20"  y="240" width="90"  height="100"/>
+            <rect class="blk"  x="120" y="240" width="120" height="120"/>
+            <rect class="blk2" x="250" y="240" width="130" height="60"/>
+            <rect class="blk"  x="250" y="310" width="60"  height="150"/>
+            <rect class="blk2" x="320" y="310" width="60"  height="80"/>
+            <rect class="blk"  x="20"  y="350" width="90"  height="110"/>
+            <rect class="blk2" x="120" y="370" width="120" height="90"/>
+            <!-- streets -->
+            <line class="st" x1="0" y1="115" x2="400" y2="115"/>
+            <line class="st" x1="0" y1="235" x2="400" y2="235"/>
+            <line class="st" x1="0" y1="305" x2="400" y2="305"/>
+            <line class="st" x1="0" y1="365" x2="400" y2="365"/>
+            <line class="st" x1="145" y1="0" x2="145" y2="460"/>
+            <line class="st" x1="245" y1="0" x2="245" y2="460"/>
+            <line class="st" x1="315" y1="0" x2="315" y2="460"/>
+            <!-- accent pin -->
+            <g transform="translate(180,288)">
+              <circle class="pin-ring" r="16"/>
+              <rect class="pin-dot" x="-9" y="-9" width="18" height="18"/>
+            </g>
+          </svg>
+          <div class="map__tag">
+            <span class="l1">Shinjuku East Side</span>
+            <span class="l2">TOKYO · JAPAN</span>
+            <span class="l3">approx. 35.69°N 139.70°E — stylised</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot" aria-labelledby="foot-h">
+  <div class="wrap">
+    <h2 id="foot-h" class="foot-name">SHINJUKU EAST<br>SIDE SQUARE<br>DENTAL<span class="o">.</span></h2>
+
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+81362280086">+81 3-6228-0086</a>
+        <a href="https://www.instagram.com/shinjukuess.shika/" target="_blank" rel="noopener">@shinjukuess.shika</a>
+        <p class="muted">Shinjuku, east side · Tokyo, Japan</p>
+      </div>
+      <div class="foot-col">
+        <h4>Care</h4>
+        <a href="#care">Implants &amp; cosmetic</a>
+        <a href="#care">Orthodontics &amp; whitening</a>
+        <a href="#care">Children's dentistry</a>
+        <a href="#english">English-speaking visits</a>
+      </div>
+      <div class="foot-col">
+        <h4>Booking</h4>
+        <p class="muted">Online booking in English is coming soon. Until then, call or message us and we'll book you in.</p>
+        <p class="foot-proof"><span class="star" aria-hidden="true">★</span> 4.2 · 125 reviews on Google</p>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <small>© <span id="yr">2026</span> Shinjuku East Side Square Dental · Demo landing page</small>
+      <span class="credit">Designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+      <a class="totop" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+</footer>
+
+<div class="sr-only" aria-live="polite" id="liveRegion"></div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- scroll reveals ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal, .rule, .bili, .map, .hero-board'));
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    },{threshold:0.18, rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-in'); });
+  }
+
+  /* ---------- hero intro ---------- */
+  var hero = document.getElementById('hero');
+  function startHero(){
+    if(hero) hero.classList.add('is-in');
+    var board = document.getElementById('heroBoard');
+    if(board) board.classList.add('is-in');
+    document.querySelectorAll('#hero .reveal').forEach(function(el){ el.classList.add('is-in'); });
+  }
+  window.addEventListener('load', function(){ requestAnimationFrame(startHero); });
+  // fallback in case load already fired
+  if(document.readyState === 'complete'){ requestAnimationFrame(startHero); }
+
+  /* ---------- count up ---------- */
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var dec = parseInt(el.getAttribute('data-dec')||'0',10);
+    if(reduce){ el.textContent = dec ? target.toFixed(dec) : target; return; }
+    var dur = 1200, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/dur,1);
+      var eased = 1 - Math.pow(1-p,3);
+      var val = target*eased;
+      el.textContent = dec ? val.toFixed(dec) : Math.round(val);
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent = dec ? target.toFixed(dec) : target;
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  if('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ animateCount(en.target); cio.unobserve(en.target); }
+      });
+    },{threshold:0.6});
+    counters.forEach(function(el){ cio.observe(el); });
+  } else {
+    counters.forEach(animateCount);
+  }
+
+  /* ---------- subtle hero parallax ---------- */
+  var board = document.getElementById('heroBoard');
+  if(board && !reduce && window.matchMedia('(min-width:900px)').matches){
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.pageYOffset;
+        var shift = Math.max(Math.min(y*0.05,40),-40);
+        board.style.transform = 'translateY('+ (-shift) +'px)';
+        ticking = false;
+      });
+    },{passive:true});
+  }
+
+  /* ---------- mobile menu ---------- */
+  var burger = document.querySelector('.burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', open ? 'true':'false');
+    burger.setAttribute('aria-label', open ? 'Close menu':'Open menu');
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false':'true');
+    document.body.style.overflow = open ? 'hidden':'';
+  }
+  if(burger && menu){
+    burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+  }
+
+  /* ---------- "Book online" demo (non-functional) ---------- */
+  var live = document.getElementById('liveRegion');
+  var note = document.getElementById('bookNote');
+  var bookBtns = Array.prototype.slice.call(document.querySelectorAll('.js-book'));
+  bookBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      // gentle "coming soon" — does not navigate anywhere
+      if(note){
+        note.textContent = 'Online booking in English is coming soon — call +81 3-6228-0086 and we\'ll book you in today.';
+      }
+      if(live){ live.textContent = 'Online booking is coming soon. Please call +81 3-6228-0086 to book.'; }
+
+      // local visual nudge on header / footer book buttons that show a label
+      if(btn.classList.contains('btn')){
+        if(btn.dataset.busy) return;
+        btn.dataset.busy = '1';
+        var orig = btn.innerHTML;
+        btn.classList.add('is-soon');
+        btn.innerHTML = 'Coming soon — call us';
+        setTimeout(function(){ btn.innerHTML = orig; btn.classList.remove('is-soon'); delete btn.dataset.busy; }, 3200);
+      }
+      if(btn.classList.contains('ccard--book')){
+        if(btn.dataset.busy) return;
+        btn.dataset.busy = '1';
+        btn.classList.add('is-soon');
+        btn.querySelector('.big').textContent = 'Coming soon';
+        btn.querySelector('.sub').textContent = 'Call +81 3-6228-0086 to book today.';
+        setTimeout(function(){
+          btn.classList.remove('is-soon');
+          btn.querySelector('.big').textContent = 'Book online';
+          btn.querySelector('.sub').textContent = 'Launching in English soon.';
+          delete btn.dataset.busy;
+        }, 3600);
+      }
+    });
+  });
+
+  /* ---------- year ---------- */
+  var yr = document.getElementById('yr'); if(yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+
+
+<!-- ============================================================
+  SHM BOOKING WIDGET  (demo / front-end only)
+  Captures a booking request and hands off to the clinic's real
+  channel (phone / LINE). To go LIVE to patients, replace the body
+  of submitBooking() below with your GoHighLevel calendar embed or
+  a POST to your GHL/Calendly endpoint.  -- Stellar Haus Media
+============================================================ -->
+<div class="shm-bk">
+<div class="shm-bk-overlay" id="shmbk" role="dialog" aria-modal="true" aria-labelledby="shmbk-title" aria-hidden="true">
+  <div class="shm-bk-card" role="document">
+    <button class="shm-bk-close" type="button" aria-label="Close booking" data-bk-close>&times;</button>
+
+    <div id="shmbk-step">
+      <p class="shm-bk-eyebrow">English-speaking care</p>
+      <h2 class="shm-bk-title" id="shmbk-title">Book your visit</h2>
+      <p class="shm-bk-sub">Pick a day and time that suits you — our front desk replies in English.</p>
+
+      <p class="shm-bk-label">Choose a day</p>
+      <div class="shm-bk-row" id="shmbk-days"></div>
+
+      <div id="shmbk-times-wrap" class="shm-bk-hide">
+        <p class="shm-bk-label">Choose a time</p>
+        <div class="shm-bk-grid" id="shmbk-times"></div>
+      </div>
+
+      <div id="shmbk-form" class="shm-bk-hide">
+        <div class="shm-bk-field"><input id="shmbk-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="shm-bk-field"><input id="shmbk-phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+        <div class="shm-bk-field"><input id="shmbk-email" type="email" placeholder="Email (optional)" autocomplete="email"></div>
+        <div class="shm-bk-field">
+          <select id="shmbk-reason">
+            <option value="">What brings you in?</option>
+            <option>Check-up &amp; cleaning</option>
+            <option>Implant or veneer consultation</option>
+            <option>Teeth whitening</option>
+            <option>Tooth pain / emergency</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="shm-bk-cta" id="shmbk-submit" type="button" disabled>Confirm booking</button>
+      <p class="shm-bk-fine">No payment now. We’ll confirm your appointment by text.</p>
+    </div>
+
+    <div id="shmbk-done" class="shm-bk-conf shm-bk-hide">
+      <div class="shm-bk-tick" aria-hidden="true">✓</div>
+      <h2 class="shm-bk-title">You’re all set<span id="shmbk-name-out"></span>.</h2>
+      <p class="shm-bk-sub" id="shmbk-summary"></p>
+      <a class="shm-bk-cta" id="shmbk-call" href="#" style="text-decoration:none">Call now to confirm</a>
+      <a class="shm-bk-ghost shm-bk-hide" id="shmbk-chan" href="#" target="_blank" rel="noopener"></a>
+      <p class="shm-bk-fine">We’ll reach out shortly to lock in your time.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* SHM booking widget — demo. See submitBooking() TODO to wire GoHighLevel/Calendly. */
+(function(){
+  var ov=document.getElementById('shmbk'); if(!ov) return;
+  var TEL="tel:+81362280086", CHAN="", CHANLABEL="";
+  var state={day:null,time:null};
+  var daysEl=document.getElementById('shmbk-days'),
+      timesWrap=document.getElementById('shmbk-times-wrap'),
+      timesEl=document.getElementById('shmbk-times'),
+      formEl=document.getElementById('shmbk-form'),
+      submit=document.getElementById('shmbk-submit'),
+      lastTrigger=null;
+  var TIMES=["09:30","10:30","11:30","14:00","15:00","16:00","17:30"];
+  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function buildDays(){
+    daysEl.innerHTML=""; var d=new Date(), made=0;
+    while(made<8){ d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;            // skip Sundays
+      var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML="<small>"+DOW[d.getDay()]+"</small>"+d.getDate()+" "+MON[d.getMonth()];
+      b.dataset.label=DOW[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()];
+      b.addEventListener('click',function(){ select(daysEl,this); state.day=this.dataset.label;
+        timesWrap.classList.remove('shm-bk-hide'); refresh(); });
+      daysEl.appendChild(b); made++;
+    }
+  }
+  function buildTimes(){
+    timesEl.innerHTML="";
+    TIMES.forEach(function(t){ var b=document.createElement('button'); b.type="button"; b.className="shm-bk-chip";
+      b.textContent=t; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ select(timesEl,this); state.time=t;
+        formEl.classList.remove('shm-bk-hide'); refresh(); });
+      timesEl.appendChild(b); });
+  }
+  function select(group,el){ Array.prototype.forEach.call(group.children,function(c){c.setAttribute('aria-pressed','false');});
+    el.setAttribute('aria-pressed','true'); }
+  function refresh(){ var n=document.getElementById('shmbk-name').value.trim(),
+        p=document.getElementById('shmbk-phone').value.trim();
+    submit.disabled=!(state.day&&state.time&&n&&p); }
+
+  /* ---- TODO (go live): replace this with your GoHighLevel calendar write / Calendly,
+     or POST {name,phone,email,reason,day,time} to your GHL inbound webhook. ---- */
+  function submitBooking(data){
+    console.warn("[SHM booking] DEMO submit — not sent anywhere. Wire submitBooking() to GoHighLevel before launch.", data);
+  }
+
+  function done(){
+    var name=document.getElementById('shmbk-name').value.trim();
+    submitBooking({name:name, phone:document.getElementById('shmbk-phone').value.trim(),
+      email:document.getElementById('shmbk-email').value.trim(),
+      reason:document.getElementById('shmbk-reason').value, day:state.day, time:state.time});
+    document.getElementById('shmbk-step').classList.add('shm-bk-hide');
+    var d=document.getElementById('shmbk-done'); d.classList.remove('shm-bk-hide');
+    document.getElementById('shmbk-name-out').textContent=name?(", "+name.split(" ")[0]):"";
+    document.getElementById('shmbk-summary').textContent="Requested: "+state.day+" at "+state.time+". We’ll confirm shortly.";
+    var call=document.getElementById('shmbk-call'); call.href=TEL;
+    if(CHAN){ var l=document.getElementById('shmbk-chan'); l.href=CHAN; l.textContent=CHANLABEL; l.classList.remove('shm-bk-hide'); }
+  }
+
+  function open(t){ lastTrigger=t||null; ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    var f=ov.querySelector('.shm-bk-chip'); if(f) f.focus(); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow=''; if(lastTrigger&&lastTrigger.focus) lastTrigger.focus(); }
+
+  buildDays(); buildTimes();
+  ['shmbk-name','shmbk-phone'].forEach(function(id){document.getElementById(id).addEventListener('input',refresh);});
+  submit.addEventListener('click',done);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('[data-bk-close]').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  // simple focus trap
+  ov.addEventListener('keydown',function(e){ if(e.key!=='Tab')return;
+    var f=ov.querySelectorAll('button,a[href],input,select,textarea'); if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}
+    else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+  });
+
+  // ---- bind triggers: explicit hooks + any element whose label starts with "Book" ----
+  function isBookLabel(el){
+    var t=(el.textContent||"").replace(/[^a-z0-9 ]/gi," ").replace(/\s+/g," ").trim().toLowerCase();
+    if(!t || t.length>40) return false;                 // skip long paragraphs that merely contain "book"
+    return /\bbook/.test(t) || /\breserve\b/.test(t);   // \bbook matches "book"/"booking"/"book online soon"; NOT "facebook"
+  }
+  var sel='.js-book,.book-demo,[data-shm-book],a[href="#book"],a[href="#booking"]';
+  var bound=new Set();
+  function bind(el){ if(bound.has(el)||el.closest('.shm-bk'))return; bound.add(el);
+    el.removeAttribute('aria-disabled'); el.removeAttribute('disabled'); el.style.pointerEvents='auto';
+    // the booking now works, so drop any "coming soon / launching" badge inside the button
+    el.querySelectorAll('span,small,sup,em,i,b').forEach(function(s){
+      var st=(s.textContent||"").trim();
+      if(st.length<22 && /coming|soon|launch/i.test(st)) s.remove();
+    });
+    el.addEventListener('click',function(e){ e.preventDefault(); open(el); }); }
+  document.querySelectorAll(sel).forEach(bind);
+  document.querySelectorAll('a,button').forEach(function(el){ if(isBookLabel(el)) bind(el); });
+
+  // if the page has no booking CTA of its own, add a small themed one so booking is always reachable
+  if(bound.size===0){
+    var fab=document.createElement('button');
+    fab.type='button'; fab.className='shm-bk-fab'; fab.setAttribute('aria-label','Book online');
+    fab.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg> Book online';
+    fab.addEventListener('click',function(){ open(fab); });
+    (document.querySelector('.shm-bk')||document.body).appendChild(fab);
+  }
+})();
+</script>
+
+</body>
+</html>
